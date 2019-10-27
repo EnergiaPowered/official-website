@@ -15,8 +15,9 @@ function App() {
 
       <Router>
         <Switch>
-          <Route exact path="/" component={ HomePage } />
-          <Route component={ NotFound } />
+          <Route exact path="/" component={HomePage} />
+          {/* add other routes here */}
+          <Route component={NotFound} />
         </Switch>
       </Router>
     </div>

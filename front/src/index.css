@@ -5,9 +5,24 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #0b67ab !important;
+  color: aliceblue !important;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+/* style the navbar */
+nav.navbar {
+  padding: 0; /* remove the padding of the nav */
+  background-color: transparent;
+}
+
+nav.navbar .navbar-nav a.nav-link {
+  color: rgba(255, 255, 255, 0.8);
+  padding: 1px;
+  margin: auto 10px
+}
+
+nav.navbar .navbar-nav a.active {
+  color: #fff;
+  font-weight: bold;
+  border-bottom: 1px solid;
 }

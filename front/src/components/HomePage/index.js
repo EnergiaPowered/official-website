@@ -1,9 +1,11 @@
-import React from 'react'
+import React from 'react';
+
+import './index.css'
 
 export default () => {
   return (
-    <div>
-      
+    <div id="HomePage">
+      <p>home</p>
     </div>
   )
 }
