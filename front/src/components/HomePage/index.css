@@ -1,3 +1,11 @@
-/* #HomePage {
-  background-image: url('')
-} */
+#HomePage {
+  background-image: url("../../assests/Home-bg-min.png");
+  background-size: 100% 100%;
+  height: 3158px; /* temporarly: just for testing */
+  text-align: center;
+}
+
+.section {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
