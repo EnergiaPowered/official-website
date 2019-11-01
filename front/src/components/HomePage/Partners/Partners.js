@@ -3,6 +3,8 @@ import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
+import "./Partners.css";
+
 const responsive = {
   superLargeDesktop: {
     breakpoint: { max: 4000, min: 3000 },
@@ -24,12 +26,102 @@ const responsive = {
 
 export default () => {
   return (
-    <section id="Partners">
-      <h3 className="section-title section"> partners & sponsors </h3>
+    <section id="Partners" className="bg-section">
+      <div className="container">
+        <h2 className="section-title section"> partners & sponsors </h2>
 
-      <Carousel responsive={responsive}>
-        {/* TODO: add CarouselItem component */}
-      </Carousel>
+        <Carousel responsive={responsive}>
+          <article className="partner-carousel-item">
+            <section className="partner-logo">
+              <img
+                src="https://via.placeholder.com/100?text=partner"
+                alt="partner-logo"
+              />
+            </section>
+
+            <p className="partner-name"> EX </p>
+          </article>
+
+          <article className="partner-carousel-item">
+            <section className="partner-logo">
+              <img
+                src="https://via.placeholder.com/100?text=partner"
+                alt="partner-logo"
+              />
+            </section>
+
+            <p className="partner-name"> EX </p>
+          </article>
+
+          <article className="partner-carousel-item">
+            <section className="partner-logo">
+              <img
+                src="https://via.placeholder.com/100?text=partner"
+                alt="partner-logo"
+              />
+            </section>
+
+            <p className="partner-name"> EX </p>
+          </article>
+
+          <article className="partner-carousel-item">
+            <section className="partner-logo">
+              <img
+                src="https://via.placeholder.com/100?text=partner"
+                alt="partner-logo"
+              />
+            </section>
+
+            <p className="partner-name"> EX </p>
+          </article>
+        </Carousel>
+
+        <Carousel responsive={responsive}>
+          <article className="partner-carousel-item">
+            <section className="partner-logo">
+              <img
+                src="https://via.placeholder.com/100?text=partner"
+                alt="partner-logo"
+              />
+            </section>
+
+            <p className="partner-name"> EX </p>
+          </article>
+
+          <article className="partner-carousel-item">
+            <section className="partner-logo">
+              <img
+                src="https://via.placeholder.com/100?text=partner"
+                alt="partner-logo"
+              />
+            </section>
+
+            <p className="partner-name"> EX </p>
+          </article>
+
+          <article className="partner-carousel-item">
+            <section className="partner-logo">
+              <img
+                src="https://via.placeholder.com/100?text=partner"
+                alt="partner-logo"
+              />
+            </section>
+
+            <p className="partner-name"> EX </p>
+          </article>
+
+          <article className="partner-carousel-item">
+            <section className="partner-logo">
+              <img
+                src="https://via.placeholder.com/100?text=partner"
+                alt="partner-logo"
+              />
+            </section>
+
+            <p className="partner-name"> EX </p>
+          </article>
+        </Carousel>
+      </div>
     </section>
   );
 };

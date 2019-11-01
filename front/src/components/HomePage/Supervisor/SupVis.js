@@ -8,7 +8,7 @@ import supervisor from '../../../assests/supervisor.jpg'
 
 export default () => {
   return (
-    <section className="container section" id="supervisor">
+    <section className="container bg-section" id="supervisor">
       <h2 className="section-title text-center"> our supervisor </h2>
 
       <main className="row">

@@ -6,7 +6,23 @@
   background-size: cover;
 }
 
-.section {
+.bg-section {
   padding-top: 80px;
   padding-bottom: 80px;
+}
+
+#Footer .social-links {
+  max-width: 100%;
+  justify-content: center;
+  margin: 0;
+  padding: 10px 0;
+  font-size: 25px
+}
+
+#Footer .social-links .social-links-item {
+  margin: 0 20px;
+}
+
+#Footer .social-links .social-links-item a {
+  color: #fff;
 }
