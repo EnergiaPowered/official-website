@@ -10,7 +10,7 @@ export default () => {
     <div id="HomePage">
       <Header />
       <SupVis />
-      <Partners />
+      {/* <Partners /> */}
     </div>
   )
 }

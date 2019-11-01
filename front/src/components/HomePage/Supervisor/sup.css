@@ -1,22 +1,33 @@
 #supervisor {
-    padding-top: 60px;
-    padding-bottom: 40px;
+  font-size: 2vw;
+}
+
+@media (min-width: 500px) and (max-width: 950px) {
+  #supervisor {
+    font-size: 3vw;
+  }
+}
+
+@media (max-width: 499px) {
+  #supervisor {
+    font-size: 3.5vw;
+  }
 }
 
 .sup-name {
-    font-weight: 800;
+  font-weight: 800;
 }
 
 .sup-univ {
-    margin-bottom: 40px;
+  margin-bottom: 40px;
 }
 
 .sup-image {
-    max-width: 100%;
-    height: auto;
+  max-width: 100%;
+  height: auto;
 }
 
 /* all paragraphs */
 p {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }

@@ -9,12 +9,14 @@ export default () => {
   };
   const [state] = useState(stateObj);
   return (
-    <header className="container">
-      <h1 className="header-title"> Energia Powered </h1>
+    <section id="header" className="section">
+      <header className="container">
+        <h1 className="header-title"> Energia Powered </h1>
 
-      <p>
-        <q className="header-slogan">{state.slogan}</q>
-      </p>
-    </header>
+        <p>
+          <q className="header-slogan">{state.slogan}</q>
+        </p>
+      </header>
+    </section>
   );
 };

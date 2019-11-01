@@ -1,20 +1,27 @@
-header {
-    display: flex;
-    flex-direction: column; /* to align items on the middle */
-    justify-content: center;
-    height: 100vh;
+#header {
+  display: flex;
+  flex-direction: column; /* to align items on the middle */
+  justify-content: center;
+  padding-top: 15%;
+  padding-bottom: 20%
+}
+
+@media (max-width: 400px) {
+  #header {
+    padding-top: 25%;
+  }
 }
 
 /* style the title of the header */
 header .header-title {
-    font-weight: bold;
-    text-transform: uppercase;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 /* style the slogan */
 header .header-slogan {
-    font-size: 4.5vw;
-    font-style: italic;
-    color: rgba(255, 255, 255, 0.8);
-    font-family: 'Satisfy', cursive;
+  font-size: 4.5vw;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: "Satisfy", cursive;
 }
