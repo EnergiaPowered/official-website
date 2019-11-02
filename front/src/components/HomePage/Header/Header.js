@@ -9,7 +9,7 @@ export default () => {
   };
   const [state] = useState(stateObj);
   return (
-    <section id="header" className="bg-section">
+    <section id="header" className="header-section">
       <header className="container">
         <h1 className="header-title"> Energia Powered </h1>
 

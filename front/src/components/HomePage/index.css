@@ -1,14 +1,5 @@
 #HomePage {
-  position: absolute;
-  width: 100%;
-  min-height: 100%;
   background-image: url("../../assests/Home-header.png");
-  background-size: cover;
-}
-
-.bg-section {
-  padding-top: 80px;
-  padding-bottom: 80px;
 }
 
 #Footer .social-links {

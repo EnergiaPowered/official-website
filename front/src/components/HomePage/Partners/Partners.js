@@ -26,9 +26,9 @@ const responsive = {
 
 export default () => {
   return (
-    <section id="Partners" className="bg-section">
+    <section id="Partners" className="bg-section component-font">
       <div className="container">
-        <h2 className="section-title section"> partners & sponsors </h2>
+        <h2 className="section-title"> partners & sponsors </h2>
 
         <Carousel responsive={responsive}>
           <article className="partner-carousel-item">

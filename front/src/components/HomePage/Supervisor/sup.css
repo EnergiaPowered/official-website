@@ -1,19 +1,3 @@
-#supervisor {
-  font-size: 1.5vw;
-}
-
-@media (min-width: 500px) and (max-width: 950px) {
-  #supervisor {
-    font-size: 2vw;
-  }
-}
-
-@media (max-width: 499px) {
-  #supervisor {
-    font-size: 3.5vw;
-  }
-}
-
 .sup-name {
   font-weight: 800;
 }
