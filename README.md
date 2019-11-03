@@ -15,7 +15,7 @@ This's the main source code of `Energia Powered` website.
 
 **Tips:**
 
-- To set the background color of the header properly:
+- To set the background image of the header properly:
 
   - First, we should look on the example structure
 
