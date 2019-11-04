@@ -8,6 +8,12 @@ This's the main source code of `Energia Powered` website.
 
 2. [React-multi-carousel](https://www.npmjs.com/package/react-multi-carousel) - [Partners Component Demo](https://github.com/EnergiaPowered/official-website/blob/master/front/src/components/HomePage/Partners/Partners.js)
 
+3. [Bootstrap 4.3](https://getbootstrap.com/)
+
+4. [react-testing-library](https://github.com/testing-library/react-testing-library)
+
+5. [Jest](https://jestjs.io/docs/en/getting-started)
+
 **Notes:**
 
 - Routing is already setup - Go to `front/src/App.js` file and add your routes
