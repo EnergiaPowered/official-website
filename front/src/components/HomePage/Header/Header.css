@@ -1,17 +1,3 @@
-#header {
-  display: flex;
-  flex-direction: column; /* to align items on the middle */
-  justify-content: center;
-  padding-top: 15%;
-  padding-bottom: 20%
-}
-
-@media (max-width: 400px) {
-  #header {
-    padding-top: 25%;
-  }
-}
-
 /* style the title of the header */
 header .header-title {
   font-weight: bold;

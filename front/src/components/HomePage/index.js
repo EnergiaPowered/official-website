@@ -9,7 +9,7 @@ import Committees from './Committees'
 
 export default () => {
   return (
-    <div id="HomePage">
+    <div className="page-component" id="HomePage">
       <Header />
       <SupVis />
       <Committees />

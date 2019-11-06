@@ -71,8 +71,55 @@ h2 {
   }
 }
 
+/* general style for header section and sub section */
+.page-component {
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.header-section {
+  display: flex;
+  flex-direction: column; /* to align items on the middle */
+  justify-content: center;
+  padding-top: 15%;
+  padding-bottom: 20%;
+}
+
+
+@media (max-width: 400px) {
+  .header-section {
+    padding-top: 25%;
+  }
+}
+
+.bg-section {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
 .section-title {
   font-weight: 800;
   margin-bottom: 80px;
   text-transform: uppercase;
 }
+
+/* set the font size of each component properly */
+.component-font {
+  font-size: 1.5vw;
+}
+
+@media (min-width: 500px) and (max-width: 950px) {
+  .component-font {
+    font-size: 2vw;
+  }
+}
+
+@media (max-width: 499px) {
+  .component-font {
+    font-size: 3.5vw;
+  }
+}
+
