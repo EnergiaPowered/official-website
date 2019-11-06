@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Navbar/index";
 
 import "./index.css";
 
@@ -7,8 +7,8 @@ import "./index.css";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 
 // pages
-import HomePage from "./components/HomePage";
-import NotFound from "./components/NotFound";
+import HomePage from "./pages/HomePage";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (

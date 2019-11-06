@@ -9,49 +9,6 @@ body {
   background-color: #010e30;
 }
 
-/* style the navbar */
-nav.navbar {
-  padding: 0; /* remove the padding of the nav */
-  background-color: transparent;
-  transition: all 0.3s;
-}
-
-nav.navbar .navbar-brand {
-  width: 15%;
-  transition: width 0.2s;
-}
-
-@media (min-width: 400px) {
-  nav.navbar .navbar-brand {
-    width: 10%;
-  }
-
-  nav.navbar .navbar-brand.img-scrolled {
-    width: 8%;
-  }
-}
-
-nav.navbar .navbar-brand img {
-  max-width: 100%;
-  height: auto;
-}
-
-nav.navbar.bg-dark {
-  background-color: rgb(2, 13, 47, 0.6) !important;
-}
-
-nav.navbar .navbar-nav a.nav-link {
-  color: rgba(255, 255, 255, 0.8);
-  padding: 1px;
-  margin: auto 10px;
-}
-
-nav.navbar .navbar-nav a.active {
-  color: #fff;
-  font-weight: bold;
-  border-bottom: 1px solid;
-}
-
 /* style all headers */
 h1 {
   font-size: 5vw;
