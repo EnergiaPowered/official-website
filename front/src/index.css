@@ -45,7 +45,6 @@ h2 {
   padding-bottom: 20%;
 }
 
-
 @media (max-width: 400px) {
   .header-section {
     padding-top: 25%;
@@ -80,3 +79,7 @@ h2 {
   }
 }
 
+/* the dark bg of sections */
+.dark-bg {
+  background-color: #111a3e;
+}

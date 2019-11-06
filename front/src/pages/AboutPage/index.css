@@ -1,3 +1,19 @@
-#HomePage {
-  background-image: url("../../assests/Home-header.png");
+#About {
+  background-image: url("../../assests/About-header.png");
+}
+
+.about-vision {
+  margin-bottom: 80px;
+}
+
+/* style the hr */
+hr {
+  width: 70%;
+  text-align: center;
+  border: 1px solid #fff;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }

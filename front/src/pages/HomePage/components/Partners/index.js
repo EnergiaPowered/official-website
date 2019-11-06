@@ -26,7 +26,7 @@ const responsive = {
 
 export default () => {
   return (
-    <section id="Partners" className="bg-section component-font">
+    <section id="Partners" className="bg-section dark-bg component-font">
       <div className="container">
         <h2 className="section-title"> partners & sponsors </h2>
 
