@@ -7,5 +7,4 @@ import AboutPage from "../pages/AboutPage";
 export default [
   { path: "/", component: HomePage, label: "Home", page: true },
   { path: "/aboutus", component: AboutPage, label: "About", page: true },
-  { path: "/aboutus/sdf", component: AboutPage, label: "About", page: false }
 ];
