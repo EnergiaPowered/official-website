@@ -40,8 +40,8 @@ This's the main source code of the front of `Energia Powered` website.
 
 **Notes:**
 
-- Routing is already setup - Go to `front/src/App.js` file and add your routes
-- Add the Homepage Sections at `front/src/pages/HomePage/index.js`
+- Routing is already setup - Go to `/src/globals/routes.js` file and add your routes
+- Add the Homepage Sections at `/src/pages/HomePage/index.js`
 
 **Tips:**
 
@@ -63,12 +63,12 @@ HomePage (The container component)
 
 ```
 
-  1. Make the container component and give it `page-component` class like that in [`front/src/pages/HomePage/index.js`](https://github.com/EnergiaPowered/official-website/blob/master/front/src/pages/HomePage/index.js) and give it the appropriate background image like that in [`front/src/pages/HomePage/index.css`](https://github.com/EnergiaPowered/official-website/blob/master/front/src/pages/HomePage/index.css)
+1. Make the container component and give it `page-component` class like that in [`/src/pages/HomePage/index.js`](https://github.com/EnergiaPowered/official-website/blob/master/front/src/pages/HomePage/index.js) and give it the appropriate background image like that in [`front/src/pages/HomePage/index.css`](https://github.com/EnergiaPowered/official-website/blob/master/front/src/pages/HomePage/index.css)
 
-  2. Make the header component and give it `header-section` class like that in [`front/src/pages/HomePage/Header/index.js`](https://github.com/EnergiaPowered/official-website/blob/master/front/src/pages/HomePage/Header/index.js)
+2. Make the header component and give it `header-section` class like that in [`/src/pages/HomePage/Header/index.js`](https://github.com/EnergiaPowered/official-website/blob/master/front/src/pages/HomePage/Header/index.js)
 
-  3. Make the sub header component and give it the class `bg-section` like that in [`front/src/pages/HomePage/Supervisor/index.js`](https://github.com/EnergiaPowered/official-website/blob/master/front/src/pages/HomePage/Supervisor/index.js)
-  4. Make the other components and give it `bg-section` and control the spaces as u like
+3. Make the sub header component and give it the class `bg-section` like that in [`/src/pages/HomePage/Supervisor/index.js`](https://github.com/EnergiaPowered/official-website/blob/master/front/src/pages/HomePage/Supervisor/index.js)
+4. Make the other components and give it `bg-section` and control the spaces as u like
 
 - To set the font size of each component properly:
 
@@ -77,4 +77,4 @@ HomePage (The container component)
      - The title of the section should be `h2` tag with the classes `section-title text-center`
      - The rest of the content
 
-  2. Give the root tag in the component the class `component-font` like that in [`front/src/pages/HomePage/Supervisor/index.js`](https://github.com/EnergiaPowered/official-website/blob/master/front/src/pages/HomePage/Supervisor/index.js)
+  2. Give the root tag in the component the class `component-font` like that in [`/src/pages/HomePage/Supervisor/index.js`](https://github.com/EnergiaPowered/official-website/blob/master/front/src/pages/HomePage/Supervisor/index.js)

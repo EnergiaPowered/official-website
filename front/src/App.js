@@ -1,25 +1,35 @@
 import React from "react";
-import Navbar from "./components/Navbar/index";
+
+import routes from "./globals/routes";
 
 import "./index.css";
 
 // routing components
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 
-// pages
-import HomePage from "./pages/HomePage";
+import Navbar from "./components/Navbar/index";
 import NotFound from "./pages/NotFound";
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
-
       <Router>
+        <Navbar />
         <Switch>
-          <Route exact path="/" component={HomePage} />
-          {/* add other routes here */}
-          <Route component={NotFound} />
+          {routes &&
+            routes.map(route => {
+              return (
+                <Route
+                  key={route.path}
+                  exact
+                  path={route.path}
+                  component={route.component}
+                />
+              );
+            })}
+          <Route>
+            <NotFound />
+          </Route>
         </Switch>
       </Router>
     </div>
