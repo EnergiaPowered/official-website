@@ -40,6 +40,10 @@ This's the main source code of the front of `Energia Powered` website.
 
 6. [React-helmet](https://github.com/nfl/react-helmet) - [HomePage component demo](https://github.com/EnergiaPowered/official-website/blob/master/front/src/pages/HomePage/index.js)
 
+7. [React-image-enlarger](https://github.com/bmcmahen/react-image-enlarger) - [Structure component demo](https://github.com/EnergiaPowered/official-website/blob/master/front/src/pages/AboutPage/components/Structure/index.js)
+
+8. [React-page-progress](https://github.com/nomangul/react-page-progress/) - [Demo](https://github.com/EnergiaPowered/official-website/blob/master/front/src/App.js)
+
 **Notes:**
 
 - Routing is already setup - Go to `/src/globals/routes.js` file and add your routes

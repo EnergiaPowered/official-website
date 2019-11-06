@@ -7,6 +7,8 @@ import "./index.css";
 // routing components
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 
+import PageProgress from "react-page-progress";
+
 import Navbar from "./components/Navbar/index";
 import NotFound from "./pages/NotFound";
 
@@ -14,6 +16,7 @@ function App() {
   return (
     <div className="App">
       <Router>
+        <PageProgress color={"skyblue"} height={5} />
         <Navbar />
         <Switch>
           {routes &&

@@ -22,6 +22,7 @@ export default () => {
 
   return (
     <nav
+      data-testid="navbar"
       className={`navbar fixed-top navbar-expand-lg ${scroll ? "bg-dark" : ""}`}
     >
       <div className="container">
@@ -49,18 +50,21 @@ export default () => {
           <ul className="navbar-nav ml-auto">
             {routes &&
               routes.map(route => {
-                return (
-                  route.page ? <li key={route.path} className="nav-item">
+                return route.page ? (
+                  <li
+                    key={route.path}
+                    className="nav-item"
+                  >
                     <NavLink
                       exact
-                      activeClassName="active"
+                      data-testid="navlinks"
                       className="nav-link"
                       to={route.path}
                     >
                       {route.label}
                     </NavLink>
-                  </li> : null
-                );
+                  </li>
+                ) : null;
               })}
           </ul>
         </div>
