@@ -50,7 +50,7 @@ export default () => {
             {routes &&
               routes.map(route => {
                 return (
-                  <li key={route.path} className="nav-item">
+                  route.page ? <li key={route.path} className="nav-item">
                     <NavLink
                       exact
                       activeClassName="active"
@@ -59,7 +59,7 @@ export default () => {
                     >
                       {route.label}
                     </NavLink>
-                  </li>
+                  </li> : null
                 );
               })}
           </ul>
