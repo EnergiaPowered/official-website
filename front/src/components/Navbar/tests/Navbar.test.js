@@ -6,22 +6,24 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 import { MemoryRouter } from "react-router-dom";
 
-import { render } from "@testing-library/react";
+import { render, fireEvent, cleanup } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 
-let container = null;
+let box = null;
 beforeEach(() => {
   // setup a DOM element as a render target
-  container = document.createElement("div");
-  document.body.appendChild(container);
+  box = document.createElement("div");
+  document.body.appendChild(box);
 });
 
 afterEach(() => {
   // cleanup on exiting
-  unmountComponentAtNode(container);
-  container.remove();
-  container = null;
+  unmountComponentAtNode(box);
+  box.remove();
+  box = null;
 });
+
+afterEach(cleanup)
 
 // test for crashing
 it("renders without crashing", () => {
@@ -29,19 +31,33 @@ it("renders without crashing", () => {
     <MemoryRouter initialEntries={["/"]}>
       <Navbar />
     </MemoryRouter>,
-    container
+    box
   );
 });
 
 // test if the navbar have the "Scrolled" class on scroll
 it("navbar don't have 'bg-dark' when not scrolled", () => {
-  let { getByTestId } = render(
+  let { getByTestId, container } = render(
     <Router>
       <Navbar />
     </Router>
   );
 
-  expect(getByTestId("navbar")).not.toHaveClass("bg-dark");
+  expect(getByTestId("navbar")).not.toHaveClass(
+    "bg-dark navbar fixed-top navbar-expand-lg"
+  );
+
+  // attach the scroll event to the document to test the effect
+  document.addEventListener('scroll', () => {
+    document.querySelector(".navbar").classList.add("bg-dark")
+  });
+
+  // fire the scroll event
+  fireEvent.scroll(document);
+
+  expect(getByTestId("navbar")).toHaveClass(
+    "bg-dark navbar fixed-top navbar-expand-lg"
+  );
 });
 
 // ensure that links with parameters not to be shown in the navbar
@@ -53,6 +69,6 @@ it("links with parameters not to be shown in the navbar", () => {
   );
 
   getAllByTestId("navlinks").map(link => {
-    expect(link).toHaveTextContent(/(Home|About|History|Contact|Blog)/i)
-  })
+    expect(link).toHaveTextContent(/(Home|About|History|Contact|Blog)/i);
+  });
 });

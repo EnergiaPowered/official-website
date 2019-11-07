@@ -29,7 +29,6 @@ export default () => {
         <Link className={`navbar-brand ${scroll ? "img-scrolled" : ""}`} to="/">
           <img
             className="logo-img"
-            // width="70px"
             src={logo}
             alt="Energia's Logo"
             title="logo of the team"
