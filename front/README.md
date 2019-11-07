@@ -69,12 +69,12 @@ This's the main source code of the front of `Energia Powered` website.
 
     ```
   - Then,
-        1. Make the container component and give it `page-component` class like that in [`/src/pages/HomePage/index.js`](https://github.com/EnergiaPowered/official-website/blob/master/front/src/pages/HomePage/index.js) and give it the appropriate background image like that in [`front/src/pages/HomePage/index.css`](https://github.com/EnergiaPowered/official-website/blob/master/front/src/pages/HomePage/index.css)
+    1. Make the container component and give it `page-component` class like that in [`/src/pages/HomePage/index.js`](https://github.com/EnergiaPowered/official-website/blob/master/front/src/pages/HomePage/index.js) and give it the appropriate background image like that in [`front/src/pages/HomePage/index.css`](https://github.com/EnergiaPowered/official-website/blob/master/front/src/pages/HomePage/index.css)
 
-        2. Make the header component and give it `header-section` class like that in [`/src/pages/HomePage/components/Header/index.js`](https://github.com/EnergiaPowered/official-website/blob/master/front/src/pages/HomePage/components/Header/index.js)
+    2. Make the header component and give it `header-section` class like that in [`/src/pages/HomePage/components/Header/index.js`](https://github.com/EnergiaPowered/official-website/blob/master/front/src/pages/HomePage/components/Header/index.js)
 
-        3. Make the sub header component and give it the class `bg-section` like that in [`/src/pages/HomePage/components/Supervisor/index.js`](https://github.com/EnergiaPowered/official-website/blob/master/front/src/pages/HomePage/components/Supervisor/index.js)
-        4. Make the other components and give it `bg-section` and control the spaces as u like
+    3. Make the sub header component and give it the class `bg-section` like that in [`/src/pages/HomePage/components/Supervisor/index.js`](https://github.com/EnergiaPowered/official-website/blob/master/front/src/pages/HomePage/components/Supervisor/index.js)
+    4. Make the other components and give it `bg-section` and control the spaces as u like
 
 - To set the font size of each component properly:
 
