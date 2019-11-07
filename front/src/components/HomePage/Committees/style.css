@@ -1,11 +1,11 @@
 #Committees {
     text-align: center;
     background-color: #111a3e;
-    padding-top: 60px;
+    padding: 5% 0 5% 0;
 }
 
 .lg {
-    width: 80%;
+    width: 90%;
     margin: auto;
 }
 
@@ -19,5 +19,5 @@
     display: flex;
     justify-content: space-around;
     padding-bottom: 13%;
+    font-size: 7vw;
 }
-

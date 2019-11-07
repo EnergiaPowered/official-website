@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
 
 import "./index.css";
@@ -9,21 +9,27 @@ import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 // pages
 import HomePage from "./components/HomePage";
 import NotFound from "./components/NotFound";
+import SingleCommittee from "./components/SingleCommittee";
 
 function App() {
-  return (
-    <div className="App">
-      <Navbar />
+    return (
+        <div className="App">
+            <Navbar />
 
-      <Router>
-        <Switch>
-          <Route exact path="/" component={HomePage} />
-          {/* add other routes here */}
-          <Route component={NotFound} />
-        </Switch>
-      </Router>
-    </div>
-  );
+            <Router>
+                <Switch>
+                    <Route exact path="/" component={HomePage} />
+                    {/* add other routes here */}
+                    <Route
+                        exact
+                        path="/committee/:id"
+                        component={SingleCommittee}
+                    />
+                    <Route component={NotFound} />
+                </Switch>
+            </Router>
+        </div>
+    );
 }
 
 export default App;

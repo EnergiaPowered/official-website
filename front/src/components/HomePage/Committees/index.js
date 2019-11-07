@@ -1,17 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
 import data from "../../../static_data/committees.json";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { faFire } from "@fortawesome/free-solid-svg-icons";
 import Carousel from "react-multi-carousel";
 import "./style.css";
-
-library.add(faFire);
 
 const responsive = {
     superLargeDesktop: {
         breakpoint: { max: 4000, min: 3000 },
-        items: 5
+        items: 3
     },
     desktop: {
         breakpoint: { max: 3000, min: 1024 },
@@ -29,15 +26,24 @@ const responsive = {
 
 export default function Committees() {
     return (
-        <Carousel responsive={responsive} infinite={true} className="lg">
-            {data.map((el, idx) => (
-                <div className="committee-carousel-item" key={idx}>
-                    <div className="icon">
-                        <FontAwesomeIcon icon="fire" size="4x" />
-                    </div>
-                    <p class="text-lg-center">{el.title}</p>
-                </div>
-            ))}
-        </Carousel>
+        <div id="Committees">
+            <h2 className="section-title"> Our Committees </h2>
+            <Carousel responsive={responsive} infinite={true} className="lg">
+                {data.map((el, idx) => (
+                    <Link
+                        to={`/committee/${idx}`}
+                        style={{ color: "white", textDecoration: "none" }}
+                        
+                    >
+                        <div className="committee-carousel-item" key={idx}>
+                            <div className="icon">
+                                <FontAwesomeIcon icon={el.icon_class} />
+                            </div>
+                            <p class="text-lg-center">{el.title}</p>
+                        </div>
+                    </Link>
+                ))}
+            </Carousel>
+        </div>
     );
 }
