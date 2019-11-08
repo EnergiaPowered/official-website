@@ -3,15 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "@testing-library/jest-dom": "^4.2.3",
     "@testing-library/react": "^9.3.2",
+    "@fortawesome/fontawesome-svg-core": "^1.2.25",
+    "@fortawesome/free-brands-svg-icons": "^5.11.2",
+    "@fortawesome/react-fontawesome": "^0.1.7",
     "bootstrap": "^4.3.1",
     "jquery": "^3.4.1",
     "popper.js": "^1.16.0",
     "react": "^16.10.1",
     "react-dom": "^16.10.1",
+    "react-gesture-responder": "^2.1.0",
+    "react-helmet": "^5.2.1",
+    "react-image-enlarger": "^1.1.0",
     "react-multi-carousel": "^2.4.0",
+    "react-page-progress": "^1.1.1",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.1.2",
     "typescript": "^3.7.2"
@@ -41,6 +47,9 @@
   },
   "devDependencies": {
     "canvas": "^2.6.0",
+    "@testing-library/jest-dom": "^4.2.3",
+    "@testing-library/react": "^9.3.1",
+    "jest": "^24.9.0",
     "jsdom": "^15.2.1",
     "react-test-renderer": "^16.11.0"
   }

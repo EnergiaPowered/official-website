@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Footer from "../HomePage/Footer";
 import comm_simp from "../../static_data/committees.json";
 import comm_mis_vis from "../../static_data/comm_extended.json";
-import "./index.css";
+import "./style.css";
 
 export default function SingleCommittee(props) {
     const data = comm_simp[props.match.params.id];

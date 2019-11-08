@@ -1,35 +1,42 @@
-import React, { useEffect, useState } from "react";
-import Navbar from "./components/Navbar";
+import React from "react";
+
+import routes from "./globals/routes";
 
 import "./index.css";
 
 // routing components
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 
-// pages
-import HomePage from "./components/HomePage";
-import NotFound from "./components/NotFound";
-import SingleCommittee from "./components/SingleCommittee";
+import PageProgress from "react-page-progress";
+
+import Navbar from "./components/Navbar/index";
+import NotFound from "./pages/NotFound";
 
 function App() {
-    return (
-        <div className="App">
-            <Navbar />
-
-            <Router>
-                <Switch>
-                    <Route exact path="/" component={HomePage} />
-                    {/* add other routes here */}
-                    <Route
-                        exact
-                        path="/committee/:id"
-                        component={SingleCommittee}
-                    />
-                    <Route component={NotFound} />
-                </Switch>
-            </Router>
-        </div>
-    );
+  return (
+    <div className="App">
+      <Router>
+        <PageProgress color={"skyblue"} height={5} />
+        <Navbar />
+        <Switch>
+          {routes &&
+            routes.map(route => {
+              return (
+                <Route
+                  key={route.path}
+                  exact
+                  path={route.path}
+                  component={route.component}
+                />
+              );
+            })}
+          <Route>
+            <NotFound />
+          </Route>
+        </Switch>
+      </Router>
+    </div>
+  );
 }
 
 export default App;
