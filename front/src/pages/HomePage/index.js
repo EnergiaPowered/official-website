@@ -7,6 +7,7 @@ import Header from "./components/Header";
 import SupVis from "./components/Supervisor";
 import Partners from "./components/Partners";
 import Footer from "../../components/Footer";
+import Committees from "./components/Committees"
 
 export default () => {
   return (
@@ -16,6 +17,7 @@ export default () => {
       </Helmet>
       <Header />
       <SupVis />
+      <Committees />
       <Partners />
       <Footer />
     </div>

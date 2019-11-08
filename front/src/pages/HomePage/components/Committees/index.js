@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import data from "../../../static_data/committees.json";
+import data from "../../../../static_data/committees.json";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Carousel from "react-multi-carousel";
 import "./style.css";

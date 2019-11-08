@@ -1,8 +1,16 @@
+// NPM Packages
 import React, { useEffect } from "react";
+import { Helmet } from "react-helmet";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Footer from "../HomePage/Footer";
+
+// Components
+import Footer from "../../components/Footer";
+
+// Data
 import comm_simp from "../../static_data/committees.json";
 import comm_mis_vis from "../../static_data/comm_extended.json";
+
+// Styles
 import "./style.css";
 
 export default function SingleCommittee(props) {
@@ -16,6 +24,9 @@ export default function SingleCommittee(props) {
 
     return (
         <>
+            <Helmet>
+                <title>Energia Powered | {data.title}</title>
+            </Helmet>
             <article id="SingleComm">
                 <header className="full-screen">
                     <h1>{data.title}</h1>

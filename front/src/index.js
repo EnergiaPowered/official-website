@@ -3,19 +3,7 @@ import ReactDOM from "react-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import {
-    faHeart,
-    faFire,
-    faPalette,
-    faMapPin,
-    faMapMarker,
-    faMailBulk,
-    faPhone
-} from "@fortawesome/free-solid-svg-icons";
-
-// Adding all the icons we need in the project
-library.add(faHeart, faFire, faPalette, faMapPin, faMapMarker, faPhone, faMailBulk);
+import "./globals/icons_library"
 
 ReactDOM.render(<App />, document.getElementById("root"));
 
