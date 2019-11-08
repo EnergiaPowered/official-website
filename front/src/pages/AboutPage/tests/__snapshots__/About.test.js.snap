@@ -93,6 +93,8 @@ exports[`matches snapshot 1`] = `
           <img
             alt="Our team's structure"
             className="EnlargedImage__Image"
+            data-testid="structure-image"
+            data-teststate={false}
             onClick={[Function]}
             src="Structure.png"
             style={

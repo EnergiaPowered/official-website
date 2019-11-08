@@ -14,8 +14,10 @@ export default () => {
       <h2 className="section-title text-center">Our Structure</h2>
 
       <Image
+        data-testid="structure-image"
         zoomed={zoomed}
         src={strucutreImg}
+        data-teststate={zoomed}
         alt="Our team's structure"
         title="Energia Powered'20 board"
         onClick={() => setZoomed(true)}
