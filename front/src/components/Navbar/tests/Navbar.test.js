@@ -37,7 +37,7 @@ it("renders without crashing", () => {
 
 // test if the navbar have the "Scrolled" class on scroll
 it("navbar don't have 'bg-dark' when not scrolled", () => {
-  let { getByTestId, container } = render(
+  let { getByTestId } = render(
     <Router>
       <Navbar />
     </Router>
@@ -48,12 +48,12 @@ it("navbar don't have 'bg-dark' when not scrolled", () => {
   );
 
   // attach the scroll event to the document to test the effect
-  document.addEventListener('scroll', () => {
+  window.addEventListener('scroll', () => {
     document.querySelector(".navbar").classList.add("bg-dark")
   });
 
   // fire the scroll event
-  fireEvent.scroll(document);
+  fireEvent.scroll(window);
 
   expect(getByTestId("navbar")).toHaveClass(
     "bg-dark navbar fixed-top navbar-expand-lg"

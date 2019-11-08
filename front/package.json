@@ -15,7 +15,8 @@
     "react-multi-carousel": "^2.4.0",
     "react-page-progress": "^1.1.1",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.1.2"
+    "react-scripts": "3.1.2",
+    "react-side-effect": "^2.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
