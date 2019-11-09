@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 function connectToDB() {
   mongoose
-    .connect("mongodb://localhost:27017/helloworld", {
+    .connect("mongodb+srv://ep20it:dT%24v%21RozlC2v26E@website-dkccu.mongodb.net/website?retryWrites=true&w=majority", {
       useNewUrlParser: true,
       useUnifiedTopology: true
     })
