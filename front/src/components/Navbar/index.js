@@ -6,24 +6,41 @@ import logo from "../../assests/logo.png";
 
 import routes from "../../globals/routes";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
+
 import "./style.css";
 
 export default () => {
   const [scroll, setScroll] = useState(0);
 
+  const [opened, setOpened] = useState(false);
   useEffect(() => {
+    // check the scroll to add class to the navbar
     document.addEventListener("scroll", () => {
       const scrollCheck = window.scrollY > 100;
       if (scrollCheck !== scroll) {
         setScroll(scrollCheck);
       }
     });
+
+    // hide the menu when click the body
+    document.body.addEventListener("click", e => {
+      setOpened(false);
+    });
   });
+
+  const closeMenu = e => {
+    e.stopPropagation();
+
+    setOpened(false);
+  };
 
   return (
     <nav
       data-testid="navbar"
-      className={`navbar fixed-top navbar-expand-lg ${scroll ? "bg-dark" : ""}`}
+      className={`navbar fixed-top navbar-expand-sm ${scroll ? "bg-dark" : ""}`}
     >
       <div className="container">
         <Link className={`navbar-brand ${scroll ? "img-scrolled" : ""}`} to="/">
@@ -37,23 +54,32 @@ export default () => {
         <button
           className="navbar-toggler"
           type="button"
-          data-toggle="collapse"
-          data-target="#navbarNav"
           aria-controls="navbarNav"
           aria-expanded="false"
           aria-label="Toggle navigation"
+          onClick={() => setOpened(true)}
         >
-          <span className="navbar-toggler-icon" />
+          <FontAwesomeIcon icon={faBars} className="navbar-toggler-icon" />
         </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav ml-auto">
+        <div
+          style={{ right: opened ? "0" : "-90%" }}
+          className="navbar-collapse"
+          id="navbarNav"
+          // to prevent the closing action when clicking anywhere on the menu
+          onClick={() => setOpened(true)}
+        >
+          <button className="menu-close" onClick={e => closeMenu(e)}>
+            <FontAwesomeIcon icon={faTimes} />
+          </button>
+          <ul
+            className="navbar-nav ml-auto"
+            // to prevent the closing action when clicking anywhere on the menu
+            onClick={e => closeMenu(e)}
+          >
             {routes &&
               routes.map(route => {
                 return route.page ? (
-                  <li
-                    key={route.path}
-                    className="nav-item"
-                  >
+                  <li key={route.path} className="nav-item">
                     <NavLink
                       exact
                       data-testid="navlinks"
