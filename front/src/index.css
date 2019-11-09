@@ -83,3 +83,8 @@ h2 {
 .dark-bg {
   background-color: #111a3e;
 }
+
+/* add border-top to the section */
+.border-up {
+  border-top: 1px solid white;
+}
