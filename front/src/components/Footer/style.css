@@ -10,6 +10,12 @@
   margin: 0 20px;
 }
 
+@media (max-width: 395px) {
+  #Footer .social-links .social-links-item {
+    font-size: 5vw;
+  }
+}
+
 #Footer .social-links .social-links-item a {
   color: #fff;
 }
