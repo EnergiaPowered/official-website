@@ -30,7 +30,7 @@ export default () => {
       <div className="container">
         <h2 className="section-title"> partners & sponsors </h2>
 
-        <Carousel responsive={responsive}>
+        <Carousel responsive={responsive} infinite={true}>
           <article className="partner-carousel-item">
             <section className="partner-logo">
               <img
