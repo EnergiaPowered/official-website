@@ -31,6 +31,7 @@ export default () => {
     });
   });
 
+  // close the menu
   const closeMenu = e => {
     e.stopPropagation();
 
@@ -53,6 +54,7 @@ export default () => {
         </Link>
         <button
           className="navbar-toggler"
+          data-testid="toggler"
           type="button"
           aria-controls="navbarNav"
           aria-expanded="false"
@@ -62,19 +64,25 @@ export default () => {
           <FontAwesomeIcon icon={faBars} className="navbar-toggler-icon" />
         </button>
         <div
+          data-testid="side-menu"
           style={{ right: opened ? "0" : "-90%" }}
           className="navbar-collapse"
           id="navbarNav"
           // to prevent the closing action when clicking anywhere on the menu
           onClick={() => setOpened(true)}
         >
-          <button className="menu-close" onClick={e => closeMenu(e)}>
+          <button
+            className="menu-close"
+            data-testid="closer"
+            onClick={e => closeMenu(e)}
+          >
             <FontAwesomeIcon icon={faTimes} />
           </button>
           <ul
             className="navbar-nav ml-auto"
             // to prevent the closing action when clicking anywhere on the menu
             onClick={e => closeMenu(e)}
+            data-testid="menu-list"
           >
             {routes &&
               routes.map(route => {
