@@ -33,13 +33,13 @@ export default function Committees() {
                     <Link
                         to={`/committee/${idx}`}
                         style={{ color: "white", textDecoration: "none" }}
-                        
+                        key={idx}
                     >
-                        <div className="committee-carousel-item" key={idx}>
+                        <div className="committee-carousel-item">
                             <div className="icon">
                                 <FontAwesomeIcon icon={el.icon_class} />
                             </div>
-                            <p class="text-lg-center">{el.title}</p>
+                            <p className="text-lg-center">{el.title}</p>
                         </div>
                     </Link>
                 ))}
