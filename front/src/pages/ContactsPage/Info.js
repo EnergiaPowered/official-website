@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "./style.css";
@@ -6,33 +6,33 @@ import imgPlaceholder from "../../assests/placeholder.png";
 
 export default function Info(props) {
     return (
-        <article className="full-screen" id="contact-info">
+        <article className="bg-section" id="contact-info">
             <section id="info">
                 <div>
-                    <h3>
+                    <h4>
                         <FontAwesomeIcon icon="map-marker" /> ADDRESS
-                    </h3>
+                    </h4>
                     <p>
                         {props.address ||
                             "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum, voluptate?"}
                     </p>
                 </div>
                 <div>
-                    <h3>
+                    <h4>
                         <FontAwesomeIcon icon="mail-bulk" /> EMAIL
-                    </h3>
+                    </h4>
                     <p>{props.email || "example@domain.com"}</p>
                 </div>
                 <div>
-                    <h3>
+                    <h4>
                         <FontAwesomeIcon icon="phone" /> PHONE
-                    </h3>
+                    </h4>
                     <p>{props.phone || "+201223456789"}</p>
                 </div>
             </section>
             <section id="map">
                 <h2>OUR LOCATION</h2>
-                <img src={ props.image || imgPlaceholder} />
+                <img src={props.image || imgPlaceholder} alt="map" />
             </section>
         </article>
     );

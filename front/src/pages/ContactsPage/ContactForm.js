@@ -31,7 +31,7 @@ export default function ContactForm(props) {
                     });
                 else if (!EMAIL_REGEX.test(email.value))
                     setEmail({
-                        value: message.value,
+                        value: email.value,
                         error: "Please enter a valid email"
                     });
                 else {
@@ -77,11 +77,13 @@ export default function ContactForm(props) {
     }
 
     return (
-        <article className="full-screen" id="contact-form">
+        <article className="bg-section" id="contact-form">
+            <h2 className="section-title text-center">Leave a message</h2>
             <form
                 onChange={changeHandler}
                 onSubmit={e => {
                     e.preventDefault();
+                    console.log(name, email, message);
                     if (validateAll()) {
                         props.onSubmit(name.value, email.value, message.value);
                     }
@@ -91,7 +93,7 @@ export default function ContactForm(props) {
                 <div className="flex-row-2">
                     <div className="box">
                         <label htmlFor="name">
-                            NAME{" "}
+                            Name{" "}
                             <span className="sup-span">
                                 <sup>*</sup>
                             </span>
@@ -103,7 +105,7 @@ export default function ContactForm(props) {
                     </div>
                     <div className="box">
                         <label htmlFor="email">
-                            EMAIL{" "}
+                            Email{" "}
                             <span className="sup-span">
                                 <sup>*</sup>
                             </span>
@@ -115,7 +117,7 @@ export default function ContactForm(props) {
                     </div>
                     <div className="box">
                         <label htmlFor="message">
-                            LEAVE A MESSAGE{" "}
+                            Your Message{" "}
                             <span className="sup-span">
                                 <sup>*</sup>
                             </span>
