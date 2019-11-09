@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
+import "./globals/icons_library"
 
 ReactDOM.render(<App />, document.getElementById("root"));
 

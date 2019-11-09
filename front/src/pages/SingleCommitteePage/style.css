@@ -1,0 +1,85 @@
+/* Generic Classes */
+.full-screen {
+    min-height: 100vh;
+    width: 100%;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.border-up {
+    border-top: 1px solid white;
+}
+
+/* Specific Styling */
+#SingleComm header {
+    background-image: url("../../assests/single-comm-header.png");
+    background-size: cover;
+    min-height: 105vh;
+    padding: 20% 7%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: left;
+}
+
+#SingleComm header h1 {
+    padding-top: 2.5%;
+    width: 60%;
+}
+
+#SingleComm header #comm-icon {
+    margin-left: 18%;
+}
+
+
+#SingleComm header #comm-icon * {
+    font-size: 10vw;
+}
+
+#SingleComm section {
+    padding: 9%;
+}
+
+hr {
+    color: white;
+    background-color: white;
+    height: 5px;
+    width: 80%;
+    margin: 7% auto;
+}
+
+#SingleComm section h2 {
+    margin-bottom: 5%;
+    text-transform: uppercase;
+}
+
+#SingleComm section p {
+    text-align: justify;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 768px) {
+    #SingleComm header {
+        background: transparent;
+        min-height: 0 !important;
+        flex-flow: column nowrap;
+        padding: 10% 5% 5% 5%;
+        text-align: center;
+    }
+    #SingleComm header h1 {
+        width: 100%;
+        order: 2;
+        margin-top: 10px;
+    }
+    #SingleComm header #comm-icon {
+        order: 1;
+        margin:0;
+        text-align: center;
+    }
+}
+@media only screen and (max-width: 1090px) {
+    #SingleComm header {
+        min-height: 70vh;
+    }
+}
