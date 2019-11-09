@@ -10,8 +10,7 @@ export default [
   {
     path: "/committee/:id",
     component: SingleCommitteePage,
-    label:
-      "" /* I actually don't need it as the title is rendered according to the committee's name */,
+    label: "" /* the title is rendered according to the committee's name */,
     page: false
   }
 ];

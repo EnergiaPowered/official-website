@@ -76,7 +76,7 @@ export default () => {
           </article>
         </Carousel>
 
-        <Carousel responsive={responsive}>
+        <Carousel responsive={responsive} infinite={true}>
           <article className="partner-carousel-item">
             <section className="partner-logo">
               <img
