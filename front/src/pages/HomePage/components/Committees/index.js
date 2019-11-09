@@ -25,6 +25,7 @@ const responsive = {
 };
 
 export default function Committees() {
+<<<<<<< HEAD
   return (
     <div id="Committees" className="component-font">
       <h2 className="section-title"> Our Committees </h2>
@@ -50,4 +51,27 @@ export default function Committees() {
       </Carousel>
     </div>
   );
+=======
+    return (
+        <div id="Committees">
+            <h2 className="section-title"> Our Committees </h2>
+            <Carousel responsive={responsive} infinite={true} className="lg">
+                {data.map((el, idx) => (
+                    <Link
+                        to={`/committee/${idx}`}
+                        style={{ color: "white", textDecoration: "none" }}
+                        key={idx}
+                    >
+                        <div className="committee-carousel-item">
+                            <div className="icon">
+                                <FontAwesomeIcon icon={el.icon_class} />
+                            </div>
+                            <p className="text-lg-center">{el.title}</p>
+                        </div>
+                    </Link>
+                ))}
+            </Carousel>
+        </div>
+    );
+>>>>>>> Contacts Page + backend integration
 }
