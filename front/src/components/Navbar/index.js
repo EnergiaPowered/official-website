@@ -87,7 +87,7 @@ export default () => {
             {routes &&
               routes.length > 0 &&
               routes.map(route => {
-                return route.page ? (
+                return route.inNavbar.shown ? (
                   <li key={route.path} className="nav-item">
                     <NavLink
                       exact
@@ -95,7 +95,7 @@ export default () => {
                       className="nav-link"
                       to={route.path}
                     >
-                      {route.label}
+                      {route.inNavbar.label}
                     </NavLink>
                   </li>
                 ) : null;

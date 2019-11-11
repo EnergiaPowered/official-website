@@ -43,7 +43,7 @@ export default function Committees() {
               to={`/committee/${el.title.toLowerCase()}`}
               style={{ color: "white", textDecoration: "none" }}
             >
-              <p>{el.title}</p>
+              <p className="committee-label">{el.title}</p>
             </Link>
           </div>
         ))}
