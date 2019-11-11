@@ -67,15 +67,27 @@ h2 {
   font-size: 1.5vw;
 }
 
+.component-font .icon {
+  font-size: 4vw;
+}
+
 @media (min-width: 500px) and (max-width: 950px) {
   .component-font {
     font-size: 2vw;
+  }
+
+  .component-font .icon {
+    font-size: 6vw;
   }
 }
 
 @media (max-width: 499px) {
   .component-font {
     font-size: 3.5vw;
+  }
+
+  .component-font .icon {
+    font-size: 8vw;
   }
 }
 

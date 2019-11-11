@@ -26,22 +26,26 @@ const responsive = {
 
 export default function Committees() {
   return (
-    <div id="Committees">
+    <div id="Committees" className="component-font">
       <h2 className="section-title"> Our Committees </h2>
-      <Carousel responsive={responsive} infinite={true} className="lg">
+      <Carousel responsive={responsive} infinite={true}>
         {data.map((el, idx) => (
-          <Link
-            to={`/committee/${el.title.toLowerCase()}`}
-            style={{ color: "white", textDecoration: "none" }}
-            key={idx}
-          >
-            <div className="committee-carousel-item" key={idx}>
-              <div className="icon">
-                <FontAwesomeIcon icon={el.icon_class} />
-              </div>
-              <p className="text-lg-center">{el.title}</p>
+          <div className="committee-carousel-item" key={idx}>
+            <div className="icon-container">
+              <Link
+                to={`/committee/${el.title.toLowerCase()}`}
+                style={{ color: "white", textDecoration: "none" }}
+              >
+                <FontAwesomeIcon icon={el.icon_class} className="icon" />
+              </Link>
             </div>
-          </Link>
+            <Link
+              to={`/committee/${el.title.toLowerCase()}`}
+              style={{ color: "white", textDecoration: "none" }}
+            >
+              <p>{el.title}</p>
+            </Link>
+          </div>
         ))}
       </Carousel>
     </div>

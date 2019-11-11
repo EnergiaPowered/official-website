@@ -20,10 +20,6 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-app.get("/", (req, res) => {
-  res.send("Hello From Backend");
-});
-
 // listen to specific port
 const port = process.env.PORT || 4000;
 app.listen(port, () => console.log(`Listining to port ${port}`));

@@ -10,14 +10,13 @@
 }
 
 .committee-carousel-item .text-lg-center {
-    font-size: 1.5em;
+    /* font-size: 1.5em; */
     font-weight: bolder;
     text-align: center;
 }
 
-.committee-carousel-item .icon {
+.committee-carousel-item .icon-container {
     display: flex;
     justify-content: space-around;
     padding-bottom: 13%;
-    font-size: 7vw;
 }

@@ -20,6 +20,7 @@ function App() {
         <Navbar />
         <Switch>
           {routes &&
+            routes.length > 0 &&
             routes.map(route => {
               return (
                 <Route

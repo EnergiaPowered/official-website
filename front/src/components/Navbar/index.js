@@ -85,6 +85,7 @@ export default () => {
             data-testid="menu-list"
           >
             {routes &&
+              routes.length > 0 &&
               routes.map(route => {
                 return route.page ? (
                   <li key={route.path} className="nav-item">
