@@ -18,11 +18,6 @@ export class index extends Component {
         name: "Filed Trips",
         img: "https://www.rogerssportinggoods.com/site/AV-70905_1.jpg"
       }
-      //   {
-      //     name: "Hello",
-      //     img:
-      //       "https://www.thoughtco.com/thmb/7g7LQAnUZcEWSThwdvIlFt2u2G0=/4560x2565/smart/filters:no_upscale()/duckling-close-up-500315849-572917c93df78ced1f0b99ec.jpg"
-      //   }
     ]
   };
   render() {

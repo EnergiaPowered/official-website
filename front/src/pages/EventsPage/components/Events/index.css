@@ -1,0 +1,12 @@
+.card-container {
+  max-width: 540px;
+  background: #69768c;
+}
+.EventTitle {
+}
+
+.Event-btn {
+  border-radius: 20px;
+  font-size: 20px;
+  padding: 7px 22px;
+}

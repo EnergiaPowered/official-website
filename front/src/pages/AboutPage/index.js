@@ -29,7 +29,6 @@ export default () => {
       <main>
         <div className="container">
           <Vision vision={state.vision} />
-
           <hr />
 
           <Mission />
