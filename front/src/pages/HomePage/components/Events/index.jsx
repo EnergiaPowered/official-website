@@ -27,8 +27,8 @@ export class index extends Component {
 
         <section className="row Allevents">
           {this.state.events.map(e => (
-            <div className="col-md-4 col-sm-6 HomeEvent">
-              <Event key={e.name} name={e.name} img={e.img}></Event>
+            <div key={e.name} className="col-md-4 col-sm-6 HomeEvent">
+              <Event name={e.name} img={e.img}></Event>
             </div>
           ))}
         </section>
