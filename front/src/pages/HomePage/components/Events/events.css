@@ -32,7 +32,7 @@
   font-weight: 900;
   border-radius: 20%;
 
-  border: rgba(116, 45, 198, 0.7) dashed 1px;
+  border: rgba(116, 45, 198, 0.7) dashed 2px;
   transition: 1s;
 }
 .body {

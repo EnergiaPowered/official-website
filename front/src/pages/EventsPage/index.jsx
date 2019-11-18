@@ -10,11 +10,11 @@ export class index extends Component {
         _id: "awfiwuerqherygfiaw",
         image: {
           url:
-            "https://farm8.static.flickr.com/7521/27017639092_eb12a7e0aa_b.jpg",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3YBdpAkCVCXmzugeziR8HyzxDaAdjl3TT41Ao_AdxAm7wT9lBxw&s",
           alt: "duck"
         },
         body: [
-          { title: "Event Name", value: "Energia Gates" },
+          { title: " Name", value: "Energia Gates" },
           { title: "Date", value: "9/12/2019" },
           { title: "Status", value: 1 }
         ]
@@ -22,11 +22,12 @@ export class index extends Component {
       {
         _id: "awfzzzzzzxaw",
         image: {
-          url: "https://www.rogerssportinggoods.com/site/AV-70905_1.jpg",
+          url:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3YBdpAkCVCXmzugeziR8HyzxDaAdjl3TT41Ao_AdxAm7wT9lBxw&s",
           alt: "duck"
         },
         body: [
-          { title: "Event Name", value: "Filed Trips" },
+          { title: " Name", value: "Filed Trips" },
           { title: "Date", value: "9/10/2019" },
           { title: "Status", value: 1 }
         ]
@@ -34,12 +35,11 @@ export class index extends Component {
       {
         _id: "awccvvvvfaw",
         image: {
-          url:
-            "https://steamuserimages-a.akamaihd.net/ugc/939434973168766379/D1167147811884D24C9435D5D5C784132B412209/",
+          url: "http://eskipaper.com/images/baby-duck-wallpaper-2.jpg",
           alt: "duck"
         },
         body: [
-          { title: "Event Name", value: "Filed Trips" },
+          { title: " Name", value: "Filed Trips" },
           { title: "Date", value: "9/10/2019" },
           { title: "Status", value: 1 }
         ]
@@ -47,12 +47,11 @@ export class index extends Component {
       {
         _id: "awfkjiooaw",
         image: {
-          url:
-            "https://farm8.static.flickr.com/7521/27017639092_eb12a7e0aa_b.jpg",
+          url: "http://eskipaper.com/images/baby-duck-wallpaper-2.jpg",
           alt: "duck"
         },
         body: [
-          { title: "Event Name", value: "Filed Trips" },
+          { title: " Name", value: "Filed Trips" },
           { title: "Date", value: "9/10/2019" },
           { title: "Status", value: 0 }
         ]
@@ -60,12 +59,11 @@ export class index extends Component {
       {
         _id: "awfewrgwaw",
         image: {
-          url:
-            "https://steamuserimages-a.akamaihd.net/ugc/939434973168766379/D1167147811884D24C9435D5D5C784132B412209/",
+          url: "http://eskipaper.com/images/baby-duck-wallpaper-2.jpg",
           alt: "duck"
         },
         body: [
-          { title: "Event Name", value: "Filed Trips" },
+          { title: " Name", value: "Filed Trips" },
           { title: "Date", value: "9/10/2019" },
           { title: "Status", value: 0 }
         ]
@@ -73,12 +71,11 @@ export class index extends Component {
       {
         _id: "awr231gfaw",
         image: {
-          url:
-            "https://farm8.static.flickr.com/7521/27017639092_eb12a7e0aa_b.jpg",
+          url: "http://eskipaper.com/images/baby-duck-wallpaper-2.jpg",
           alt: "duck"
         },
         body: [
-          { title: "Event Name", value: "Filed Trips" },
+          { title: " Name", value: "Filed Trips" },
           { title: "Date", value: "9/10/2019" },
           { title: "Status", value: 1 }
         ]
