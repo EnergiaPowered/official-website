@@ -22,8 +22,7 @@ export class index extends Component {
       {
         _id: "awfzzzzzzxaw",
         image: {
-          url:
-            "https://farm8.static.flickr.com/7521/27017639092_eb12a7e0aa_b.jpg",
+          url: "https://www.rogerssportinggoods.com/site/AV-70905_1.jpg",
           alt: "duck"
         },
         body: [
@@ -36,7 +35,7 @@ export class index extends Component {
         _id: "awccvvvvfaw",
         image: {
           url:
-            "https://farm8.static.flickr.com/7521/27017639092_eb12a7e0aa_b.jpg",
+            "https://steamuserimages-a.akamaihd.net/ugc/939434973168766379/D1167147811884D24C9435D5D5C784132B412209/",
           alt: "duck"
         },
         body: [
@@ -62,7 +61,7 @@ export class index extends Component {
         _id: "awfewrgwaw",
         image: {
           url:
-            "https://farm8.static.flickr.com/7521/27017639092_eb12a7e0aa_b.jpg",
+            "https://steamuserimages-a.akamaihd.net/ugc/939434973168766379/D1167147811884D24C9435D5D5C784132B412209/",
           alt: "duck"
         },
         body: [
