@@ -7,7 +7,8 @@ import Header from "./components/Header";
 import SupVis from "./components/Supervisor";
 import Partners from "./components/Partners";
 import Footer from "../../components/Footer";
-import Committees from "./components/Committees"
+import Committees from "./components/Committees";
+import Events from "./components/Events";
 
 export default () => {
   return (
@@ -16,8 +17,9 @@ export default () => {
         <title>Energia Powered | Cairo University</title>
       </Helmet>
       <Header />
-      <SupVis />
+      <Events />
       <Committees />
+      <SupVis />
       <Partners />
       <Footer />
     </div>
