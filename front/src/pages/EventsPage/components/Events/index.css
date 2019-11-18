@@ -27,7 +27,7 @@
 .cover-img {
   object-fit: cover;
   width: 100%;
-  min-height: 15vw;
+  min-height: 11vw;
 }
 .cover-img img {
   object-fit: cover;
@@ -36,4 +36,7 @@
 }
 .EventsCard {
   margin-bottom: 50px;
+}
+.AllEvents {
+  margin: 80px 0 10px 0;
 }

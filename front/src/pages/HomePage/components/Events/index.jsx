@@ -25,9 +25,9 @@ export class index extends Component {
       <section className="container bg-section component-font" id="events">
         <h2 className="section-title text-center"> OUR EVENTS </h2>
 
-        <section className="row">
+        <section className="row Allevents">
           {this.state.events.map(e => (
-            <div className="col-md-4 col-sm-6">
+            <div className="col-md-4 col-sm-6 HomeEvent">
               <Event key={e.name} name={e.name} img={e.img}></Event>
             </div>
           ))}
