@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import app from "axios";
 import { Helmet } from "react-helmet";
-import Info from "./Info";
-import ContactForm from "./ContactForm";
+import Info from "./components/Info";
+import ContactForm from "./components/ContactForm";
 import Footer from "../../components/Footer";
-import "./style.css";
+import "./index.css";
 
 export default function Contacts(props) {
     // Sending messages to the backend
