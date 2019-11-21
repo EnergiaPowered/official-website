@@ -6,9 +6,10 @@ const app = express();
 const db = require("./mongo");
 db();
 
-// Importing models
-const Message = require("./models/Message");
-const Info = require("./models/Info");
+// Importing Routes
+const contactInfo = require("./routes/contactInfo")
+const message = require("./routes/message.js");
+
 
 // parse the body of the request
 app.use(express.json());
@@ -27,36 +28,15 @@ if (process.env.NODE_ENV === "production") {
     });
 }
 
+// Home Route for testing
 app.get("/", (req, res) => {
     res.send("Hello From Backend");
 });
 
-// Retrieve contacts info
-app.get("/contactInfo", (req, res) => {
-    Info.find({}, (err, docs) => {
-        if (err) {
-          console.log(err);
-          return res.sendStatus(500);
-        }
-        res.status(200).send(docs[0]);
-    });
-});
+// Router Middlewares
+app.use(contactInfo);
+app.use(message);
 
-// Recieve messages from the user
-app.post("/message", (req, res) => {
-    // your code here
-    if (req.body && req.body !== {}) {
-        let newMessage = new Message(req.body);
-        newMessage.save((err, mess) => {
-            if (err) {
-                console.log(err);
-                return res.status(500).send(err);
-            }
-            console.log(mess);
-            res.sendStatus(200);
-        });
-    } else res.sendStatus(500);
-});
 
 // listen to specific port
 const port = process.env.PORT || 4000;
