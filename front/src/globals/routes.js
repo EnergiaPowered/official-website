@@ -29,5 +29,13 @@ export default [
       shown: false,
       label: "" // generated dynamically
     }
+  },
+  {
+    path: "/contacts",
+    component: ContactsPage,
+    inNavbar: {
+      shown: true,
+      label: "Contacts"
+    }
   }
 ];
