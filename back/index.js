@@ -7,9 +7,8 @@ const db = require("./mongo");
 db();
 
 // Importing Routes
-const contactInfo = require("./routes/contactInfo")
+const contactInfo = require("./routes/contactInfo");
 const message = require("./routes/message.js");
-
 
 // parse the body of the request
 app.use(express.json());
@@ -25,15 +24,17 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
+// Security
+app.disable("x-powered-by");
+
 // Home Route for testing
 app.get("/", (req, res) => {
-    res.send("Hello From Backend");
+  res.send("Hello From Backend");
 });
 
 // Router Middlewares
 app.use(contactInfo);
 app.use(message);
-
 
 // listen to specific port
 const port = process.env.PORT || 4000;

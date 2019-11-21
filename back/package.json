@@ -10,6 +10,14 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
+<<<<<<< HEAD
     "mongoose": "^5.7.7"
+=======
+    "express-validator": "^6.2.0",
+    "mongoose": "^5.7.9"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+>>>>>>> Fix 2: Adding validation/sanitization to the /message route module using Express Validator
   }
 }
