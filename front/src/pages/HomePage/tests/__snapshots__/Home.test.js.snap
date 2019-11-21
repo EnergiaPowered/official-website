@@ -69,6 +69,37 @@ exports[`matches snapshot 1`] = `
       </section>
     </main>
   </section>
+  <div
+    id="Committees"
+  >
+    <h2
+      className="section-title"
+    >
+       Our Committees 
+    </h2>
+    <div
+      className="react-multi-carousel-list  lg"
+    >
+      <ul
+        className="react-multi-carousel-track "
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseMove={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        style={
+          Object {
+            "overflow": "unset",
+            "transform": "translate3d(0px,0,0)",
+            "transition": "none",
+          }
+        }
+      />
+    </div>
+  </div>
   <section
     className="bg-section dark-bg component-font"
     id="Partners"

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -25,101 +25,61 @@ const responsive = {
 };
 
 export default () => {
+  const [partners] = useState([
+    { imgUrl: "https://via.placeholder.com/100?text=partner", name: "EX" },
+    { imgUrl: "https://via.placeholder.com/100?text=partner", name: "EX" },
+    { imgUrl: "https://via.placeholder.com/100?text=partner", name: "EX" },
+    { imgUrl: "https://via.placeholder.com/100?text=partner", name: "EX" },
+    { imgUrl: "https://via.placeholder.com/100?text=partner", name: "EX" },
+    { imgUrl: "https://via.placeholder.com/100?text=partner", name: "EX" }
+  ]);
+
+  const [sponsors] = useState([
+    { imgUrl: "https://via.placeholder.com/100?text=partner", name: "EX" },
+    { imgUrl: "https://via.placeholder.com/100?text=partner", name: "EX" },
+    { imgUrl: "https://via.placeholder.com/100?text=partner", name: "EX" },
+    { imgUrl: "https://via.placeholder.com/100?text=partner", name: "EX" },
+    { imgUrl: "https://via.placeholder.com/100?text=partner", name: "EX" },
+    { imgUrl: "https://via.placeholder.com/100?text=partner", name: "EX" }
+  ]);
+
   return (
     <section id="Partners" className="bg-section dark-bg component-font">
       <div className="container">
         <h2 className="section-title"> partners & sponsors </h2>
 
-        <Carousel responsive={responsive}>
-          <article className="partner-carousel-item">
-            <section className="partner-logo">
-              <img
-                src="https://via.placeholder.com/100?text=partner"
-                alt="partner-logo"
-              />
-            </section>
+        <Carousel responsive={responsive} infinite={true}>
+          {partners.map((partner, idx) => {
+            return (
+              <article className="partner-carousel-item" key={idx}>
+                <section className="partner-logo">
+                  <img
+                    src={partner.imgUrl}
+                    alt="partner-logo"
+                  />
+                </section>
 
-            <p className="partner-name"> EX </p>
-          </article>
-
-          <article className="partner-carousel-item">
-            <section className="partner-logo">
-              <img
-                src="https://via.placeholder.com/100?text=partner"
-                alt="partner-logo"
-              />
-            </section>
-
-            <p className="partner-name"> EX </p>
-          </article>
-
-          <article className="partner-carousel-item">
-            <section className="partner-logo">
-              <img
-                src="https://via.placeholder.com/100?text=partner"
-                alt="partner-logo"
-              />
-            </section>
-
-            <p className="partner-name"> EX </p>
-          </article>
-
-          <article className="partner-carousel-item">
-            <section className="partner-logo">
-              <img
-                src="https://via.placeholder.com/100?text=partner"
-                alt="partner-logo"
-              />
-            </section>
-
-            <p className="partner-name"> EX </p>
-          </article>
+                <p className="partner-name"> {partner.name} </p>
+              </article>
+            );
+          })}
         </Carousel>
 
-        <Carousel responsive={responsive}>
-          <article className="partner-carousel-item">
-            <section className="partner-logo">
-              <img
-                src="https://via.placeholder.com/100?text=partner"
-                alt="partner-logo"
-              />
-            </section>
+        <Carousel responsive={responsive} infinite={true}>
+        {sponsors.map((sponsor, idx) => {
+            return (
+              <article className="partner-carousel-item" key={idx}>
+                <section className="partner-logo">
+                  <img
+                    src={sponsor.imgUrl}
+                    alt="partner-logo"
+                  />
+                </section>
 
-            <p className="partner-name"> EX </p>
-          </article>
-
-          <article className="partner-carousel-item">
-            <section className="partner-logo">
-              <img
-                src="https://via.placeholder.com/100?text=partner"
-                alt="partner-logo"
-              />
-            </section>
-
-            <p className="partner-name"> EX </p>
-          </article>
-
-          <article className="partner-carousel-item">
-            <section className="partner-logo">
-              <img
-                src="https://via.placeholder.com/100?text=partner"
-                alt="partner-logo"
-              />
-            </section>
-
-            <p className="partner-name"> EX </p>
-          </article>
-
-          <article className="partner-carousel-item">
-            <section className="partner-logo">
-              <img
-                src="https://via.placeholder.com/100?text=partner"
-                alt="partner-logo"
-              />
-            </section>
-
-            <p className="partner-name"> EX </p>
-          </article>
+                <p className="partner-name"> {sponsor.name} </p>
+              </article>
+            );
+          })}
         </Carousel>
       </div>
     </section>
