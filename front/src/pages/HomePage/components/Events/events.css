@@ -33,7 +33,7 @@
 }
 .body :hover {
   cursor: pointer;
-  font-size: 30px;
+
   color: white;
   font-weight: 900;
   border-radius: 20%;
