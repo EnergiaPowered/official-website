@@ -23,11 +23,6 @@
   background-image: url("../../assests/Contact-header.png");
 }
 
-#Contacts header {
-  padding-left: 7%;
-  text-transform: uppercase;
-}
-
 /* Media Queries */
 @media only screen and (min-width: 768px) {
   .error-message {

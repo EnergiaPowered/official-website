@@ -2,7 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "./index.css"
-import imgPlaceholder from "../../../../assests/placeholder.png";
+// import imgPlaceholder from "../../../../assests/placeholder.png";
 
 export default function Info(props) {
     return (
@@ -32,7 +32,7 @@ export default function Info(props) {
             </section>
             <section id="map">
                 <h2>OUR LOCATION</h2>
-                <img src={props.image || imgPlaceholder} alt="map" />
+                <img src={props.image /* || imgPlaceholder */} alt="map" />
             </section>
         </article>
     );

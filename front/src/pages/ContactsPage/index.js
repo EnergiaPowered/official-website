@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import app from "axios";
 import { Helmet } from "react-helmet";
+import Header from './components/Header'
 import Info from "./components/Info";
 import ContactForm from "./components/ContactForm";
 import Footer from "../../components/Footer";
@@ -37,10 +38,7 @@ export default function Contacts(props) {
             <Helmet>
                 <title>Energia Powered | Contacts</title>
             </Helmet>
-            {/* I see the header is too small to be separated ! REALLY TOO SMALL */}
-            <header className="header-section">
-                <h1>Contact Info</h1>
-            </header>
+            <Header />
             <Info
                 address={info ? info.address : null}
                 email={info ? info.email : null}
