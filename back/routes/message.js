@@ -42,7 +42,7 @@ const messageCheckSchema = checkSchema({
 // Recieve messages from the user w/ validation and sanitization
 router.post("/message", messageCheckSchema, (req, res) => {
   try {
-    if (req.body && req.body !== {}) {
+    if (req.body && req.body !== {}) {    
       validationResult(req).throw();
       let newMessage = new Message(req.body);
       newMessage.save((err, mess) => {

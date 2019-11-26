@@ -1,5 +1,5 @@
 const express = require("express");
-
+const cors = require("cors");
 const app = express();
 
 // connect to DB
@@ -12,6 +12,9 @@ const message = require("./routes/message.js");
 
 // parse the body of the request
 app.use(express.json());
+
+//enabeling cors
+app.use(cors());
 
 // production configurations
 if (process.env.NODE_ENV === "production") {
