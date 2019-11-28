@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import "./index.css";
 
@@ -18,6 +18,10 @@ export default () => {
   };
 
   const [state] = useState(stateObj);
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
     <div className="page-component" id="About">
       <Helmet>

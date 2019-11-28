@@ -1,8 +1,10 @@
 const mongoose = require("mongoose");
+const DBConfig = require('./config/db');
+
 
 function connectToDB() {
   mongoose
-    .connect("mongodb+srv://ep20it:dT%24v%21RozlC2v26E@website-dkccu.mongodb.net/website?retryWrites=true&w=majority", {
+    .connect(DBConfig.DB, {
       useNewUrlParser: true,
       useUnifiedTopology: true
     })
