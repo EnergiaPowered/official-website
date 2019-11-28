@@ -2,6 +2,7 @@
 header .header-title {
   font-weight: bold;
   text-transform: uppercase;
+  margin: 10% 0px 2%;
 }
 
 /* style the slogan */
