@@ -8,50 +8,55 @@ export default function ContactForm(props) {
   const [email, setEmail] = useState({ value: "", error: "" });
   const [message, setMessage] = useState({ value: "", error: "" });
 
+  /**
+   * Validate the field 
+   * 
+   * @param {string} field 
+   */
   function validate(field) {
     switch (field) {
       case "name":
-        if (name.value === "" || name.value === " ")
+        if (name.value.trim() === "")
           setName({
             value: name.value,
             error: "This field is required"
           });
         else {
           setName({
-            value: name.value,
+            value: name.value.trim(),
             error: ""
           });
           return true;
         }
         break;
       case "email":
-        if (email.value === "" || email.value === " ")
+        if (email.value.trim() === "")
           setEmail({
-            value: email.value,
+            value: email.value.trim(),
             error: "This field is required"
           });
         else if (!EMAIL_REGEX.test(email.value))
           setEmail({
-            value: email.value,
+            value: email.value.trim(),
             error: "Please enter a valid email"
           });
         else {
           setEmail({
-            value: email.value,
+            value: email.value.trim(),
             error: ""
           });
           return true;
         }
         break;
       case "message":
-        if (message.value === "" || message.value === " ")
+        if (message.value.trim() === "")
           setMessage({
-            value: message.value,
+            value: message.value.trim(),
             error: "This field is required"
           });
         else {
           setMessage({
-            value: message.value,
+            value: message.value.trim(),
             error: ""
           });
           return true;
@@ -61,6 +66,9 @@ export default function ContactForm(props) {
     return false;
   }
 
+  /**
+   * Validate all fields
+   */
   function validateAll() {
     let isValid = true;
     //This repetition is to avoid the default short-circuit evaluation of the logic AND
@@ -70,6 +78,13 @@ export default function ContactForm(props) {
     return isValid;
   }
 
+
+
+  /**
+   * Change the values of the states on change
+   * 
+   * @param {object} e 
+   */
   function changeHandler(e) {
     name.value = e.currentTarget.name.value;
     email.value = e.currentTarget.email.value;
@@ -77,18 +92,24 @@ export default function ContactForm(props) {
     validate(e.target.id);
   }
 
+  /**
+   * Submit to the backend if the fields are valid
+   * 
+   * @param {object} e 
+   */
+  function submitHandler(e) {
+    e.preventDefault();
+    if (validateAll()) {
+      props.onSubmit(name.value, email.value, message.value);
+    }
+  }
+
   return (
     <article className="bg-section" id="contact-form">
       <h2 className="section-title text-center">Leave a message</h2>
       <form
         onChange={changeHandler}
-        onSubmit={e => {
-          e.preventDefault();
-          console.log(name, email, message);
-          if (validateAll()) {
-            props.onSubmit(name.value, email.value, message.value);
-          }
-        }}
+        onSubmit={submitHandler}
         noValidate
       >
         <div className="flex-row-2">
@@ -123,7 +144,7 @@ export default function ContactForm(props) {
             {message.error && <p className="error-message">{message.error}</p>}
           </div>
         </div>
-        <input type="submit" value="SUBMIT" />
+        <input type="submit" value="SEND" />
       </form>
     </article>
   );
