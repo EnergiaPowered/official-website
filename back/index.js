@@ -13,7 +13,7 @@ const message = require("./routes/message.js");
 // parse the body of the request
 app.use(express.json());
 
-//enabeling cors
+//enable cors
 app.use(cors());
 
 // production configurations
@@ -27,18 +27,13 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-// Security
+// disable the X-Powered-By header instead of using helmet
 app.disable("x-powered-by");
 
-// Home Route for testing
-app.get("/", (req, res) => {
-  res.send("Hello From Backend");
-});
-
-// Router Middlewares
+// Router MiddleWares
 app.use(contactInfo);
 app.use(message);
 
 // listen to specific port
 const port = process.env.PORT || 4000;
-app.listen(port, () => console.log(`Listining to port ${port}`));
+app.listen(port, () => console.log(`Listening to port ${port}`));

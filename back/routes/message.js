@@ -39,7 +39,7 @@ const messageCheckSchema = checkSchema({
   }
 });
 
-// Recieve messages from the user w/ validation and sanitization
+// Receive messages from the user w/ validation and sanitization
 router.post("/message", messageCheckSchema, (req, res) => {
   try {
     if (req.body && req.body !== {}) {    
