@@ -1,22 +1,22 @@
 import React, { Component } from "react";
 import "./events.css";
-import Event from "./event";
+import Event from "./event.js";
 
-export class index extends Component {
+export default class EventCard extends Component {
   state = {
     events: [
       {
         name: "Zo2 3agalak",
-        img: "https://farm8.static.flickr.com/7521/27017639092_eb12a7e0aa_b.jpg"
+        img: "http://via.placeholder.com/640x360"
       },
       {
         name: "Energia Gates",
         img:
-          "https://steamuserimages-a.akamaihd.net/ugc/939434973168766379/D1167147811884D24C9435D5D5C784132B412209/"
+          "http://via.placeholder.com/640x360"
       },
       {
         name: "Filed Trips",
-        img: "https://www.rogerssportinggoods.com/site/AV-70905_1.jpg"
+        img: "http://via.placeholder.com/640x360"
       }
     ]
   };
@@ -39,5 +39,3 @@ export class index extends Component {
     );
   }
 }
-
-export default index;

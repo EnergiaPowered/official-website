@@ -10,19 +10,17 @@
   margin-top: -60px;
 }
 .Mcard {
-  /* background: transparent; */
   background: rgba(16, 45, 68, 0.1);
   border: rgba(16, 45, 98, 1) solid 1px;
   width: 100%;
   height: 100%;
-  border-radius: 20%;
+  /* border-radius: 20%; */
   margin: 0px 0;
 }
 .Mcard img {
   object-fit: cover;
   width: 100%;
-  border-bottom-left-radius: 30%;
-  border-bottom-right-radius: 30%;
+  border-radius: 7px;
   height: 100%;
 }
 .body {
@@ -33,12 +31,6 @@
 }
 .body :hover {
   cursor: pointer;
-
-  color: white;
-  font-weight: 900;
-  border-radius: 20%;
-  border: rgba(116, 45, 198, 0.7) dashed 2px;
-  transition: 1s;
 }
 
 .btn-center {

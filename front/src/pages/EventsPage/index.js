@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import "./index.css";
 import Header from "./components/Header/Header";
 import Events from "./components/Events/Events";
-import Footer from "../../components/Footer/index";
-export class index extends Component {
+import Footer from "../../components/Footer";
+
+export default class EventsPage extends Component {
   state = {
     events: [
       {
@@ -92,5 +93,3 @@ export class index extends Component {
     );
   }
 }
-
-export default index;
