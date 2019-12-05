@@ -1,0 +1,7 @@
+header .events.header-title {
+  font-weight: bold;
+  text-transform: uppercase;
+  /* position: relative;
+  top: 20px; */
+  margin: 10% 0px;
+}

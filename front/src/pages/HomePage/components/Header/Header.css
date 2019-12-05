@@ -1,5 +1,5 @@
 /* style the title of the header */
-header .header-title {
+header h1.header-title {
   font-weight: bold;
   text-transform: uppercase;
 }
