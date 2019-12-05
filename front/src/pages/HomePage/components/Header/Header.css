@@ -1,8 +1,8 @@
 /* style the title of the header */
-header .header-title {
+header h1.header-title {
   font-weight: bold;
   text-transform: uppercase;
-  margin: 10% 0px 2%;
+  margin: 10% 0px 1%;
 }
 
 /* style the slogan */
