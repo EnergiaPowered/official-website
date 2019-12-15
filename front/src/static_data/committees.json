@@ -1,32 +1,56 @@
 [
   {
-    "title": "COMMITTEE1",
+    "title": "QMC",
     "icon_class": "fire",
-    "mission": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "vision": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    "mission": "Planning, controlling and closing projects to ensure the best quality.",
+    "vision": "Develop and coordinate the teamwork of the organization to have the best quality of projects."
   },
   {
-    "title": "COMMITTEE2",
+    "title": "Robotics",
     "icon_class": "heart",
-    "mission": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "vision": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    "mission": "Our mission is to give our participants a good introduction to embedded systems track, knowledge about very important concepts and a real experience about dealing with many electronic components.",
+    "vision": "Our vision is to help many students to have a real experience by giving them examples, tasks and projects to qualify them for the practical life."
   },
   {
-    "title": "COMMITTEE3",
+    "title": "Hybrid Cars",
     "icon_class": "palette",
-    "mission": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "vision": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    "mission": "give them an in depth knowledge of Hybrid cars, the essential components and their functions. Provide field trips to see the connections between what is happening at the course and in the real world.",
+    "vision": "To advance mobility knowledge for the benefit of our Participants. Enable them to invest these knowledge in the working life.Leading the nonprofit foundation where we operate by providing an elite participant experience."
   },
   {
-    "title": "COMMITTEE4",
-    "icon_class": "fire",
-    "mission": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "vision": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    "title": "IT",
+    "icon_class": "palette",
+    "mission": "Prepare leaders to be experts in their fields and able to manage themselves and others.",
+    "vision": "To accelerate the student’s transition into future technologies."
   },
   {
-    "title": "COMMITTEE5",
+    "title": "Logistics",
     "icon_class": "fire",
-    "mission": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "vision": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    "mission": "Members learn to deal with any problem and be able to solve it, do professional interviews, evaluate members and process , offers fruitful trainings , carry out entertainment activities and make periodic feedbacks to fulfill the quality of production required to raise the performance of the whole activity.",
+    "vision": "Introducing a good image for the activity in any place with catchy and creative visual forms, revealing the splendor of handmade crafts with members’ efforts and helping individuals to make good deals to achieve best quality with low cost."
+  },
+  {
+    "title": "Marketing",
+    "icon_class": "fire",
+    "mission": "Make a complete social media campaigns and generate new marketing ideas and document our accomplishments in order to share a great image of the entity.",
+    "vision": "Raise the awareness about the entity to be able to reach every interested person about its events."
+  },
+  {
+    "title": "Design",
+    "icon_class": "fire",
+    "mission": "work on all designs needed as T-shirts, IDs, banners, cards, social media posts and covers.",
+    "vision": "Provide a great image about all the entity's work to help leaving a great first impression by the viewers."
+  },
+  {
+    "title": "Media",
+    "icon_class": "fire",
+    "mission": "Cover events, meeting, trainings and photograph all moments by making a documentary movies and photos of all our gatherings.",
+    "vision": "Document every moment of the entity's activities and share the working moment through all media."
+  },
+  {
+    "title": "HR",
+    "icon_class": "fire",
+    "mission": "Members learn to deal with any problem and be able to solve it, do professional interviews, evaluate members and process , offers fruitful trainings , carry out entertainment activities and make periodic feedbacks to fulfill the quality of production required to raise the performance of the whole activity.",
+    "vision": "We strive to fulfill personal and institutional development, improving personal skills, finding talents ,seek for good spirit inside individuals and solve problems that encounter individuals , at first , and our entity."
   }
 ]
