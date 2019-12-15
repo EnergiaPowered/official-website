@@ -1,13 +1,13 @@
 .card-container {
   /* max-width: 540px; */
-  background: #69768c;
+  background: #212529;
 }
 
 .bodyRow {
-  margin: 0 0 5px 0;
+  margin: 0 0 6px 0;
 }
 .McardBody {
-  padding: 20px 0 0 30px;
+  /* padding: 20px 0 0 30px; */
 }
 .EventValue {
   font-size: 17px;
@@ -18,11 +18,18 @@
   color: #fff;
   font-weight: bold;
 }
+/* .btn-container{
+  width: 100%;
+} */
+
 .Event-btn {
-  border-radius: 19px;
-  font-size: 17px;
-  padding: 4px 14px;
-  margin-bottom: -30px;
+  width: 100%;
+  /* border-radius: 3px; */
+  font-size: 16px;
+  font-weight: bold;
+  color: #212529;
+  padding: 5px 12px;
+  /* margin-bottom: -15px; */
 }
 .cover-img {
   object-fit: cover;
@@ -38,5 +45,5 @@
   margin-bottom: 50px;
 }
 .AllEvents {
-  margin: 80px 0 10px 0;
+  /* margin: 80px 0 10px 0; */
 }

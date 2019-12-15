@@ -2,7 +2,7 @@ import React from "react";
 
 const CardButton = ({ available }) => {
   return (
-    <div className="text-center">
+    <div className="text-center btn-container">
       <button
         className={
           "btn btn-light Event-btn " + (available === 0 ? "disabled" : "")

@@ -10,8 +10,7 @@ export default class EventsPage extends Component {
       {
         _id: "awfiwuerqherygfiaw",
         image: {
-          url:
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3YBdpAkCVCXmzugeziR8HyzxDaAdjl3TT41Ao_AdxAm7wT9lBxw&s",
+          url: "http://via.placeholder.com/640x360",
           alt: "duck"
         },
         body: [
@@ -23,8 +22,7 @@ export default class EventsPage extends Component {
       {
         _id: "awfzzzzzzxaw",
         image: {
-          url:
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3YBdpAkCVCXmzugeziR8HyzxDaAdjl3TT41Ao_AdxAm7wT9lBxw&s",
+          url: "http://via.placeholder.com/640x360",
           alt: "duck"
         },
         body: [
@@ -36,7 +34,7 @@ export default class EventsPage extends Component {
       {
         _id: "awccvvvvfaw",
         image: {
-          url: "http://eskipaper.com/images/baby-duck-wallpaper-2.jpg",
+          url: "http://via.placeholder.com/640x360",
           alt: "duck"
         },
         body: [
@@ -48,7 +46,7 @@ export default class EventsPage extends Component {
       {
         _id: "awfkjiooaw",
         image: {
-          url: "http://eskipaper.com/images/baby-duck-wallpaper-2.jpg",
+          url: "http://via.placeholder.com/640x360",
           alt: "duck"
         },
         body: [
@@ -60,7 +58,7 @@ export default class EventsPage extends Component {
       {
         _id: "awfewrgwaw",
         image: {
-          url: "http://eskipaper.com/images/baby-duck-wallpaper-2.jpg",
+          url: "http://via.placeholder.com/640x360",
           alt: "duck"
         },
         body: [
@@ -72,7 +70,7 @@ export default class EventsPage extends Component {
       {
         _id: "awr231gfaw",
         image: {
-          url: "http://eskipaper.com/images/baby-duck-wallpaper-2.jpg",
+          url: "http://via.placeholder.com/640x360",
           alt: "duck"
         },
         body: [
