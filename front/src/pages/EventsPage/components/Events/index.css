@@ -6,9 +6,7 @@
 .bodyRow {
   margin: 0 0 6px 0;
 }
-.McardBody {
-  /* padding: 20px 0 0 30px; */
-}
+
 .EventValue {
   font-size: 17px;
   color: rgb(200, 200, 210);
@@ -18,18 +16,14 @@
   color: #fff;
   font-weight: bold;
 }
-/* .btn-container{
-  width: 100%;
-} */
 
 .Event-btn {
   width: 100%;
-  /* border-radius: 3px; */
+   border-radius: 0px; 
   font-size: 16px;
   font-weight: bold;
   color: #212529;
   padding: 5px 12px;
-  /* margin-bottom: -15px; */
 }
 .cover-img {
   object-fit: cover;
@@ -43,7 +37,4 @@
 }
 .EventsCard {
   margin-bottom: 50px;
-}
-.AllEvents {
-  /* margin: 80px 0 10px 0; */
 }
