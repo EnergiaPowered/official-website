@@ -1,7 +1,6 @@
 .card-container {
   background: linear-gradient(0deg, #000011, #000011, #002248, #000011);
 }
-
 .bodyRow {
   margin: 0 0 6px 0;
 }
@@ -20,13 +19,13 @@
   border-radius: 0px;
   font-size: 16px;
   font-weight: bold;
-  color: #212529;
+  color: #333;
   padding: 5px 12px;
 }
 .cover-img {
   object-fit: cover;
   width: 100%;
-  min-height: 11vw;
+  /* min-height: 11vw; */
 }
 .cover-img img {
   object-fit: cover;
@@ -34,17 +33,34 @@
   height: 100% !important;
 }
 .EventsCard {
-  margin-bottom: 50px;  
+  margin-bottom: 50px;
 }
-@media(max-width:768px){
-  .Event-btn{
+@media (max-width: 768px) {
+  .Event-btn {
     border-bottom-left-radius: 100px;
     border-bottom-right-radius: 100px;
   }
   .card-container {
-    background: linear-gradient(0deg,#002253, #000011,#002255,#002255,#002255);
+    background: linear-gradient(
+      0deg,
+      #002253,
+      #000011,
+      #002255,
+      #002255,
+      #002255
+    );
     border-bottom-left-radius: 50px;
     border-bottom-right-radius: 50px;
-    
+  }
+  .Event-btn {
+    padding: 7px 12px;
+  }
+}
+@media (max-width: 991px) {
+  @media (min-width: 768px) {
+    .Event-btn {
+      margin-top: 20px;
+    padding: 7px 12px;
+    }
   }
 }
