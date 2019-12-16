@@ -5,7 +5,7 @@ const Events = ({ events }) => {
     <div className="container">
       <div className="row AllEvents">
         {events.map(e => (
-          <div className="col-lg-6 " key={e._id}>
+          <div className="col-lg-6 glow-on-hover" key={e._id}>
             <Event event={e} />
           </div>
         ))}
