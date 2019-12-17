@@ -1,15 +1,16 @@
 import React from "react";
-
-const CardButton = ({ available }) => {
+import {Link} from "react-router-dom"
+const CardButton = ({ available,id }) => {
   return (
     <div className="text-center">
-      <button
+      <Link
+      to={`/movies/${id}`}
         className={
           "btn btn-light Event-btn " + (available === 0 ? "disabled" : "")
         }
       >
-        Event Form
-      </button>
+        Details
+      </Link>
     </div>
   );
 };

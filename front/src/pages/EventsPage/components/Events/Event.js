@@ -11,7 +11,7 @@ const Events = ({ event }) => {
         <EventImage image={event.image} />
         <div className="col-md-6">
           <EventBody event={event} />
-          <EventButton available={event.body[event.body.length - 1].value} />
+          <EventButton id={event._id} available={event.body[event.body.length - 1].value} />
         </div>
       </div>
     </div>
