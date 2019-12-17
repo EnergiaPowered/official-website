@@ -18,7 +18,7 @@
             alt: "duck"
           },
           body: [
-            { title: " Name", value: "Filed Trips" },
+            { title: " Name", value: "Hell Trips" },
             { title: "Date", value: "9/10/2019" },
             { title: "Status", value: 1 }
           ]
@@ -42,7 +42,7 @@
             alt: "duck"
           },
           body: [
-            { title: " Name", value: "Filed Trips" },
+            { title: " Name", value: "Zo2 3agalak" },
             { title: "Date", value: "9/10/2019" },
             { title: "Status", value: 0 }
           ]
@@ -54,9 +54,9 @@
             alt: "duck"
           },
           body: [
-            { title: " Name", value: "Filed Trips" },
+            { title: " Name", value: "hakona matata" },
             { title: "Date", value: "9/10/2019" },
-            { title: "Status", value: 0 }
+            { title: "Status", value: 1 }
           ]
         },
         {
@@ -66,9 +66,9 @@
             alt: "duck"
           },
           body: [
-            { title: " Name", value: "Filed Trips" },
+            { title: " Name", value: "Google visits" },
             { title: "Date", value: "9/10/2019" },
-            { title: "Status", value: 1 }
+            { title: "Status", value: 0 }
           ]
         }
       ]

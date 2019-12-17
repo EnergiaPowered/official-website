@@ -26,9 +26,10 @@ export default class EventsPage extends Component {
     return (
       <div id="EventsPage">
         <Helmet>
-        <title>Energia Powered | Our Events</title>
-      </Helmet>
-        <Header />
+         <title>Energia Powered | Our Events</title>
+        </Helmet>
+
+        <Header title="events"/>
         <Events events={this.state.events} titles={this.state.titles} />
         <Footer />
       </div>
