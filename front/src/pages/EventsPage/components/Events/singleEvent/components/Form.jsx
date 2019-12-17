@@ -53,7 +53,7 @@ class Login extends Component {
 
   renderSubmitBtn = lable => {
     return (
-      <button className="btn btn-primary" disabled={this.validate()}>
+      <button className="btn btn-primary  submit-btn" disabled={this.validate()}>
         {lable}
       </button>
     );

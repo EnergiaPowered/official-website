@@ -38,7 +38,7 @@ class SingleEvent extends Component {
     return (
       <div className=" container text-center single-event">
         <Header title={event.body[0].value}/>
-        <Form/>
+        <Form id={event._id}/>
       </div>
 
     );

@@ -6,6 +6,7 @@ class Login extends Form {
   state = {
     data: {
       username: "",
+      phone: "",
       email: "",
       year: "",
       faculty: "",
@@ -25,6 +26,13 @@ class Login extends Form {
       .required()
       .email()
       .label("Email"),
+    phone: joi
+      .number()
+      .integer()
+      .less(1600000000)
+      .greater(900000000)
+      .positive()
+      .required(),
     year: joi.required(),
     faculty: joi.required(),
     department: joi.required(),
@@ -32,20 +40,29 @@ class Login extends Form {
   };
 
   doSubmit = () => {
-    // do server connection
+    // do server connection post to Route events/_id
     console.log(this.state);
     console.log("submitted");
   };
 
   render() {
-    const years = [
-      { _id: "e3dady", name: "e3dady" },
-      { _id: "1st", name: "1st" },
-      { _id: "2nd", name: "2nd" },
-      { _id: "3nd", name: "3nd" },
-      { _id: "4nd", name: "4nd" }
-    ];
-    const faculty = [
+    const years = {
+      Engineering: [
+        { _id: "e3dady", name: "e3dady" },
+        { _id: "1st", name: "1st" },
+        { _id: "2nd", name: "2nd" },
+        { _id: "3nd", name: "3nd" },
+        { _id: "4nd", name: "4nd" }
+      ],
+      Other: [
+        { _id: "1st", name: "1st" },
+        { _id: "2nd", name: "2nd" },
+        { _id: "3nd", name: "3nd" },
+        { _id: "4nd", name: "4nd" }
+      ]
+    };
+
+    const Faculty = [
       { _id: "Engineering", name: "Engineering" },
       { _id: "Science", name: "Science" },
       { _id: "Computer", name: "Computer" }
@@ -74,27 +91,34 @@ class Login extends Form {
         { _id: "Ai", name: "Ai" }
       ]
     };
+    const { faculty } = this.state.data;
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
           <div className="form-group">
             {this.renderInput("username", "UserName")}
             {this.renderInput("email", "email", "email")}
-          </div>
-          {this.renderSelect(
-            "university",
-            university,
-            "Select your university"
-          )}
-          {this.renderSelect("faculty", faculty, "Select your facaulty")}
-          {this.renderSelect("year", years, "Select year")}
-          {this.state.data.faculty &&
-            this.renderSelect(
-              "department",
-              department[this.state.data.faculty],
-              "DepartMent"
+            {this.renderInput("phone", "Phone Number", "phone")}
+            {this.renderSelect(
+              "university",
+              university,
+              "Select your university"
             )}
-          {this.renderSubmitBtn("Submit")}
+            {this.renderSelect("faculty", Faculty, "Select your facaulty")}
+
+            {faculty &&
+              (faculty === "Engineering"
+                ? this.renderSelect("year", years["Engineering"], "Select year")
+                : this.renderSelect("year", years["Other"], "Select year"))}
+
+            {faculty &&
+              this.renderSelect(
+                "department",
+                department[faculty],
+                "DepartMent"
+              )}
+            {this.renderSubmitBtn("Submit")}
+          </div>
         </form>
       </div>
     );
