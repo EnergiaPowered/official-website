@@ -53,7 +53,7 @@ export default [
     component: ContactsPage,
     inNavbar: {
       shown: true,
-      label: "Contacts"
+      label: "Contact us"
     }
   }
 ];

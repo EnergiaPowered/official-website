@@ -6,9 +6,10 @@ so i had to put this useless defult state to make it work !
 
 import React, { Component } from "react";
 import Header from "../../Header/Header";
-// import { getEvents } from "./../../../services/fakeEvents";
+import { getEvents } from "./../../../services/fakeEvents";
 import Form from "./Formx";
 import "./style.css";
+
 class SingleEvent extends Component {
   state = {
     
@@ -17,7 +18,6 @@ class SingleEvent extends Component {
 
   componentDidMount() {
     //   get scheme
-<<<<<<< HEAD
     const eventID = this.props.match.params.id;
     const events = getEvents();
     const event = events.filter(e => e._id === eventID);

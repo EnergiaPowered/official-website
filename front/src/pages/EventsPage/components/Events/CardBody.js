@@ -9,8 +9,8 @@ const CardBody = ({ event }) => {
           <span className="EventValue">
             {e.title === "Status"
               ? e.value === 1
-                ? "Open"
-                : "Not Yet"
+                ? "Happenning now"
+                : "Closed"
               : e.value}
           </span>
         </p>

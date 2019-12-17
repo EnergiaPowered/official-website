@@ -36,7 +36,7 @@ export default function Contacts(props) {
   return (
     <div className="page-component component-font" id="Contacts">
       <Helmet>
-        <title>Energia Powered | Contacts</title>
+        <title>Energia Powered | Contact</title>
       </Helmet>
       <Header />
       <Info

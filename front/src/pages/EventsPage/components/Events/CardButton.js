@@ -9,7 +9,7 @@ const CardButton = ({ available,event}) => {
           "btn btn-light Event-btn " + (available === 0 ? "disabled" : "")
         }
       >
-       Form
+       {available === 0 ? "Form Closed": "Register now"}
       </Link>
     </div>
   );
