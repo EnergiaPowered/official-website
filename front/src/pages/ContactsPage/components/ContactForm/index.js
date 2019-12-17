@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./index.css";
 
-const EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+const EMAIL_REGEX = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 export default function ContactForm(props) {
   const [name, setName] = useState({ value: "", error: "" });
@@ -66,6 +66,8 @@ export default function ContactForm(props) {
           return true;
         }
         break;
+      default:
+        return;
     }
     return false;
   }

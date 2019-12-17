@@ -22,15 +22,16 @@ class SingleEvent extends Component {
     const events = getEvents();
     const event = events.filter(e => e._id === eventID);
     const [eventobj]=[...event]
-    this.setState({ event :eventobj});
-  }
-
-  render() {
-    //   get details
     const {id,title}=this.props.match.params
     
     this.setState({ id ,title });
+    
+    this.setState({ event :eventobj});
   }
+
+  // render() {
+  //   //   get details
+  // }
 
   render() {
     const { title,id } = this.state;
