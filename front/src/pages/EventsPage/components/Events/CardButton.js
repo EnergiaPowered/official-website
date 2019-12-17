@@ -1,15 +1,16 @@
 import React from "react";
-
-const CardButton = ({ available }) => {
+import {Link} from "react-router-dom"
+const CardButton = ({ available,event}) => {
   return (
     <div className="text-center">
-      <button
+      <Link
+      to={`/events/${event._id}/${event.body[0].value}`}
         className={
           "btn btn-light Event-btn " + (available === 0 ? "disabled" : "")
         }
       >
-        Event Form
-      </button>
+       {available === 0 ? "Form Closed": "Register now"}
+      </Link>
     </div>
   );
 };

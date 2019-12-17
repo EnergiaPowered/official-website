@@ -1,13 +1,8 @@
 .card-container {
-  /* max-width: 540px; */
-  background: #69768c;
+  background: linear-gradient(0deg, #000011, #000011, #002248, #000011);
 }
-
 .bodyRow {
-  margin: 0 0 5px 0;
-}
-.McardBody {
-  padding: 20px 0 0 30px;
+  margin: 0 0 6px 0;
 }
 .EventValue {
   font-size: 17px;
@@ -18,16 +13,19 @@
   color: #fff;
   font-weight: bold;
 }
+
 .Event-btn {
-  border-radius: 19px;
+  width: 100%;
+  border-radius: 0px;
   font-size: 17px;
-  padding: 4px 14px;
-  margin-bottom: -30px;
+  font-weight: bold;
+  color: #333;
+  padding: 5px 12px;
 }
 .cover-img {
   object-fit: cover;
   width: 100%;
-  min-height: 11vw;
+  /* min-height: 11vw; */
 }
 .cover-img img {
   object-fit: cover;
@@ -37,6 +35,32 @@
 .EventsCard {
   margin-bottom: 50px;
 }
-.AllEvents {
-  margin: 80px 0 10px 0;
+@media (max-width: 768px) {
+  .Event-btn {
+    border-bottom-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+  }
+  .card-container {
+    background: linear-gradient(
+      0deg,
+      #002253,
+      #000011,
+      #002255,
+      #002255,
+      #002255
+    );
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+  }
+  .Event-btn {
+    padding: 7px 12px;
+  }
+}
+@media (max-width: 991px) {
+  @media (min-width: 768px) {
+    .Event-btn {
+      margin-top: 20px;
+      padding: 7px 12px;
+    }
+  }
 }

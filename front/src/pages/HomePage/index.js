@@ -10,8 +10,6 @@ import Footer from "../../components/Footer";
 import Committees from "./components/Committees";
 import Events from "./components/Events";
 
-import ParticlesBg from 'particles-bg';
-
 export default () => {
 
   useEffect(() => {
@@ -29,8 +27,6 @@ export default () => {
       <SupVis />
       <Partners />
       <Footer />
-
-      <ParticlesBg bg={true} color="#fff" type="cobweb" num={150} />
     </div>
   );
 };

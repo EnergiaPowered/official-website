@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./events.css";
 import Event from "./event.js";
+import { Link } from "react-router-dom";
 
 export default class EventCard extends Component {
   state = {
@@ -33,7 +34,7 @@ export default class EventCard extends Component {
           ))}
         </section>
         <div className="text-center">
-          <button className="btn btn-light btn-center">See More</button>
+          <Link  className="btn btn-light btn-center" to="/events">See More</Link>
         </div>
       </section>
     );
