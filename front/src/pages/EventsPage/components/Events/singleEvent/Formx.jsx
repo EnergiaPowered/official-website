@@ -95,7 +95,9 @@ class Login extends Form {
       
     const { faculty } = this.state.data;
     return (
-      <div className="shadow-lg  p-5 mb-5  rounded">
+     
+     
+     <div className="shadow-lg  p-5 mb-5  rounded">
           <h1 className="mb-5">Registeration Form</h1>
         <form onSubmit={this.handleSubmit}>
           <div className="form-group">
