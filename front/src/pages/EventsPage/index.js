@@ -11,6 +11,8 @@ import Events from "./components/Events/Events";
 import Footer from "../../components/Footer";
 import {getEvents} from "./services/fakeEvents"
 
+import { Helmet } from "react-helmet";
+
 export default class EventsPage extends Component {
   state = {
     events:[]
@@ -23,6 +25,9 @@ export default class EventsPage extends Component {
   render() {
     return (
       <div id="EventsPage">
+        <Helmet>
+        <title>Energia Powered | Our Events</title>
+      </Helmet>
         <Header />
         <Events events={this.state.events} titles={this.state.titles} />
         <Footer />
