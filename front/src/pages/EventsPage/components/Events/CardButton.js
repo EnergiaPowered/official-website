@@ -9,7 +9,7 @@ const CardButton = ({ available,event}) => {
           "btn btn-light Event-btn " + (available === 0 ? "disabled" : "")
         }
       >
-       More Details
+       Form
       </Link>
     </div>
   );
