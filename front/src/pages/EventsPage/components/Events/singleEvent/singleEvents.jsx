@@ -9,7 +9,6 @@ import Header from "../../Header/Header";
 // import { getEvents } from "./../../../services/fakeEvents";
 import Form from "./Formx";
 import "./style.css";
-import Details from "./components/Details";
 class SingleEvent extends Component {
   state = {
     
@@ -33,7 +32,6 @@ class SingleEvent extends Component {
     return (
       <div className=" container text-center single-event">
         <Header title={title} />
-        <Details details={this.state.details}/>
         <Form id={id} />
       </div>
     );

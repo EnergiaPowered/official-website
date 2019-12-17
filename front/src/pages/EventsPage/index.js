@@ -23,7 +23,7 @@ export default class EventsPage extends Component {
   render() {
     return (
       <div id="EventsPage">
-        <Header />
+        <Header title="events"/>
         <Events events={this.state.events} titles={this.state.titles} />
         <Footer />
       </div>
