@@ -7,6 +7,7 @@ so i had to put this useless defult state to make it work !
 import React, { Component } from "react";
 import Header from "../../Header/Header"
 import { getEvents } from "./../../../services/fakeEvents";
+import Form from "./Formx"
 import "./style.css"
 class SingleEvent extends Component {
   state = { event:{
@@ -29,17 +30,17 @@ class SingleEvent extends Component {
     const events = getEvents();
     const event = events.filter(e => e._id === eventID);
     const [eventobj]=[...event]
-    console.log("event is" ,eventobj)
     this.setState({ event :eventobj});
   }
 
   render() {
-    console.log("event is" ,this.state.event)
     const { event } = this.state;
     return (
       <div className=" container text-center single-event">
         <Header title={event.body[0].value}/>
+        <Form/>
       </div>
+
     );
   }
 }

@@ -4,12 +4,12 @@ const CardButton = ({ available,event}) => {
   return (
     <div className="text-center">
       <Link
-      to={`/events/${event._id}`}
+      to={`/events/${event._id}/${event.body[0].value}`}
         className={
           "btn btn-light Event-btn " + (available === 0 ? "disabled" : "")
         }
       >
-        Details
+       More Details
       </Link>
     </div>
   );

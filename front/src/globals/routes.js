@@ -40,7 +40,7 @@ export default [
       label: "Events"
     }
   },  {
-    path: "/events/:id",
+    path: "/events/:id/:title",
     component: SingleEvent,
     inNavbar: {
       shown: false,
