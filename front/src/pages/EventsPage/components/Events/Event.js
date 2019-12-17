@@ -6,12 +6,12 @@ import "./index.css";
 
 const Events = ({ event }) => {
   return (
-    <div className="card   card-container EventsCard">
+    <div className="card   card-container EventsCard shadow">
       <div className="row no-gutters">
         <EventImage image={event.image} />
         <div className="col-md-6">
           <EventBody event={event} />
-          <EventButton id={event._id} available={event.body[event.body.length - 1].value} />
+          <EventButton event={event} available={event.body[event.body.length - 1].value} />
         </div>
       </div>
     </div>

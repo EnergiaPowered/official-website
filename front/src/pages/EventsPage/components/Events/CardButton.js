@@ -1,10 +1,10 @@
 import React from "react";
 import {Link} from "react-router-dom"
-const CardButton = ({ available,id }) => {
+const CardButton = ({ available,event}) => {
   return (
     <div className="text-center">
       <Link
-      to={`/movies/${id}`}
+      to={`/events/${event._id}`}
         className={
           "btn btn-light Event-btn " + (available === 0 ? "disabled" : "")
         }
