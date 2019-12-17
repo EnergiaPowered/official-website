@@ -78,7 +78,7 @@ class Login extends Component {
     return (
       <React.Fragment>
       <label htmlFor={name}>{label}</label>
-      <select  id={name} className="form-control" name={name} onChange={this.handleChange}>
+      <select  id={name} className="form-control mb-3" name={name} onChange={this.handleChange}>
        <option value=""/>
         {options.map((e)=><option key={e._id} value={e._id}  >{e.name}</option>)}
       </select>
