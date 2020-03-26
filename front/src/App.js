@@ -9,15 +9,13 @@ import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 
 import PageProgress from "react-page-progress";
 
-import Navbar from "./components/Navbar/index";
-import NotFound from "./pages/NotFound";
+import NotFound from "modules/NotFound";
 
 function App() {
   return (
     <div className="App">
       <Router>
         <PageProgress color={"skyblue"} height={5} />
-        <Navbar />
         <Switch>
           {routes &&
             routes.length > 0 &&
