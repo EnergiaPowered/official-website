@@ -1,6 +1,6 @@
 # Energia Powered Official Webite
 
-This's the main source code of the front of `Energia Powered` website.
+This is the main source code of the front of `Energia Powered` website.
 
 ## The structure of the website
 

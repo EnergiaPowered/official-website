@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 
-import app from "axios";
-
 import Header from "./components/Header";
 import Info from "./components/Info";
 import ContactForm from "./components/ContactForm";
 
 import Layout from "shared/Layout";
+
+import { sendMessage } from "./services/contact.service";
 
 import "./style.css";
 
@@ -16,12 +16,7 @@ import bg from "assets/Contact-header.png";
 export default function Contacts(props) {
   // Sending messages to the backend
   function submitHandler(name, email, message) {
-    app
-      .post("http://localhost:4000/message", {
-        name,
-        email,
-        message
-      })
+    sendMessage({ name, email, message })
       .then(() => alert("Sent Successfully!"))
       .catch(err => alert("There was an error. Please try again later" + err));
   }
