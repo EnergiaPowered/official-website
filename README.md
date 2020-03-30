@@ -14,17 +14,21 @@ The source code of `Energia Powered` student activity's website. The website bui
 
 ## Installation
 
-Make sure to have [Node.js](https://nodejs.org/en/download/) & [yarn](https://classic.yarnpkg.com/en/docs/install/) installed on your machine.
+Make sure to have [Node.js](https://nodejs.org/en/download/) installed on your machine.
 
 1. Clone this repo `$ git clone https://github.com/EnergiaPowered/official-website.git` or using `ssh`.
 
 2. `$ cd Official-website`.
 
-3. Run `$ npm install` to install dependencies and packages.
+3. Run `$ npm install` to install dependencies and packages in the root then install packages in `front/` by running `$ npm run front-install`.
 
 ## Usage
 
-Run `$ npm dev-start` to start serving the app (front & back), then go to `https://localhost:3000` to view the front and start using the back it is started already.
+1. Create a `.env` file at the root of the project 
+    1. Copy the content of `.env-example` in to the `.env` file you did created.
+    1. Register for a DB URI in mongo atlas of any other service and add the `URI string` as the value of `DB_URI` variable.
+
+1. Run `$ npm run dev-start` to start serving the app (front & back), then go to `https://localhost:3000` to view the front and start using the back it is started already.
 
 ## Structure
 
@@ -32,17 +36,6 @@ The folder structure of the application. The app is modular, every module encaps
 
 ```
 .
-├── back
-│   ├── index.js
-│   ├── models
-│   │   ├── Info.js
-│   │   └── Message.js
-│   ├── mongo.js
-│   ├── package.json
-│   ├── package-lock.json
-│   └── routes
-│       ├── contactInfo.js
-│       └── message.js
 ├── CONTRIBUTING.md
 ├── front
 │   ├── package.json
@@ -52,6 +45,16 @@ The folder structure of the application. The app is modular, every module encaps
 │   │   ├── App.js
 │   │   ├── App.test.js
 │   │   ├── assets
+│   │   │   ├── About-header.png
+│   │   │   ├── Contact-header.png
+│   │   │   ├── Events-header.png
+│   │   │   ├── Home-header.png
+│   │   │   ├── logo.png
+│   │   │   ├── placeholder.png
+│   │   │   ├── single comm-bg.png
+│   │   │   ├── single-comm-header.png
+│   │   │   ├── Structure.png
+│   │   │   └── supervisor.jpg
 │   │   ├── globals
 │   │   │   ├── icons_library.js
 │   │   │   └── routes.js
@@ -200,8 +203,18 @@ The folder structure of the application. The app is modular, every module encaps
 │   │   └── static_data
 │   │       └── committees.json
 │   └── Style-Guide.md
+├── index.js
 ├── LICENSE
+├── models
+│   ├── Info.js
+│   └── Message.js
+├── mongo.js
+├── package.json
+├── package-lock.json
 ├── README.md
+├── routes
+│   ├── contactInfo.js
+│   └── message.js
 └── TODOS.txt
 ```
 
