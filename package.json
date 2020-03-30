@@ -1,0 +1,22 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Energia-backend",
+  "main": "index.js",
+  "scripts": {
+    "dev-start": "concurrently \"nodemon\" \"cd front/ && npm start\"",
+    "front-install": "cd front/ && npm i && cd .."
+  },
+  "author": "Energia IT Team",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^5.1.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-validator": "^6.2.0",
+    "mongoose": "^5.7.9"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  }
+}
