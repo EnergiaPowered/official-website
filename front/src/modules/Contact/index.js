@@ -7,7 +7,7 @@ import ContactForm from "./components/ContactForm";
 
 import Layout from "shared/Layout";
 
-import { sendMessage } from "./services/contact.service";
+import { sendMessage, getInfo } from "./services/contact.service";
 
 import "./style.css";
 
@@ -27,8 +27,7 @@ export default function Contacts(props) {
 
   const [info, setInfo] = useState(null);
   useEffect(() => {
-    app
-      .get("http://localhost:4000/contactInfo")
+    getInfo()
       .then(res => {
         setInfo(res.data);
       })
