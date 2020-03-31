@@ -2,3 +2,5 @@
 2. Edit the font size responsive issues
 3. Edit the events to redirect to event's details
 4. Document the code
+
+5. Fake TODO.
