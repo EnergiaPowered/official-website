@@ -1,4 +1,4 @@
-# IEEE Al-Azhar Official Website
+# Energia Powered Official Website
 
 The source code of `Energia Powered` student activity's website. The website built to provide some of organization's services and represent information about it with simplicity in mind. Also it provides an opportunity for students to collaborate and contribute to enhance their programming and train to contribute to open source community.
 
