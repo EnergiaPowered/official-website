@@ -28,7 +28,7 @@ export default function Footer () {
   return (
     <footer id="Footer">
       <ul className="text-center social-links row list-unstyled">
-        {social &&
+        {social.length > 0 &&
           social.map(item => {
             return (
               <li key={item.link} className="social-links-item col-xs-2">
