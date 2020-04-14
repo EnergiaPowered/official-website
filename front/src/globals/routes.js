@@ -3,6 +3,7 @@ import SingleCommittee from "modules/Committees/components/SingleCommitteePage";
 import Contacts from "modules/Contact";
 import AboutPage from "modules/About/components/page";
 
+import BlogsPage from './../modules/Blogs/index';
 export default [
   {
     path: "/",
@@ -21,12 +22,20 @@ export default [
     }
   },
   {
+    path: "/Blogs",
+    component: BlogsPage,
+    inNavbar: {
+      shown: true,
+      label: "Blogs" 
+    },
+  } ,
+  {
     path: "/committee/:id",
     component: SingleCommittee,
     inNavbar: {
       shown: false,
       label: "" // generated dynamically
-    }
+    } 
   },
   // {
   //   path: "/events",

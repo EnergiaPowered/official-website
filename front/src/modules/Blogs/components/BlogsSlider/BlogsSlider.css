@@ -1,0 +1,42 @@
+.cards{
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    margin-top: 5rem;
+}
+.blogcard{
+    width: 40vw;
+    height: 30vh;
+    background-color: #333c60;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    
+}
+.blogcard__content{
+   display: grid;
+   grid-template-rows: .8fr 2fr .8fr;
+   height: 30vh;
+   align-items: center;
+
+}
+.blogcard__body{
+    height: 12vh;
+    overflow: hidden;
+}
+.blogcard__heading{
+    font-size: 15pt;
+}
+
+.blogcard__btn{
+    background-color: white;
+    border: none;
+    color:#333c60;
+    font-weight: bold;
+    width: 150px;
+    border-radius: 10px;
+}
+@media(max-width:1200px){
+    .blogcard{
+        width: 80%;
+    }
+}
