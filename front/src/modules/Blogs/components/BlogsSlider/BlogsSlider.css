@@ -1,8 +1,14 @@
+.blog-container{
+    height: 115vh;
+    overflow: hidden;
+    position: relative;
+}
 .cards{
     display: grid;
     grid-template-columns: 1fr;
     justify-items: center;
-    margin-top: 5rem;
+    margin-top: 3rem;
+    position: relative;
 }
 .blogcard{
     width: 40vw;
