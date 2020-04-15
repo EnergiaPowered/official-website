@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+import Navbar from "shared/Navbar";
 import Footer from "shared/Footer";
 
 import comm_simp from "static_data/committees.json";
@@ -28,6 +29,7 @@ export default function SingleCommittee(props) {
       <Helmet>
         <title>Energia Powered | {data.title}</title>
       </Helmet>
+      <Navbar />
       <article className="page-component" id="SingleComm" style={style}>
         <header className="header-section">
           <h1 data-testid="comm-title">{data.title}</h1>

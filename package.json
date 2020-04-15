@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "Energia-backend",
   "main": "index.js",
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --write"
+    ]
+  },
   "scripts": {
     "dev-start": "concurrently \"nodemon\" \"cd front/ && npm start\"",
     "front-install": "cd front/ && npm i && cd .."
@@ -15,9 +20,17 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-validator": "^6.2.0",
-    "mongoose": "^5.7.9"
+    "husky": "^4.2.3",
+    "lint-staged": "^10.1.0",
+    "mongoose": "^5.7.9",
+    "prettier": "^2.0.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "devDependencies": {
-    "nodemon": "^1.19.4"
+    "nodemon": "^2.0.2"
   }
 }
