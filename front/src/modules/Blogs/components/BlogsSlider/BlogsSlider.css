@@ -2,6 +2,7 @@
     height: 115vh;
     overflow: hidden;
     position: relative;
+    
 }
 .cards{
     display: grid;
@@ -40,6 +41,15 @@
     font-weight: bold;
     width: 150px;
     border-radius: 10px;
+}
+.container-btn{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+.container-btn__down{
+    background-color: #333c60;
+    border: none;
+    color: white;
 }
 @media(max-width:1200px){
     .blogcard{

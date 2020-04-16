@@ -11,7 +11,7 @@ function BlogsPage(){
         <div className="page-component" style={style}>
            <Layout >
             <HeaderForBlogs />
-            <BlogsSlider />
+            <BlogsSlider/>
             </Layout>
         </div>
     )

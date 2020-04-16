@@ -1,25 +1,24 @@
 import React ,{useState ,useEffect ,useRef} from "react"
-
 import axios from "axios"
 import "./BlogsSlider.css"
 function BlogsSlider(){
     const [Blogs , setBlogs]= useState(null)
-    const [height , setHeight] = useState(0)
+    const [heightCards , setHeightCards] = useState(115)
     const cards =useRef()
    useEffect(()=>{
     axios.get("https://jsonplaceholder.typicode.com/posts")
     .then(res=>setBlogs(res.data))
    },[])
-   const handlingSlider =()=>{
-        cards.current.style.bottom = `${height}vh`
-        setHeight(height+40)
-        console.log(cards.current.style.bottom)
+   const handlingSliderdown =()=>{
+       cards.current.style.height = `${heightCards}vh`
+       setHeightCards(heightCards + 40)
    }
+  
    return(
        <>
-            <div className="blog-container">
+            <div className="blog-container" ref={cards}>
            {Blogs ? Blogs.map(blog=>{return (
-             <div className="cards" key={blog.id} ref={cards}>
+             <div className="cards" key={blog.id} >
              <article className="blogcard">
                   <div className="blogcard__img">
   
@@ -33,7 +32,9 @@ function BlogsSlider(){
              </div>)
             }):null}
             </div>
-            <button onClick={handlingSlider}>down</button>
+            <div className="container-btn">
+            <button onClick={handlingSliderdown} className="container-btn__down">down</button>
+            </div>
           
         </>
     )
