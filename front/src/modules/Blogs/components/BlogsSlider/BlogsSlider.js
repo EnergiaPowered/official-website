@@ -1,5 +1,7 @@
 import React ,{useState ,useEffect ,useRef} from "react"
+import { Link } from "react-router-dom";
 import axios from "axios"
+
 import "./BlogsSlider.css"
 function BlogsSlider(){
     const [Blogs , setBlogs]= useState(null)
@@ -26,7 +28,9 @@ function BlogsSlider(){
                   <div className="blogcard__content">
                       <h1 className="blogcard__heading">{blog.title}</h1>
                       <div className="blogcard__body"><p>{blog.body}</p></div>
+                       <Link to={`Blogs/${blog.id} `}>
                        <button className="blogcard__btn">Read more</button>
+                       </Link>
                   </div>
              </article>
              </div>)
