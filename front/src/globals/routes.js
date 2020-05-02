@@ -4,6 +4,7 @@ import Contacts from "modules/Contact";
 import AboutPage from "modules/About/components/page";
 
 import BlogsPage from './../modules/Blogs/index';
+import SingleBlog from './../modules/Blogs/components/SingleBlog/singleBlog';
 export default [
   {
     path: "/",
@@ -29,6 +30,15 @@ export default [
       label: "Blogs" 
     },
   } ,
+  {
+    path: "/Blogs/:id",
+    component: SingleBlog,
+    inNavbar: {
+      shown: false,
+      label: "" 
+    },
+  },
+  
   {
     path: "/committee/:id",
     component: SingleCommittee,

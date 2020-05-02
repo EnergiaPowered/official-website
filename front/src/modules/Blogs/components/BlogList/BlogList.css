@@ -1,9 +1,4 @@
-.blog-container{
-    height: 115vh;
-    overflow: hidden;
-    position: relative;
-    
-}
+
 .cards{
     display: grid;
     grid-template-columns: 1fr;
@@ -17,6 +12,7 @@
     background-color: #333c60;
     display: grid;
     grid-template-columns: 1fr 2fr;
+    margin:1rem 0 1rem 0;
     
 }
 .blogcard__content{
