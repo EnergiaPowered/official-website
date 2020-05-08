@@ -11,6 +11,7 @@ db();
 // Importing Routes
 const contactInfo = require("./routes/contactInfo");
 const message = require("./routes/message.js");
+const blog = require("./routes/blog");
 
 // parse the body of the request
 app.use(express.json());
