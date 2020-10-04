@@ -3,6 +3,8 @@ import SingleCommittee from "modules/Committees/components/SingleCommitteePage";
 import Contacts from "modules/Contact";
 import AboutPage from "modules/About/components/page";
 
+import BlogsPage from './../modules/Blogs/index';
+import SingleBlog from './../modules/Blogs/components/SingleBlog/singleBlog';
 export default [
   {
     path: "/",
@@ -21,12 +23,29 @@ export default [
     }
   },
   {
+    path: "/Blogs",
+    component: BlogsPage,
+    inNavbar: {
+      shown: true,
+      label: "Blogs" 
+    },
+  } ,
+  {
+    path: "/Blogs/:id",
+    component: SingleBlog,
+    inNavbar: {
+      shown: false,
+      label: "" 
+    },
+  },
+  
+  {
     path: "/committee/:id",
     component: SingleCommittee,
     inNavbar: {
       shown: false,
       label: "" // generated dynamically
-    }
+    } 
   },
   // {
   //   path: "/events",

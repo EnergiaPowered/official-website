@@ -6,7 +6,9 @@ import {
     faMapPin,
     faMapMarker,
     faMailBulk,
-    faPhone
+    faPhone,
+   
+
 } from "@fortawesome/free-solid-svg-icons";
 
 // Adding all the icons we need in the project
