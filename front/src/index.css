@@ -39,7 +39,8 @@ h2 {
 
 .header-section {
   display: flex;
-  flex-direction: column; /* to align items on the middle */
+  flex-direction: column;
+  /* to align items on the middle */
   justify-content: center;
   padding-top: 15%;
   padding-bottom: 20%;
@@ -60,11 +61,6 @@ h2 {
   font-weight: 800;
   margin-bottom: 80px;
   text-transform: uppercase;
-}
-
-/* set the font size of each component properly */
-.component-font {
-  font-size: 1.5vw;
 }
 
 .component-font .icon {

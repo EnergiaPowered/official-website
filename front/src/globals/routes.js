@@ -2,7 +2,7 @@ import Home from "modules/Home";
 import SingleCommittee from "modules/Committees/components/SingleCommitteePage";
 import Contacts from "modules/Contact";
 import AboutPage from "modules/About/components/page";
-
+import Events from "../pages/EventsPage";
 import BlogsPage from './../modules/Blogs/index';
 import SingleBlog from './../modules/Blogs/components/SingleBlog/singleBlog';
 export default [
@@ -27,34 +27,35 @@ export default [
     component: BlogsPage,
     inNavbar: {
       shown: true,
-      label: "Blogs" 
+      label: "Blogs"
     },
-  } ,
+  },
   {
     path: "/Blogs/:id",
     component: SingleBlog,
     inNavbar: {
       shown: false,
-      label: "" 
+      label: ""
     },
   },
-  
+
   {
     path: "/committee/:id",
     component: SingleCommittee,
     inNavbar: {
       shown: false,
       label: "" // generated dynamically
-    } 
+    }
+  },
+  {
+    path: "/events",
+    component: Events,
+    inNavbar: {
+      shown: true,
+      label: "Events"
+    }
   },
   // {
-  //   path: "/events",
-  //   component: Events,
-  //   inNavbar: {
-  //     shown: true,
-  //     label: "Events"
-  //   }
-  // },  {
   //   path: "/events/:id/:title",
   //   component: SingleEvent,
   //   inNavbar: {
