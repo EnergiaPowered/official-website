@@ -11,6 +11,7 @@ db();
 // Importing Routes
 const contactInfo = require("./routes/contactInfo");
 const message = require("./routes/message.js");
+const blogs = require("./routes/blogs.js");
 
 // parse the body of the request
 app.use(express.json());
@@ -35,6 +36,7 @@ app.disable("x-powered-by");
 // Router MiddleWares
 app.use(contactInfo);
 app.use(message);
+app.use(blogs);
 
 // listen to specific port
 const port = process.env.PORT || 4000;
