@@ -3,8 +3,10 @@ import "./style.css"
 
 export default function Header() {
   return (
-    <header className="header-section">
-      <h1>Contact US</h1>
-    </header>
-  );
+    <div id="header" className="header-section">
+      <header className="container">
+        <h1 className="header-title">Contact US</h1>
+      </header>
+    </div>
+  )
 }
