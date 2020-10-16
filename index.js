@@ -12,6 +12,7 @@ db();
 const contactInfo = require("./routes/contactInfo");
 const message = require("./routes/message.js");
 const blogs = require("./routes/blogs.js");
+const events = require("./routes/events");
 
 // parse the body of the request
 app.use(express.json());
@@ -37,6 +38,7 @@ app.disable("x-powered-by");
 app.use(contactInfo);
 app.use(message);
 app.use(blogs);
+app.use("/api/events",events);
 
 // listen to specific port
 const port = process.env.PORT || 4000;
