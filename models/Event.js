@@ -7,23 +7,22 @@ const eventSchema = new mongoose.Schema({
 	},
 	date: {
 		type: Date,
-		default: Date,
 		required: true,
 	},
 	status: {
 		type: String,
 		required: true,
-		enum: ['closed', 'soon', 'opened'],
+		enum: ['Closed', 'Soon', 'Opened'],
 	},
-	eventDescription:{
+	eventDescription: {
 		type: String,
 		required: true,
 	},
-	eventLocation:{
+	eventLocation: {
 		type: String,
 		required: true,
 	},
-	eventOrganizer:{
+	eventOrganizer: {
 		type: String,
 		required: true,
 	},
