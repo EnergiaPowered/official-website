@@ -8,7 +8,7 @@ const Message = require("../models/Message");
 const messageCheckSchema = checkSchema({
   name: {
     isString: true,
-    exists:{
+    exists: {
       options: {
         checkFalsy: true
       }
@@ -18,7 +18,7 @@ const messageCheckSchema = checkSchema({
   },
   email: {
     isEmail: true,
-    exists:{
+    exists: {
       options: {
         checkFalsy: true
       }
@@ -29,7 +29,7 @@ const messageCheckSchema = checkSchema({
   },
   message: {
     isString: true,
-    exists:{
+    exists: {
       options: {
         checkFalsy: true
       }
@@ -42,7 +42,7 @@ const messageCheckSchema = checkSchema({
 // Receive messages from the user w/ validation and sanitization
 router.post("/message", messageCheckSchema, (req, res) => {
   try {
-    if (req.body && req.body !== {}) {    
+    if (req.body && req.body !== {}) {
       validationResult(req).throw();
       let newMessage = new Message(req.body);
       newMessage.save((err, mess) => {

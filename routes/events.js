@@ -1,5 +1,4 @@
 const express = require("express");
-const { validationResult } = require("express-validator");
 const router = express.Router();
 router.use(express.json());
 // joi Validation
@@ -8,107 +7,91 @@ const Joi = require('joi');
 const Event = require("../models/Event");
 
 
-// Defining a Checking Schema for the Event Body
-
-const schema = Joi.object({
+// Defining a Checking schema for the Event Body
+const eventsSchema = Joi.object({
   name: Joi.string()
-  .required(),
+    .required(),
 
   date: Joi.date()
-  .greater('1-1-2019'),
+    .greater('1-1-2019'),
 
   status: Joi.string()
-  .required()
-  .valid('closed', 'soon', 'opened'),
+    .required()
+    .valid('Closed', 'Soon', 'Opened'),
 
   eventDescription: Joi.string()
-  .required(),
+    .required(),
 
   eventLocation: Joi.string()
-  .required(),
+    .required(),
 
   eventOrganizer: Joi.string()
-  .required()
-  
+    .required()
+
 })
 
-// CRUD Operations routing of event 
-
-router.get("/",(req,res)=>{
-
-try{
-  const events = Event.find({})
-  .then((e) =>{  res.send(e);
-  });
-}
-catch (err){
-  console.log(err.message);
-  res.sendStatus(500);
-}  
-
-
+// CRUD Operations routing of event
+router.get("/events", (req, res) => {
+  try {
+    Event.find({})
+      .then((events) => {
+        res.send(events);
+      });
+  } catch (err) {
+    console.log(err.message);
+    res.sendStatus(500);
+  }
 });
 
-router.post("/",(req,res)=>{
-
-  result = schema.validate(req.body)
-  if (result.error){
+router.post("/events", (req, res) => {
+  result = eventsSchema.validate(req.body)
+  if (result.error) {
     console.log(result.error.message);
     res.sendStatus(400);
     return;
   }
   let newEvent = new Event(req.body);
   newEvent.save();
-  res.send(JSON.stringify(newEvent))  ;
-
+  res.send(JSON.stringify(newEvent));
 });
 
-router.put("/:id",(req,res)=>{
-
-  result = schema.validate(req.body)
-  if (result.error){
+router.put("/events/:id", (req, res) => {
+  result = eventsSchema.validate(req.body)
+  if (result.error) {
     console.log(result.error.message);
     res.sendStatus(400);
     return;
   }
 
-  try{
-    let event = Event.findByIdAndUpdate({ _id: req.params.id },
-      {$set: req.body
+  try {
+    Event.findByIdAndUpdate({ _id: req.params.id },
+      {
+        $set: req.body
       })
-      .then((e) =>{  res.send(e);
+      .then((event) => {
+        res.send(event);
       });
-
-
-  }
-  catch (err){
+  } catch (err) {
     console.log(err.message);
-    res.sendStatus(404);
-  }  
-
+    res.sendStatus(500);
+  }
 });
 
-router.delete("/:id",(req,res)=>{
-
-  try{
-    const event = Event.findByIdAndRemove(req.params.id, (err, event) => { 
-      if (event == null){ 
+router.delete("/events/:id", (req, res) => {
+  try {
+    Event.findByIdAndRemove(req.params.id, (err, event) => {
+      if (err) throw err;
+      if (event == null) {
         res.sendStatus(404);
-      } 
-      else{ 
-          res.send(JSON.stringify(event))
-          
-      } 
-
+      }
+      else {
+        res.send(JSON.stringify(event))
+      }
     });
-
-
-  }
-  catch (err){
+  } catch (err) {
     console.log(err.message);
-    res.sendStatus(404);
-  }  
-
+    res.sendStatus(500);
+  }
 });
 
 module.exports = router;

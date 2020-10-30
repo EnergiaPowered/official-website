@@ -6,13 +6,13 @@ const Info = require("../models/Info");
 
 // Retrieve contacts info
 router.get("/contactInfo", (req, res) => {
-    Info.find({}, (err, docs) => {
-        if (err) {
-          console.log(err);
-          return res.sendStatus(500);
-        }
-        res.status(200).send(docs[0]);
-    });
+  Info.find({}, (err, docs) => {
+    if (err) {
+      console.log(err);
+      return res.sendStatus(500);
+    }
+    res.status(200).send(docs[0]);
+  });
 });
 
 module.exports = router;
