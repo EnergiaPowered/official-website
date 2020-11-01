@@ -5,7 +5,7 @@ import bg_blogs from "assets/Blogs-header.png";
 import BlogList from './components/BlogList/BlogList';
 function BlogsPage() {
     let style = {
-        backgroundImage: `url(${bg_blogs})`
+        backgroundImage: `url(${bg_blogs})`,
     };
     return (
         <div className="page-component" style={style}>
