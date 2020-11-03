@@ -2,6 +2,7 @@ const { json } = require("express");
 const express = require("express");
 const router = express.Router();
 const { checkSchema, validationResult } = require("express-validator");
+const { findByIdAndUpdate } = require("../models/Blog");
 // Importing Model
 const Blog = require("../models/Blog");
 
@@ -44,7 +45,7 @@ router.get("/blogs", (req, res) => {
 router.post("/blogs", blogCheckSchema, (req, res) => {
     try {
         if (req.body && req.body !== {}) {
-            // validationResult(req).throw();
+            validationResult(req).throw();
             let newBlog = new Blog(req.body);
             newBlog.save((err, blog) => {
                 if (err) {
@@ -57,6 +58,52 @@ router.post("/blogs", blogCheckSchema, (req, res) => {
     } catch (err) {
         res.status(400).send(err.mapped());
     }
+});
+
+// Receive messages from the user w/ validation and sanitization
+router.put("/blogs/:id", blogCheckSchema, (req, res) => {
+    try {
+        if (req.body && req.body !== {}) {
+            validationResult(req).throw();
+            Blog.findByIdAndUpdate(req.params.id, { $set: req.body }, ((err, blog) => {
+                if (err) {
+                    console.log(err);
+                    return res.status(500).send(err);
+                }
+                if (!blog) {
+                    console.log("Error 404: Blog not found");
+                    return res.status(404);
+                }
+                res.sendStatus(200);
+            }));
+        } else res.sendStatus(400);
+    } catch (err) {
+        res.status(400).send(err.mapped());
+    }
+});
+
+router.delete("/blogs/:id", (req, res) => {
+    Blog.findByIdAndRemove(req.params.id, (err, blog) => {
+        if (err) {
+            console.log(err);
+            return res.status(500).send(err);
+        }
+        if (!blog) {
+            console.log("Error 404: Blog not found");
+            return res.status(404);
+        }
+        res.sendStatus(200);
+    });
+});
+
+router.delete("/blogs", (req, res) => {
+    Blog.deleteMany({}, err => {
+        if (err) {
+            console.log(err);
+            return res.status(500).send(err);
+        }
+        res.sendStatus(200);
+    });
 });
 
 module.exports = router;
