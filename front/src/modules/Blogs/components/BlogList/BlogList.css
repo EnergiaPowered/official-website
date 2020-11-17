@@ -1,57 +1,3 @@
-/* .cards{
-    display: grid;
-    grid-template-columns: 1fr;
-    justify-items: center;
-    margin-top: 3rem;
-    position: relative;
-}
-.blogcard{
-    width: 40vw;
-    height: 30vh;
-    background-color: #333c60;
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    margin:1rem 0 1rem 0;
-    
-}
-.blogcard__content{
-   display: grid;
-   grid-template-rows: .8fr 2fr .8fr;
-   height: 30vh;
-   align-items: center;
-
-}
-.blogcard__body{
-    height: 12vh;
-    overflow: hidden;
-}
-.blogcard__heading{
-    font-size: 15pt;
-}
-
-.blogcard__btn{
-    background-color: white;
-    border: none;
-    color:#333c60;
-    font-weight: bold;
-    width: auto;
-    border-radius: 10px;
-}
-.container-btn{
-    display: grid;
-    grid-template-columns: 1fr;
-}
-.container-btn__down{
-    background-color: #333c60;
-    border: none;
-    color: white;
-}
-@media(max-width:1200px){
-    .blogcard{
-        width: 80%;
-    }
-} */
-
 .cards {
     margin: 0 1rem;
 }
@@ -60,6 +6,7 @@
     position: relative;
     box-sizing: border-box;
     color: #010e30;
+    margin-bottom: 20px;
 }
 
 .blogcard__content {
@@ -67,28 +14,53 @@
     top: 0;
     left: 0;
     width: 100%;
+    padding: 2vw 4vw 0vw 4vw;
+    font-family: 'Cairo', sans-serif;
 }
 
 .blogcard__heading {
-    text-align: center;
-    position: absolute;
-    top: 30px;
-    left: 0;
     width: 100%;
     text-align: center;
+    font-weight: bold;
+    font-size: 2.563vw;
+    margin-bottom: 1vw;
 }
 
 .blogcard__body {
-    position: absolute;
-    top: 75px;
-    left: 50px;
-    width: fit-content;
-    max-width: 312px;
-    max-height: 150px;
     overflow: hidden;
     text-align: justify;
+    font-size: 1.563vw;
 }
 
 p { 
+    position: relative;
     width: 100%;
+    margin: 0;
+    height: 12vw;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+p:hover, p:active { 
+    color: #3c78fa;
+}
+
+@media(max-width: 991px) {
+    .blogcard__content {
+        padding: 4vw 6vw 0vw 6vw;
+    }
+
+    p {
+        height: 18.5vw;
+    }
+}
+
+@media(max-width: 575px) {
+    .blogcard__content {
+        padding: 4vw 8vw 0vw 8vw;
+    }
+
+    p {
+        height: 16vw;
+    }
 }

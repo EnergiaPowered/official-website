@@ -1,8 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const app = express();
-const config = require('config')
-
+// const config = require('./config');
 
 require("dotenv").config();
 
@@ -10,17 +9,18 @@ require("dotenv").config();
 const db = require("./mongo");
 db();
 
-if (!config.get('jwtPrivateKey')) {
-  console.log('FATAL ERROR: jwtPrivateKey is not defined.');
-  process.exit(1);
-}
+// if (!config.get('jwtPrivateKey')) {
+//   console.log('FATAL ERROR: jwtPrivateKey is not defined.');
+//   process.exit(1);
+// }
+
 // Importing Routes
 const contactInfo = require("./routes/contactInfo");
 const message = require("./routes/message");
 const blogs = require("./routes/blogs");
 const events = require("./routes/events");
-const users = require("./routes/users");
-const login = require("./routes/login");
+// const users = require("./routes/users");
+// const login = require("./routes/login");
 
 // parse the body of the request
 app.use(express.json());
@@ -47,8 +47,8 @@ app.use(contactInfo);
 app.use(message);
 app.use(blogs);
 app.use(events);
-app.use(users);
-app.use(login);
+// app.use(users);
+// app.use(login);
 
 
 // listen to specific port
