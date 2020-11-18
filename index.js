@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const app = express();
-// const config = require('./config');
+const config = require('./config/custom-environment-variables.json');
 
 require("dotenv").config();
 
@@ -9,18 +9,10 @@ require("dotenv").config();
 const db = require("./mongo");
 db();
 
-// if (!config.get('jwtPrivateKey')) {
-//   console.log('FATAL ERROR: jwtPrivateKey is not defined.');
-//   process.exit(1);
-// }
-
-// Importing Routes
-const contactInfo = require("./routes/contactInfo");
-const message = require("./routes/message");
-const blogs = require("./routes/blogs");
-const events = require("./routes/events");
-// const users = require("./routes/users");
-// const login = require("./routes/login");
+if (!config['jwtPrivateKey']) {
+  console.log('FATAL ERROR: jwtPrivateKey is not defined.');
+  process.exit(1);
+}
 
 // parse the body of the request
 app.use(express.json());
@@ -43,14 +35,16 @@ if (process.env.NODE_ENV === "production") {
 app.disable("x-powered-by");
 
 // Router MiddleWares
-app.use(contactInfo);
-app.use(message);
-app.use(blogs);
-app.use(events);
-// app.use(users);
-// app.use(login);
-
+app.use(require("./routes/contactInfo"));
+app.use(require("./routes/message"));
+app.use(require("./routes/blogs"));
+app.use(require("./routes/events"));
+app.use(require("./routes/users"));
+app.use(require("./routes/login"));
 
 // listen to specific port
 const port = process.env.PORT || 4000;
-app.listen(port, () => console.log(`Listening to port ${port}`));
+app.listen(port, err => {
+  if (err) return console.log(err);
+  console.log(`Listening to port ${port}`)
+});

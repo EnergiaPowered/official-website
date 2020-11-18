@@ -32,7 +32,7 @@
     font-size: 1.563vw;
 }
 
-p { 
+.blogcard__body p { 
     position: relative;
     width: 100%;
     margin: 0;
@@ -41,7 +41,7 @@ p {
     transition: 0.3s;
 }
 
-p:hover, p:active { 
+.blogcard__body p:hover, .blogcard__body p:active { 
     color: #3c78fa;
 }
 
@@ -50,7 +50,7 @@ p:hover, p:active {
         padding: 4vw 6vw 0vw 6vw;
     }
 
-    p {
+    .blogcard__body p {
         height: 18.5vw;
     }
 }
@@ -60,7 +60,7 @@ p:hover, p:active {
         padding: 4vw 8vw 0vw 8vw;
     }
 
-    p {
+    .blogcard__body p {
         height: 16vw;
     }
 }

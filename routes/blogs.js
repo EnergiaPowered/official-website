@@ -1,8 +1,6 @@
-const { json } = require("express");
 const express = require("express");
 const router = express.Router();
 const { checkSchema, validationResult } = require("express-validator");
-const { findByIdAndUpdate } = require("../models/Blog");
 // Importing Model
 const Blog = require("../models/Blog");
 
