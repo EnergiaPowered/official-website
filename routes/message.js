@@ -3,7 +3,8 @@ const router = express.Router();
 const { checkSchema, validationResult } = require("express-validator");
 // Importing Model
 const Message = require("../models/Message");
-
+const auth = require("../middleware/auth")
+const admin = require("../middleware/admin")
 // Defining a Checking Schema for the Message Body
 const messageCheckSchema = checkSchema({
   name: {
@@ -40,7 +41,16 @@ const messageCheckSchema = checkSchema({
 });
 
 // Receive messages from the user w/ validation and sanitization
-router.post("/message", messageCheckSchema, (req, res) => {
+router.get("/message", (req, res) => {
+  Message.find({}, (err, messages) => {
+      if (err) {
+          console.log(err);
+          return res.sendStatus(500);
+      }
+      res.status(200).json(messages);
+  });
+});
+router.post("/message",messageCheckSchema, (req, res) => {
   try {
     if (req.body && req.body !== {}) {
       validationResult(req).throw();

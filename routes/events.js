@@ -5,7 +5,8 @@ router.use(express.json());
 const Joi = require('joi');
 // Importing Model
 const Event = require("../models/Event");
-
+const auth = require("../middleware/auth")
+const admin = require("../middleware/admin")
 
 // Defining a Checking schema for the Event Body
 const eventsSchema = Joi.object({
@@ -43,7 +44,7 @@ router.get("/events", (req, res) => {
   }
 });
 
-router.post("/events", (req, res) => {
+router.post("/events",[auth,admin], (req, res) => {
   result = eventsSchema.validate(req.body)
   if (result.error) {
     console.log(result.error.message);
@@ -55,7 +56,7 @@ router.post("/events", (req, res) => {
   res.send(JSON.stringify(newEvent));
 });
 
-router.put("/events/:id", (req, res) => {
+router.put("/events/:id",[auth,admin], (req, res) => {
   result = eventsSchema.validate(req.body)
   if (result.error) {
     console.log(result.error.message);
@@ -77,7 +78,7 @@ router.put("/events/:id", (req, res) => {
   }
 });
 
-router.delete("/events/:id", (req, res) => {
+router.delete("/events/:id",[auth,admin], (req, res) => {
   try {
     Event.findByIdAndRemove(req.params.id, (err, event) => {
       if (err) throw err;
