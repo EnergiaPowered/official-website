@@ -1,9 +1,12 @@
+const { json } = require("express");
 const express = require("express");
 const router = express.Router();
 const { checkSchema, validationResult } = require("express-validator");
+const { findByIdAndUpdate } = require("../models/Blog");
 // Importing Model
 const Blog = require("../models/Blog");
-
+const auth = require("../middleware/auth")
+const admin = require("../middleware/admin")
 // Defining a Checking Schema for the Blog Body
 const blogCheckSchema = checkSchema({
     title: {
@@ -17,6 +20,26 @@ const blogCheckSchema = checkSchema({
         escape: true
     },
     body: {
+        isString: true,
+        exists: {
+            options: {
+                checkFalsy: true
+            }
+        },
+        rtrim: true,
+        escape: true
+    },
+    Category: {
+        isString: true,
+        exists: {
+            options: {
+                checkFalsy: true
+            }
+        },
+        rtrim: true,
+        escape: true
+    },
+    image_url: {
         isString: true,
         exists: {
             options: {
@@ -40,7 +63,7 @@ router.get("/blogs", (req, res) => {
 });
 
 // Receive messages from the user w/ validation and sanitization
-router.post("/blogs", blogCheckSchema, (req, res) => {
+router.post("/blogs", [auth, admin, blogCheckSchema], (req, res) => {
     try {
         if (req.body && req.body !== {}) {
             validationResult(req).throw();
@@ -59,7 +82,7 @@ router.post("/blogs", blogCheckSchema, (req, res) => {
 });
 
 // Receive messages from the user w/ validation and sanitization
-router.put("/blogs/:id", blogCheckSchema, (req, res) => {
+router.put("/blogs/:id", [auth, admin, blogCheckSchema], (req, res) => {
     try {
         if (req.body && req.body !== {}) {
             validationResult(req).throw();
@@ -80,7 +103,7 @@ router.put("/blogs/:id", blogCheckSchema, (req, res) => {
     }
 });
 
-router.delete("/blogs/:id", (req, res) => {
+router.delete("/blogs/:id", [auth, admin], (req, res) => {
     Blog.findByIdAndRemove(req.params.id, (err, blog) => {
         if (err) {
             console.log(err);
@@ -94,14 +117,5 @@ router.delete("/blogs/:id", (req, res) => {
     });
 });
 
-router.delete("/blogs", (req, res) => {
-    Blog.deleteMany({}, err => {
-        if (err) {
-            console.log(err);
-            return res.status(500).send(err);
-        }
-        res.sendStatus(200);
-    });
-});
 
 module.exports = router;

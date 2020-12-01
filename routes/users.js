@@ -68,7 +68,7 @@ router.put("/users", auth, async (req, res) => {
 
   }
   else {
-    user.name = name;
+    user.name = req.body.name;
     user.password = req.body.password;
     // hashing password
     const salt = await bcrypt.genSalt(10);
