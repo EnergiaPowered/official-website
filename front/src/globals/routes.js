@@ -2,7 +2,7 @@ import Home from "modules/Home";
 import SingleCommittee from "modules/Committees/components/SingleCommitteePage";
 import Contacts from "modules/Contact";
 import AboutPage from "modules/About/components/page";
-import Events from "../pages/EventsPage";
+import Events from "modules/Events/EventsEP";
 import BlogsPage from './../modules/Blogs/index';
 import SingleBlog from './../modules/Blogs/components/SingleBlog/singleBlog';
 export default [
