@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from "react"
 import "./index.css";
-import Layout from './../../shared/Layout/index';
+import Layout from '../../shared/Layout/index';
 import { IoIosArrowDown } from 'react-icons/io';
 
 import Competition from "./components/Competition";
