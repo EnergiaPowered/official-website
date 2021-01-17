@@ -15,7 +15,7 @@ function Session() {
                        
                         <div className="container_card1 row" >
                             <div className="img_card " >
-                            <img src="https://via.placeholder.com/150?text=user-img" className="rounded-circle"/>
+                            <img src="https://via.placeholder.com/150/DE38F1?text=user-img" className="rounded-circle"/>
                             </div>
                             
                             <div className="details_card">
@@ -29,7 +29,7 @@ function Session() {
 
                         <div className="container_card2 row ">
                             <div className="img_card">
-                            <img src="https://via.placeholder.com/150?text=user-img" className="rounded-circle"/>
+                            <img src="https://via.placeholder.com/150/D4C508?text=user-img" className="rounded-circle"/>
                         </div>
                             <div className="details_card">
                                 <div className="title_event"    > <h4>BE CREATIVE</h4></div>
@@ -43,7 +43,7 @@ function Session() {
 
                         <div className="container_card3 row ">
                             <div className="img_card">
-                            <img src="https://via.placeholder.com/150?text=user-img" className="rounded-circle"/>
+                            <img src="https://via.placeholder.com/150/0859C9?text=user-img" className="rounded-circle"/>
                         </div>
                             <div className="details_card">
                                 <div className="title_event"    > <h4>BE CREATIVE</h4></div>

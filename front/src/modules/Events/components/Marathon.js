@@ -15,7 +15,7 @@ function Marathon() {
                        
                         <div className="container_card1 row" >
                             <div className="img_card " >
-                            <img src="https://via.placeholder.com/150?text=user-img" className="rounded-circle"/>
+                            <img src="https://via.placeholder.com/150/2F4F4F?text=user-img" className="rounded-circle"/>
                             </div>
                             
                             <div className="details_card">
@@ -29,7 +29,7 @@ function Marathon() {
 
                         <div className="container_card2 row ">
                             <div className="img_card">
-                            <img src="https://via.placeholder.com/150?text=user-img" className="rounded-circle"/>
+                            <img src="https://via.placeholder.com/150/000080?text=user-img" className="rounded-circle"/>
                         </div>
                             <div className="details_card">
                                 <div className="title_event"    > <h4>BE CREATIVE</h4></div>
@@ -43,7 +43,7 @@ function Marathon() {
 
                         <div className="container_card3 row ">
                             <div className="img_card">
-                            <img src="https://via.placeholder.com/150?text=user-img" className="rounded-circle"/>
+                            <img src="https://via.placeholder.com/150/8B008B?text=user-img" className="rounded-circle"/>
                         </div>
                             <div className="details_card">
                                 <div className="title_event"    > <h4>BE CREATIVE</h4></div>

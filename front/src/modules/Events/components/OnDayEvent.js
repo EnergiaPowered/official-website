@@ -15,7 +15,7 @@ function OnDayEvent() {
                        
                         <div className="container_card1 row" >
                             <div className="img_card " >
-                            <img src="https://via.placeholder.com/150?text=user-img" className="rounded-circle"/>
+                            <img src="https://via.placeholder.com/150/006400?text=user-img" className="rounded-circle"/>
                             </div>
                             
                             <div className="details_card">
@@ -29,7 +29,7 @@ function OnDayEvent() {
 
                         <div className="container_card2 row ">
                             <div className="img_card">
-                            <img src="https://via.placeholder.com/150?text=user-img" className="rounded-circle"/>
+                            <img src="https://via.placeholder.com/150/FFFF00?text=user-img" className="rounded-circle"/>
                         </div>
                             <div className="details_card">
                                 <div className="title_event"    > <h4>BE CREATIVE</h4></div>
@@ -43,7 +43,7 @@ function OnDayEvent() {
 
                         <div className="container_card3 row ">
                             <div className="img_card">
-                            <img src="https://via.placeholder.com/150?text=user-img" className="rounded-circle"/>
+                            <img src="https://via.placeholder.com/150/00FA9A?text=user-img" className="rounded-circle"/>
                         </div>
                             <div className="details_card">
                                 <div className="title_event"    > <h4>BE CREATIVE</h4></div>
