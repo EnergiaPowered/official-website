@@ -16,18 +16,19 @@ import QualityManager from "./components/QualityManager";
 import "./index.css";
 import Layout from '../../shared/Layout/index';
 import { IoIosArrowDown } from 'react-icons/io';
+import BackGroundImg from "../Img/Dpage.png";
 
 
 
 
 
 function Events() {
-
+    
 
     const [switchPage] = useState([<WebDevelopment/>,<ArduinoEmbeddedSystems/>,<CPlathPlath/>,<DecorationCoordinationReception/>,
     <Design/>,<DigitalElectronics/>,<HumanResources/>,<Logistics/>,<Management/>,<Marketing/>,<Media/>,<MobileAppDevelopment/>,
-        <PublicRelations/>,<QualityManager/> ]);
-    const [handelPage, setHandelPage] = useState();
+        <PublicRelations/>,<QualityManager/> ,<img id="back_ground_img" src={BackGroundImg} alt="Smiley face"/>]);
+    const [handelPage, setHandelPage] = useState(switchPage[14]);
 
 
 
@@ -61,6 +62,7 @@ function Events() {
                         </div>
                     </div>
                 </div>
+                
                <div> {handelPage} </div>
             </Layout>
         </div>
