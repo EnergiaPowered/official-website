@@ -2,9 +2,11 @@ const { json } = require("express");
 const express = require("express");
 const router = express.Router();
 const { checkSchema, validationResult } = require("express-validator");
+const { findByIdAndUpdate } = require("../models/Blog");
 // Importing Model
 const Blog = require("../models/Blog");
-
+const auth = require("../middleware/auth")
+const admin = require("../middleware/admin")
 // Defining a Checking Schema for the Blog Body
 const blogCheckSchema = checkSchema({
     title: {
@@ -18,6 +20,26 @@ const blogCheckSchema = checkSchema({
         escape: true
     },
     body: {
+        isString: true,
+        exists: {
+            options: {
+                checkFalsy: true
+            }
+        },
+        rtrim: true,
+        escape: true
+    },
+    Category: {
+        isString: true,
+        exists: {
+            options: {
+                checkFalsy: true
+            }
+        },
+        rtrim: true,
+        escape: true
+    },
+    image_url: {
         isString: true,
         exists: {
             options: {
@@ -41,10 +63,10 @@ router.get("/blogs", (req, res) => {
 });
 
 // Receive messages from the user w/ validation and sanitization
-router.post("/blogs", blogCheckSchema, (req, res) => {
+router.post("/blogs",[auth,admin, blogCheckSchema], (req, res) => {
     try {
         if (req.body && req.body !== {}) {
-            // validationResult(req).throw();
+            validationResult(req).throw();
             let newBlog = new Blog(req.body);
             newBlog.save((err, blog) => {
                 if (err) {
@@ -58,5 +80,42 @@ router.post("/blogs", blogCheckSchema, (req, res) => {
         res.status(400).send(err.mapped());
     }
 });
+
+// Receive messages from the user w/ validation and sanitization
+router.put("/blogs/:id", [auth,admin, blogCheckSchema], (req, res) => {
+    try {
+        if (req.body && req.body !== {}) {
+            validationResult(req).throw();
+            Blog.findByIdAndUpdate(req.params.id, { $set: req.body }, ((err, blog) => {
+                if (err) {
+                    console.log(err);
+                    return res.status(500).send(err);
+                }
+                if (!blog) {
+                    console.log("Error 404: Blog not found");
+                    return res.status(404);
+                }
+                res.sendStatus(200);
+            }));
+        } else res.sendStatus(400);
+    } catch (err) {
+        res.status(400).send(err.mapped());
+    }
+});
+
+router.delete("/blogs/:id",[auth,admin], (req, res) => {
+    Blog.findByIdAndRemove(req.params.id, (err, blog) => {
+        if (err) {
+            console.log(err);
+            return res.status(500).send(err);
+        }
+        if (!blog) {
+            console.log("Error 404: Blog not found");
+            return res.status(404);
+        }
+        res.sendStatus(200);
+    });
+});
+
 
 module.exports = router;

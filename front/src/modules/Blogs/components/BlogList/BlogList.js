@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom"
+// import { Link } from "react-router-dom"
 import { getBlogs } from "./../../sevices/blogs.services"
+import blogBG from "../../../../assets/Group 3@2x.png";
 import "./BlogList.css"
 function BlogList() {
     const [blogList, setBlogsList] = useState(null)
@@ -10,21 +11,20 @@ function BlogList() {
     }, [])
     return (
         <>
-            <div className="cards">
+            <div className="cards row">
                 {
                     blogList ? blogList.map(blog => {
                         return (
-                            <article className="blogcard" key={blog._id}>
-                                <div className="blogcard__img">
-                                </div>
+                            <article className="blogcard col-12 col-md-6 col-lg-4" key={blog._id}>
+                                <img src={blogBG} alt="Blog Container" />
                                 <div className="blogcard__content">
-                                    <h1 className="blogcard__heading">{blog.title}</h1>
+                                    <h3 className="blogcard__heading">{blog.title}</h3>
                                     <div className="blogcard__body">
                                         <p>{blog.body}</p>
                                     </div>
-                                    <Link to={`./Blogs/${blog._id}`}>
+                                    {/* <Link to={`./Blogs/${blog._id}`}>
                                         <button className="blogcard__btn">Read more about this article</button>
-                                    </Link>
+                                    </Link> */}
                                 </div>
                             </article>
                         )
