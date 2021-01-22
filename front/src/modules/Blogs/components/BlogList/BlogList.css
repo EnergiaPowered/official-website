@@ -1,66 +1,67 @@
 .cards {
-    margin: 0 1rem;
+  margin: 0 1rem;
 }
 
 .blogcard {
-    position: relative;
-    box-sizing: border-box;
-    color: #010e30;
-    margin-bottom: 20px;
+  position: relative;
+  box-sizing: border-box;
+  color: #010e30;
+  margin-bottom: 20px;
 }
 
 .blogcard__content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 2vw 4vw 0vw 4vw;
-    font-family: 'Cairo', sans-serif;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 2vw 4vw 0vw 4vw;
+  font-family: "Cairo", sans-serif;
 }
 
 .blogcard__heading {
-    width: 100%;
-    text-align: center;
-    font-weight: bold;
-    font-size: 2.563vw;
-    margin-bottom: 1vw;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  font-size: 2.563vw;
+  margin-bottom: 1vw;
 }
 
 .blogcard__body {
-    overflow: hidden;
-    text-align: justify;
-    font-size: 1.563vw;
+  overflow: hidden;
+  text-align: justify;
+  font-size: 1.563vw;
 }
 
-.blogcard__body p { 
-    position: relative;
-    width: 100%;
-    margin: 0;
-    height: 12vw;
-    cursor: pointer;
-    transition: 0.3s;
+.blogcard__body p {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  height: 12vw;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-.blogcard__body p:hover, .blogcard__body p:active { 
-    color: #3c78fa;
+.blogcard__body p:hover,
+.blogcard__body p:active {
+  color: #3c78fa;
 }
 
-@media(max-width: 991px) {
-    .blogcard__content {
-        padding: 4vw 6vw 0vw 6vw;
-    }
+@media (max-width: 991px) {
+  .blogcard__content {
+    padding: 4vw 6vw 0vw 6vw;
+  }
 
-    .blogcard__body p {
-        height: 18.5vw;
-    }
+  .blogcard__body p {
+    height: 18.5vw;
+  }
 }
 
-@media(max-width: 575px) {
-    .blogcard__content {
-        padding: 4vw 8vw 0vw 8vw;
-    }
+@media (max-width: 575px) {
+  .blogcard__content {
+    padding: 4vw 8vw 0vw 8vw;
+  }
 
-    .blogcard__body p {
-        height: 16vw;
-    }
+  .blogcard__body p {
+    height: 16vw;
+  }
 }

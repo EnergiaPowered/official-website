@@ -1,9 +1,11 @@
 import Home from "modules/Home";
 import SingleCommittee from "modules/Committees/components/SingleCommitteePage";
 import Contacts from "modules/Contact";
+import Crew from "modules/Crew/Crew";
 import AboutPage from "modules/About/components/page";
-import Events from "../pages/EventsPage";
+import Events from "modules/Events/Events";
 import BlogsPage from './../modules/Blogs/index';
+import SingleBlog from './../modules/Blogs/components/SingleBlog/singleBlog';
 export default [
   {
     path: "/",
@@ -30,6 +32,15 @@ export default [
     },
   },
   {
+    path: "/Blogs/:id",
+    component: SingleBlog,
+    inNavbar: {
+      shown: false,
+      label: ""
+    },
+  },
+
+  {
     path: "/committee/:id",
     component: SingleCommittee,
     inNavbar: {
@@ -43,6 +54,14 @@ export default [
     inNavbar: {
       shown: true,
       label: "Events"
+    }
+  },
+  {
+    path: "/crew",
+    component: Crew,
+    inNavbar: {
+      shown: true,
+      label: "Crew"
     }
   },
   // {

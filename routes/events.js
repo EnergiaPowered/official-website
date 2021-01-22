@@ -33,35 +33,32 @@ const eventsSchema = Joi.object({
 
 // CRUD Operations routing of event
 router.get("/events", (req, res) => {
-  try {
-    Event.find({})
-      .then((events) => {
-        res.send(events);
-      });
-  } catch (err) {
-    console.log(err.message);
-    res.sendStatus(500);
-  }
+  Event.find({})
+    .then((events) => {
+      return res.sendStatus(200).json(events);
+    })
+    .catch(err => {
+      console.log(err.message);
+      return res.sendStatus(500);
+    });
 });
 
 router.post("/events", [auth, admin], (req, res) => {
   result = eventsSchema.validate(req.body)
   if (result.error) {
     console.log(result.error.message);
-    res.sendStatus(400);
-    return;
+    return res.sendStatus(400);
   }
   let newEvent = new Event(req.body);
   newEvent.save();
-  res.send(JSON.stringify(newEvent));
+  res.sendStatus(200);
 });
 
 router.put("/events/:id", [auth, admin], (req, res) => {
   result = eventsSchema.validate(req.body)
   if (result.error) {
     console.log(result.error.message);
-    res.sendStatus(400);
-    return;
+    return res.sendStatus(400);
   }
 
   try {
@@ -82,12 +79,9 @@ router.delete("/events/:id", [auth, admin], (req, res) => {
   try {
     Event.findByIdAndRemove(req.params.id, (err, event) => {
       if (err) throw err;
-      if (event == null) {
-        res.sendStatus(404);
-      }
-      else {
-        res.send(JSON.stringify(event))
-      }
+      if (event == null)
+        return res.sendStatus(404);
+      res.sendStatus(200);
     });
   } catch (err) {
     console.log(err.message);
