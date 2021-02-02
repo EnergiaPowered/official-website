@@ -1,12 +1,12 @@
-const { json } = require("express");
 const express = require("express");
 const router = express.Router();
 const { checkSchema, validationResult } = require("express-validator");
-const { findByIdAndUpdate } = require("../models/Blog");
+
 // Importing Model
 const Blog = require("../models/Blog");
-const auth = require("../middleware/auth")
-const admin = require("../middleware/admin")
+const auth = require("../middleware/auth");
+const admin = require("../middleware/admin");
+
 // Defining a Checking Schema for the Blog Body
 const blogCheckSchema = checkSchema({
     title: {
@@ -51,7 +51,7 @@ const blogCheckSchema = checkSchema({
     }
 });
 
-// Retrieve contacts info
+// Retrieve all blogs
 router.get("/blogs", (req, res) => {
     Blog.find({}, (err, blogs) => {
         if (err) {
@@ -62,7 +62,7 @@ router.get("/blogs", (req, res) => {
     });
 });
 
-// Receive messages from the user w/ validation and sanitization
+// insert new blog w/ validation and sanitization
 router.post("/blogs", [auth, admin, blogCheckSchema], (req, res) => {
     try {
         if (req.body && req.body !== {}) {
@@ -81,7 +81,7 @@ router.post("/blogs", [auth, admin, blogCheckSchema], (req, res) => {
     }
 });
 
-// Receive messages from the user w/ validation and sanitization
+// edit a blog w/ validation and sanitization
 router.put("/blogs/:id", [auth, admin, blogCheckSchema], (req, res) => {
     try {
         if (req.body && req.body !== {}) {
@@ -103,6 +103,7 @@ router.put("/blogs/:id", [auth, admin, blogCheckSchema], (req, res) => {
     }
 });
 
+// delete a blog
 router.delete("/blogs/:id", [auth, admin], (req, res) => {
     Blog.findByIdAndRemove(req.params.id, (err, blog) => {
         if (err) {
@@ -116,6 +117,5 @@ router.delete("/blogs/:id", [auth, admin], (req, res) => {
         res.sendStatus(200);
     });
 });
-
 
 module.exports = router;

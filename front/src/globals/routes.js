@@ -5,7 +5,7 @@ import Crew from "modules/Crew/Crew";
 import AboutPage from "modules/About/components/page";
 import Events from "modules/Events/Events";
 import BlogsPage from './../modules/Blogs/index';
-import SingleBlog from './../modules/Blogs/components/SingleBlog/singleBlog';
+
 export default [
   {
     path: "/",
@@ -31,15 +31,6 @@ export default [
       label: "Blogs"
     },
   },
-  {
-    path: "/Blogs/:id",
-    component: SingleBlog,
-    inNavbar: {
-      shown: false,
-      label: ""
-    },
-  },
-
   {
     path: "/committee/:id",
     component: SingleCommittee,
@@ -72,7 +63,6 @@ export default [
   //     label: "Events"
   //   }
   // },
-
   {
     path: "/contact-us",
     component: Contacts,

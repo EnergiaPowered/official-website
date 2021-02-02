@@ -40,6 +40,7 @@ app.use(require("./routes/message"));
 app.use(require("./routes/blogs"));
 app.use(require("./routes/events"));
 app.use(require("./routes/users"));
+app.use(require("./routes/crew"));
 app.use(require("./routes/login"));
 
 // listen to specific port

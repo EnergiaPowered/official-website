@@ -99,7 +99,8 @@ export default function Navbar() {
                     </NavLink>
                   </li>
                 ) : null;
-              })}
+              })
+            }
           </ul>
         </div>
       </div>
