@@ -4,8 +4,7 @@ import Contacts from "modules/Contact";
 import Crew from "modules/Crew/Crew";
 import AboutPage from "modules/About/components/page";
 import Events from "modules/Events/Events";
-import BlogsPage from './../modules/Blogs/index';
-
+import BlogsPage from './../modules/Blogs';
 export default [
   {
     path: "/",
