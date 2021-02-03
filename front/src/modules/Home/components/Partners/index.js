@@ -63,6 +63,7 @@ export default () => {
               </article>
             );
           })}
+          
         </Carousel>
 
         <Carousel responsive={responsive} infinite={true}>
