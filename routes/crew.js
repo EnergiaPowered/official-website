@@ -9,6 +9,14 @@ const admin = require("../middleware/admin");
 
 // Defining a Checking Schema for the Member
 const memberCheckSchema = checkSchema({
+    ID: {
+        isNumeric: true,
+        exists: {
+            options: {
+                checkFalsy: true
+            }
+        }
+    },
     name: {
         isString: true,
         exists: {
@@ -86,7 +94,7 @@ router.put("/crew/:id", [memberCheckSchema], (req, res) => {
     try {
         if (req.body && req.body !== {}) {
             validationResult(req).throw();
-            Member.findByIdAndUpdate(req.params.id, { $set: req.body }, ((err, member) => {
+            Member.findOneAndUpdate({ ID: req.params.id }, { $set: req.body }, ((err, member) => {
                 if (err) {
                     console.log(err);
                     return res.status(500).send(err);
@@ -105,7 +113,7 @@ router.put("/crew/:id", [memberCheckSchema], (req, res) => {
 
 // delete a member
 router.delete("/crew/:id", (req, res) => {
-    Member.findByIdAndRemove(req.params.id, (err, member) => {
+    Member.findOneAndRemove({ ID: req.params.id }, (err, member) => {
         if (err) {
             console.log(err);
             return res.status(500).send(err);

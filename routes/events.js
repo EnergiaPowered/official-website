@@ -1,9 +1,6 @@
 const express = require("express");
 const router = express.Router();
-router.use(express.json());
-// joi Validation
 const Joi = require('joi');
-// Importing Model
 const Event = require("../models/Event");
 const auth = require("../middleware/auth")
 const admin = require("../middleware/admin")
@@ -20,6 +17,10 @@ const eventsSchema = Joi.object({
     .required()
     .valid('Closed', 'Soon', 'Opened'),
 
+  category: Joi.string()
+    .required()
+    .valid('Session', 'OnDayEvent', 'Marathon', 'Competition'),
+
   eventDescription: Joi.string()
     .required(),
 
@@ -27,24 +28,25 @@ const eventsSchema = Joi.object({
     .required(),
 
   eventOrganizer: Joi.string()
-    .required()
+    .required(),
 
+  eventImageID: Joi.string()
+    .allow("")
 })
 
 // CRUD Operations routing of event
 router.get("/events", (req, res) => {
-  Event.find({})
-    .then((events) => {
-      return res.sendStatus(200).json(events);
-    })
-    .catch(err => {
+  Event.find({}, (err, events) => {
+    if (err) {
       console.log(err.message);
       return res.sendStatus(500);
-    });
+    }
+    res.status(200).json(events);
+  });
 });
 
-router.post("/events", [auth, admin], (req, res) => {
-  result = eventsSchema.validate(req.body)
+router.post("/events", /*[auth, admin],*/(req, res) => {
+  const result = eventsSchema.validate(req.body)
   if (result.error) {
     console.log(result.error.message);
     return res.sendStatus(400);
@@ -81,6 +83,18 @@ router.delete("/events/:id", [auth, admin], (req, res) => {
       if (err) throw err;
       if (event == null)
         return res.sendStatus(404);
+      res.sendStatus(200);
+    });
+  } catch (err) {
+    console.log(err.message);
+    res.sendStatus(500);
+  }
+});
+
+router.delete("/events", /*[auth, admin],*/(req, res) => {
+  try {
+    Event.deleteMany({}, (err) => {
+      if (err) throw err;
       res.sendStatus(200);
     });
   } catch (err) {

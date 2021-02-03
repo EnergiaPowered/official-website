@@ -2,6 +2,10 @@ const mongoose = require('mongoose');
 
 // member database schema
 const memberSchema = new mongoose.Schema({
+    ID: {
+        type: Number,
+        required: true
+    },
     name: {
         type: String,
         required: true

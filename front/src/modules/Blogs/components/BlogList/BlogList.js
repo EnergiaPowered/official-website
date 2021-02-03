@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { getBlogs } from "./../../sevices/blogs.services";
-import blogBG from "../../../../assets/Group 67@2x.png";
+import { getBlogs } from "../../services/blogs.services";
+import blogBG from "assets/Blog-background.png";
 import "./BlogList.css";
 import "./SingleBlog.css";
 
@@ -21,28 +21,28 @@ function BlogList() {
       <div className="cards row">
         {blogList
           ? blogList.map((blog) => {
-              return (
-                <article className="blogcard col-6 col-lg-4" key={blog._id}>
-                  <img src={blogBG} alt="Blog Container" />
-                  <div className="blogcard__content">
-                    <h3 className="blogcard__heading">{blog.title}</h3>
-                    <div className="blogcard__body">
-                      <p
-                        data-toggle="tooltip"
-                        data-placement="top"
-                        title="Click to see full blog"
-                        onClick={() => {
-                          setIsBlogOpened(true);
-                          setClickedBlog(blog);
-                        }}
-                      >
-                        {blog.body}
-                      </p>
-                    </div>
+            return (
+              <article className="blogcard col-6 col-lg-4" key={blog._id}>
+                <img src={blogBG} alt="Blog Container" />
+                <div className="blogcard__content">
+                  <h3 className="blogcard__heading">{blog.title}</h3>
+                  <div className="blogcard__body">
+                    <p
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Click to see full blog"
+                      onClick={() => {
+                        setIsBlogOpened(true);
+                        setClickedBlog(blog);
+                      }}
+                    >
+                      {blog.body}
+                    </p>
                   </div>
-                </article>
-              );
-            })
+                </div>
+              </article>
+            );
+          })
           : null}
       </div>
       {isBlogOpened ? (

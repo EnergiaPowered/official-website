@@ -14,6 +14,11 @@ const eventSchema = new mongoose.Schema({
 		required: true,
 		enum: ['Closed', 'Soon', 'Opened'],
 	},
+	category: {
+		type: String,
+		required: true,
+		enum: ['Session', 'OnDayEvent', 'Marathon', 'Competition'],
+	},
 	eventDescription: {
 		type: String,
 		required: true,
@@ -25,6 +30,10 @@ const eventSchema = new mongoose.Schema({
 	eventOrganizer: {
 		type: String,
 		required: true,
+	},
+	eventImageID: {
+		type: String,
+		default: ""
 	},
 });
 

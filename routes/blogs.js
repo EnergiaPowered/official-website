@@ -82,7 +82,7 @@ router.post("/blogs", [auth, admin, blogCheckSchema], (req, res) => {
 });
 
 // edit a blog w/ validation and sanitization
-router.put("/blogs/:id", [auth, admin, blogCheckSchema], (req, res) => {
+router.put("/blogs/:id", [/*auth, admin,*/ blogCheckSchema], (req, res) => {
     try {
         if (req.body && req.body !== {}) {
             validationResult(req).throw();

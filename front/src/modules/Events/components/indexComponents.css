@@ -11,6 +11,12 @@
     margin: 5% 0% 0% 15%;
 }
 
+.img_card img {
+    height: 15vw;
+    width: 15vw;
+    object-fit: cover;
+}
+
 .details_card {
     margin-left: 3%;
 }
