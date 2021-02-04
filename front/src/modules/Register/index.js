@@ -7,12 +7,13 @@ import "./style.css";
 import Register from "./components/RegisterComponent";
 import Layout from "shared/Layout";
 
-// import bg from "assets/Blog-header.png";
+// import bg from "assets/Registeration-header.jpg";
 
-export default function RegisterationPage(props) {
+export default function RegisterationPage() {
 
     // const style = {
-    //     backgroundImage: `url(${bg})`
+    //     backgroundImage: `url(${bg})`,
+    //     backgroundPosition: "left"
     // };
 
     return (
@@ -24,7 +25,7 @@ export default function RegisterationPage(props) {
             <Layout>
                 <main>
                     <div className="container">
-                        <Register props={props} />
+                        <Register />
                     </div>
                 </main>
             </Layout>

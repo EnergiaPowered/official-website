@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 const express = require('express');
 const router = express.Router();
 const Joi = require('joi');
+const _ = require('lodash');
 const passwordComplexity = require('joi-password-complexity');
 
 // Defining a Checking Schema for the SignUp Body
@@ -24,18 +25,31 @@ function validateUser(user) {
 
 router.post("/login", async (req, res) => {
   const { error } = validateUser(req.body);
-  if (error) return res.status(400).send(error.details[0].message);
+  if (error) return res.status(400).send({ message: error.details[0].message });
 
   let user = await User.findOne({ email: req.body.email });
-  if (!user) return res.status(400).send('Invalid email or password.');
+  if (!user) return res.status(400).send({ message: 'Invalid email or password.' });
 
   // comparing the password with the database 
   const validPassword = await bcrypt.compare(req.body.password, user.password);
-  if (!validPassword) return res.status(400).send('Invalid email or password.');
+  if (!validPassword) return res.status(400).send({ message: 'Invalid email or password.' });
 
   // send the token
   const token = user.generateAuthToken();
-  res.header('x-auth-token', token).send(user);
+  res.send({
+    ..._.pick(user, [
+      'firstname',
+      'lastname',
+      'phone',
+      'email',
+      'password',
+      'isGraduated',
+      'university',
+      'faculty',
+      'department',
+      'graduationYear'
+    ]), token
+  });
 });
 
 module.exports = router;

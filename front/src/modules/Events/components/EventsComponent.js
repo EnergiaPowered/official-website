@@ -32,6 +32,9 @@ function EventsComponent({ events, category }) {
                             <h6>
                                 <MdDateRange /> {new Date(event.date).toDateString().slice(0, 10)} {new Date(event.date).toTimeString().slice(0, 5)}
                             </h6>
+                            <h6>
+                                More details
+                            </h6>
                         </div>
                         <div className="type_event badge badge-pill badge-primary">
                             <h5>{event.status}</h5>

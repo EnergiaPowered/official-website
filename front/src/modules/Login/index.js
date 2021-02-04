@@ -7,7 +7,7 @@ import "./style.css";
 import Login from "./components/LoginComponent";
 import Layout from "shared/Layout";
 
-// import bg from "assets/Blog-header.png";
+// import bg from "assets/Login-header.jpg";
 
 export default function LoginPage(props) {
 

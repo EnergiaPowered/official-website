@@ -10,7 +10,7 @@ import LoginPage from "modules/Login";
 
 export default [
   {
-    path: "/",
+    path: ["/", "/home"],
     component: Home,
     inNavbar: {
       shown: true,
@@ -77,7 +77,7 @@ export default [
     path: "/register",
     component: RegisterationPage,
     inNavbar: {
-      shown: true,
+      shown: JSON.parse(localStorage.getItem("user")) ? false : true,
       label: "Register"
     }
   },
@@ -85,7 +85,7 @@ export default [
     path: "/login",
     component: LoginPage,
     inNavbar: {
-      shown: true,
+      shown: JSON.parse(localStorage.getItem("user")) ? false : true,
       label: "Log In"
     }
   }
