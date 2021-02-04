@@ -23,7 +23,7 @@ export default function SingleCommittee(props) {
     getCommittees().then((res) => setCommittee(res.data.find(
       item => item.title.toLowerCase() === props.match.params.id
     )));
-  }, []);
+  }, [props.match.params.id]);
 
   let style = {
     backgroundImage: `url(${bg})`
