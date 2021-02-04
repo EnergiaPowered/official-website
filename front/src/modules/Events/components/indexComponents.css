@@ -1,24 +1,22 @@
-.container_card1
-{
- margin:5% 0% 5% 30%;
+.container_card:nth-child(odd) {
+    margin: 5% 0% 5% 30%;
+}
 
+.container_card:nth-child(even) {
+    margin: 5% 0% 5% 15%;
 }
-.container_card2
-{
-    margin:5% 0% 5% 15%;
 
+.titleE {
+    width: 30%;
+    margin: 5% 0% 0% 15%;
 }
-.container_card3
-{
- margin:5% 0% 5% 30%;
 
+.img_card img {
+    height: 15vw;
+    width: 15vw;
+    object-fit: cover;
 }
-.titleE
-{
-    width:30%;
-        margin:5% 0% 0% 15%;  
-}
-.details_card
-{
-    margin-left:3%;
+
+.details_card {
+    margin-left: 3%;
 }

@@ -43,14 +43,14 @@ const messageCheckSchema = checkSchema({
 // Receive messages from the user w/ validation and sanitization
 router.get("/message", (req, res) => {
   Message.find({}, (err, messages) => {
-      if (err) {
-          console.log(err);
-          return res.sendStatus(500);
-      }
-      res.status(200).json(messages);
+    if (err) {
+      console.log(err);
+      return res.sendStatus(500);
+    }
+    res.status(200).json(messages);
   });
 });
-router.post("/message",messageCheckSchema, (req, res) => {
+router.post("/message", messageCheckSchema, (req, res) => {
   try {
     if (req.body && req.body !== {}) {
       validationResult(req).throw();

@@ -1,14 +1,16 @@
 import Home from "modules/Home";
 import SingleCommittee from "modules/Committees/components/SingleCommitteePage";
-import Contacts from "modules/Contact";
-import Crew from "modules/Crew/Crew";
 import AboutPage from "modules/About/components/page";
+import BlogsPage from './../modules/Blogs';
 import Events from "modules/Events/Events";
-import BlogsPage from './../modules/Blogs/index';
-import SingleBlog from './../modules/Blogs/components/SingleBlog/singleBlog';
+import Crew from "modules/Crew/Crew";
+import Contacts from "modules/Contact";
+import RegisterationPage from "modules/Register";
+import LoginPage from "modules/Login";
+
 export default [
   {
-    path: "/",
+    path: ["/", "/home"],
     component: Home,
     inNavbar: {
       shown: true,
@@ -31,15 +33,6 @@ export default [
       label: "Blogs"
     },
   },
-  {
-    path: "/Blogs/:id",
-    component: SingleBlog,
-    inNavbar: {
-      shown: false,
-      label: ""
-    },
-  },
-
   {
     path: "/committee/:id",
     component: SingleCommittee,
@@ -72,13 +65,28 @@ export default [
   //     label: "Events"
   //   }
   // },
-
   {
     path: "/contact-us",
     component: Contacts,
     inNavbar: {
       shown: true,
       label: "Contact us"
+    }
+  },
+  {
+    path: "/register",
+    component: RegisterationPage,
+    inNavbar: {
+      shown: JSON.parse(localStorage.getItem("user")) ? false : true,
+      label: "Register"
+    }
+  },
+  {
+    path: "/login",
+    component: LoginPage,
+    inNavbar: {
+      shown: JSON.parse(localStorage.getItem("user")) ? false : true,
+      label: "Log In"
     }
   }
 ];

@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import data from "static_data/committees.json";
+import { getCommittees } from "../../services/committees.services";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Carousel from "react-multi-carousel";
 import "./style.css";
@@ -25,29 +25,39 @@ const responsive = {
 };
 
 export default function Committees() {
+  const [committees, setCommittees] = useState(null);
+
+  useEffect(() => {
+    getCommittees().then((res) => setCommittees(res.data));
+  }, []);
+
   return (
-    <div id="Committees" className="component-font">
-      <h2 className="section-title"> Our Committees </h2>
-      <Carousel responsive={responsive} infinite={true}>
-        {data.map((el, idx) => (
-          <div className="committee-carousel-item" key={idx}>
-            <div className="icon-container">
-              <Link
-                to={`/committee/${el.title.toLowerCase()}`}
-                style={{ color: "white", textDecoration: "none" }}
-              >
-                <FontAwesomeIcon icon={el.icon_class} className="icon" />
-              </Link>
-            </div>
-            <Link
-              to={`/committee/${el.title.toLowerCase()}`}
-              style={{ color: "white", textDecoration: "none" }}
-            >
-              <p className="committee-label">{el.title}</p>
-            </Link>
-          </div>
-        ))}
-      </Carousel>
-    </div>
+    <>
+      {committees ? (
+        <div id="Committees" className="component-font">
+          <h2 className="section-title"> Our Committees </h2>
+          <Carousel responsive={responsive} infinite={true}>
+            {committees.map((el, idx) => (
+              <div className="committee-carousel-item" key={idx}>
+                <div className="icon-container">
+                  <Link
+                    to={`/committee/${el.title.toLowerCase()}`}
+                    style={{ color: "white", textDecoration: "none" }}
+                  >
+                    <FontAwesomeIcon icon={el.icon_class} className="icon" />
+                  </Link>
+                </div>
+                <Link
+                  to={`/committee/${el.title.toLowerCase()}`}
+                  style={{ color: "white", textDecoration: "none" }}
+                >
+                  <p className="committee-label">{el.title}</p>
+                </Link>
+              </div>
+            ))}
+          </Carousel>
+        </div>
+      ) : null}
+    </>
   );
 }

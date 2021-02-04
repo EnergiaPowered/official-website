@@ -1,71 +1,109 @@
-import React, { useState,useEffect } from "react";
-import WebDevelopment from "./components/WebDevelopment";
-import ArduinoEmbeddedSystems from "./components/ArduinoEmbeddedSystems";
-import CPlathPlath from "./components/CPlathPlath";
-import DecorationCoordinationReception from "./components/DecorationCoordinationReception";
-import Design from "./components/Design";
-import DigitalElectronics from "./components/DigitalElectronics";
-import HumanResources from "./components/HumanResources";
-import Logistics from "./components/Logistics";
-import Management from "./components/Management";
-import Marketing from "./components/Marketing";
-import Media from "./components/Media";
-import MobileAppDevelopment from "./components/MobileAppDevelopment";
-import PublicRelations from "./components/PublicRelations";
-import QualityManager from "./components/QualityManager";
-import "./index.css";
+import React, { useState } from "react";
+import { Helmet } from "react-helmet";
 import Layout from '../../shared/Layout/index';
+import CommitteeMembers from "./components/CommitteeMembers";
+import { getCrew } from "./services/crew.services";
 import { IoIosArrowDown } from 'react-icons/io';
-import BackGroundImg from "../Img/Dpage.png";
+import BackGroundImg from "assets/Structure.png";
+import "./index.css";
 
+function Crew() {
+    const [switchPage] = useState([
+        "Structure",
+        "High Board",
+        "Arduino & Embedded Systems",
+        "C++",
+        "Decoration Coordination & Reception",
+        "Design",
+        "Digital Electronics",
+        "Fundraising",
+        "Human Resources",
+        "Logistics",
+        "Management",
+        "Marketing",
+        "Media",
+        "Mobile App Development",
+        "Public Relations",
+        "Quality Manager",
+        "Web Development"
+    ]);
+    const [handelPage, setHandelPage] = useState(<img id="back_ground_img" src={BackGroundImg} alt="Smiley face" />);
 
-
-
-
-function Events() {
-    
-
-    const [switchPage] = useState([<WebDevelopment/>,<ArduinoEmbeddedSystems/>,<CPlathPlath/>,<DecorationCoordinationReception/>,
-    <Design/>,<DigitalElectronics/>,<HumanResources/>,<Logistics/>,<Management/>,<Marketing/>,<Media/>,<MobileAppDevelopment/>,
-        <PublicRelations/>,<QualityManager/> ,<img id="back_ground_img" src={BackGroundImg} alt="Smiley face"/>]);
-    const [handelPage, setHandelPage] = useState(switchPage[14]);
-
-
-
-
-
+    const viewCrew = committee => {
+        getCrew().then((res) => {
+            if (committee !== "Structure") {
+                let members = res.data.filter(member => member.committee === committee);
+                let heads;
+                let viceHead = null;
+                if (committee === "High Board") {
+                    heads = members.filter(member => member.position === "President");
+                    viceHead = members.filter(member => member.position === "General Vice President")[0];
+                    members = members
+                        .filter(member => member.position !== "President" && member.position !== "General Vice President")
+                        .sort((a, b) => {
+                            if (a.last_nom < b.last_nom) {
+                                return -1;
+                            }
+                            if (a.last_nom > b.last_nom) {
+                                return 1;
+                            }
+                            return 0;
+                        });
+                } else {
+                    heads = members.filter(member => member.position === "Head");
+                    viceHead = members.filter(member => member.position === "Vice Head")[0];
+                    members = members
+                        .filter(member => member.position === "Member")
+                        .sort((a, b) => {
+                            if (a.name < b.name) {
+                                return -1;
+                            }
+                            if (a.name > b.name) {
+                                return 1;
+                            }
+                            return 0;
+                        });
+                }
+                setHandelPage(<CommitteeMembers members={members} heads={heads} viceHead={viceHead} committeeName={committee} />);
+            }
+        });
+    }
 
     return (
-        <div className="page-component " >
+        <div className="page-component">
+            <Helmet>
+                <title>Energia Powered | Crew</title>
+            </Helmet>
             <Layout>
-      
-                <div className="page_container  ">
-                        <h1 id="dropE">CREW</h1>
-                      
+                <div className="page_container">
+                    <h1 id="dropE">CREW</h1>
+
                     <div className="dropdown">
-                        <button className="dropbtn"><h1> <IoIosArrowDown/></h1></button>
-                        <div className="dropdown_content">
-                            <div className="value_dropDown" onClick={() => setHandelPage(switchPage[0])}>WEB DEVELOPMENT</div>
-                            <div className="value_dropDown" onClick={() => setHandelPage(switchPage[11])}>MOBILE APP DEVELOPMENT</div>
-                            <div className="value_dropDown" onClick={() => setHandelPage(switchPage[4])}>DESIGN</div>
-                            <div className="value_dropDown" onClick={() => setHandelPage(switchPage[10])}>MEDIA</div>
-                            <div className="value_dropDown" onClick={() => setHandelPage(switchPage[2])}>C++</div>
-                            <div className="value_dropDown" onClick={() => setHandelPage(switchPage[13])}>QUALITY MANGER</div>
-                            <div className="value_dropDown" onClick={() => setHandelPage(switchPage[12])}>PUBLIC RELATIONS</div>
-                            <div className="value_dropDown" onClick={() => setHandelPage(switchPage[3])}>DECORATION COORDINATION &amp; RECEPTION</div>
-                            <div className="value_dropDown" onClick={() => setHandelPage(switchPage[9])}>MARKETING</div>
-                            <div className="value_dropDown" onClick={() => setHandelPage(switchPage[8])}>MANAGEMENT</div>
-                            <div className="value_dropDown" onClick={() => setHandelPage(switchPage[6])}>HUMAN RESOURCES</div>
-                            <div className="value_dropDown" onClick={() => setHandelPage(switchPage[1])}>ARDUINO &amp; EMBEDDED SYSTEMS</div>
-                            <div className="value_dropDown" onClick={() => setHandelPage(switchPage[7])}>LOGISTICS</div>
-                            <div className="value_dropDown" onClick={() => setHandelPage(switchPage[5])}>DIGITAL ELECTRONICS</div> 
+                        <button className="dropbtn"><h1> <IoIosArrowDown /></h1></button>
+                        <div className="dropdown_content dropdown-menu-right">
+                            <div className="value_dropDown" onClick={() => viewCrew(switchPage[1])}>HIGH BOARD</div>
+                            <div className="value_dropDown" onClick={() => viewCrew(switchPage[2])}>ARDUINO &amp; EMBEDDED SYSTEMS</div>
+                            <div className="value_dropDown" onClick={() => viewCrew(switchPage[3])}>C++</div>
+                            <div className="value_dropDown" onClick={() => viewCrew(switchPage[4])}>DECORATION COORDINATION &amp; RECEPTION</div>
+                            <div className="value_dropDown" onClick={() => viewCrew(switchPage[5])}>DESIGN</div>
+                            <div className="value_dropDown" onClick={() => viewCrew(switchPage[6])}>DIGITAL ELECTRONICS</div>
+                            <div className="value_dropDown" onClick={() => viewCrew(switchPage[7])}>FUNDRAISING</div>
+                            <div className="value_dropDown" onClick={() => viewCrew(switchPage[8])}>HUMAN RESOURCES</div>
+                            <div className="value_dropDown" onClick={() => viewCrew(switchPage[9])}>LOGISTICS</div>
+                            <div className="value_dropDown" onClick={() => viewCrew(switchPage[10])}>MANAGEMENT</div>
+                            <div className="value_dropDown" onClick={() => viewCrew(switchPage[11])}>MARKETING</div>
+                            <div className="value_dropDown" onClick={() => viewCrew(switchPage[12])}>MEDIA</div>
+                            <div className="value_dropDown" onClick={() => viewCrew(switchPage[13])}>MOBILE APP DEVELOPMENT</div>
+                            <div className="value_dropDown" onClick={() => viewCrew(switchPage[14])}>PUBLIC RELATIONS</div>
+                            <div className="value_dropDown" onClick={() => viewCrew(switchPage[15])}>QUALITY MANGER</div>
+                            <div className="value_dropDown" onClick={() => viewCrew(switchPage[16])}>WEB DEVELOPMENT</div>
                         </div>
                     </div>
                 </div>
-                
-               <div> {handelPage} </div>
+
+                <div> {handelPage} </div>
             </Layout>
         </div>
     )
 }
-export default Events;
+export default Crew;

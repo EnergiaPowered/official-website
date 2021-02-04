@@ -30,7 +30,7 @@ export default function AboutPage() {
   return (
     <div className="page-component" id="About" style={style}>
       <Helmet>
-        <title>About us - Energia Powered | Cairo University</title>
+        <title>Energia Powered | About us</title>
       </Helmet>
 
       <Layout>

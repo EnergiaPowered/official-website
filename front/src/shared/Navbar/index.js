@@ -6,6 +6,8 @@ import logo from "assets/logo.png";
 
 import routes from "globals/routes";
 
+import loginServices from "modules/Login/services/login.services";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
@@ -37,6 +39,11 @@ export default function Navbar() {
 
     setOpened(false);
   };
+
+  const logOut = () => {
+    loginServices.logout()
+    window.location.reload();
+  }
 
   return (
     <nav
@@ -99,7 +106,21 @@ export default function Navbar() {
                     </NavLink>
                   </li>
                 ) : null;
-              })}
+              })
+            }
+            {JSON.parse(localStorage.getItem("user")) && (
+              <li className="nav-item">
+                <NavLink
+                  exact
+                  data-testid="navlinks"
+                  className="nav-link"
+                  to="/"
+                  onClick={logOut}
+                >
+                  Log Out
+                </NavLink>
+              </li>
+            )}
           </ul>
         </div>
       </div>
