@@ -1,10 +1,13 @@
 import Home from "modules/Home";
 import SingleCommittee from "modules/Committees/components/SingleCommitteePage";
-import Contacts from "modules/Contact";
-import Crew from "modules/Crew/Crew";
 import AboutPage from "modules/About/components/page";
-import Events from "modules/Events/Events";
 import BlogsPage from './../modules/Blogs';
+import Events from "modules/Events/Events";
+import Crew from "modules/Crew/Crew";
+import Contacts from "modules/Contact";
+import RegisterationPage from "modules/Register";
+import LoginPage from "modules/Login";
+
 export default [
   {
     path: "/",
@@ -68,6 +71,22 @@ export default [
     inNavbar: {
       shown: true,
       label: "Contact us"
+    }
+  },
+  {
+    path: "/register",
+    component: RegisterationPage,
+    inNavbar: {
+      shown: true,
+      label: "Register"
+    }
+  },
+  {
+    path: "/login",
+    component: LoginPage,
+    inNavbar: {
+      shown: true,
+      label: "Log In"
     }
   }
 ];

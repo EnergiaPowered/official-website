@@ -3,7 +3,7 @@ import { HiLocationMarker } from 'react-icons/hi';
 import { MdDateRange } from 'react-icons/md';
 import "./indexComponents.css"
 
-function Competition({ events, category }) {
+function EventsComponent({ events, category }) {
     return (
         <div className="container-fluid ">
             <h2 className="titleE">{category}s</h2>
@@ -44,4 +44,4 @@ function Competition({ events, category }) {
     )
 }
 
-export default Competition;
+export default EventsComponent;
