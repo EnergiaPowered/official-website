@@ -3,7 +3,7 @@ import configs from "globals/config";
 
 const login = ({ email, password }) => {
     return axios
-        .post(`${configs.HOST}/login`, {
+        .post(`${configs.HOST}login`, {
             email,
             password,
         })
