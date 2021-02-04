@@ -23,7 +23,6 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-validator": "^6.6.1",
-    "husky": "^4.3.0",
     "joi": "^17.3.0",
     "joi-password-complexity": "^4.2.1",
     "jsonwebtoken": "^8.5.1",
@@ -38,6 +37,7 @@
     }
   },
   "devDependencies": {
+    "husky": "^4.3.8",
     "nodemon": "^2.0.6"
   }
 }
