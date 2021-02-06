@@ -1,4 +1,4 @@
 node_modules/
-front/node_modules
+build
 .env
 script.py

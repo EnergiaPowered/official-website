@@ -1,0 +1,22 @@
+.container_card:nth-child(even) {
+    margin: 5% 0% 5% 30%;
+}
+
+.container_card:nth-child(odd) {
+    margin: 5% 0% 5% 15%;
+}
+
+.titleE {
+    width: 30%;
+    margin: 5% 0% 0% 15%;
+}
+
+.img_card img {
+    height: 15vw;
+    width: 15vw;
+    object-fit: cover;
+}
+
+.details_card {
+    margin-left: 3%;
+}
