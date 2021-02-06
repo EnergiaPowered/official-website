@@ -114,7 +114,7 @@ export default function Navbar() {
                   exact
                   data-testid="navlinks"
                   className="nav-link"
-                  to="/"
+                  to=""
                   onClick={logOut}
                 >
                   Log Out

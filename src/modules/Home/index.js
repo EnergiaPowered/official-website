@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
 import BestMember from "./components/BestMember/bestMember";
 
-import Supervisor from "./components/Supervisor";
+// import Supervisor from "./components/Supervisor";
 import Partners from "./components/Partners";
 import Header from "./components/Header";
 import Committees from "modules/Committees/components/section";
@@ -33,12 +33,12 @@ export default () => {
       <Layout>
         <Header />
         {/* <Events /> */}
-        <Supervisor />
+        {/* <Supervisor /> */}
         <Committees />
         <Partners />
-        <BestMember/>
+        <BestMember />
       </Layout>
-      
+
     </div>
   );
 };

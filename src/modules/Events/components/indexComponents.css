@@ -1,8 +1,8 @@
-.container_card:nth-child(odd) {
+.container_card:nth-child(even) {
     margin: 5% 0% 5% 30%;
 }
 
-.container_card:nth-child(even) {
+.container_card:nth-child(odd) {
     margin: 5% 0% 5% 15%;
 }
 

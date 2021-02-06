@@ -3,11 +3,9 @@ import { HiLocationMarker } from 'react-icons/hi';
 import { MdDateRange } from 'react-icons/md';
 import "./indexComponents.css"
 
-function EventsComponent({ events, category }) {
+function EventsComponent({ events }) {
     return (
         <div className="container-fluid ">
-            <h2 className="titleE">{category}s</h2>
-
             {events.map((event, index) => (
                 <div key={index} className="container_card row" >
 
@@ -15,7 +13,7 @@ function EventsComponent({ events, category }) {
                         {event.imageID ?
                             <img alt="event" src={`https://drive.google.com/uc?exort=view&id=${event.eventImageID}`} className="rounded-circle" />
                             :
-                            <img alt="event" src={`images/${category}.jpg`} className="rounded-circle" />
+                            <img alt="event" src={`images/${event.category}.jpg`} className="rounded-circle" />
                         }
                     </div>
 

@@ -46,7 +46,7 @@ export default () => {
   return (
     <section id="Partners" className="bg-section dark-bg component-font">
       <div className="container">
-        <h2 className="section-title"> partners & sponsors </h2>
+        <h2 className="section-title">Past partners & sponsors </h2>
 
         <Carousel responsive={responsive} infinite={true}>
           {partners.map((partner, idx) => {
@@ -63,11 +63,11 @@ export default () => {
               </article>
             );
           })}
-          
+
         </Carousel>
 
         <Carousel responsive={responsive} infinite={true}>
-        {sponsors.map((sponsor, idx) => {
+          {sponsors.map((sponsor, idx) => {
             return (
               <article className="partner-carousel-item" key={idx}>
                 <section className="partner-logo">

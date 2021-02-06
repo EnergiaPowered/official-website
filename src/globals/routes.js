@@ -10,7 +10,7 @@ import LoginPage from "modules/Login";
 
 export default [
   {
-    path: ["/", "/home"],
+    path: "/",
     component: Home,
     inNavbar: {
       shown: true,

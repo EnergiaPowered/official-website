@@ -15,7 +15,7 @@ function Login({ props }) {
     form.resetFields();
     loginServices.login(data).then(
       () => {
-        props.history.push("/home");
+        props.history.push("/");
         window.location.reload();
       },
       (error) => {

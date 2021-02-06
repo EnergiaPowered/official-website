@@ -1,5 +1,4 @@
 import React from "react";
-import BackGroundImg from "assets/Structure.png";
 import default_image from "../img/default.png";
 import "../components/indexComponents.css";
 
@@ -66,7 +65,7 @@ function CommitteeMembers({ members, heads, viceHead, committeeName }) {
                     </div>
 
                 </div>
-            ) : <img id="back_ground_img" src={BackGroundImg} alt="Smiley face" />}
+            ) : null}
         </div>
     )
 

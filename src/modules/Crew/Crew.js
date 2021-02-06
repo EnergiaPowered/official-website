@@ -1,15 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import Layout from '../../shared/Layout/index';
 import CommitteeMembers from "./components/CommitteeMembers";
 import { getCrew } from "./services/crew.services";
 import { IoIosArrowDown } from 'react-icons/io';
-import BackGroundImg from "assets/Structure.png";
 import "./index.css";
 
 function Crew() {
     const [switchPage] = useState([
-        "Structure",
         "High Board",
         "Arduino & Embedded Systems",
         "C++",
@@ -27,7 +25,9 @@ function Crew() {
         "Quality Manager",
         "Web Development"
     ]);
-    const [handelPage, setHandelPage] = useState(<img id="back_ground_img" src={BackGroundImg} alt="Smiley face" />);
+    const [handelPage, setHandelPage] = useState(null);
+
+    useEffect(() => viewCrew("High Board"), []);
 
     const viewCrew = committee => {
         getCrew().then((res) => {
@@ -81,22 +81,22 @@ function Crew() {
                     <div className="dropdown">
                         <button className="dropbtn"><h1> <IoIosArrowDown /></h1></button>
                         <div className="dropdown_content dropdown-menu-right">
-                            <div className="value_dropDown" onClick={() => viewCrew(switchPage[1])}>HIGH BOARD</div>
-                            <div className="value_dropDown" onClick={() => viewCrew(switchPage[2])}>ARDUINO &amp; EMBEDDED SYSTEMS</div>
-                            <div className="value_dropDown" onClick={() => viewCrew(switchPage[3])}>C++</div>
-                            <div className="value_dropDown" onClick={() => viewCrew(switchPage[4])}>DECORATION COORDINATION &amp; RECEPTION</div>
-                            <div className="value_dropDown" onClick={() => viewCrew(switchPage[5])}>DESIGN</div>
-                            <div className="value_dropDown" onClick={() => viewCrew(switchPage[6])}>DIGITAL ELECTRONICS</div>
-                            <div className="value_dropDown" onClick={() => viewCrew(switchPage[7])}>FUNDRAISING</div>
-                            <div className="value_dropDown" onClick={() => viewCrew(switchPage[8])}>HUMAN RESOURCES</div>
-                            <div className="value_dropDown" onClick={() => viewCrew(switchPage[9])}>LOGISTICS</div>
-                            <div className="value_dropDown" onClick={() => viewCrew(switchPage[10])}>MANAGEMENT</div>
-                            <div className="value_dropDown" onClick={() => viewCrew(switchPage[11])}>MARKETING</div>
-                            <div className="value_dropDown" onClick={() => viewCrew(switchPage[12])}>MEDIA</div>
-                            <div className="value_dropDown" onClick={() => viewCrew(switchPage[13])}>MOBILE APP DEVELOPMENT</div>
-                            <div className="value_dropDown" onClick={() => viewCrew(switchPage[14])}>PUBLIC RELATIONS</div>
-                            <div className="value_dropDown" onClick={() => viewCrew(switchPage[15])}>QUALITY MANGER</div>
-                            <div className="value_dropDown" onClick={() => viewCrew(switchPage[16])}>WEB DEVELOPMENT</div>
+                            <div className="value_dropDown" onClick={() => viewCrew(switchPage[0])}>HIGH BOARD</div>
+                            <div className="value_dropDown" onClick={() => viewCrew(switchPage[1])}>ARDUINO &amp; EMBEDDED SYSTEMS</div>
+                            <div className="value_dropDown" onClick={() => viewCrew(switchPage[2])}>C++</div>
+                            <div className="value_dropDown" onClick={() => viewCrew(switchPage[3])}>DECORATION COORDINATION &amp; RECEPTION</div>
+                            <div className="value_dropDown" onClick={() => viewCrew(switchPage[4])}>DESIGN</div>
+                            <div className="value_dropDown" onClick={() => viewCrew(switchPage[5])}>DIGITAL ELECTRONICS</div>
+                            <div className="value_dropDown" onClick={() => viewCrew(switchPage[6])}>FUNDRAISING</div>
+                            <div className="value_dropDown" onClick={() => viewCrew(switchPage[7])}>HUMAN RESOURCES</div>
+                            <div className="value_dropDown" onClick={() => viewCrew(switchPage[8])}>LOGISTICS</div>
+                            <div className="value_dropDown" onClick={() => viewCrew(switchPage[9])}>MANAGEMENT</div>
+                            <div className="value_dropDown" onClick={() => viewCrew(switchPage[10])}>MARKETING</div>
+                            <div className="value_dropDown" onClick={() => viewCrew(switchPage[11])}>MEDIA</div>
+                            <div className="value_dropDown" onClick={() => viewCrew(switchPage[12])}>MOBILE APP DEVELOPMENT</div>
+                            <div className="value_dropDown" onClick={() => viewCrew(switchPage[13])}>PUBLIC RELATIONS</div>
+                            <div className="value_dropDown" onClick={() => viewCrew(switchPage[14])}>QUALITY MANGER</div>
+                            <div className="value_dropDown" onClick={() => viewCrew(switchPage[15])}>WEB DEVELOPMENT</div>
                         </div>
                     </div>
                 </div>
