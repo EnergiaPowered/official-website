@@ -22,7 +22,7 @@ function Crew() {
         "Media",
         "Mobile App Development",
         "Public Relations",
-        "Quality Manager",
+        "Quality Manager & Coordinator",
         "Web Development"
     ]);
     const [handelPage, setHandelPage] = useState(null);
