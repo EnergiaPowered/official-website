@@ -26,7 +26,7 @@ export default [
     }
   },
   {
-    path: "/Blogs",
+    path: "/blogs",
     component: BlogsPage,
     inNavbar: {
       shown: true,

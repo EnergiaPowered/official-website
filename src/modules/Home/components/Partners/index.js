@@ -25,23 +25,12 @@ const responsive = {
 };
 
 export default () => {
-  const [partners] = useState([
-    { imgUrl: "https://via.placeholder.com/100?text=partner", name: "EX" },
-    { imgUrl: "https://via.placeholder.com/100?text=partner", name: "EX" },
-    { imgUrl: "https://via.placeholder.com/100?text=partner", name: "EX" },
-    { imgUrl: "https://via.placeholder.com/100?text=partner", name: "EX" },
-    { imgUrl: "https://via.placeholder.com/100?text=partner", name: "EX" },
-    { imgUrl: "https://via.placeholder.com/100?text=partner", name: "EX" }
-  ]);
 
-  const [sponsors] = useState([
-    { imgUrl: "https://via.placeholder.com/100?text=partner", name: "EX" },
-    { imgUrl: "https://via.placeholder.com/100?text=partner", name: "EX" },
-    { imgUrl: "https://via.placeholder.com/100?text=partner", name: "EX" },
-    { imgUrl: "https://via.placeholder.com/100?text=partner", name: "EX" },
-    { imgUrl: "https://via.placeholder.com/100?text=partner", name: "EX" },
-    { imgUrl: "https://via.placeholder.com/100?text=partner", name: "EX" }
-  ]);
+  function importAllImages(r) {
+    return r.keys().map(r);
+  }
+
+  const [partners] = useState(importAllImages(require.context('../../images', false, /\.(png|jpe?g|svg)$/)));
 
   return (
     <section id="Partners" className="bg-section dark-bg component-font">
@@ -49,39 +38,41 @@ export default () => {
         <h2 className="section-title">Past partners & sponsors </h2>
 
         <Carousel responsive={responsive} infinite={true}>
-          {partners.map((partner, idx) => {
+          {partners.slice(0, partners.length / 2).map((partner, idx) => {
             return (
               <article className="partner-carousel-item" key={idx}>
                 <section className="partner-logo">
                   <img
-                    src={partner.imgUrl}
+                    src={partner}
                     alt="partner-logo"
+                    width={200}
                   />
                 </section>
 
-                <p className="partner-name"> {partner.name} </p>
+                <p className="partner-name"> {partner.split("/")[3].split(".")[0]} </p>
               </article>
             );
           })}
-
         </Carousel>
 
         <Carousel responsive={responsive} infinite={true}>
-          {sponsors.map((sponsor, idx) => {
+          {partners.slice(partners.length / 2).map((partner, idx) => {
             return (
               <article className="partner-carousel-item" key={idx}>
                 <section className="partner-logo">
                   <img
-                    src={sponsor.imgUrl}
+                    src={partner}
                     alt="partner-logo"
+                    width={200}
                   />
                 </section>
 
-                <p className="partner-name"> {sponsor.name} </p>
+                <p className="partner-name"> {partner.split("/")[3].split(".")[0]} </p>
               </article>
             );
           })}
         </Carousel>
+
       </div>
     </section>
   );
