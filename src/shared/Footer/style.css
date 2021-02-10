@@ -19,3 +19,31 @@
 #Footer .social-links .social-links-item a {
   color: #fff;
 }
+
+#Footer .social-links .social-links-item a svg {
+  transition: all 0.3s;
+}
+
+#Footer .social-links .social-links-item a svg:hover {
+  transform: scale(1.2);
+}
+
+#Footer .social-links .social-links-item a svg[data-icon="facebook"]:hover {
+  color: #3b5998;
+}
+
+#Footer .social-links .social-links-item a svg[data-icon="youtube"]:hover {
+  color: #FF0000;
+}
+
+#Footer .social-links .social-links-item a svg[data-icon="instagram"]:hover {
+  color: #DD2A7B;
+}
+
+#Footer .social-links .social-links-item a svg[data-icon="twitter"]:hover {
+  color: #00acee;
+}
+
+#Footer .social-links .social-links-item a svg[data-icon="linkedin"]:hover {
+  color: #0e76a8;
+}

@@ -33,7 +33,9 @@ export default function Info(props) {
             </section>
             <section id="map">
                 <h2>OUR LOCATION</h2>
-                <img src={props.image || imgPlaceholder} alt="map" />
+                <a href="https://goo.gl/maps/NZ92eRsipUUu45mx9" target="_blank" rel="noopener noreferrer">
+                    <img src={props.image || imgPlaceholder} alt="map" />
+                </a>
             </section>
         </article>
     );
