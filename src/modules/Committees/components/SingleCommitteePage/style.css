@@ -36,3 +36,14 @@ hr {
 #SingleComm section p {
   text-align: justify;
 }
+
+.comm-jobs ul {
+  padding: 0;
+  margin: 0;
+  list-style-position: inside;
+  list-style-type: circle;
+}
+
+.comm-jobs ul li {
+  padding-bottom: 10px;
+}

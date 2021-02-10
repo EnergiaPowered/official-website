@@ -15,7 +15,7 @@ import bg from "assets/About-header.png";
 export default function AboutPage() {
   let stateObj = {
     vision:
-      "We aim to decrease the gap & help in almost all fields to help all next generatoin forming engineer of the future."
+      "Perparing calibers by developing students in both personal and career levels to make them qualified for the market needs."
   };
 
   let style = {
@@ -41,6 +41,7 @@ export default function AboutPage() {
             <hr />
 
             <Mission />
+            <hr />
           </div>
 
           <Structure />

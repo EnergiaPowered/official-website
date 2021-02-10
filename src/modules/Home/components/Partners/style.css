@@ -5,11 +5,10 @@
 }
 
 .partner-carousel-item .partner-logo {
-    margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 .partner-carousel-item img {
   max-width: 100%;
   height: auto;
-  border-radius: 50%;
 }

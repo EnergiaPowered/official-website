@@ -3,9 +3,13 @@ import React from "react";
 export default () => {
   return (
     <section className="bg-section about-mission component-font">
-      <h2 className="section-title text-center">Our Mission</h2>
+      <h2 className="section-title">Our Mission</h2>
 
       <p>
+        Enhancing student's technical and non-technical skills through events and projects
+      </p>
+
+      {/* <p>
         By organizing field trips to power stations and giant factories, we can
         provide engineering students with knowledge enough to be trained well
         before graduation.
@@ -21,7 +25,7 @@ export default () => {
         <li> Training Sessions </li>
         <li> Events </li>
         <li> Field Trips </li>
-      </ul>
+      </ul> */}
     </section>
   );
 };
