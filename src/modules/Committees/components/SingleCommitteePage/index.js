@@ -48,14 +48,27 @@ export default function SingleCommittee(props) {
             <main>
               <div className="container">
                 <section className="bg-section component-font">
-                  <h2 className="text-center section-title">Our Vision</h2>
+                  <h2 className="section-title">Job Description</h2>
+                  <div className="comm-jobs">
+                    <ul>
+                      {committee.jobDescription.map((job, index) => (
+                        <li key={index}>{job}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </section>
+
+                <hr />
+
+                <section className="bg-section component-font">
+                  <h2 className="section-title">Our Vision</h2>
                   <p data-testid="comm-vision">{committee.vision}</p>
                 </section>
 
                 <hr />
 
                 <section className="bg-section component-font">
-                  <h2 className="section-title text-center">Our Mission</h2>
+                  <h2 className="section-title">Our Mission</h2>
                   <p data-testid="comm-mission">{committee.mission}</p>
                 </section>
               </div>
