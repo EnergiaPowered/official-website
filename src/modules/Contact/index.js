@@ -13,7 +13,7 @@ import "./style.css";
 
 import bg from "assets/Contact-header.png";
 
-export default function Contacts(props) {
+export default function Contacts() {
   // Sending messages to the backend
   function submitHandler(name, email, message) {
     sendMessage({ name, email, message })

@@ -43,7 +43,7 @@ export default () => {
 
       <div className="container">
 
-        <h3 className="section-title">BEST MEMBERS OF MONTH</h3>
+        <h3 className="section-title">BEST MEMBERS OF THE MONTH</h3>
 
         <img alt="upper left" className="img-fluid" id="upPng" src={upLft} />
         <img alt="members" id="logoUser" src={logoUser} />
