@@ -28,7 +28,15 @@ export default function Committees() {
   const [committees, setCommittees] = useState(null);
 
   useEffect(() => {
-    getCommittees().then((res) => setCommittees(res.data));
+    getCommittees().then((res) => setCommittees(res.data.sort((a, b) => {
+      if (a.title < b.title) {
+        return -1;
+      }
+      if (a.title > b.title) {
+        return 1;
+      }
+      return 0;
+    })));
   }, []);
 
   return (

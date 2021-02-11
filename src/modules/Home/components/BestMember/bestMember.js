@@ -39,11 +39,11 @@ export default () => {
   ]);
 
   return (
-    <section id="bestMember" className="bg-section dark-bg component-font">
+    <section id="bestMember" className="bg-section component-font">
 
       <div className="container">
 
-        <h3 className="section-title">BEST MEMBERS OF THE MONTH</h3>
+        <h2 className="section-title">BEST MEMBERS OF THE MONTH</h2>
 
         <img alt="upper left" className="img-fluid" id="upPng" src={upLft} />
         <img alt="members" id="logoUser" src={logoUser} />
