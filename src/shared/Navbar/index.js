@@ -110,15 +110,12 @@ export default function Navbar() {
             }
             {JSON.parse(localStorage.getItem("user")) && (
               <li className="nav-item">
-                <NavLink
-                  exact
-                  data-testid="navlinks"
+                <span
                   className="nav-link"
-                  to=""
                   onClick={logOut}
                 >
                   Log Out
-                </NavLink>
+                </span>
               </li>
             )}
           </ul>

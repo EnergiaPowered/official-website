@@ -12,9 +12,10 @@ function Login({ props }) {
   const handleLogin = (data) => {
     setMessage("");
     setLoading(true);
-    form.resetFields();
     loginServices.login(data).then(
       () => {
+        form.resetFields();
+        window.location.reload();
         props.history.push("/");
         window.location.reload();
       },

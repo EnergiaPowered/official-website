@@ -8,7 +8,7 @@ import "./index.css";
 function Events() {
     const [handelPage, setHandelPage] = useState(null);
 
-    useEffect(() => viewEvents());
+    useEffect(() => viewEvents(), []);
 
     const viewEvents = () => {
         getEvents().then((res) => {

@@ -12,11 +12,11 @@ function Register() {
   const handleRegister = (data) => {
     setMessage("");
     setSuccessful(false);
-    form.resetFields();
     addUser(data)
       .then(response => {
-        setMessage(response.data.message);
         setSuccessful(true);
+        setMessage(response.data.message);
+        form.resetFields();
       }, error => {
         const resMessage =
           (error.response &&
@@ -208,11 +208,21 @@ function Register() {
               >
                 <Input />
               </Form.Item>
+              {message && (
+                <div className="form-group">
+                  <div
+                    className={successful ? "alert alert-success" : "alert alert-danger"}
+                    role="alert"
+                  >
+                    {message}
+                  </div>
+                </div>
+              )}
               <div className="register-submit-container">
                 <Form.Item className="register-submit">
                   <Button type="secondry" htmlType="submit" size="large">
                     Register
-              </Button>
+                  </Button>
                 </Form.Item>
                 <Link to="/login">
                   <small>Already have an account?</small>
@@ -220,15 +230,10 @@ function Register() {
               </div>
             </div>
           )}
-          {message && (
-            <div className="form-group">
-              <div
-                className={successful ? "alert alert-success" : "alert alert-danger"}
-                role="alert"
-              >
-                {message}
-              </div>
-            </div>
+          {message && successful && (
+            <h6 className="text-center" style={{ color: "white" }}>
+              {message}
+            </h6>
           )}
         </Form>
       </div>
