@@ -5,6 +5,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Navbar from "shared/Navbar";
 import Footer from "shared/Footer";
 
+import BestMember from "modules/BestMember/bestMember";
+
 import { getCommittees } from "../../services/committees.services";
 
 import "./style.css";
@@ -71,6 +73,10 @@ export default function SingleCommittee(props) {
                   <h2 className="section-title">Our Mission</h2>
                   <p data-testid="comm-mission">{committee.mission}</p>
                 </section>
+
+                <hr />
+
+                <BestMember committee={committee.title} />
               </div>
             </main>
 

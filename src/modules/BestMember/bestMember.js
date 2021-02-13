@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import upRit from "../BestMember/img/upRit.png";
@@ -6,6 +6,7 @@ import upLft from "../BestMember/img/upLft.png";
 import logoUser from "../BestMember/img/logoUser.png";
 import dwRit from "../BestMember/img/dwRit.png";
 import dwLft from "../BestMember/img/dwLft.png";
+import { getBestMembers } from "./services/bestMember.services";
 import "./BMstyle.css";
 
 const responsive = {
@@ -27,18 +28,16 @@ const responsive = {
   }
 };
 
-export default () => {
+export default ({ committee }) => {
 
-  const [imgMember] = useState([
-    { imgUrl: "https://via.placeholder.com/150?text=user-img", name: "name", Description: "web developer" },
-    { imgUrl: "https://via.placeholder.com/150?text=user-img", name: "name", Description: "web developer" },
-    { imgUrl: "https://via.placeholder.com/150?text=user-img", name: "name", Description: "web developer" },
-    { imgUrl: "https://via.placeholder.com/150?text=user-img", name: "name", Description: "web developer" },
-    { imgUrl: "https://via.placeholder.com/150?text=user-img", name: "name", Description: "web developer" },
-    { imgUrl: "https://via.placeholder.com/150?text=user-img", name: "name", Description: "web developer" }
-  ]);
+  const [bestMembers, setBestMembers] = useState(null);
 
-  return (
+  let params = "isBest=true";
+  if (committee) params += `&committee=${committee}`;
+
+  useEffect(() => getBestMembers(params).then(res => setBestMembers(res.data)), [params])
+
+  return bestMembers ? (
     <section id="bestMember" className="bg-section component-font">
 
       <div className="container">
@@ -50,16 +49,15 @@ export default () => {
         <img alt="upper right" className="img-fluid" id="upPng" src={upRit} />
 
         <Carousel responsive={responsive} infinite={true}>
-
-          {imgMember.map((imgMem, idx) => {
+          {bestMembers.map((member, index) => {
             return (
-              <article className="member-carousel-item" key={idx}>
+              <article className="member-carousel-item" key={index}>
                 <section className="member-logo">
-                  <img src={imgMem.imgUrl} alt="imgMem-logo" />
+                  <img src={`https://drive.google.com/uc?exort=view&id=${member.imageID}`} alt="best member" />
                 </section>
 
-                <h4 className="member-name"> {imgMem.name} </h4>
-                <h6 className="member-name"> {imgMem.Description} </h6>
+                <h4 className="member-name"> {member.name} </h4>
+                <h6 className="member-name"> {member.committee} </h6>
 
               </article>
             );
@@ -74,7 +72,7 @@ export default () => {
       </div>
     </section>
 
-  );
+  ) : null;
 }
 
 

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 
 import { Helmet } from "react-helmet";
-import BestMember from "./components/BestMember/bestMember";
+import BestMember from "../BestMember/bestMember";
 
 // import Supervisor from "./components/Supervisor";
 import Partners from "./components/Partners";
