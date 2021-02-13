@@ -48,18 +48,25 @@ function CommitteeMembers({ members, heads, viceHead, committeeName }) {
                     <div className=" container">
                         <div className=" row members_community">
                             {members.map((member, index) => (
-                                <div key={index} className="card_member col-4 col-md-3">
+                                <div key={index} className="card_member col-4 col-md-3 pb-3">
                                     <div className="img_member">
                                         {
                                             member.imageID ?
                                                 <img alt="member" src={`https://drive.google.com/uc?exort=view&id=${member.imageID}`} className="img_card rounded-circle" />
                                                 :
                                                 <img alt="member" src={default_image} className="img_card rounded-circle" />
-
                                         }
                                     </div>
-                                    <div className="text_member"><h5>{member.name}</h5></div>
-                                    <div className="text_member"><h6>{member.position}</h6></div>
+                                    <div className="text_member">
+                                        <h5>
+                                            {member.isBest ? `★${member.name}★` : member.name}
+                                        </h5>
+                                    </div>
+                                    <div className="text_member">
+                                        <h6>
+                                            {member.isBest ? `Best ${member.position}` : member.position}
+                                        </h6>
+                                    </div>
                                 </div>
                             ))}</div>
                     </div>
