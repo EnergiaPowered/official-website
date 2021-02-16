@@ -35,7 +35,15 @@ export default ({ committee }) => {
   let params = "isBest=true";
   if (committee) params += `&committee=${committee}`;
 
-  useEffect(() => getBestMembers(params).then(res => setBestMembers(res.data)), [params])
+  useEffect(() => getBestMembers(params).then(res => setBestMembers(res.data.sort((a, b) => {
+    if (a.name < b.name) {
+      return -1;
+    }
+    if (a.name > b.name) {
+      return 1;
+    }
+    return 0;
+  }))), [params])
 
   return bestMembers ? (
     <section id="bestMember" className="bg-section component-font">
@@ -53,7 +61,8 @@ export default ({ committee }) => {
             return (
               <article className="member-carousel-item" key={index}>
                 <section className="member-logo">
-                  <img src={`https://drive.google.com/uc?exort=view&id=${member.imageID}`} alt="best member" />
+                  {/* <img src={`https://drive.google.com/uc?exort=view&id=${member.imageID}`} alt="best member" /> */}
+                  <img src={require(`assets/crew images/${member.committee}/${member.name}.png`)} alt="best member" />
                 </section>
 
                 <h4 className="member-name"> {member.name} </h4>

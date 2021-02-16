@@ -11,7 +11,7 @@ function Crew() {
         "High Board",
         "Arduino & Embedded Systems",
         "C++",
-        "Decoration Coordination & Reception",
+        "DCR",
         "Design",
         "Digital Electronics",
         "Fundraising",
@@ -22,7 +22,6 @@ function Crew() {
         "Media",
         "Mobile App Development",
         "Public Relations",
-        "Quality Manager & Coordinator",
         "Web Development"
     ]);
     const [handelPage, setHandelPage] = useState(null);
@@ -30,7 +29,8 @@ function Crew() {
     useEffect(() => viewCrew("High Board"), []);
 
     const viewCrew = committee => {
-        getCrew().then((res) => {
+        const params = `committee=${committee.replace('&', '%26').replace(/\+/g, '%2b')}`;
+        getCrew(params).then((res) => {
             if (committee !== "Structure") {
                 let members = res.data.filter(member => member.committee === committee);
                 let heads;
@@ -41,10 +41,10 @@ function Crew() {
                     members = members
                         .filter(member => member.position !== "President" && member.position !== "General Vice President")
                         .sort((a, b) => {
-                            if (a.last_nom < b.last_nom) {
+                            if (a.name < b.name) {
                                 return -1;
                             }
-                            if (a.last_nom > b.last_nom) {
+                            if (a.name > b.name) {
                                 return 1;
                             }
                             return 0;
@@ -95,8 +95,7 @@ function Crew() {
                             <div className="value_dropDown" onClick={() => viewCrew(switchPage[11])}>MEDIA</div>
                             <div className="value_dropDown" onClick={() => viewCrew(switchPage[12])}>MOBILE APP DEVELOPMENT</div>
                             <div className="value_dropDown" onClick={() => viewCrew(switchPage[13])}>PUBLIC RELATIONS</div>
-                            <div className="value_dropDown" onClick={() => viewCrew(switchPage[14])}>QUALITY MANGER</div>
-                            <div className="value_dropDown" onClick={() => viewCrew(switchPage[15])}>WEB DEVELOPMENT</div>
+                            <div className="value_dropDown" onClick={() => viewCrew(switchPage[14])}>WEB DEVELOPMENT</div>
                         </div>
                     </div>
                 </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import default_image from "../img/default.png";
+import default_image from "../images/default.png";
 import "../components/indexComponents.css";
 
 function CommitteeMembers({ members, heads, viceHead, committeeName }) {
@@ -17,7 +17,8 @@ function CommitteeMembers({ members, heads, viceHead, committeeName }) {
                                     <div className="d-flex justify-content-center">
                                         {
                                             head.imageID ?
-                                                <img alt="head" src={`https://drive.google.com/uc?exort=view&id=${head.imageID}`} className="img-head rounded-circle" />
+                                                <img alt="head" src={require(`assets/crew images/${committeeName}/${head.name}.png`)} className="img_card rounded-circle" />
+                                                // <img alt="head" src={`https://drive.google.com/uc?exort=view&id=${head.imageID}`} className="img-head rounded-circle" />
                                                 :
                                                 <img alt="head" src={default_image} className="img-head rounded-circle" />
 
@@ -33,7 +34,8 @@ function CommitteeMembers({ members, heads, viceHead, committeeName }) {
                                     <div className="d-flex justify-content-center">
                                         {
                                             viceHead.imageID ?
-                                                <img alt="vice head" src={`https://drive.google.com/uc?exort=view&id=${viceHead.imageID}`} className="img-head rounded-circle" />
+                                                <img alt="head" src={require(`assets/crew images/${committeeName}/${viceHead.name}.png`)} className="img_card rounded-circle" />
+                                                // <img alt="vice head" src={`https://drive.google.com/uc?exort=view&id=${viceHead.imageID}`} className="img-head rounded-circle" />
                                                 :
                                                 <img alt="vice head" src={default_image} className="img-head rounded-circle" />
 
@@ -52,7 +54,8 @@ function CommitteeMembers({ members, heads, viceHead, committeeName }) {
                                     <div className="img_member">
                                         {
                                             member.imageID ?
-                                                <img alt="member" src={`https://drive.google.com/uc?exort=view&id=${member.imageID}`} className="img_card rounded-circle" />
+                                                <img alt="member" src={require(`assets/crew images/${committeeName}/${member.name}.png`)} className="img_card rounded-circle" />
+                                                // <img alt="member" src={`https://drive.google.com/uc?exort=view&id=${member.imageID}`} className="img_card rounded-circle" />
                                                 :
                                                 <img alt="member" src={default_image} className="img_card rounded-circle" />
                                         }
