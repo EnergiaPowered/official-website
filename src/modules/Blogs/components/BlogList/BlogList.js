@@ -27,6 +27,7 @@ function BlogList() {
                 <div className="blogcard__content">
                   <h3 className="blogcard__heading">{blog.title}</h3>
                   <div className="blogcard__body">
+                    <h6 style={{ color: "black" }}>{blog.category}</h6>
                     <p
                       data-toggle="tooltip"
                       data-placement="top"
@@ -61,7 +62,7 @@ function BlogList() {
               <h3 className="singleBlogcard__heading">{clickedBlog.title}</h3>
               <div className="singleBlogcard__body">
                 <p>{clickedBlog.body}</p>
-                <h4>Abdullah Adel</h4>
+                <h4 style={{ color: "black" }}>{clickedBlog.author}</h4>
               </div>
             </div>
           </article>
