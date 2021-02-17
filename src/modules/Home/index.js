@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 
 import { Helmet } from "react-helmet";
-import BestMember from "../BestMember/bestMember";
 
 // import Supervisor from "./components/Supervisor";
 import Partners from "./components/Partners";
 import Header from "./components/Header";
 import Committees from "modules/Committees/components/section";
+import BestMember from "../BestMember/bestMember";
 // import Events from "./components/Events";
 
 import Layout from "shared/Layout";
