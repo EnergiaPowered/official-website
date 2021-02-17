@@ -42,9 +42,9 @@ export default function AboutPage() {
 
             <Mission />
             <hr />
-          </div>
 
-          <Structure />
+            <Structure />
+          </div>
         </main>
       </Layout>
     </div>

@@ -1,6 +1,6 @@
 .singleBlog__container {
   background: #01010694;
-  position: sticky;
+  position: fixed;
   top: 0;
   bottom: 0;
   left: 0;

@@ -11,7 +11,7 @@ export default () => {
 
   return (
     <section className="bg-section about-structure">
-      <h2 className="section-title text-center">Our Structure</h2>
+      <h2 className="section-title">Our Structure</h2>
       <div className="d-flex justify-content-center">
         <Image
           data-testid="structure-image"

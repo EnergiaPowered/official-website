@@ -37,10 +37,10 @@ export default ({ committee }) => {
 
   useEffect(() => {
     getBestMembers(params).then(res => setBestMembers(res.data.sort((a, b) => {
-      if (a.name < b.name) {
+      if (a.committee < b.committee) {
         return -1;
       }
-      if (a.name > b.name) {
+      if (a.committee > b.committee) {
         return 1;
       }
       return 0;
@@ -58,7 +58,7 @@ export default ({ committee }) => {
         <img alt="members" id="logoUser" src={logoUser} />
         <img alt="upper right" className="img-fluid" id="upPng" src={upRit} />
         {bestMembers.length ? (
-          <Carousel responsive={responsive} infinite={true}>
+          <Carousel className="mt-3" responsive={responsive} infinite={true}>
             {bestMembers.map((member, index) => {
               return (
                 <article className="member-carousel-item" key={index}>
