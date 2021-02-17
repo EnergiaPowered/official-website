@@ -1,6 +1,6 @@
 # Energia Powered Official Website
 
-The source code of `Energia Powered` student activity's website. The website built to provide some of organization's services and represent information about it with simplicity in mind. Also it provides an opportunity for students to collaborate and contribute to enhance their programming and train to contribute to open source community.
+The source code of the frontend of `Energia Powered` student activity's website. The website built to provide some of organization's services and represent information about it with simplicity in mind. Also it provides an opportunity for students to collaborate and contribute to enhance their programming and train to contribute to open source community.
 
 ![EP Logo](logo.png)
 
@@ -9,6 +9,7 @@ The source code of `Energia Powered` student activity's website. The website bui
 1. [Installation](#install)
 1. [Usage](#use)
 1. [Structure](#structure)
+1. [Tools](#tools)
 1. [Contribution](#contribution)
 1. [License](#license)
 
@@ -18,205 +19,64 @@ Make sure to have [Node.js](https://nodejs.org/en/download/) installed on your m
 
 1. Clone this repo `$ git clone https://github.com/EnergiaPowered/official-website.git` or using `ssh`.
 
-2. `$ cd Official-website`.
+2. `$ cd official-website`.
 
-3. Run `$ npm install` to install dependencies and packages in the root then install packages in `front/` by running `$ npm run front-install`.
+3. Run `$ npm install` to install dependencies and packages in the root.
 
 ## Usage
 
-1. Create a `.env` file at the root of the project 
-    1. Copy the content of `.env-example` in to the `.env` file you did created.
-    1. Register for a DB URI in mongo atlas of any other service and add the `URI string` as the value of `DB_URI` variable.
+1. Add your `HOST` for the backend REST-API in `/src/globals/config.js`.
 
-1. Run `$ npm run dev-start` to start serving the app (front & back), then go to `https://localhost:3000` to view the front and start using the back it is started already.
+1. Run `$ npm start` to start serving the app, then go to `http://localhost:3000` to view the UI and start using the backend.
 
 ## Structure
 
 The folder structure of the application. The app is modular, every module encapsulates its own components and services. Each module contains `components` folder which has the presentational components and also pages, also the module contains the `services` folder if it's dynamic which has all the services that integrate with the `API`.
 
-```
-.
-├── CONTRIBUTING.md
-├── front
-│   ├── package.json
-│   ├── package-lock.json
-│   ├── README.md
-│   ├── src
-│   │   ├── App.js
-│   │   ├── App.test.js
-│   │   ├── assets
-│   │   │   ├── About-header.png
-│   │   │   ├── Contact-header.png
-│   │   │   ├── Events-header.png
-│   │   │   ├── Home-header.png
-│   │   │   ├── logo.png
-│   │   │   ├── placeholder.png
-│   │   │   ├── single comm-bg.png
-│   │   │   ├── single-comm-header.png
-│   │   │   ├── Structure.png
-│   │   │   └── supervisor.jpg
-│   │   ├── globals
-│   │   │   ├── icons_library.js
-│   │   │   └── routes.js
-│   │   ├── index.css
-│   │   ├── index.js
-│   │   ├── modules
-│   │   │   ├── About
-│   │   │   │   ├── components
-│   │   │   │   │   ├── Header
-│   │   │   │   │   │   ├── index.js
-│   │   │   │   │   │   ├── style.css
-│   │   │   │   │   │   └── tests
-│   │   │   │   │   │       ├── Header.test.js
-│   │   │   │   │   │       └── __snapshots__
-│   │   │   │   │   │           └── Header.test.js.snap
-│   │   │   │   │   ├── Mission
-│   │   │   │   │   │   ├── index.js
-│   │   │   │   │   │   └── tests
-│   │   │   │   │   │       ├── Mission.test.js
-│   │   │   │   │   │       └── __snapshots__
-│   │   │   │   │   │           └── Mission.test.js.snap
-│   │   │   │   │   ├── page
-│   │   │   │   │   │   ├── index.js
-│   │   │   │   │   │   └── style.css
-│   │   │   │   │   ├── Structure
-│   │   │   │   │   │   ├── index.js
-│   │   │   │   │   │   └── tests
-│   │   │   │   │   │       ├── __snapshots__
-│   │   │   │   │   │       │   └── Structure.test.js.snap
-│   │   │   │   │   │       └── Structure.test.js
-│   │   │   │   │   └── Vision
-│   │   │   │   │       ├── index.js
-│   │   │   │   │       └── tests
-│   │   │   │   │           ├── __snapshots__
-│   │   │   │   │           │   └── Vision.test.js.snap
-│   │   │   │   │           └── Vision.test.js
-│   │   │   │   └── tests
-│   │   │   │       ├── About.test.js
-│   │   │   │       └── __snapshots__
-│   │   │   │           └── About.test.js.snap
-│   │   │   ├── Committees
-│   │   │   │   ├── components
-│   │   │   │   │   ├── section
-│   │   │   │   │   │   ├── index.js
-│   │   │   │   │   │   └── style.css
-│   │   │   │   │   └── SingleCommitteePage
-│   │   │   │   │       ├── index.js
-│   │   │   │   │       ├── style.css
-│   │   │   │   │       └── tests
-│   │   │   │   │           └── Sin-committee.test.js
-│   │   │   │   └── tests
-│   │   │   ├── Contact
-│   │   │   │   ├── components
-│   │   │   │   │   ├── ContactForm
-│   │   │   │   │   │   ├── index.js
-│   │   │   │   │   │   └── style.css
-│   │   │   │   │   ├── Header
-│   │   │   │   │   │   ├── index.js
-│   │   │   │   │   │   └── style.css
-│   │   │   │   │   └── Info
-│   │   │   │   │       ├── index.js
-│   │   │   │   │       └── style.css
-│   │   │   │   ├── index.js
-│   │   │   │   ├── services
-│   │   │   │   │   ├── contact.service.js
-│   │   │   │   │   └── regexp.service.js
-│   │   │   │   └── style.css
-│   │   │   ├── Home
-│   │   │   │   ├── components
-│   │   │   │   │   ├── Events
-│   │   │   │   │   │   ├── event.js
-│   │   │   │   │   │   ├── events.css
-│   │   │   │   │   │   └── index.jsx
-│   │   │   │   │   ├── Header
-│   │   │   │   │   │   ├── index.js
-│   │   │   │   │   │   ├── style.css
-│   │   │   │   │   │   └── tests
-│   │   │   │   │   │       ├── Header.test.js
-│   │   │   │   │   │       └── __snapshots__
-│   │   │   │   │   │           └── Header.test.js.snap
-│   │   │   │   │   ├── Partners
-│   │   │   │   │   │   ├── index.js
-│   │   │   │   │   │   ├── style.css
-│   │   │   │   │   │   └── tests
-│   │   │   │   │   │       ├── Partners.test.js
-│   │   │   │   │   │       └── __snapshots__
-│   │   │   │   │   │           └── Partners.test.js.snap
-│   │   │   │   │   └── Supervisor
-│   │   │   │   │       ├── index.js
-│   │   │   │   │       ├── style.css
-│   │   │   │   │       └── tests
-│   │   │   │   │           ├── __snapshots__
-│   │   │   │   │           │   └── Supervisor.test.js.snap
-│   │   │   │   │           └── Supervisor.test.js
-│   │   │   │   ├── index.js
-│   │   │   │   ├── style.css
-│   │   │   │   └── tests
-│   │   │   │       ├── Home.test.js
-│   │   │   │       └── __snapshots__
-│   │   │   │           └── Home.test.js.snap
-│   │   │   └── NotFound
-│   │   │       ├── index.js
-│   │   │       └── style.css
-│   │   ├── pages
-│   │   │   └── EventsPage
-│   │   │       ├── components
-│   │   │       │   ├── Events
-│   │   │       │   │   ├── CardBody.js
-│   │   │       │   │   ├── CardButton.js
-│   │   │       │   │   ├── CardImage.js
-│   │   │       │   │   ├── Event.js
-│   │   │       │   │   ├── Events.jsx
-│   │   │       │   │   ├── index.css
-│   │   │       │   │   └── singleEvent
-│   │   │       │   │       ├── components
-│   │   │       │   │       │   ├── Form.jsx
-│   │   │       │   │       │   └── Input.jsx
-│   │   │       │   │       ├── Formx.jsx
-│   │   │       │   │       ├── singleEvents.jsx
-│   │   │       │   │       └── style.css
-│   │   │       │   └── Header
-│   │   │       │       ├── Header.jsx
-│   │   │       │       └── index.css
-│   │   │       ├── index.css
-│   │   │       ├── index.js
-│   │   │       └── services
-│   │   │           ├── fakeEvents.js
-│   │   │           └── fakeSingelEvent.js
-│   │   ├── serviceWorker.js
-│   │   ├── shared
-│   │   │   ├── Footer
-│   │   │   │   ├── index.js
-│   │   │   │   ├── style.css
-│   │   │   │   └── tests
-│   │   │   │       └── Footer.test.js
-│   │   │   ├── Layout
-│   │   │   │   ├── index.js
-│   │   │   │   ├── style.css
-│   │   │   │   └── tests
-│   │   │   │       └── Footer.test.js
-│   │   │   └── Navbar
-│   │   │       ├── index.js
-│   │   │       ├── style.css
-│   │   │       └── tests
-│   │   │           └── Navbar.test.js
-│   │   └── static_data
-│   │       └── committees.json
-│   └── Style-Guide.md
-├── index.js
-├── LICENSE
-├── models
-│   ├── Info.js
-│   └── Message.js
-├── mongo.js
-├── package.json
-├── package-lock.json
-├── README.md
-├── routes
-│   ├── contactInfo.js
-│   └── message.js
-└── TODOS.txt
-```
+- assets - here are all the images or any assets we may need
+- components - here are all presentational components that has no business logic
+  - ExampleComponent (e.g: Footer)
+    - index.js
+    - style.css
+    - tests
+- containers - here are all components that has business logic
+  - ExampleComponent
+    - index.js
+    - style.css
+    - tests
+- pages - here are all the components that represents the react routes
+  - HomePage
+    - index.js
+    - index.css
+    - components
+      - Header
+        - index.js
+        - style.css
+        - tests
+    - tests
+
+**Notes:**
+
+- Routing is already setup - Go to `/src/globals/routes.js` file and add your routes
+- Add the Homepage Sections at `/src/pages/HomePage/index.js`
+
+## Tools
+
+1. [Fontawesome](https://scotch.io/tutorials/using-font-awesome-5-with-react) - [Footer Component Demo](https://github.com/EnergiaPowered/official-website/blob/master/front/src/pages/HomePage/Footer)
+
+2. [React-multi-carousel](https://www.npmjs.com/package/react-multi-carousel) - [Partners Component Demo](https://github.com/EnergiaPowered/official-website/blob/master/front/src/components/HomePage/Partners/Partners.js)
+
+3. [Bootstrap 4.3](https://getbootstrap.com/)
+
+4. [react-testing-library](https://github.com/testing-library/react-testing-library)
+
+5. [Jest](https://jestjs.io/docs/en/getting-started)
+
+6. [React-helmet](https://github.com/nfl/react-helmet) - [HomePage component demo](https://github.com/EnergiaPowered/official-website/blob/master/front/src/pages/HomePage/index.js)
+
+7. [React-image-enlarger](https://github.com/bmcmahen/react-image-enlarger) - [Structure component demo](https://github.com/EnergiaPowered/official-website/blob/master/front/src/pages/AboutPage/components/Structure/index.js)
+
+8. [React-page-progress](https://github.com/nomangul/react-page-progress/) - [Demo](https://github.com/EnergiaPowered/official-website/blob/master/front/src/App.js)
 
 ## Contribution
 

@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { getCommittees } from "../../services/committees.services";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Carousel from "react-multi-carousel";
 import "./style.css";
@@ -25,19 +24,22 @@ const responsive = {
 };
 
 export default function Committees() {
-  const [committees, setCommittees] = useState(null);
-
-  useEffect(() => {
-    getCommittees().then((res) => setCommittees(res.data.sort((a, b) => {
-      if (a.title < b.title) {
-        return -1;
-      }
-      if (a.title > b.title) {
-        return 1;
-      }
-      return 0;
-    })));
-  }, []);
+  const [committees] = useState([
+    { title: "DCR", icon_class: "cut" },
+    { title: "Logistics", icon_class: "tools" },
+    { title: "Human Resources", icon_class: "user-tie" },
+    { title: "Marketing", icon_class: "bullhorn" },
+    { title: "Design", icon_class: "fill-drip" },
+    { title: "Media", icon_class: "camera" },
+    { title: "Public Relations", icon_class: "handshake" },
+    { title: "Fundraising", icon_class: "hand-holding-usd" },
+    { title: "Web Development", icon_class: "laptop-code" },
+    { title: "Mobile App Development", icon_class: "mobile-alt" },
+    { title: "Electronics Design", icon_class: "microchip" },
+    { title: "Embedded Systems", icon_class: "network-wired" },
+    { title: "C++", icon_class: "code" },
+    { title: "Management", icon_class: "chart-pie" }
+  ]);
 
   return (
     <>
