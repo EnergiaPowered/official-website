@@ -1,67 +1,45 @@
 .singleBlog__container {
-  position: absolute;
+  background: #01010694;
+  position: sticky;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-}
-
-.singleBlog__background {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: #9575cd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
   z-index: 1030;
-  filter: blur(234px);
+  transition: all 0.3s;
 }
 
 .singleBlogcard {
-  position: sticky;
-  top: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  z-index: 1031;
-}
-
-.fa-times-circle {
-  font-size: 2vw;
-  line-height: 0;
-  position: absolute;
-  top: 0;
-  right: -1vw;
-  color: #303f9f;
-  cursor: pointer;
-}
-
-.singleBlogcard img {
-  height: 80vmin;
+  width: 50%;
+  position: relative;
 }
 
 .singleBlogcard__content {
+  overflow-y: auto;
   position: absolute;
-  top: 7vw;
-  color: #010e30;
-  width: 95vmin;
+  top: 5.8%;
+  left: 3.5%;
+  width: 93%;
+  max-height: 76%;
+  padding: 2% 3%;
 }
 
-.singleBlogcard__heading {
-  color: #010e30;
-  text-align: center;
-}
-
-.singleBlogcard__body {
-  height: 24.5vw;
-  overflow-y: scroll;
-}
-
-.singleBlogcard__body::-webkit-scrollbar {
+.singleBlogcard__content::-webkit-scrollbar {
   width: 0;
 }
 
-.singleBlogcard__content p {
-  text-align: justify;
+@media screen and (max-width: 768px) {
+  .singleBlogcard {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 574px) {
+  .singleBlogcard {
+    width: 90%;
+  }
 }
