@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Image from "react-image-enlarger";
 
 // to be dynamic
-import structureImg from "assets/Structure.png";
+import structureImg from "assets/Structure.jpg";
 
 export default () => {
   const [zoomed, setZoomed] = useState(false);
