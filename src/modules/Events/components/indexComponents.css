@@ -1,9 +1,9 @@
 .container_card:nth-child(even) {
-    margin: 5% 0% 5% 30%;
+    margin: 10% 0% 10% 30%;
 }
 
 .container_card:nth-child(odd) {
-    margin: 5% 0% 5% 15%;
+    margin: 10% 0% 10% 15%;
 }
 
 .img_card img {
@@ -25,13 +25,13 @@
 
 @media screen and (max-width: 767px) {
     .container_card {
-        margin: 5% auto !important;
+        margin: 10% auto !important;
     }
 }
 
 @media screen and (max-width: 575px) {
     .container_card {
-        margin: 5% auto !important;
+        margin: 10% auto !important;
         flex-direction: column;
         align-items: center;
         text-align: center;
