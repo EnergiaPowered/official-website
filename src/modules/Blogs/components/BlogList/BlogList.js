@@ -18,27 +18,29 @@ function BlogList() {
 
   return (
     <>
-      <div className="cards row">
-        {blogList
+      <div className="container blogs-container row">
+        {blogList && blogList.length
           ? blogList.map((blog) => {
             return (
-              <article className="blogcard col-6 col-lg-4" key={blog._id}>
+              <article className="blogcard col-12 col-md-6 col-lg-4" key={blog._id}>
                 <img src={blogBG} alt="Blog Container" />
                 <div className="blogcard__content">
                   <h3 className="blogcard__heading">{blog.title}</h3>
                   <div className="blogcard__body">
-                    <h6 style={{ color: "black" }}>{blog.category}</h6>
-                    <p
+                    <h6 className="mb-0" style={{ color: "#010e30", fontWeight: "bold" }}>{blog.category}</h6>
+                    <small className="text-muted"><em>17 Feb 2021</em></small>
+                    <p>{blog.body}</p>
+                    <div
                       data-toggle="tooltip"
                       data-placement="top"
-                      title="Click to see full blog"
+                      title="Click to see the full blog"
                       onClick={() => {
                         setIsBlogOpened(true);
                         setClickedBlog(blog);
                       }}
                     >
-                      {blog.body}
-                    </p>
+                      See more
+                    </div>
                   </div>
                 </div>
               </article>
@@ -47,22 +49,16 @@ function BlogList() {
           : null}
       </div>
       {isBlogOpened ? (
-        <div className="singleBlog__container">
-          <div
-            className="singleBlog__background"
-            onClick={() => setIsBlogOpened(false)}
-          ></div>
+        <div className="singleBlog__container" onClick={() => setIsBlogOpened(false)}>
           <article className="singleBlogcard">
             <img src={blogBG} alt="Single Blog Container" />
             <div className="singleBlogcard__content">
-              <i
-                class="fas fa-times-circle"
-                onClick={() => setIsBlogOpened(false)}
-              ></i>
-              <h3 className="singleBlogcard__heading">{clickedBlog.title}</h3>
-              <div className="singleBlogcard__body">
+              <h3 className="blogcard__heading">{clickedBlog.title}</h3>
+              <div className="blogcard__body">
+                <h6 className="mb-0" style={{ color: "#010e30", fontWeight: "bold" }}>{clickedBlog.category}</h6>
+                <small className="text-muted"><em>17 Feb 2021</em></small>
                 <p>{clickedBlog.body}</p>
-                <h4 style={{ color: "black" }}>{clickedBlog.author}</h4>
+                <h5 style={{ color: "#010e30", textAlign: "left" }}>{clickedBlog.author}</h5>
               </div>
             </div>
           </article>

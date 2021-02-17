@@ -25,20 +25,20 @@ const responsive = {
 
 export default function Committees() {
   const [committees] = useState([
+    { title: "C++", icon_class: "code" },
     { title: "DCR", icon_class: "cut" },
-    { title: "Logistics", icon_class: "tools" },
-    { title: "Human Resources", icon_class: "user-tie" },
-    { title: "Marketing", icon_class: "bullhorn" },
     { title: "Design", icon_class: "fill-drip" },
-    { title: "Media", icon_class: "camera" },
-    { title: "Public Relations", icon_class: "handshake" },
-    { title: "Fundraising", icon_class: "hand-holding-usd" },
-    { title: "Web Development", icon_class: "laptop-code" },
-    { title: "Mobile App Development", icon_class: "mobile-alt" },
     { title: "Electronics Design", icon_class: "microchip" },
     { title: "Embedded Systems", icon_class: "network-wired" },
-    { title: "C++", icon_class: "code" },
-    { title: "Management", icon_class: "chart-pie" }
+    { title: "Fundraising", icon_class: "hand-holding-usd" },
+    { title: "Human Resources", icon_class: "user-tie" },
+    { title: "Logistics", icon_class: "tools" },
+    { title: "Management", icon_class: "chart-pie" },
+    { title: "Marketing", icon_class: "bullhorn" },
+    { title: "Media", icon_class: "camera" },
+    { title: "Mobile App Development", icon_class: "mobile-alt" },
+    { title: "Public Relations", icon_class: "handshake" },
+    { title: "Web Development", icon_class: "laptop-code" }
   ]);
 
   return (

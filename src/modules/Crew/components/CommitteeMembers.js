@@ -10,7 +10,7 @@ function CommitteeMembers({ members, heads, viceHead, committeeName }) {
                     <div className="title_community">
                         <h2 >{committeeName}</h2>
                     </div>
-                    <div className="heads_container container ">
+                    <div className="heads_container container">
                         <div className=" heads_community row">
                             {heads.map((head, index) => (
                                 <div key={index} className="card_head col-12 col-md-6">
@@ -18,9 +18,9 @@ function CommitteeMembers({ members, heads, viceHead, committeeName }) {
                                         {
                                             head.imageID ?
                                                 <img alt="head" src={require(`assets/crew images/${committeeName}/${head.name}.png`)} className="img_card rounded-circle" />
-                                                // <img alt="head" src={`https://drive.google.com/uc?exort=view&id=${head.imageID}`} className="img-head rounded-circle" />
+                                                // <img alt="head" src={`https://drive.google.com/uc?exort=view&id=${head.imageID}`} className="img_card rounded-circle" />
                                                 :
-                                                <img alt="head" src={default_image} className="img-head rounded-circle" />
+                                                <img alt="head" src={default_image} className="img_card rounded-circle" />
 
                                         }
                                     </div>
@@ -35,9 +35,9 @@ function CommitteeMembers({ members, heads, viceHead, committeeName }) {
                                         {
                                             viceHead.imageID ?
                                                 <img alt="head" src={require(`assets/crew images/${committeeName}/${viceHead.name}.png`)} className="img_card rounded-circle" />
-                                                // <img alt="vice head" src={`https://drive.google.com/uc?exort=view&id=${viceHead.imageID}`} className="img-head rounded-circle" />
+                                                // <img alt="vice head" src={`https://drive.google.com/uc?exort=view&id=${viceHead.imageID}`} className="img_card rounded-circle" />
                                                 :
-                                                <img alt="vice head" src={default_image} className="img-head rounded-circle" />
+                                                <img alt="vice head" src={default_image} className="img_card rounded-circle" />
 
                                         }                                    </div>
                                     <div className="text_head"><h5>{viceHead.name}</h5></div>
@@ -50,7 +50,7 @@ function CommitteeMembers({ members, heads, viceHead, committeeName }) {
                     <div className=" container">
                         <div className=" row members_community">
                             {members.map((member, index) => (
-                                <div key={index} className="card_member col-4 col-md-3 pb-3">
+                                <div key={index} className="card_member col-12 col-sm-6 col-md-4 col-lg-3 pb-3">
                                     <div className="img_member">
                                         {
                                             member.imageID ?

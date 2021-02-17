@@ -28,10 +28,10 @@ function EventsComponent({ events }) {
                         </div>
                         <div className="date_time_event">
                             <h6>
-                                <MdDateRange /> {new Date(event.date).toDateString().slice(0, 10)} {new Date(event.date).toTimeString().slice(0, 5)}
+                                <MdDateRange /> From: {new Date(event.date).toDateString().slice(0, 10)} {new Date(event.date).toTimeString().slice(0, 5)}
                             </h6>
                             <h6>
-                                More details
+                                <MdDateRange /> To: {new Date(event.date).toDateString().slice(0, 10)} {new Date(event.date).toTimeString().slice(0, 5)}
                             </h6>
                         </div>
                         <div className="type_event badge badge-pill badge-primary">
