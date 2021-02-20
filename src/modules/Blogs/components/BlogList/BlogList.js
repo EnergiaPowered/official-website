@@ -8,6 +8,11 @@ function BlogList() {
   const [blogList, setBlogsList] = useState(null);
   const [clickedBlog, setClickedBlog] = useState(null);
   const [isBlogOpened, setIsBlogOpened] = useState(false);
+  const getDate = (date) => {
+    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    return `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`;
+  }
+
   useEffect(() => {
     getBlogs().then((res) => setBlogsList(res.data));
   }, []);
@@ -28,7 +33,7 @@ function BlogList() {
                   <h3 className="blogcard__heading">{blog.title}</h3>
                   <div className="blogcard__body">
                     <h6 className="mb-0" style={{ color: "#010e30", fontWeight: "bold" }}>{blog.category}</h6>
-                    <small className="text-muted"><em>17 Feb 2021</em></small>
+                    <small className="text-muted"><em>{getDate(new Date(blog.createdAt))}</em></small>
                     <p>{blog.body}</p>
                     <div
                       data-toggle="tooltip"
@@ -49,14 +54,18 @@ function BlogList() {
           : null}
       </div>
       {isBlogOpened ? (
-        <div className="singleBlog__container" onClick={() => setIsBlogOpened(false)}>
+        <div className="singleBlog__container">
           <article className="singleBlogcard">
             <img src={blogBG} alt="Single Blog Container" />
             <div className="singleBlogcard__content">
+              <i
+                className="fas fa-times-circle"
+                onClick={() => setIsBlogOpened(false)}
+              ></i>
               <h3 className="blogcard__heading">{clickedBlog.title}</h3>
               <div className="blogcard__body">
                 <h6 className="mb-0" style={{ color: "#010e30", fontWeight: "bold" }}>{clickedBlog.category}</h6>
-                <small className="text-muted"><em>17 Feb 2021</em></small>
+                <small className="text-muted"><em>{getDate(new Date(clickedBlog.createdAt))}</em></small>
                 <p>{clickedBlog.body}</p>
                 <h5 style={{ color: "#010e30", textAlign: "left" }}>{clickedBlog.author}</h5>
               </div>

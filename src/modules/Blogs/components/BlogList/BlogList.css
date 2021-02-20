@@ -46,5 +46,7 @@
 
 .blogcard__body div:hover,
 .blogcard__body div:active {
-  color: #3c78fa;
+  color: #2e6aec;
+  background: #9fcaf0;
+  font-size: 18px;
 }
