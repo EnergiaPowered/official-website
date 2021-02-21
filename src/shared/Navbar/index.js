@@ -26,12 +26,14 @@ export default function Navbar() {
         setScroll(scrollCheck);
       }
     });
+  }, [scroll]);
 
+  useEffect(() => {
     // hide the menu when click the body
     document.body.addEventListener("click", e => {
       setOpened(false);
     });
-  });
+  }, []);
 
   // close the menu
   const closeMenu = e => {
