@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { getCommittees } from "../../services/committees.services";
+import Loader from "shared/Loader";
 import Carousel from "react-multi-carousel";
 import "./style.css";
 
@@ -24,22 +26,20 @@ const responsive = {
 };
 
 export default function Committees() {
-  const [committees] = useState([
-    { title: "C++", icon_class: "code" },
-    { title: "DCR", icon_class: "cut" },
-    { title: "Design", icon_class: "fill-drip" },
-    { title: "Electronics Design", icon_class: "microchip" },
-    { title: "Embedded Systems", icon_class: "network-wired" },
-    { title: "Fundraising", icon_class: "hand-holding-usd" },
-    { title: "Human Resources", icon_class: "user-tie" },
-    { title: "Logistics", icon_class: "tools" },
-    { title: "Management", icon_class: "chart-pie" },
-    { title: "Marketing", icon_class: "bullhorn" },
-    { title: "Media", icon_class: "camera" },
-    { title: "Mobile App Development", icon_class: "mobile-alt" },
-    { title: "Public Relations", icon_class: "handshake" },
-    { title: "Web Development", icon_class: "laptop-code" }
-  ]);
+  const [committees, setCommittees] = useState(null);
+
+  useEffect(() => {
+    getCommittees().then((res) => setCommittees(res.data.sort((a, b) => {
+      if (a.title < b.title) {
+        return -1;
+      }
+      if (a.title > b.title) {
+        return 1;
+      }
+      return 0;
+    }
+    )));
+  }, [])
 
   return (
     <>
@@ -67,7 +67,7 @@ export default function Committees() {
             ))}
           </Carousel>
         </div>
-      ) : null}
+      ) : <Loader />}
     </>
   );
 }

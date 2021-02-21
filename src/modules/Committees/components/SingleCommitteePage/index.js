@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import Navbar from "shared/Navbar";
 import Footer from "shared/Footer";
+import Loader from "shared/Loader";
 
 import BestMember from "modules/BestMember/bestMember";
 
@@ -19,7 +20,8 @@ export default function SingleCommittee(props) {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  });
+  }, []);
+
 
   useEffect(() => {
     getCommittees().then((res) => setCommittee(res.data.find(
@@ -85,7 +87,7 @@ export default function SingleCommittee(props) {
             </div>
           </article>
         </>
-      ) : null}
+      ) : <Loader />}
     </>
   );
 }

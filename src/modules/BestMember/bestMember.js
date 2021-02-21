@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Loader from "shared/Loader";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import upRit from "../BestMember/img/upRit.png";
@@ -33,7 +34,7 @@ export default ({ committee }) => {
   const [bestMembers, setBestMembers] = useState(null);
 
   let params = "isBest=true";
-  if (committee) params += `&committee=${committee}`;
+  if (committee) params += `&committee=${committee.replace('&', '%26').replace(/\+/g, '%2b')}`;
 
   useEffect(() => {
     getBestMembers(params).then(res => setBestMembers(res.data.sort((a, b) => {
@@ -83,7 +84,7 @@ export default ({ committee }) => {
       </div>
     </section>
 
-  ) : null;
+  ) : <Loader />;
 }
 
 

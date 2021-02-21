@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 import { HiLocationMarker } from 'react-icons/hi';
 import { MdDateRange } from 'react-icons/md';
 import "./indexComponents.css"
