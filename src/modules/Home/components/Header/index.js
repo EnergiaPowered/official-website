@@ -5,7 +5,7 @@ import "./style.css";
 
 export default function Header() {
   let stateObj = {
-    slogan: "The better is yet to come"
+    slogan: "Collaborate to innovate"
   };
   const [state] = useState(stateObj);
   return (
