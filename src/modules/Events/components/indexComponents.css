@@ -1,9 +1,9 @@
 .container_card:nth-child(even) {
-    margin: 10% 0% 10% 30%;
+    margin: 6% 0% 6% 30%;
 }
 
 .container_card:nth-child(odd) {
-    margin: 10% 0% 10% 15%;
+    margin: 6% 0% 6% 15%;
 }
 
 .img_card img {
