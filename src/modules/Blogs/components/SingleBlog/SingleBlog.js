@@ -23,7 +23,7 @@ function SingleBlog({ isBlogOpened, setIsBlogOpened, clickedBlog }) {
                             <div className="blogcard__body">
                                 <h6 className="mb-0" style={{ color: "#010e30", fontWeight: "bold" }}>{clickedBlog.category}</h6>
                                 <small className="text-muted"><em>{getDate(new Date(clickedBlog.createdAt))}</em></small>
-                                <p>{clickedBlog.body}</p>
+                                <p dangerouslySetInnerHTML={{ __html: clickedBlog.body }}></p>
                                 <h5 style={{ color: "#010e30", textAlign: "left" }}>{clickedBlog.author}</h5>
                             </div>
                         </div>

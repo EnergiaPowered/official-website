@@ -30,12 +30,12 @@
 }
 
 .singleBlogcard__content i {
-  position: absolute;
+  position: fixed;
+  font-size: 40px;
   top: 0;
   right: 0;
   padding: 2% 3%;
-  font-size: 20px;
-  color: #cc0245;
+  color: #ff104c;
   cursor: pointer;
   transition: all 0.3s;
 }
