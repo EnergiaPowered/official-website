@@ -22,7 +22,7 @@ function BlogList({ setIsBlogOpened, setClickedBlog }) {
             <div className="blogcard__body">
               <h6 className="mb-0" style={{ color: "#010e30", fontWeight: "bold" }}>{blog.category}</h6>
               <small className="text-muted"><em>{getDate(new Date(blog.createdAt))}</em></small>
-              <p>{blog.body}</p>
+              <p dangerouslySetInnerHTML={{ __html: blog.body }}></p>
               <div
                 data-toggle="tooltip"
                 data-placement="top"

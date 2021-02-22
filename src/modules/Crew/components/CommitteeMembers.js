@@ -8,7 +8,7 @@ function CommitteeMembers({ members, heads, viceHead, committeeName }) {
             { heads.length || members.length ? (
                 <div>
                     <div className="title_community">
-                        <h2 >{committeeName}</h2>
+                        <h2>{committeeName}</h2>
                     </div>
                     <div className="heads_container container">
                         <div className=" heads_community row">
