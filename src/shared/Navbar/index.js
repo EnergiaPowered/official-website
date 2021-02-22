@@ -18,6 +18,8 @@ export default function Navbar() {
   const [scroll, setScroll] = useState(0);
 
   const [opened, setOpened] = useState(false);
+
+  const [loggedIn, setLoggetIn] = useState(JSON.parse(localStorage.getItem("user")) ? true : false);
   useEffect(() => {
     // check the scroll to add class to the navbar
     document.addEventListener("scroll", () => {
@@ -44,7 +46,7 @@ export default function Navbar() {
 
   const logOut = () => {
     loginServices.logout()
-    window.location.reload();
+    setLoggetIn(false);
   }
 
   return (
@@ -95,7 +97,7 @@ export default function Navbar() {
           >
             {routes &&
               routes.length > 0 &&
-              routes.map(route => {
+              routes.slice(0, routes.length - 2).map(route => {
                 return route.inNavbar.shown ? (
                   <li key={route.path} className="nav-item">
                     <NavLink
@@ -110,7 +112,7 @@ export default function Navbar() {
                 ) : null;
               })
             }
-            {JSON.parse(localStorage.getItem("user")) && (
+            {loggedIn ? (
               <li className="nav-item">
                 <span
                   className="nav-link"
@@ -119,7 +121,18 @@ export default function Navbar() {
                   Log Out
                 </span>
               </li>
-            )}
+            ) : routes.slice(routes.length - 2).map(route => (
+              <li key={route.path} className="nav-item">
+                <NavLink
+                  exact
+                  data-testid="navlinks"
+                  className="nav-link"
+                  to={route.path}
+                >
+                  {route.inNavbar.label}
+                </NavLink>
+              </li>
+            ))}
           </ul>
         </div>
       </div>

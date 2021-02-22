@@ -73,6 +73,7 @@ export default [
       label: "Contact us"
     }
   },
+  //make sure that register and login be the last two here
   {
     path: "/register",
     component: RegisterationPage,
