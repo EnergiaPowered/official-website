@@ -20,6 +20,7 @@ export default function Navbar() {
   const [opened, setOpened] = useState(false);
 
   const [loggedIn, setLoggetIn] = useState(JSON.parse(localStorage.getItem("user")) ? true : false);
+
   useEffect(() => {
     // check the scroll to add class to the navbar
     document.addEventListener("scroll", () => {
@@ -44,8 +45,16 @@ export default function Navbar() {
     setOpened(false);
   };
 
+  // handle navlink click
+  const handleNavLinkClick = () => {
+    setScroll(0);
+    window.scrollTo(0, 0);
+  }
+
+  // log out
   const logOut = () => {
-    loginServices.logout()
+    loginServices.logout();
+    handleNavLinkClick();
     setLoggetIn(false);
   }
 
@@ -105,6 +114,7 @@ export default function Navbar() {
                       data-testid="navlinks"
                       className="nav-link"
                       to={route.path}
+                      onClick={() => handleNavLinkClick()}
                     >
                       {route.inNavbar.label}
                     </NavLink>
@@ -128,6 +138,7 @@ export default function Navbar() {
                   data-testid="navlinks"
                   className="nav-link"
                   to={route.path}
+                  onClick={() => handleNavLinkClick()}
                 >
                   {route.inNavbar.label}
                 </NavLink>
