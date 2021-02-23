@@ -32,20 +32,20 @@
   overflow: hidden;
 }
 
-.blogcard__body div {
+.blogcard__content div[data-toggle="tooltip"] {
   position: absolute;
   background: #d8ecfd;
   color: #007ac1;
-  bottom: 0;
-  right: 0;
+  bottom: 2%;
+  right: 7%;
   padding: 0 3%;
   border-radius: 20px;
   cursor: pointer;
   transition: 0.3s;
 }
 
-.blogcard__body div:hover,
-.blogcard__body div:active {
+.blogcard__content div[data-toggle="tooltip"]:hover,
+.blogcard__content div[data-toggle="tooltip"]:active {
   color: #2e6aec;
   background: #9fcaf0;
   font-size: 18px;

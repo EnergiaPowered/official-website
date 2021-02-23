@@ -23,18 +23,18 @@ function BlogList({ setIsBlogOpened, setClickedBlog }) {
               <h6 className="mb-0" style={{ color: "#010e30", fontWeight: "bold" }}>{blog.category}</h6>
               <small className="text-muted"><em>{getDate(new Date(blog.createdAt))}</em></small>
               <p dangerouslySetInnerHTML={{ __html: blog.body }}></p>
-              <div
-                data-toggle="tooltip"
-                data-placement="top"
-                title="Click to see the full blog"
-                onClick={() => {
-                  setIsBlogOpened(true);
-                  setClickedBlog(blog);
-                }}
-              >
-                See more
-                </div>
             </div>
+            <div
+              data-toggle="tooltip"
+              data-placement="top"
+              title="Click to see the full blog"
+              onClick={() => {
+                setIsBlogOpened(true);
+                setClickedBlog(blog);
+              }}
+            >
+              See more
+                </div>
           </div>
         </article>
       );
@@ -42,7 +42,15 @@ function BlogList({ setIsBlogOpened, setClickedBlog }) {
   )
 
   useEffect(() => {
-    getBlogs().then((res) => setBlogsList(res.data));
+    getBlogs().then((res) => setBlogsList(res.data.sort((a, b) => {
+      if (a.createdAt < b.createdAt) {
+        return -1;
+      }
+      if (a.createdAt > b.createdAt) {
+        return 1;
+      }
+      return 0;
+    })));
   }, []);
 
   return (
