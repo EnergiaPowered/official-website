@@ -19,6 +19,10 @@
     justify-content: center;
 }
 
+.details_event a {
+    color: inherit;
+}
+
 .type_event {
     width: fit-content;
 }
