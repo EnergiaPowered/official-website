@@ -10,7 +10,7 @@ function EventsComponent({ events }) {
                 <div key={index} className="container_card row" >
 
                     <div className="img_card" >
-                        {event.imageID ?
+                        {event.eventImageID ?
                             <img alt="event" src={`https://drive.google.com/uc?exort=view&id=${event.eventImageID}`} className="rounded-circle" />
                             :
                             <img alt="event" src={`images/${event.category}.jpg`} className="rounded-circle" />
@@ -32,6 +32,13 @@ function EventsComponent({ events }) {
                             </h6>
                             <h6>
                                 <MdDateRange /> To: {new Date(event.endDate).toDateString().slice(0, 10)} {new Date(event.endDate).toTimeString().slice(0, 5)}
+                            </h6>
+                        </div>
+                        <div className="details_event">
+                            <h6>
+                                <a href={event.eventDetails} target="_blank" rel="noopener noreferrer">
+                                    More Details
+                                </a>
                             </h6>
                         </div>
                         <div className="type_event badge badge-pill badge-primary">
