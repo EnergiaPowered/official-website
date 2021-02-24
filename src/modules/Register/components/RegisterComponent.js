@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { Form, Input, Radio, Button } from "antd";
 import { addUser } from "../services/register.services";
 import "../style.css";
 
 function Register() {
+  const loggedIn = JSON.parse(localStorage.getItem("user")) ? true : false;
+
   const [successful, setSuccessful] = useState(false);
   const [message, setMessage] = useState("");
   const [form] = Form.useForm();
@@ -30,9 +32,11 @@ function Register() {
       });
   };
 
+  if (loggedIn) return <Redirect to='/' />;
+
   return (
     <div className="container register-container">
-      <h1 className="register-header">Registeration</h1>
+      <h1 className="register-header">Sign Up</h1>
 
       <div className="register-form">
         <Form
@@ -221,7 +225,7 @@ function Register() {
               <div className="register-submit-container">
                 <Form.Item className="register-submit">
                   <Button type="secondry" htmlType="submit" size="large">
-                    Register
+                    Sign Up
                   </Button>
                 </Form.Item>
                 <Link to="/login">
