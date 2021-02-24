@@ -9,8 +9,6 @@ import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 
 import PageProgress from "react-page-progress";
 
-import RegisterationPage from "modules/Register";
-import LoginPage from "modules/Login";
 import NotFound from "modules/NotFound";
 
 function App() {
@@ -30,17 +28,8 @@ function App() {
                   component={route.component}
                 />
               );
-            })}
-          <Route
-            exact
-            path="/register"
-            component={RegisterationPage}
-          />
-          <Route
-            exact
-            path="/login"
-            component={LoginPage}
-          />
+            })
+          }
           <Route>
             <NotFound />
           </Route>

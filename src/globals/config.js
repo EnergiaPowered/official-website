@@ -1,6 +1,5 @@
 const configs = {
-    // HOST: "http://localhost:4000/",
-    HOST: "https://energia21.herokuapp.com/",
+    HOST: process.env.NODE_ENV === 'development' ? "http://localhost:4000/" : "https://energia21.herokuapp.com/",
 };
 
 export default configs;

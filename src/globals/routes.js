@@ -7,6 +7,7 @@ import Crew from "modules/Crew/Crew";
 import Contacts from "modules/Contact";
 import RegisterationPage from "modules/Register";
 import LoginPage from "modules/Login";
+import Verfied from "modules/Verfied";
 
 export default [
   {
@@ -73,13 +74,21 @@ export default [
       label: "Contact us"
     }
   },
-  //make sure that register and login be the last two here
   {
-    path: "/register",
+    path: "/verfied",
+    component: Verfied,
+    inNavbar: {
+      shown: false,
+      label: ""
+    }
+  },
+  //make sure that signup and login be the last two here
+  {
+    path: "/signup",
     component: RegisterationPage,
     inNavbar: {
       shown: JSON.parse(localStorage.getItem("user")) ? false : true,
-      label: "Register"
+      label: "Sign Up"
     }
   },
   {

@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { Form, Input, Button } from "antd";
 import loginServices from "../services/login.services";
 import "../style.css";
 
 function Login({ props }) {
+  const loggedIn = JSON.parse(localStorage.getItem("user")) ? true : false;
+
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
   const [form] = Form.useForm();
@@ -15,9 +17,7 @@ function Login({ props }) {
     loginServices.login(data).then(
       () => {
         form.resetFields();
-        window.location.reload();
         props.history.push("/");
-        window.location.reload();
       },
       (error) => {
         const resMessage =
@@ -32,6 +32,8 @@ function Login({ props }) {
       }
     );
   };
+
+  if (loggedIn) return <Redirect to='/' />;
 
   return (
     <div className="container login-container">
