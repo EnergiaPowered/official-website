@@ -1,0 +1,3 @@
+.blogs-page-container.blurry {
+    filter: blur(5px);
+}

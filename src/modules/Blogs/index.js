@@ -5,6 +5,7 @@ import Layout from './../../shared/Layout/index';
 import bg_blogs from "assets/Blogs-header.png";
 import BlogList from './components/BlogList/BlogList';
 import SingleBlog from "./components/SingleBlog/SingleBlog";
+import "./index.css";
 // import { isMouseMoveEvent } from "react-multi-carousel";
 
 function BlogsPage() {
@@ -25,11 +26,13 @@ function BlogsPage() {
                 <Helmet>
                     <title>Energia Powered | Blogs</title>
                 </Helmet>
-                <Layout>
-                    <HeaderForBlogs />
-                    <BlogList setIsBlogOpened={setIsBlogOpened} setClickedBlog={setClickedBlog} />
-                    <SingleBlog isBlogOpened={isBlogOpened} setIsBlogOpened={setIsBlogOpened} clickedBlog={clickedBlog} />
-                </Layout>
+                <div className="blogs-page-container">
+                    <Layout>
+                        <HeaderForBlogs />
+                        <BlogList setIsBlogOpened={setIsBlogOpened} setClickedBlog={setClickedBlog} />
+                    </Layout>
+                </div>
+                <SingleBlog isBlogOpened={isBlogOpened} setIsBlogOpened={setIsBlogOpened} clickedBlog={clickedBlog} />
             </div>
         </>
     )

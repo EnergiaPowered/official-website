@@ -31,6 +31,7 @@ function BlogList({ setIsBlogOpened, setClickedBlog }) {
               onClick={() => {
                 setIsBlogOpened(true);
                 setClickedBlog(blog);
+                document.querySelector('.blogs-page-container').classList.add('blurry');
               }}
             >
               See more
