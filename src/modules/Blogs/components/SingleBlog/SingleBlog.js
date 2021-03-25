@@ -17,10 +17,7 @@ function SingleBlog({ isBlogOpened, setIsBlogOpened, clickedBlog }) {
                         <div className="singleBlogcard__content">
                             <i
                                 className="fas fa-times-circle"
-                                onClick={() => {
-                                    setIsBlogOpened(false)
-                                    document.querySelector('.blogs-page-container').classList.remove('blurry');
-                                }}
+                                onClick={() => setIsBlogOpened(false)}
                             ></i>
                             <h3 className="blogcard__heading">{clickedBlog.title}</h3>
                             <div className="blogcard__body">
