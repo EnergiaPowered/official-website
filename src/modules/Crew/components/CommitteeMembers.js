@@ -61,7 +61,7 @@ function CommitteeMembers({ members, heads, viceHead, committeeName }) {
                                         }
                                     </div>
                                     <div className="text_member">
-                                        <h5>
+                                        <h5 style={{ paddingTop: '5px' }}>
                                             {member.isBest ? `★${member.name}★` : member.name}
                                         </h5>
                                     </div>
