@@ -1,8 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`matches snapshot 1`] = `
+exports[`matches snapshot 1 1`] = `
 <div
   className="container blogs-container row"
+  data-testid="bloglist"
 >
   <div
     className="col-12 d-flex flex-column align-items-center p-5"
@@ -28,3 +29,5 @@ exports[`matches snapshot 1`] = `
   </div>
 </div>
 `;
+
+exports[`matches snapshot 2 1`] = `[Function]`;

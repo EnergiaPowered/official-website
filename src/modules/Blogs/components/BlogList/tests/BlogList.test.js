@@ -1,8 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { cleanup } from "@testing-library/react";
-import { create } from "react-test-renderer";
+import { render, cleanup } from "@testing-library/react";
+import { renderer, create } from "react-test-renderer";
 import BlogList from "./../BlogList";
+import "@testing-library/jest-dom/extend-expect";
 
 afterEach(cleanup);
 it("renders without crashing", () => {
@@ -11,7 +12,30 @@ it("renders without crashing", () => {
     ReactDOM.unmountComponentAtNode(div);
 });
 
-it("matches snapshot", () => {
-    const loader = create(<BlogList />).toJSON();
-    expect(loader).toMatchSnapshot();
+it("matches snapshot 1", () => {
+    const bloglist = create(<BlogList />).toJSON();
+    expect(bloglist).toMatchSnapshot();
 });
+/*
+it("renders correctly with props", () => {
+    const blogList = <BlogList setIsBlogOpened="true" setClickedBlog="" />;
+    const { getByTestId } = render(blogList);
+    expect(getByTestId("bloglist")).toHaveTextContent("true", "");
+});
+it("matches snapshot 2", () => {
+    const bloglist = create(
+        <BlogList setIsBlogOpened="true" setClickedBlog="" />
+    ).toJSON;
+    expect(bloglist).toMatchSnapshot();
+});
+//for the date
+/*
+const date = "21 JAN 2015";
+const format = "DD MMM YYYY";
+it("render valueToDate utility with empty value", () => {
+    expect(valueToDate("", format)).toEqual(null);
+});
+it("check value is instanceof moment", () => {
+    expect(valueToDate(date, format) instanceof moment).toBeTruthy();
+});
+*/
