@@ -1,5 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`check default title 1`] = `undefined`;
+
 exports[`matches snapshot 1`] = `
 <section
   className="header-section"
@@ -11,7 +13,7 @@ exports[`matches snapshot 1`] = `
     <h1
       className="header-title"
     >
-       Blogs 
+      Blogs
     </h1>
   </header>
 </section>
