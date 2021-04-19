@@ -6,7 +6,6 @@ import { create } from "react-test-renderer";
 import Enzyme, { mount } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 
-// test for loader
 afterEach(cleanup);
 it("renders without crashing", () => {
     const section = document.createElement("section");
