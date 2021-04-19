@@ -1,7 +1,6 @@
-/**
- * import React from "react";
+import React from "react";
 import ReactDOM from "react-dom";
-import Events from "./../Events.js";
+import Events from "./../Events";
 import { cleanup } from "@testing-library/react";
 import { create } from "react-test-renderer";
 import Enzyme, { mount } from "enzyme";
@@ -10,7 +9,7 @@ import Adapter from "enzyme-adapter-react-16";
 afterEach(cleanup);
 it("renders without crashing", () => {
     const div = document.createElement("div");
-    ReactDOM.render(<Events></Events>, div);
+    ReactDOM.render(<Events />, div);
     ReactDOM.unmountComponentAtNode(div);
 });
 
@@ -31,5 +30,3 @@ it("check default header", () => {
     expect(events.find("h1").text()).toEqual("Events");
     expect(events.toJSON).toMatchSnapshot();
 });
-
- */
