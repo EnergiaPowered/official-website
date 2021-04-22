@@ -41,8 +41,8 @@ it("links with parameters not to be shown in the navbar", () => {
     </Router>
   );
 
-  getAllByTestId("navlinks").map(link => {
-    expect(link).toHaveTextContent(/(Home|About|History|Contact|Blog)/i);
+  getAllByTestId("navlinks").forEach(link => {
+    expect(link).toHaveTextContent(/(Home|About|Blogs|Events|Crew|Contact us|Sign Up|Log In)/i);
   });
 });
 

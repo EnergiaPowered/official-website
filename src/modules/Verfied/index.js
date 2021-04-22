@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
 import Particles from "react-particles-js";
@@ -8,6 +8,8 @@ import Particles from "react-particles-js";
 import "./style.css";
 
 export default () => {
+  const isVerfied = document.cookie.indexOf("verfied") !== -1 ? true : false;
+  if (!isVerfied) return <Redirect to="/" />
   return (
     <div className="found-container page-component">
       <Helmet>
