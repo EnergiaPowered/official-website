@@ -29,5 +29,3 @@ exports[`matches snapshot 1 1`] = `
   </div>
 </div>
 `;
-
-exports[`matches snapshot 2 1`] = `[Function]`;

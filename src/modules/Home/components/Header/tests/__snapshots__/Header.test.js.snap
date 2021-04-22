@@ -13,11 +13,11 @@ exports[`matches snapshot 1`] = `
     >
        Energia Powered 
     </h1>
-    <p>
-      <q
-        className="header-slogan"
-      >
-        The better is yet to come
+    <p
+      className="header-slogan"
+    >
+      <q>
+        Collaborate to innovate
       </q>
     </p>
   </header>

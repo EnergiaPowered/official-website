@@ -4,7 +4,206 @@ exports[`matches snapshot 1`] = `
 <div
   className="page-component"
   id="About"
+  style={
+    Object {
+      "backgroundImage": "url(About-header.png)",
+    }
+  }
 >
+  <nav
+    className="navbar fixed-top navbar-expand-sm "
+    data-testid="navbar"
+  >
+    <div
+      className="container"
+    >
+      <a
+        className="navbar-brand "
+        href="/"
+        onClick={[Function]}
+      >
+        <img
+          alt="Energia's Logo"
+          className="logo-img"
+          src="logo.png"
+          title="logo of the team"
+        />
+      </a>
+      <button
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+        className="navbar-toggler"
+        data-testid="toggler"
+        onClick={[Function]}
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          className="svg-inline--fa fa-bars fa-w-14 navbar-toggler-icon"
+          data-icon="bars"
+          data-prefix="fas"
+          focusable="false"
+          role="img"
+          style={Object {}}
+          viewBox="0 0 448 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"
+            fill="currentColor"
+            style={Object {}}
+          />
+        </svg>
+      </button>
+      <div
+        className="navbar-collapse"
+        data-testid="side-menu"
+        id="navbarNav"
+        onClick={[Function]}
+        style={
+          Object {
+            "right": "-90%",
+          }
+        }
+      >
+        <button
+          className="menu-close"
+          data-testid="closer"
+          onClick={[Function]}
+        >
+          <svg
+            aria-hidden="true"
+            className="svg-inline--fa fa-times fa-w-11 "
+            data-icon="times"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            style={Object {}}
+            viewBox="0 0 352 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+              fill="currentColor"
+              style={Object {}}
+            />
+          </svg>
+        </button>
+        <ul
+          className="navbar-nav ml-auto"
+          data-testid="menu-list"
+          onClick={[Function]}
+        >
+          <li
+            className="nav-item"
+          >
+            <a
+              aria-current="page"
+              className="nav-link active"
+              data-testid="navlinks"
+              href="/"
+              onClick={[Function]}
+              style={Object {}}
+            >
+              Home
+            </a>
+          </li>
+          <li
+            className="nav-item"
+          >
+            <a
+              aria-current={null}
+              className="nav-link"
+              data-testid="navlinks"
+              href="/about-us"
+              onClick={[Function]}
+            >
+              About
+            </a>
+          </li>
+          <li
+            className="nav-item"
+          >
+            <a
+              aria-current={null}
+              className="nav-link"
+              data-testid="navlinks"
+              href="/blogs"
+              onClick={[Function]}
+            >
+              Blogs
+            </a>
+          </li>
+          <li
+            className="nav-item"
+          >
+            <a
+              aria-current={null}
+              className="nav-link"
+              data-testid="navlinks"
+              href="/events"
+              onClick={[Function]}
+            >
+              Events
+            </a>
+          </li>
+          <li
+            className="nav-item"
+          >
+            <a
+              aria-current={null}
+              className="nav-link"
+              data-testid="navlinks"
+              href="/crew"
+              onClick={[Function]}
+            >
+              Crew
+            </a>
+          </li>
+          <li
+            className="nav-item"
+          >
+            <a
+              aria-current={null}
+              className="nav-link"
+              data-testid="navlinks"
+              href="/contact-us"
+              onClick={[Function]}
+            >
+              Contact us
+            </a>
+          </li>
+          <li
+            className="nav-item"
+          >
+            <a
+              aria-current={null}
+              className="nav-link"
+              data-testid="navlinks"
+              href="/signup"
+              onClick={[Function]}
+            >
+              Sign Up
+            </a>
+          </li>
+          <li
+            className="nav-item"
+          >
+            <a
+              aria-current={null}
+              className="nav-link"
+              data-testid="navlinks"
+              href="/login"
+              onClick={[Function]}
+            >
+              Log In
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
   <section
     className="header-section"
     id="header"
@@ -35,7 +234,7 @@ exports[`matches snapshot 1`] = `
           data-testid="vision-text"
         >
            
-          We aim to decrease the gap & help in almost all fields to help all next generatoin forming engineer of the future.
+          Perparing calibers by developing students in both personal and career levels to make them qualified for the market needs.
            
         </p>
       </section>
@@ -44,13 +243,10 @@ exports[`matches snapshot 1`] = `
         className="bg-section about-mission component-font"
       >
         <h2
-          className="section-title text-center"
+          className="section-title"
         >
           Our Mission
         </h2>
-        <p>
-          By organizing field trips to power stations and giant factories, we can provide engineering students with knowledge enough to be trained well before graduation.
-        </p>
         <p>
           Energia Powered attempts to deliver values and achieve its vision through different projects:
         </p>
@@ -69,47 +265,52 @@ exports[`matches snapshot 1`] = `
           </li>
         </ul>
       </section>
-    </div>
-    <section
-      className="dark-bg bg-section about-structure"
-    >
-      <h2
-        className="section-title text-center"
+      <hr />
+      <section
+        className="bg-section about-structure"
       >
-        Our Structure
-      </h2>
-      <div
-        className="EnlargedImage"
-      >
-        <div
-          className="EnlargedImage__container"
-          style={
-            Object {
-              "display": "inline-block",
-              "position": "relative",
-            }
-          }
+        <h2
+          className="section-title"
         >
-          <img
-            alt="Our team's structure"
-            className="EnlargedImage__Image"
-            data-testid="structure-image"
-            data-teststate={false}
-            onClick={[Function]}
-            src="Structure.png"
-            style={
-              Object {
-                "cursor": "zoom-in",
-                "height": "auto",
-                "maxWidth": "100%",
-                "opacity": 1,
+          Our Structure
+        </h2>
+        <div
+          className="d-flex justify-content-center"
+        >
+          <div
+            className="EnlargedImage"
+          >
+            <div
+              className="EnlargedImage__container"
+              style={
+                Object {
+                  "display": "inline-block",
+                  "position": "relative",
+                }
               }
-            }
-            title="Energia Powered'20 board"
-          />
+            >
+              <img
+                alt="Our team's structure"
+                className="EnlargedImage__Image"
+                data-testid="structure-image"
+                data-teststate={false}
+                onClick={[Function]}
+                src="Structure.jpg"
+                style={
+                  Object {
+                    "cursor": "zoom-in",
+                    "height": "auto",
+                    "maxWidth": "100%",
+                    "opacity": 1,
+                  }
+                }
+                title="Energia Powered'20 board"
+              />
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   </main>
   <footer
     id="Footer"

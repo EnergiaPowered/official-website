@@ -22,9 +22,7 @@ function BlogList({ setIsBlogOpened, setClickedBlog }) {
             "Nov",
             "Dec",
         ];
-        return `${date.getDate()} ${
-            months[date.getMonth()]
-        } ${date.getFullYear()}`;
+        return `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`;
     };
 
     const Blogs = () =>

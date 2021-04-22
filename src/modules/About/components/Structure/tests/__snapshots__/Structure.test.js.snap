@@ -2,42 +2,46 @@
 
 exports[`matches snapshot 1`] = `
 <section
-  className="dark-bg bg-section about-structure"
+  className="bg-section about-structure"
 >
   <h2
-    className="section-title text-center"
+    className="section-title"
   >
     Our Structure
   </h2>
   <div
-    className="EnlargedImage"
+    className="d-flex justify-content-center"
   >
     <div
-      className="EnlargedImage__container"
-      style={
-        Object {
-          "display": "inline-block",
-          "position": "relative",
-        }
-      }
+      className="EnlargedImage"
     >
-      <img
-        alt="Our team's structure"
-        className="EnlargedImage__Image"
-        data-testid="structure-image"
-        data-teststate={false}
-        onClick={[Function]}
-        src="Structure.png"
+      <div
+        className="EnlargedImage__container"
         style={
           Object {
-            "cursor": "zoom-in",
-            "height": "auto",
-            "maxWidth": "100%",
-            "opacity": 1,
+            "display": "inline-block",
+            "position": "relative",
           }
         }
-        title="Energia Powered'20 board"
-      />
+      >
+        <img
+          alt="Our team's structure"
+          className="EnlargedImage__Image"
+          data-testid="structure-image"
+          data-teststate={false}
+          onClick={[Function]}
+          src="Structure.jpg"
+          style={
+            Object {
+              "cursor": "zoom-in",
+              "height": "auto",
+              "maxWidth": "100%",
+              "opacity": 1,
+            }
+          }
+          title="Energia Powered'20 board"
+        />
+      </div>
     </div>
   </div>
 </section>
