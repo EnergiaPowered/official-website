@@ -1,5 +1,5 @@
 {
-  "name": "front",
+  "name": "energia-powered-frontend",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -32,7 +32,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "docs": "jsdoc -c jsdoc.json"
   },
   "jest": {},
   "eslintConfig": {
@@ -54,7 +55,9 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "axios": ">=0.21.1",
+    "better-docs": "^2.3.2",
     "canvas": "^2.6.1",
+    "jsdoc": "^3.6.6",
     "jsdom": "^15.2.1",
     "react-test-renderer": "^16.13.1"
   }

@@ -10,7 +10,13 @@ import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 import "./style.css";
 
-export default function Footer () {
+/**
+ * Component which contains social media links for Energia Powered
+ * 
+ * @component 
+ * @returns {JSX} Footer Component
+ */
+function Footer() {
   let socialData = [
     { link: "https://www.facebook.com/Energia.Powered/", label: faFacebook },
     {
@@ -43,3 +49,5 @@ export default function Footer () {
     </footer>
   );
 };
+
+export default Footer;

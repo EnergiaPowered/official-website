@@ -78,6 +78,8 @@ The folder structure of the application. The app is modular, every module encaps
 
 8. [React-page-progress](https://github.com/nomangul/react-page-progress/) - [Demo](https://github.com/EnergiaPowered/official-website/blob/master/front/src/App.js)
 
+9. [JSDoc](https://jsdoc.app/)
+
 ## Contribution
 
 Follow the guides mentioned in the [CONTRIBUTING.md](CONTRIBUTING.md)
