@@ -8,7 +8,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@fortawesome/react-fontawesome": "^0.1.9",
     "antd": "^4.12.1",
-    "bootstrap": "^4.4.1",
+        "bootstrap": "^4.4.1",
     "joi-browser": "^13.4.0",
     "particles-bg": "^2.4.7",
     "react": "^16.13.1",
@@ -21,7 +21,7 @@
     "react-page-progress": "^1.1.1",
     "react-particles-js": "^2.7.1",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "^3.4.1",
+    "react-scripts": "^4.0.3",
     "react-side-effect": "^2.1.0"
   },
   "proxy": "http://localhost:4000",
@@ -29,7 +29,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "doc":"jsdoc -c jsdoc.json"
   },
   "jest": {},
   "eslintConfig": {
@@ -52,6 +53,7 @@
     "@testing-library/react": "^9.5.0",
     "axios": ">=0.21.1",
     "canvas": "^2.6.1",
+    "jsdoc": "^3.6.6",
     "jsdom": "^15.2.1",
     "react-test-renderer": "^16.13.1"
   }
