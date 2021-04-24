@@ -1,5 +1,12 @@
 import React from "react";
 
+/**
+ * Component which contain The Mission of Energia Powered
+ * 
+ * @component 
+ * @returns {JSX} Return the Mission Component
+ */
+
 export default () => {
   return (
     <section className="bg-section about-mission component-font">
