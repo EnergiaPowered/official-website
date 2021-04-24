@@ -7,8 +7,20 @@ import Image from "react-image-enlarger";
 import structureImg from "assets/Structure.jpg";
 
 export default () => {
+ /** 
+ * set the zoomed with false initialy
+ * @typedef {Boolean} zoomed 
+ * @typedef {Function} setZoomed
+ */
   const [zoomed, setZoomed] = useState(false);
 
+
+ /**
+ * Component which contain the Structure of Enrgia Powered 
+ * Image for the Structure 
+ * @component 
+ * @returns {JSX} Return Structure Section
+ */
   return (
     <section className="bg-section about-structure">
       <h2 className="section-title">Our Structure</h2>

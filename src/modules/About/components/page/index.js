@@ -13,6 +13,10 @@ import Layout from "shared/Layout";
 import bg from "assets/About-header.png";
 
 export default function AboutPage() {
+ /**
+ * stateOBj object
+ * @type {{vision: string}}
+ */
   let stateObj = {
     vision:
       "Perparing calibers by developing students in both personal and career levels to make them qualified for the market needs."
@@ -21,12 +25,27 @@ export default function AboutPage() {
   let style = {
     backgroundImage: `url(${bg})`
   };
-
+ 
+ /** 
+  * set the stat with stateObj
+ * @typedef {Object} state 
+ */
   const [state] = useState(stateObj);
 
+  /**
+ * scroll to the top of the page
+ * @returns {void} 
+ */
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  /**
+ * Component which contain About page that is consist of
+ *  Layout - Header - Vision - Mission - Structure
+ * @component 
+ * @returns {JSX} Return all commponents of About page
+ */
   return (
     <div className="page-component" id="About" style={style}>
       <Helmet>
