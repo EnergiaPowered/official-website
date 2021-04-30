@@ -14,7 +14,7 @@ import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 import "./style.css";
 
-export default function Navbar() {
+export default function Navbar(props) {
   const [scroll, setScroll] = useState(0);
 
   const [opened, setOpened] = useState(false);
@@ -54,8 +54,8 @@ export default function Navbar() {
   // log out
   const logOut = () => {
     loginServices.logout();
-    handleNavLinkClick();
     setLoggetIn(false);
+    window.location.reload();
   }
 
   return (

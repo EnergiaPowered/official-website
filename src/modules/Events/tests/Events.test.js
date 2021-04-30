@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from 'react-router-dom';
-import Events from "./../Events";
+import Events from "..";
 import { cleanup } from "@testing-library/react";
 import Enzyme, { mount } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
