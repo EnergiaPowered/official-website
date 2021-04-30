@@ -84,7 +84,7 @@ function Login({ props }) {
                 Log In
               </Button>
             </Form.Item>
-            <Link to="/register">
+            <Link to="/signup">
               <small>Don't have an account?</small>
             </Link>
           </div>

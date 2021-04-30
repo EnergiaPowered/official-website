@@ -56,6 +56,7 @@ export default function Navbar(props) {
     loginServices.logout();
     handleNavLinkClick();
     setLoggetIn(false);
+    window.location.reload();
   }
 
   return (

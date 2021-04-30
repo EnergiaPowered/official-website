@@ -8,7 +8,7 @@ import Contacts from "modules/Contact";
 import RegisterationPage from "modules/Register";
 import LoginPage from "modules/Login";
 import Verfied from "modules/Verfied";
-import SingleEvent from "modules/Events/components/SingleEvent";
+import EventDetails from "modules/Events/components/EventDetails";
 
 export default [
   {
@@ -61,7 +61,7 @@ export default [
   },
   {
     path: "/events/:id/:name",
-    component: SingleEvent,
+    component: EventDetails,
     inNavbar: {
       shown: false,
       label: ""

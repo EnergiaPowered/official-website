@@ -1,123 +1,49 @@
-.streaming-container {
-    margin: 15% auto 0;
-    width: 90%;
+.container_card:nth-child(even) {
+    margin: 6% 0% 6% 30%;
 }
 
-.streaming-antennas {
-    position: relative;
+.container_card:nth-child(odd) {
+    margin: 6% 0% 6% 15%;
 }
 
-.streaming-title {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+.img_card img {
+    height: 250px;
+    width: 250px;
+    object-fit: cover;
 }
 
-.streaming-sections {
-    padding: 5%;
-    background-color: rgba(255, 255, 255, 0.35);
-    border-radius: 20px;
-    display: flex;
-}
-
-.streaming-section1 {
+.details_card {
+    margin-left: 3%;
     display: flex;
     flex-direction: column;
-    width: 65%;
-    margin-right: 2%;
-}
-
-.streaming-video {
-    height: 30vw;
-    background-color: #CCCCCC;
-    margin-bottom: 3%;
-}
-
-.streaming-description p,
-.comment-info p {
-    margin-bottom: 0;
-}
-
-.streaming-section2 {
-    display: flex;
-    flex-direction: column;
-    width: 33%;
-}
-
-.streaming-comments::-webkit-scrollbar {
-    width: 0;
-}
-
-.streaming-comments,
-.streaming-send-comment {
-    background-color: rgba(255, 255, 255, 0.63);
-    border-radius: 20px;
-}
-
-.streaming-comments {
-    position: relative;
-    overflow-y: auto;
-    height: 100%;
-    margin-bottom: 5%;
-    padding: 5% 7%;
-}
-
-.streaming-comments>div {
-    position: absolute;
-    width: 86%;
-}
-
-.streaming-comments>div>div {
-    display: flex;
-    margin-bottom: 8%;
-}
-
-.comment-icon {
-    width: 3rem;
-    height: 3rem;
-    border-radius: 50%;
-    margin-right: 3%;
-    background-color: #0A1E49;
-    display: flex;
     justify-content: center;
-    align-items: center;
 }
 
-.comment-info {
-    width: 80%;
-    color: #0A1E49;
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: column;
+.details_event a {
+    color: inherit;
 }
 
-.comment-info h6 {
-    color: #0A1E49;
-    margin-bottom: 0;
-    font-weight: 600;
+.type_event {
+    width: fit-content;
 }
 
-.comment-info p {
-    font-size: 0.8rem;
+@media screen and (max-width: 767px) {
+    .container_card {
+        margin: 10% auto !important;
+    }
 }
 
-.streaming-send-comment {
-    padding: 2% 5%;
-}
+@media screen and (max-width: 575px) {
+    .container_card {
+        margin: 10% auto !important;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
 
-.streaming-send-comment form {
-    display: flex;
-    justify-content: space-between;
-}
-
-.streaming-send-comment form input,
-.streaming-send-comment form button {
-    background: none;
-    border: none;
-    outline: none;
-    color: #0A1E49;
-}
-
-.streaming-send-comment form button .icon {
-    transform: rotate(45deg);
+    .details_card {
+        margin-left: 0%;
+        margin-top: 3%;
+        align-items: center;
+    }
 }
