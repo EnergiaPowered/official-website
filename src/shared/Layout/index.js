@@ -3,13 +3,17 @@ import Navbar from "../Navbar";
 import Footer from "../Footer";
 
 /**
- * Component which contain Navbar and Footer
- * 
- * @component 
- * @returns {JSX} Return the layout that is the Navbar and Footer
+ * @file shared/Layout/index.js
+ * @module shared/Layout
+ * @desc This is the stateless functional component for the Layout.
+ * @return {JSX} Layout component
+ * @example
+ * <Layout>
+ *  <PageHeader />
+ *  <PageContent />
+ * </Layout>
  */
-
-export default function Layout({ children }) {
+function Layout({ children }) {
   return (
     <>
       <Navbar />
@@ -18,3 +22,5 @@ export default function Layout({ children }) {
     </>
   );
 };
+
+export default Layout;
