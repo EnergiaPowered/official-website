@@ -10,18 +10,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const SingleEvent = (props) => {
     const [event, setEvent] = useState(null);
     const [comment, setComment] = useState("");
-    const [comments, setComments] = useState([
-        { firstname: "Mostafa", lastname: "Kamal", comment: "This is nice" },
-        { firstname: "Waleed", lastname: "Hisham", comment: "This is nice" },
-        { firstname: "Mostafa", lastname: "Kamal", comment: "This is nice" },
-        { firstname: "Waleed", lastname: "Hisham", comment: "This is nice" },
-        { firstname: "Mostafa", lastname: "Kamal", comment: "This is nice" },
-        { firstname: "Waleed", lastname: "Hisham", comment: "This is nice" },
-        { firstname: "Mostafa", lastname: "Kamal", comment: "This is nice" },
-        { firstname: "Waleed", lastname: "Hisham", comment: "This is nice" },
-        { firstname: "Mostafa", lastname: "Kamal", comment: "This is nice" },
-        { firstname: "Waleed", lastname: "Hisham", comment: "This is nice" }
-    ]);
+    const [comments, setComments] = useState([]);
 
     useEffect(() => {
         getSingleEvent(props.match.params.id).then(res => {
@@ -82,7 +71,7 @@ const SingleEvent = (props) => {
                         <div className="streaming-section1">
                             <div className="streaming-video"></div>
                             <div className="streaming-description">
-                                <h3>Description</h3>
+                                <h3>About</h3>
                                 <div
                                     dangerouslySetInnerHTML={{ __html: event.eventDescription }}
                                 ></div>

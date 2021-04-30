@@ -54,7 +54,6 @@ export default function Navbar(props) {
   // log out
   const logOut = () => {
     loginServices.logout();
-    handleNavLinkClick();
     setLoggetIn(false);
     window.location.reload();
   }
