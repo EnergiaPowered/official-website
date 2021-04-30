@@ -1,7 +1,8 @@
 import React from "react";
 import { HiLocationMarker } from 'react-icons/hi';
 import { MdDateRange } from 'react-icons/md';
-import "./indexComponents.css"
+import { Link } from "react-router-dom";
+import "./index.css"
 
 function EventsComponent({ events }) {
     return (
@@ -36,9 +37,13 @@ function EventsComponent({ events }) {
                         </div>
                         <div className="details_event">
                             <h6>
-                                <a href={event.eventDetails} target="_blank" rel="noopener noreferrer">
-                                    More Details
-                                </a>
+                                {event.eventDetails ? (
+                                    <a href={event.eventDetails} target="_blank" rel="noopener noreferrer">
+                                        More Details
+                                    </a>
+                                ) : (
+                                    <Link to={`events/${event._id}/${event.name}`}>More Details</Link>
+                                )}
                             </h6>
                         </div>
                         <div className="type_event badge badge-pill badge-primary">

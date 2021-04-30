@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import EventsComponent from "./../EventsComponent";
+import EventsComponent from "..";
 import { cleanup } from "@testing-library/react";
 import { create } from "react-test-renderer";
 

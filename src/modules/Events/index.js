@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import Layout from '../../shared/Layout/index';
-import EventsComponent from "./components/EventsComponent";
+import EventsComponent from "./components/EventsList";
 import { getEvents } from "./services/events.services";
 import "./index.css";
 

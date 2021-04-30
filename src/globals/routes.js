@@ -2,19 +2,20 @@ import Home from "modules/Home";
 import SingleCommittee from "modules/Committees/components/SingleCommitteePage";
 import AboutPage from "modules/About/components/page";
 import BlogsPage from './../modules/Blogs';
-import Events from "modules/Events/Events";
+import Events from "modules/Events";
 import Crew from "modules/Crew/Crew";
 import Contacts from "modules/Contact";
 import RegisterationPage from "modules/Register";
 import LoginPage from "modules/Login";
 import Verfied from "modules/Verfied";
+import SingleEvent from "modules/Events/components/SingleEvent";
 
 export default [
   {
     path: "/",
     component: Home,
     inNavbar: {
-      shown: true,
+      shown: false,
       label: "Home"
     }
   },
@@ -58,14 +59,14 @@ export default [
       label: "Crew"
     }
   },
-  // {
-  //   path: "/events/:id/:title",
-  //   component: SingleEvent,
-  //   inNavbar: {
-  //     shown: false,
-  //     label: "Events"
-  //   }
-  // },
+  {
+    path: "/events/:id/:name",
+    component: SingleEvent,
+    inNavbar: {
+      shown: false,
+      label: ""
+    }
+  },
   {
     path: "/contact-us",
     component: Contacts,
