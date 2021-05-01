@@ -1,16 +1,34 @@
 import React, { useEffect, useState } from "react";
 import Layout from "shared/Layout";
+import { io } from "socket.io-client"
 import { Helmet } from "react-helmet";
 import { Redirect } from "react-router";
-import { getSingleEvent } from "../../services/events.services";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { getEventChat, getSingleEvent } from "../../services/events.services";
+import jwt_docode from "jwt-decode";
 import StreamingAntennas from "assets/Streaming-antennas.png";
 import "./index.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import authHeader from "globals/auth-header";
 
 const SingleEvent = (props) => {
+    const [userId, setUserId] = useState(null)
     const [event, setEvent] = useState(null);
     const [comment, setComment] = useState("");
     const [comments, setComments] = useState([]);
+    const [socket, setSocket] = useState();
+
+    useEffect(() => {
+        const token = authHeader()['x-auth-token'];
+        setUserId(jwt_docode(token)._id);
+        const s = io("http://localhost:4000", {
+            extraHeaders: { "x-auth-token": token }
+        });
+        setSocket(s);
+
+        return () => {
+            s.disconnect();
+        }
+    }, []);
 
     useEffect(() => {
         getSingleEvent(props.match.params.id).then(res => {
@@ -18,8 +36,29 @@ const SingleEvent = (props) => {
         }).catch(err => {
             return <Redirect to="/events" />
         });
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+        getEventChat(props.match.params.id).then(res => {
+            setComments(res.data);
+        }).catch(err => {
+            setComments([]);
+        });
+    }, [props.match.params.id]);
+
+    useEffect(() => {
+        if (socket == null || event == null) return;
+        const handler = message => {
+            setComments([...comments, message]);
+        }
+        socket.on("message", handler);
+
+        return () => {
+            socket.off("message", handler);
+        }
+    }, [socket, event, comments]);
+
+    useEffect(() => {
+        if (socket == null || event == null) return;
+        socket.emit("joinRoom", event._id);
+    }, [socket, event]);
 
     if (event == null) return null;
     if (localStorage.getItem("user") == null) {
@@ -31,7 +70,11 @@ const SingleEvent = (props) => {
         <div key={index}>
             <div className="comment-icon">{comment.firstname.charAt(0).toUpperCase()}{comment.lastname.charAt(0).toUpperCase()}</div>
             <div className="comment-info">
-                <h6>{comment.firstname} {comment.lastname}</h6>
+                {userId === comment.userId ? (
+                    <h6>Me</h6>
+                ) : (
+                    <h6>{comment.firstname} {comment.lastname}</h6>
+                )}
                 <p>{comment.comment}</p>
             </div>
         </div>
@@ -44,12 +87,11 @@ const SingleEvent = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (comment) {
-            const { firstname, lastname } = JSON.parse(localStorage.getItem("user"));
-            setComments([...comments, { firstname, lastname, comment }]);
             setComment("");
             setTimeout(() => {
                 const commentsContainer = document.querySelector(".streaming-comments");
                 commentsContainer.scrollTop = commentsContainer.scrollHeight;
+                socket.emit('chatMessage', comment);
             }, 100);
         }
     }
