@@ -19,7 +19,7 @@ export default function Navbar(props) {
 
   const [opened, setOpened] = useState(false);
 
-  const [loggedIn, setLoggetIn] = useState(JSON.parse(localStorage.getItem("user")) ? true : false);
+  const [loggedIn, setLoggetIn] = useState(localStorage.getItem("user") ? true : false);
 
   useEffect(() => {
     // check the scroll to add class to the navbar

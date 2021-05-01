@@ -19,6 +19,7 @@ const SingleEvent = (props) => {
 
     useEffect(() => {
         const token = authHeader()['x-auth-token'];
+        if (!token) return;
         setUserId(jwt_docode(token)._id);
         const s = io("http://localhost:4000", {
             extraHeaders: { "x-auth-token": token }

@@ -88,7 +88,7 @@ export default [
     path: "/signup",
     component: RegisterationPage,
     inNavbar: {
-      shown: JSON.parse(localStorage.getItem("user")) ? false : true,
+      shown: localStorage.getItem("user") ? false : true,
       label: "Sign Up"
     }
   },
@@ -96,7 +96,7 @@ export default [
     path: "/login",
     component: LoginPage,
     inNavbar: {
-      shown: JSON.parse(localStorage.getItem("user")) ? false : true,
+      shown: localStorage.getItem("user") ? false : true,
       label: "Log In"
     }
   }

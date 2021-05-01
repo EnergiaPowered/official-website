@@ -5,7 +5,7 @@ import loginServices from "../services/login.services";
 import "../style.css";
 
 function Login({ props }) {
-  const loggedIn = JSON.parse(localStorage.getItem("user")) ? true : false;
+  const loggedIn = localStorage.getItem("user") ? true : false;
 
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
@@ -17,7 +17,7 @@ function Login({ props }) {
     loginServices.login(data).then(
       () => {
         form.resetFields();
-        props.history.push("/");
+        return <Redirect to="/" />
       },
       (error) => {
         const resMessage =

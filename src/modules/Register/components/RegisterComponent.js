@@ -5,7 +5,7 @@ import { addUser } from "../services/register.services";
 import "../style.css";
 
 function Register() {
-  const loggedIn = JSON.parse(localStorage.getItem("user")) ? true : false;
+  const loggedIn = localStorage.getItem("user") ? true : false;
 
   const [successful, setSuccessful] = useState(false);
   const [message, setMessage] = useState("");
