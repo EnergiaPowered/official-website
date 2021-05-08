@@ -1,24 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { HiLocationMarker } from "react-icons/hi";
 import { MdDateRange } from "react-icons/md";
 import { Link } from "react-router-dom";
 import "./index.css";
 
 const SingleEvent = ({ event }) => {
-    const [eventStatus, setEventStatus] = useState("");
-
     const statusMap = {
         Soon: "warning",
         Closed: "danger",
         Opened: "primary"
     }
-
-    useEffect(() => {
-        const currentDate = new Date().toISOString();
-        if (event.startDate <= currentDate && event.endDate >= currentDate) setEventStatus("Opened")
-        else if (currentDate < event.startDate) setEventStatus("Soon")
-        else if (currentDate > event.endDate) setEventStatus("Closed")
-    }, [event.endDate, event.startDate])
 
     return (
         <div className="container_card row" >
@@ -59,8 +50,8 @@ const SingleEvent = ({ event }) => {
                         )}
                     </h6>
                 </div>
-                <div className={`type_event badge badge-pill badge-${statusMap[eventStatus]}`}>
-                    <h5>{eventStatus}</h5>
+                <div className={`type_event badge badge-pill badge-${statusMap[event.status]}`}>
+                    <h5>{event.status}</h5>
                 </div>
             </div>
         </div>

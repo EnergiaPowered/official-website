@@ -9,6 +9,7 @@ import RegisterationPage from "modules/Register";
 import LoginPage from "modules/Login";
 import Verfied from "modules/Verfied";
 import EventDetails from "modules/Events/components/EventDetails";
+import authHeader from "./auth-header";
 
 export default [
   {
@@ -88,7 +89,7 @@ export default [
     path: "/signup",
     component: RegisterationPage,
     inNavbar: {
-      shown: localStorage.getItem("user") ? false : true,
+      shown: authHeader() ? false : true,
       label: "Sign Up"
     }
   },
@@ -96,7 +97,7 @@ export default [
     path: "/login",
     component: LoginPage,
     inNavbar: {
-      shown: localStorage.getItem("user") ? false : true,
+      shown: authHeader() ? false : true,
       label: "Log In"
     }
   }
