@@ -17,8 +17,14 @@ export default function Contacts() {
   // Sending messages to the backend
   function submitHandler(name, email, message) {
     sendMessage({ name, email, message })
-      .then(() => alert("Sent Successfully!"))
-      .catch(err => alert("There was an error. Please try again later" + err));
+      .then(() => {
+        alert("Sent Successfully!");
+        window.location.reload();
+      })
+      .catch(err => {
+        alert("There was an error. Please try again later" + err);
+        window.location.reload();
+      });
   }
 
   let style = {

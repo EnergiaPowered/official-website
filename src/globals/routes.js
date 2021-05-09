@@ -9,6 +9,7 @@ import RegisterationPage from "modules/Register";
 import LoginPage from "modules/Login";
 import Verfied from "modules/Verfied";
 import EventDetails from "modules/Events/components/EventDetails";
+import authHeader from "./auth-header";
 
 export default [
   {
@@ -88,7 +89,7 @@ export default [
     path: "/signup",
     component: RegisterationPage,
     inNavbar: {
-      shown: JSON.parse(localStorage.getItem("user")) ? false : true,
+      shown: Object.keys(authHeader()).length ? true : false,
       label: "Sign Up"
     }
   },
@@ -96,7 +97,7 @@ export default [
     path: "/login",
     component: LoginPage,
     inNavbar: {
-      shown: JSON.parse(localStorage.getItem("user")) ? false : true,
+      shown: Object.keys(authHeader()).length ? true : false,
       label: "Log In"
     }
   }

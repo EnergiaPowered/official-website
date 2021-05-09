@@ -35,9 +35,22 @@
     margin-bottom: 3%;
 }
 
+.streaming-video video {
+    height: 100%;
+    width: 100%;
+}
+
 .streaming-description p,
 .comment-info p {
     margin-bottom: 0;
+}
+
+.streaming-description .streaming-button {
+    border: none;
+    background-color: #CCCCCC;
+    color: #0A1E49;
+    padding: 0.5rem 1rem;
+    margin-bottom: 3%;
 }
 
 .streaming-section2 {

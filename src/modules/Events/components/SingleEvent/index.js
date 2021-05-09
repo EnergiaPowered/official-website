@@ -5,6 +5,12 @@ import { Link } from "react-router-dom";
 import "./index.css";
 
 const SingleEvent = ({ event }) => {
+    const statusMap = {
+        Soon: "warning",
+        Closed: "danger",
+        Opened: "primary"
+    }
+
     return (
         <div className="container_card row" >
 
@@ -27,10 +33,10 @@ const SingleEvent = ({ event }) => {
                 </div>
                 <div className="date_time_event">
                     <h6>
-                        <MdDateRange /> From: {new Date(event.startDate).toDateString().slice(0, 10)} {new Date(event.startDate).toTimeString().slice(0, 5)}
+                        <MdDateRange /> From: {new Date(event.startDate).toDateString().slice(0, 10)}, {new Date(event.startDate).toTimeString().slice(0, 5)}
                     </h6>
                     <h6>
-                        <MdDateRange /> To: {new Date(event.endDate).toDateString().slice(0, 10)} {new Date(event.endDate).toTimeString().slice(0, 5)}
+                        <MdDateRange /> To: {new Date(event.endDate).toDateString().slice(0, 10)}, {new Date(event.endDate).toTimeString().slice(0, 5)}
                     </h6>
                 </div>
                 <div className="details_event">
@@ -44,7 +50,7 @@ const SingleEvent = ({ event }) => {
                         )}
                     </h6>
                 </div>
-                <div className="type_event badge badge-pill badge-primary">
+                <div className={`type_event badge badge-pill badge-${statusMap[event.status]}`}>
                     <h5>{event.status}</h5>
                 </div>
             </div>

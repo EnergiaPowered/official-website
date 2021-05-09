@@ -3,9 +3,10 @@ import { Link, Redirect } from "react-router-dom";
 import { Form, Input, Button } from "antd";
 import loginServices from "../services/login.services";
 import "../style.css";
+import authHeader from "globals/auth-header";
 
-function Login({ props }) {
-  const loggedIn = JSON.parse(localStorage.getItem("user")) ? true : false;
+function Login() {
+  const loggedIn = Object.keys(authHeader()).length ? true : false;
 
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
@@ -17,7 +18,7 @@ function Login({ props }) {
     loginServices.login(data).then(
       () => {
         form.resetFields();
-        props.history.push("/");
+        return <Redirect to="/" />
       },
       (error) => {
         const resMessage =

@@ -13,13 +13,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 import "./style.css";
+import authHeader from "globals/auth-header";
 
 export default function Navbar(props) {
   const [scroll, setScroll] = useState(0);
 
   const [opened, setOpened] = useState(false);
 
-  const [loggedIn, setLoggetIn] = useState(JSON.parse(localStorage.getItem("user")) ? true : false);
+  const [loggedIn, setLoggetIn] = useState(Object.keys(authHeader()).length ? true : false);
 
   useEffect(() => {
     // check the scroll to add class to the navbar

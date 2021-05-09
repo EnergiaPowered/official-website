@@ -37,15 +37,7 @@ export default ({ committee }) => {
   if (committee) params += `&committee=${committee.replace('&', '%26').replace(/\+/g, '%2b')}`;
 
   useEffect(() => {
-    getBestMembers(params).then(res => setBestMembers(res.data.sort((a, b) => {
-      if (a.committee < b.committee) {
-        return -1;
-      }
-      if (a.committee > b.committee) {
-        return 1;
-      }
-      return 0;
-    })))
+    getBestMembers(params).then(res => setBestMembers(res.data))
   }, [params])
 
   return bestMembers ? (

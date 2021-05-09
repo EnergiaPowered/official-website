@@ -3,9 +3,10 @@ import { Link, Redirect } from "react-router-dom";
 import { Form, Input, Radio, Button } from "antd";
 import { addUser } from "../services/register.services";
 import "../style.css";
+import authHeader from "globals/auth-header";
 
 function Register() {
-  const loggedIn = JSON.parse(localStorage.getItem("user")) ? true : false;
+  const loggedIn = Object.keys(authHeader()).length ? true : false;
 
   const [successful, setSuccessful] = useState(false);
   const [message, setMessage] = useState("");
