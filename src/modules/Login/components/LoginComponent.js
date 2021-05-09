@@ -6,7 +6,7 @@ import "../style.css";
 import authHeader from "globals/auth-header";
 
 function Login() {
-  const loggedIn = authHeader() ? true : false;
+  const loggedIn = Object.keys(authHeader()).length ? true : false;
 
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");

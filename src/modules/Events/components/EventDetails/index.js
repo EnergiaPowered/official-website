@@ -62,7 +62,7 @@ const SingleEvent = (props) => {
     }, [socket, event]);
 
     if (event == null) return null;
-    if (localStorage.getItem("user") == null) {
+    if (authHeader() === {}) {
         alert('You must log in to open this event');
         return <Redirect to='/login' />;
     }
@@ -87,7 +87,7 @@ const SingleEvent = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (comment) {
+        if (comment.trim()) {
             setComment("");
             setTimeout(() => {
                 const commentsContainer = document.querySelector(".streaming-comments");

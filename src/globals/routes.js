@@ -89,7 +89,7 @@ export default [
     path: "/signup",
     component: RegisterationPage,
     inNavbar: {
-      shown: authHeader() ? false : true,
+      shown: Object.keys(authHeader()).length ? true : false,
       label: "Sign Up"
     }
   },
@@ -97,7 +97,7 @@ export default [
     path: "/login",
     component: LoginPage,
     inNavbar: {
-      shown: authHeader() ? false : true,
+      shown: Object.keys(authHeader()).length ? true : false,
       label: "Log In"
     }
   }
