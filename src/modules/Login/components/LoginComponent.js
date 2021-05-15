@@ -5,7 +5,7 @@ import loginServices from "../services/login.services";
 import "../style.css";
 import authHeader from "globals/auth-header";
 
-function Login() {
+function Login({ props }) {
   const loggedIn = Object.keys(authHeader()).length ? true : false;
 
   const [loading, setLoading] = useState(false);
@@ -15,12 +15,12 @@ function Login() {
   const handleLogin = (data) => {
     setMessage("");
     setLoading(true);
-    loginServices.login(data).then(
-      () => {
+    loginServices.login(data)
+      .then(() => {
         form.resetFields();
-        return <Redirect to="/" />
-      },
-      (error) => {
+        props.history.push("/");
+      })
+      .catch((error) => {
         const resMessage =
           (error.response &&
             error.response.data &&
@@ -30,8 +30,7 @@ function Login() {
 
         setLoading(false);
         setMessage(resMessage);
-      }
-    );
+      });
   };
 
   if (loggedIn) return <Redirect to='/' />;

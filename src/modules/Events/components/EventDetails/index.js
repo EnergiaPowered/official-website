@@ -7,9 +7,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { getEventChat, getSingleEvent, getUser } from "../../services/events.services";
 import jwt_docode from "jwt-decode";
 import StreamingAntennas from "assets/Streaming-antennas.png";
-import "./index.css";
 import authHeader from "globals/auth-header";
 import configs from "globals/config";
+import "./index.css";
 
 const SingleEvent = (props) => {
     const [userId, setUserId] = useState(null)
@@ -18,98 +18,48 @@ const SingleEvent = (props) => {
     const [comments, setComments] = useState([]);
     const [socket, setSocket] = useState();
     const [isAdmin, setIsAdmin] = useState(false);
+    const [isBroadcaster, setIsBroadcaster] = useState(false);
+    const [peerConnections, setPeerConnections] = useState({});
 
     const userVideo = useRef();
-    const peerRef = useRef();
-    const otherUser = useRef();
-    const userStream = useRef();
+    const streamingComments = useRef();
+
+    const config = {
+        iceServers: [
+            {
+                urls: "stun:stun.stunprotocol.org"
+            },
+            {
+                urls: 'turn:numb.viagenie.ca',
+                credential: 'muazkh',
+                username: 'webrtc@live.com'
+            }
+        ]
+    };
+
+    function getStream() {
+        if (window.stream) {
+            window.stream.getTracks().forEach(track => {
+                track.stop();
+            });
+        }
+
+        navigator.mediaDevices.getUserMedia({ audio: true, video: true })
+            .then(gotStream)
+            .catch((error) => {
+                console.error("Error: ", error);
+            });
+    }
+
+    function gotStream(stream) {
+        window.stream = stream;
+        userVideo.current.srcObject = stream;
+        socket.emit("broadcaster");
+    }
 
     function startStreaming() {
-        navigator.mediaDevices.getUserMedia({ audio: true, video: true }).then(stream => {
-            userVideo.current.srcObject = stream;
-            userStream.current = stream;
-            socket.emit("streamingStarted");
-        });
-    }
-
-    function callUser(userID) {
-        peerRef.current = createPeer(userID);
-        // console.log("Here I am\n", userStream.current.getTracks());
-        // userStream.current.getTracks().forEach(track => peerRef.current.addTrack(track, userStream.current));
-    }
-
-    function createPeer(userID) {
-        const peer = new RTCPeerConnection({
-            iceServers: [
-                {
-                    urls: "stun:stun.stunprotocol.org"
-                },
-                {
-                    urls: 'turn:numb.viagenie.ca',
-                    credential: 'muazkh',
-                    username: 'webrtc@live.com'
-                },
-            ]
-        });
-
-        peer.onicecandidate = handleICECandidateEvent;
-        peer.onnegotiationneeded = () => handleNegotiationNeededEvent(userID);
-
-        return peer;
-    }
-
-    function handleNegotiationNeededEvent(userID) {
-        peerRef.current.createOffer().then(offer => {
-            return peerRef.current.setLocalDescription(offer);
-        }).then(() => {
-            const payload = {
-                target: userID,
-                caller: socket.id,
-                sdp: peerRef.current.localDescription
-            };
-            socket.emit("offer", payload);
-        }).catch(e => console.log(e));
-    }
-
-    function handleRecieveCall(incoming) {
-        peerRef.current = createPeer();
-        const desc = new RTCSessionDescription(incoming.sdp);
-        peerRef.current.setRemoteDescription(desc).then(() => {
-            userStream.current.getTracks().forEach(track => peerRef.current.addTrack(track, userStream.current));
-        }).then(() => {
-            return peerRef.current.createAnswer();
-        }).then(answer => {
-            return peerRef.current.setLocalDescription(answer);
-        }).then(() => {
-            const payload = {
-                target: incoming.caller,
-                caller: socket.id,
-                sdp: peerRef.current.localDescription
-            }
-            socket.emit("answer", payload);
-        })
-    }
-
-    function handleAnswer(message) {
-        const desc = new RTCSessionDescription(message.sdp);
-        peerRef.current.setRemoteDescription(desc).catch(e => console.log(e));
-    }
-
-    function handleICECandidateEvent(e) {
-        if (e.candidate) {
-            const payload = {
-                target: otherUser.current,
-                candidate: e.candidate,
-            }
-            socket.emit("ice-candidate", payload);
-        }
-    }
-
-    function handleNewICECandidateMsg(incoming) {
-        const candidate = new RTCIceCandidate(incoming);
-
-        peerRef.current.addIceCandidate(candidate)
-            .catch(e => console.log(e));
+        setIsBroadcaster(true);
+        getStream();
     }
 
     useEffect(() => {
@@ -128,50 +78,123 @@ const SingleEvent = (props) => {
     }, []);
 
     useEffect(() => {
-        getSingleEvent(props.match.params.id).then(res => {
-            setEvent(res.data);
-        }).catch(err => {
-            return <Redirect to="/events" />
-        });
-        getEventChat(props.match.params.id).then(res => {
-            setComments(res.data);
-        }).catch(err => {
-            setComments([]);
-        });
+        Promise.all([getSingleEvent(props.match.params.id), getEventChat(props.match.params.id)])
+            .then(([{ data: event }, { data: comments }]) => {
+                setEvent(event);
+                setComments(comments);
+                setTimeout(() => {
+                    streamingComments.current.scrollTop = streamingComments.current.scrollHeight;
+                }, 100);
+            })
+            .catch(err => {
+                console.error(err.message);
+                return <Redirect to="/events" />
+            })
     }, [props.match.params.id]);
 
     useEffect(() => {
         if (socket == null || event == null) return;
-        const handler = message => {
-            setComments([...comments, message]);
+        let peerConnection;
+        const connectHandler = () => {
+            socket.emit("watcher");
         }
-        socket.on("message", handler);
+        const messageHandler = message => {
+            setComments([...comments, message]);
+            setTimeout(() => {
+                streamingComments.current.scrollTop = streamingComments.current.scrollHeight;
+            }, 100);
+        }
+        const broadcasterHandler = () => {
+            socket.emit("watcher");
+        }
+        const watcherHandler = id => {
+            const peerConn = new RTCPeerConnection(config);
+            const temp = peerConnections;
+            temp[id] = peerConn;
+            setPeerConnections(temp);
+
+            let stream = userVideo.current.srcObject;
+            stream.getTracks().forEach(track => peerConn.addTrack(track, stream));
+
+            peerConn.onicecandidate = event => {
+                if (event.candidate) {
+                    socket.emit("candidate", id, event.candidate);
+                }
+            };
+
+            peerConn
+                .createOffer()
+                .then(sdp => peerConn.setLocalDescription(sdp))
+                .then(() => {
+                    socket.emit("offer", id, peerConn.localDescription);
+                });
+        }
+        const offerHandler = (id, description) => {
+            const peerConn = new RTCPeerConnection(config);
+            peerConn.setRemoteDescription(description)
+                .then(() => peerConn.createAnswer())
+                .then(sdp => peerConn.setLocalDescription(sdp))
+                .then(() => {
+                    peerConnection = peerConn;
+                    console.log(peerConnection);
+                    socket.emit("answer", id, peerConn.localDescription);
+                });
+            peerConn.ontrack = event => {
+                userVideo.current.srcObject = event.streams[0];
+                console.log("ontrack", userVideo.current.srcObject);
+            };
+            peerConn.onicecandidate = event => {
+                if (event.candidate) {
+                    socket.emit("candidate", id, event.candidate);
+                }
+            };
+        }
+        const answerHandler = (id, description) => {
+            peerConnections[id].setRemoteDescription(description);
+        }
+        const candidateHandler = (id, candidate) => {
+            console.log("In candidate", id);
+            if (peerConnection) {
+                console.log("In");
+                peerConnection
+                    .addIceCandidate(new RTCIceCandidate(candidate))
+                    .catch(e => console.error(e));
+            }
+        }
+        const disconnectPeerHandler = id => {
+            if (peerConnections[id]) {
+                peerConnections[id].close();
+                const temp = peerConnections;
+                delete temp[id];
+                setPeerConnections(temp);
+            }
+        }
+
+        window.onunload = window.onbeforeunload = () => {
+            socket.close();
+            !isBroadcaster && peerConnection.close();
+        };
+
+        socket.on("connect", connectHandler);
+        socket.on("message", messageHandler);
+        socket.on("broadcaster", broadcasterHandler);
+        socket.on("watcher", watcherHandler);
+        socket.on("offer", offerHandler);
+        socket.on("answer", answerHandler);
+        socket.on("candidate", candidateHandler);
+        socket.on("disconnectPeer", disconnectPeerHandler);
 
         return () => {
-            socket.off("message", handler);
+            socket.off("connent", connectHandler);
+            socket.off("message", messageHandler);
+            socket.off("broadcaster", broadcasterHandler);
+            socket.off("watcher", watcherHandler);
+            socket.off("offer", offerHandler);
+            socket.off("answer", answerHandler);
+            socket.off("candidate", candidateHandler);
+            socket.off("disconnectPeer", disconnectPeerHandler);
         }
-    }, [socket, event, comments]);
-
-    useEffect(() => {
-        if (socket == null || event == null) return;
-        socket.on('other user', userID => {
-            console.log("other user", userID);
-            callUser(userID);
-            otherUser.current = userID;
-        });
-
-        socket.on("user joined", userID => {
-            console.log("user joined", userID);
-            otherUser.current = userID;
-        });
-
-        socket.on("offer", handleRecieveCall);
-
-        socket.on("answer", handleAnswer);
-
-        socket.on("ice-candidate", handleNewICECandidateMsg);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [socket, event]);
+    }, [socket, event, comments, config, peerConnections, isBroadcaster]);
 
     useEffect(() => {
         if (socket == null || event == null) return;
@@ -205,11 +228,10 @@ const SingleEvent = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (comment.trim()) {
+            socket.emit('chatMessage', comment);
             setComment("");
             setTimeout(() => {
-                const commentsContainer = document.querySelector(".streaming-comments");
-                commentsContainer.scrollTop = commentsContainer.scrollHeight;
-                socket.emit('chatMessage', comment);
+                streamingComments.current.scrollTop = streamingComments.current.scrollHeight;
             }, 100);
         }
     }
@@ -230,7 +252,7 @@ const SingleEvent = (props) => {
                     <div className="streaming-sections">
                         <div className="streaming-section1">
                             <div className="streaming-video">
-                                <video autoPlay muted ref={userVideo} />
+                                <video playsInline autoPlay muted={isBroadcaster} ref={userVideo} />
                             </div>
                             <div className="streaming-description">
                                 {isAdmin && (
@@ -243,14 +265,14 @@ const SingleEvent = (props) => {
                             </div>
                         </div>
                         <div className="streaming-section2">
-                            <div className="streaming-comments">
+                            <div ref={streamingComments} className="streaming-comments">
                                 {comments.length ? (
                                     <div className="comments">
                                         <CommentsSection />
                                     </div>
                                 ) : (
                                     <div className="h-100 d-flex justify-content-center align-items-center">
-                                        <h5>There are no comment yet.</h5>
+                                        <h5>There are no comments yet.</h5>
                                     </div>
                                 )}
                             </div>
