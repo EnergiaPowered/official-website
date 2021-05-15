@@ -95,9 +95,6 @@ const SingleEvent = (props) => {
     useEffect(() => {
         if (socket == null || event == null) return;
         let peerConnection;
-        const connectHandler = () => {
-            socket.emit("watcher");
-        }
         const messageHandler = message => {
             setComments([...comments, message]);
             setTimeout(() => {
@@ -175,7 +172,6 @@ const SingleEvent = (props) => {
             !isBroadcaster && peerConnection.close();
         };
 
-        socket.on("connect", connectHandler);
         socket.on("message", messageHandler);
         socket.on("broadcaster", broadcasterHandler);
         socket.on("watcher", watcherHandler);
@@ -185,7 +181,6 @@ const SingleEvent = (props) => {
         socket.on("disconnectPeer", disconnectPeerHandler);
 
         return () => {
-            socket.off("connent", connectHandler);
             socket.off("message", messageHandler);
             socket.off("broadcaster", broadcasterHandler);
             socket.off("watcher", watcherHandler);
@@ -199,6 +194,7 @@ const SingleEvent = (props) => {
     useEffect(() => {
         if (socket == null || event == null) return;
         socket.emit("joinRoom", event._id);
+        socket.emit("watcher");
     }, [socket, event]);
 
     if (event == null) return null;
