@@ -66,19 +66,9 @@ function BlogList({ setIsBlogOpened, setClickedBlog }) {
         });
 
     useEffect(() => {
-        getBlogs().then((res) =>
-            setBlogsList(
-                res.data.sort((a, b) => {
-                    if (a.createdAt < b.createdAt) {
-                        return -1;
-                    }
-                    if (a.createdAt > b.createdAt) {
-                        return 1;
-                    }
-                    return 0;
-                })
-            )
-        );
+        getBlogs().then((res) => {
+            setBlogsList(res.data)
+        });
     }, []);
 
     return (

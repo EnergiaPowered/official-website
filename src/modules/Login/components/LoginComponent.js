@@ -3,9 +3,10 @@ import { Link, Redirect } from "react-router-dom";
 import { Form, Input, Button } from "antd";
 import loginServices from "../services/login.services";
 import "../style.css";
+import authHeader from "globals/auth-header";
 
 function Login({ props }) {
-  const loggedIn = JSON.parse(localStorage.getItem("user")) ? true : false;
+  const loggedIn = Object.keys(authHeader()).length ? true : false;
 
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
@@ -14,12 +15,12 @@ function Login({ props }) {
   const handleLogin = (data) => {
     setMessage("");
     setLoading(true);
-    loginServices.login(data).then(
-      () => {
+    loginServices.login(data)
+      .then(() => {
         form.resetFields();
         props.history.push("/");
-      },
-      (error) => {
+      })
+      .catch((error) => {
         const resMessage =
           (error.response &&
             error.response.data &&
@@ -29,8 +30,7 @@ function Login({ props }) {
 
         setLoading(false);
         setMessage(resMessage);
-      }
-    );
+      });
   };
 
   if (loggedIn) return <Redirect to='/' />;
@@ -84,7 +84,7 @@ function Login({ props }) {
                 Log In
               </Button>
             </Form.Item>
-            <Link to="/register">
+            <Link to="/signup">
               <small>Don't have an account?</small>
             </Link>
           </div>
