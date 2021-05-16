@@ -42,7 +42,6 @@ const SingleEvent = (props) => {
 
     useEffect(() => {
         const token = authHeader();
-        console.log(token);
         if (token === {}) return;
         setUserId(jwt_docode(token['x-auth-token'])._id);
         const s = io(configs.HOST, { extraHeaders: token, transport: ['websocket'] });
