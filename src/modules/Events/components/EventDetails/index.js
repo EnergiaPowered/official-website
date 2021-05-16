@@ -15,56 +15,35 @@ const SingleEvent = (props) => {
     const [userId, setUserId] = useState(null)
     const [event, setEvent] = useState(null);
     const [comment, setComment] = useState("");
+    const [streamID, setStreamID] = useState("");
     const [comments, setComments] = useState([]);
     const [socket, setSocket] = useState();
     const [isAdmin, setIsAdmin] = useState(false);
-    const [isBroadcaster, setIsBroadcaster] = useState(false);
-    const [peerConnections, setPeerConnections] = useState({});
+    const [startStream, setStartStream] = useState(false);
 
-    const userVideo = useRef();
     const streamingComments = useRef();
-
-    const config = {
-        iceServers: [
-            {
-                urls: "stun:stun.stunprotocol.org"
-            },
-            {
-                urls: 'turn:numb.viagenie.ca',
-                credential: 'muazkh',
-                username: 'webrtc@live.com'
-            }
-        ]
-    };
-
-    function getStream() {
-        if (window.stream) {
-            window.stream.getTracks().forEach(track => {
-                track.stop();
-            });
-        }
-
-        navigator.mediaDevices.getUserMedia({ audio: true, video: true })
-            .then(gotStream)
-            .catch((error) => {
-                console.error("Error: ", error);
-            });
-    }
-
-    function gotStream(stream) {
-        window.stream = stream;
-        userVideo.current.srcObject = stream;
-        socket.emit("broadcaster");
-    }
+    const streamIDField = useRef();
 
     function startStreaming() {
-        setIsBroadcaster(true);
-        getStream();
+        const streamId = streamIDField.current.value;
+        if (streamId.trim()) {
+            setStartStream(true);
+            socket.emit("start-streaming", streamId);
+            setStreamID(streamId);
+            streamIDField.current.value = "";
+        }
+    }
+
+    function stopStreaming() {
+        setStartStream(false);
+        socket.emit("stop-streaming");
+        setStreamID("");
     }
 
     useEffect(() => {
         const token = authHeader();
-        if (!token) return;
+        console.log(token);
+        if (token === {}) return;
         setUserId(jwt_docode(token['x-auth-token'])._id);
         const s = io(configs.HOST, { extraHeaders: token });
         setSocket(s);
@@ -73,8 +52,10 @@ const SingleEvent = (props) => {
         });
 
         return () => {
+            stopStreaming();
             s.disconnect();
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     useEffect(() => {
@@ -94,107 +75,37 @@ const SingleEvent = (props) => {
 
     useEffect(() => {
         if (socket == null || event == null) return;
-        let peerConnection;
         const messageHandler = message => {
             setComments([...comments, message]);
             setTimeout(() => {
                 streamingComments.current.scrollTop = streamingComments.current.scrollHeight;
             }, 100);
         }
-        const broadcasterHandler = () => {
-            socket.emit("watcher");
+        const startStreamingHandler = streamID => {
+            console.log(streamID);
+            setStreamID(streamID);
+            setStartStream(true);
         }
-        const watcherHandler = id => {
-            const peerConn = new RTCPeerConnection(config);
-            const temp = peerConnections;
-            temp[id] = peerConn;
-            setPeerConnections(temp);
-
-            let stream = userVideo.current.srcObject;
-            stream.getTracks().forEach(track => peerConn.addTrack(track, stream));
-
-            peerConn.onicecandidate = event => {
-                if (event.candidate) {
-                    socket.emit("candidate", id, event.candidate);
-                }
-            };
-
-            peerConn
-                .createOffer()
-                .then(sdp => peerConn.setLocalDescription(sdp))
-                .then(() => {
-                    socket.emit("offer", id, peerConn.localDescription);
-                });
+        const stopStreamingHandler = () => {
+            setStreamID("");
+            setStartStream(false);
         }
-        const offerHandler = (id, description) => {
-            const peerConn = new RTCPeerConnection(config);
-            peerConn.setRemoteDescription(description)
-                .then(() => peerConn.createAnswer())
-                .then(sdp => peerConn.setLocalDescription(sdp))
-                .then(() => {
-                    peerConnection = peerConn;
-                    console.log(peerConnection);
-                    socket.emit("answer", id, peerConn.localDescription);
-                });
-            peerConn.ontrack = event => {
-                userVideo.current.srcObject = event.streams[0];
-                console.log("ontrack", userVideo.current.srcObject);
-            };
-            peerConn.onicecandidate = event => {
-                if (event.candidate) {
-                    socket.emit("candidate", id, event.candidate);
-                }
-            };
-        }
-        const answerHandler = (id, description) => {
-            peerConnections[id].setRemoteDescription(description);
-        }
-        const candidateHandler = (id, candidate) => {
-            console.log("In candidate", id);
-            if (peerConnection) {
-                console.log("In");
-                peerConnection
-                    .addIceCandidate(new RTCIceCandidate(candidate))
-                    .catch(e => console.error(e));
-            }
-        }
-        const disconnectPeerHandler = id => {
-            if (peerConnections[id]) {
-                peerConnections[id].close();
-                const temp = peerConnections;
-                delete temp[id];
-                setPeerConnections(temp);
-            }
-        }
-
-        window.onunload = window.onbeforeunload = () => {
-            socket.close();
-            !isBroadcaster && peerConnection.close();
-        };
 
         socket.on("message", messageHandler);
-        socket.on("broadcaster", broadcasterHandler);
-        socket.on("watcher", watcherHandler);
-        socket.on("offer", offerHandler);
-        socket.on("answer", answerHandler);
-        socket.on("candidate", candidateHandler);
-        socket.on("disconnectPeer", disconnectPeerHandler);
+        socket.on("start-streaming", startStreamingHandler);
+        socket.on("stop-streaming", stopStreamingHandler);
 
         return () => {
             socket.off("message", messageHandler);
-            socket.off("broadcaster", broadcasterHandler);
-            socket.off("watcher", watcherHandler);
-            socket.off("offer", offerHandler);
-            socket.off("answer", answerHandler);
-            socket.off("candidate", candidateHandler);
-            socket.off("disconnectPeer", disconnectPeerHandler);
+            socket.off("start-streaming", startStreamingHandler);
+            socket.off("stop-streaming", stopStreamingHandler);
         }
-    }, [socket, event, comments, config, peerConnections, isBroadcaster]);
+    }, [socket, event, comments, startStream]);
 
     useEffect(() => {
         if (socket == null || event == null) return;
         socket.emit("joinRoom", event._id);
-        socket.emit("watcher");
+        // socket.emit("new-viewer");
     }, [socket, event]);
 
     if (event == null) return null;
@@ -203,19 +114,29 @@ const SingleEvent = (props) => {
         return <Redirect to='/login' />;
     }
 
-    const CommentsSection = () => comments.map((comment, index) => (
-        <div key={index}>
-            <div className="comment-icon">{comment.firstname.charAt(0).toUpperCase()}{comment.lastname.charAt(0).toUpperCase()}</div>
-            <div className="comment-info">
-                {userId === comment.userId ? (
-                    <h6>Me</h6>
-                ) : (
-                    <h6>{comment.firstname} {comment.lastname}</h6>
-                )}
-                <p>{comment.comment}</p>
-            </div>
-        </div>
-    ));
+    const CommentsSection = () => comments.map((comment, index) => {
+        if (userId === comment.userId) {
+            return (
+                <div key={index}>
+                    <div className="comment-icon me">{comment.firstname.charAt(0).toUpperCase()}{comment.lastname.charAt(0).toUpperCase()}</div>
+                    <div className="comment-info me">
+                        <h6>Me</h6>
+                        <p>{comment.comment}</p>
+                    </div>
+                </div>
+            )
+        } else {
+            return (
+                <div key={index}>
+                    <div className="comment-icon">{comment.firstname.charAt(0).toUpperCase()}{comment.lastname.charAt(0).toUpperCase()}</div>
+                    <div className="comment-info">
+                        <h6>{comment.firstname} {comment.lastname}</h6>
+                        <p>{comment.comment}</p>
+                    </div>
+                </div>
+            )
+        }
+    });
 
     const handleChange = (e) => {
         setComment(e.target.value);
@@ -248,11 +169,20 @@ const SingleEvent = (props) => {
                     <div className="streaming-sections">
                         <div className="streaming-section1">
                             <div className="streaming-video">
-                                <video playsInline autoPlay muted={isBroadcaster} ref={userVideo} />
+                                {startStream && (
+                                    <iframe title="stream" src={`https://www.youtube.com/embed/${streamID}?autoplay=1&mute=1`}></iframe>
+                                )}
                             </div>
                             <div className="streaming-description">
                                 {isAdmin && (
-                                    <button className="streaming-button" onClick={startStreaming}>Start Streaming</button>
+                                    <div className="admin">
+                                        <input type="text" className="streamingID" placeholder="Stream ID" ref={streamIDField} />
+                                        {startStream ? (
+                                            <button className="streaming-button" style={{ color: '#a60000' }} onClick={stopStreaming}>Stop Streaming</button>
+                                        ) : (
+                                            <button className="streaming-button" onClick={startStreaming}>Start Streaming</button>
+                                        )}
+                                    </div>
                                 )}
                                 <h3>About</h3>
                                 <div

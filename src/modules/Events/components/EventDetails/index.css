@@ -35,9 +35,10 @@
     margin-bottom: 3%;
 }
 
-.streaming-video video {
+.streaming-video iframe {
     height: 100%;
     width: 100%;
+    border: none;
 }
 
 .streaming-description p,
@@ -45,11 +46,17 @@
     margin-bottom: 0;
 }
 
-.streaming-description .streaming-button {
+.streaming-description .streaming-button,
+.streaming-description .streamingID {
     border: none;
     background-color: #CCCCCC;
     color: #0A1E49;
     padding: 0.5rem 1rem;
+}
+
+.streaming-description .admin {
+    display: flex;
+    justify-content: space-between;
     margin-bottom: 3%;
 }
 
@@ -73,6 +80,7 @@
     position: relative;
     overflow-y: auto;
     height: 100%;
+    max-height: 90vh;
     margin-bottom: 5%;
     padding: 5% 7%;
 }
@@ -98,6 +106,10 @@
     align-items: center;
 }
 
+.comment-icon.me {
+    background-color: #186fa1;
+}
+
 .comment-info {
     width: 80%;
     color: #0A1E49;
@@ -110,6 +122,10 @@
     color: #0A1E49;
     margin-bottom: 0;
     font-weight: 600;
+}
+
+.comment-info.me>* {
+    color: #186fa1 !important;
 }
 
 .comment-info p {

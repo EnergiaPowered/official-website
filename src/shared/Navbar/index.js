@@ -15,7 +15,7 @@ import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import "./style.css";
 import authHeader from "globals/auth-header";
 
-export default function Navbar(props) {
+export default function Navbar() {
   const [scroll, setScroll] = useState(0);
 
   const [opened, setOpened] = useState(false);
