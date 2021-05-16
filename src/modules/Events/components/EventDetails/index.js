@@ -45,7 +45,7 @@ const SingleEvent = (props) => {
         console.log(token);
         if (token === {}) return;
         setUserId(jwt_docode(token['x-auth-token'])._id);
-        const s = io(configs.HOST, { extraHeaders: token });
+        const s = io(configs.HOST, { extraHeaders: token, transport: ['websocket'] });
         setSocket(s);
         getUser().then(res => {
             setIsAdmin(res.data.isAdmin);
