@@ -51,7 +51,6 @@ const SingleEvent = (props) => {
         });
 
         return () => {
-            stopStreaming();
             s.disconnect();
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
