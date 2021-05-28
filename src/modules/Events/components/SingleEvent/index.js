@@ -1,3 +1,4 @@
+import moment from "moment";
 import React from "react";
 import { HiLocationMarker } from "react-icons/hi";
 import { MdDateRange } from "react-icons/md";
@@ -10,6 +11,8 @@ const SingleEvent = ({ event }) => {
         Closed: "danger",
         Opened: "primary"
     }
+
+    console.log(event.startDate);
 
     return (
         <div className="container_card row" >
@@ -33,10 +36,10 @@ const SingleEvent = ({ event }) => {
                 </div>
                 <div className="date_time_event">
                     <h6>
-                        <MdDateRange /> From: {new Date(event.startDate).toDateString().slice(0, 10)}, {new Date(event.startDate).toTimeString().slice(0, 5)}
+                        <MdDateRange /> From: {moment(event.startDate).subtract(2, 'hours').format('MMM Do YYYY, h:mm A')}
                     </h6>
                     <h6>
-                        <MdDateRange /> To: {new Date(event.endDate).toDateString().slice(0, 10)}, {new Date(event.endDate).toTimeString().slice(0, 5)}
+                        <MdDateRange /> To: {moment(event.endDate).subtract(2, 'hours').format('MMM Do YYYY, h:mm A')}
                     </h6>
                 </div>
                 <div className="details_event">
