@@ -42,17 +42,15 @@ const SingleEvent = (props) => {
 
     useEffect(() => {
         const token = authHeader();
-        console.log(token);
         if (token === {}) return;
         setUserId(jwt_docode(token['x-auth-token'])._id);
-        const s = io(configs.HOST, { extraHeaders: token });
+        const s = io(configs.HOST, { extraHeaders: token, transport: ['websocket'] });
         setSocket(s);
         getUser().then(res => {
             setIsAdmin(res.data.isAdmin);
         });
 
         return () => {
-            stopStreaming();
             s.disconnect();
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
