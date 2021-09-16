@@ -36,6 +36,7 @@ nav.navbar .navbar-nav span.nav-link {
   padding: 1px;
   margin: auto 10px;
   cursor: pointer;
+  font-size: 1.3rem;
   transition: padding 0.4s;
 }
 
