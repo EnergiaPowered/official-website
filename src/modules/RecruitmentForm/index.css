@@ -1,5 +1,19 @@
 .recruitment-page {
-    animation: fadeIn 0.6s ease forwards;
+    opacity: 0;
+    animation: fadeIn 0.6s ease forwards 0.3s;
+}
+
+.recruitment-page h1,
+.recruitment-page h4,
+.recruitment-page p,
+.recruitment-page label {
+    opacity: 0;
+    animation: fadeText 0.3s ease forwards 0.9s;
+}
+
+.recruitment-page .ant-form-item-label {
+    white-space: normal !important;
+    text-align: left !important;
 }
 
 label {
@@ -12,6 +26,18 @@ label::after {
 }
 
 @keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-15%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
+
+@keyframes fadeText {
     0% {
         opacity: 0;
         transform: translateY(-10%);

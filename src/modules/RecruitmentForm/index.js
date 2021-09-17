@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Layout from "shared/Layout";
 import Application from "./components/Application";
 import $ from "jquery";
-import { useParams } from "react-router";
 import { Helmet } from "react-helmet";
 import "./index.css";
 
@@ -12,18 +11,33 @@ function RecruitmentForm() {
     const [finished, setFinished] = useState(false);
 
     useEffect(() => {
-        if (new Date() > new Date(2022, 6, 2, 20, 59, 59))
+        if (new Date() > new Date(2021, 9, 24, 21, 59, 59))
             setFinished(true);
     }, []);
-
-    console.log(useParams())
 
     const submit = (values) => {
         if (!finished) {
             setLoading(true);
+
+            const sheets = {
+                web: "https://script.google.com/macros/s/AKfycbxmJdKW9mq8ZtJwetkUZDqDcvfwXzt9FggiZNXoVH4HOFhXmtCiUb5csFIyhM2HyRrL/exec",
+                mobile: "https://script.google.com/macros/s/AKfycbxnVHp_kQ0Htrh07fhSedVjOAwkvcT9NT0maU_NqskB-gwlEOXnBE86yUtk-WzIiByL4Q/exec",
+                PR: "https://script.google.com/macros/s/AKfycbxYMn1LDc_fCzrI8o5quPqJIIV3gsr88VfnZY7Vp0itWfUDPEWFyGFXwiW040Yfwu_K/exec",
+                fundraising: "https://script.google.com/macros/s/AKfycbxEZS0IAlk5e-or6j87KWknI-2Z33qVG5kxTR6EPWzZKl2EmD63Wd5XjPJRf7wB_oym/exec",
+                HR: "https://script.google.com/macros/s/AKfycbwCkDx5A-78jbLCYXWrQdOqOngjmvHsMBPHVOJ1pJUHA6N9ul903B9ars_w_EY4e84J/exec",
+                DCR: "https://script.google.com/macros/s/AKfycbySmRI8Cj0vfhehXRIXQMLNDu_6OIbFnhDqJ_TsVqM_J2O17ctIV4QJaAYRoM4KoEfseQ/exec",
+                QM: "https://script.google.com/macros/s/AKfycbzk0fktmfFhmitTAQKDLK97nRPC6aLeSAzozlP0t8VgGI4yOXMYogcV11RXGud6rCiKLA/exec",
+                arduino: "https://script.google.com/macros/s/AKfycbzlT3uawsXJw-JA2a-sUfUE_PxM0CnNMgMGYLEdHbN2iMzYlsjAbIkEZMwp5W6UDGQl/exec",
+                ES: "https://script.google.com/macros/s/AKfycbz15IN1ZqVSXYt2xc5c9MZTvKHGZOzZPMTkBHvIMxGq8V_6bUKaMSkaqh-p2yfiFQXy/exec",
+                cpp: "https://script.google.com/macros/s/AKfycbyFRc0UNf9x0zirsyLMJlVvEAZWVJ_U1HbyKEosvRdSE-wKoi_G-ovHuor4cACYP7rZ/exec",
+                DS: "https://script.google.com/macros/s/AKfycbxQMMg9hFLm3pB-w6CxQyNQsRey36Xp46J8SbkehPv17xS16DWlJ7XAQaVNBbzPCsCZtQ/exec",
+                design: "https://script.google.com/macros/s/AKfycbwwP62zr9tZP5AUDZ8n9tRTTes7w-ulrxa1yVQ0MaSFcClsukO5t_6GI2OdZ4rrhKg0mw/exec",
+                media: "https://script.google.com/macros/s/AKfycbyboUtnwj3mj0cxQ1YkVamVxW7aaqaV9lVrNh5zLnxHjI8906xeDiDDxAHmyT-qdIRo/exec",
+                marketing: "https://script.google.com/macros/s/AKfycbwj8-ZDHYQ0oYV8jks0P2UKUtuEOqR0DUPLO5eUztxPuifLu2MrrmBdUfdPB7RXsHY0tA/exec"
+            }
+
             $.ajax({
-                url:
-                    "https://script.google.com/macros/s/AKfycbxWYUgpXB6AO6ZAUSQbntwd9V2m6kWOfGTG1jtQn5WBHnLjRZIU3Rg6U8Nf83dkPIDqJg/exec",
+                url: sheets[values.preference1],
                 method: "POST",
                 dataType: "json",
                 data: values,
@@ -33,6 +47,7 @@ function RecruitmentForm() {
                 },
                 error: () => {
                     alert("Your application didn't get saved successfully. Please try again.");
+                    setLoading(false);
                 }
             });
         }
@@ -41,7 +56,7 @@ function RecruitmentForm() {
     return (
         <div
             className="site-layout page-component"
-            style={{ padding: "0 50px", marginTop: "100px" }}
+            style={{ padding: "0 50px", marginTop: "180px" }}
         >
             <Helmet>
                 <title>Energia Powered | Members Recruitment</title>
@@ -51,7 +66,7 @@ function RecruitmentForm() {
                     <div className="col-lg-2 col-sm-0"></div>
                     <div
                         className="col-lg-8 col-sm-12"
-                        style={{ backgroundColor: "#0000002e", paddingTop: "1rem" }}
+                        style={{ backgroundColor: "#0000002e", padding: "1.5rem 1rem" }}
                     >
                         <div className="info-section">
                             <div className="name">
@@ -68,18 +83,18 @@ function RecruitmentForm() {
                                 {submitted ? (
                                     <p>
                                         Thank you for filling out your information!<br />
-                                        We will get in touch with you for more details about the sessions as soon as possible. So, keep waiting for us.<br />
+                                        We will get in touch with you for more details about the interview as soon as possible. So, wait for us.<br />
                                         And if you have any questions, don’t hesitate to ask us through our page messages.
                                     </p>
                                 ) : (
                                     <div>
-                                        <p>
-                                            Energia Powered is a student activity, which was founded in Cairo University 9 years ago.<br />
-                                            This application form to join our Energia Gates <strong>DME</strong> Session, so if you are interested, fill this form and join us.
-                                        </p>
-                                        {finished && (
+                                        {!finished ? (
+                                            <p>
+                                                This application form to join <strong>Energia Powered</strong> as a member, so if you are interested, fill this form and join us!
+                                            </p>
+                                        ) : (
                                             <h4>
-                                                The form is closed
+                                                The form has been closed
                                                 <span role="img" aria-label="sad">
                                                     😥
                                                 </span>

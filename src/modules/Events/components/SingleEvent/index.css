@@ -27,6 +27,11 @@
     width: fit-content;
 }
 
+.type_event h5 {
+    margin: 0;
+    line-height: 1.8rem;
+}
+
 @media screen and (max-width: 767px) {
     .container_card {
         margin: 10% auto !important;
