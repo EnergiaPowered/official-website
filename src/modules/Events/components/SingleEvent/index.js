@@ -12,8 +12,6 @@ const SingleEvent = ({ event }) => {
         Opened: "primary"
     }
 
-    console.log(event.startDate);
-
     return (
         <div className="container_card row" >
 
@@ -36,23 +34,25 @@ const SingleEvent = ({ event }) => {
                 </div>
                 <div className="date_time_event">
                     <h6>
-                        <MdDateRange /> From: {moment(event.startDate).subtract(2, 'hours').format('MMM Do YYYY, h:mm A')}
+                        <MdDateRange /> From: {moment(event.startDate).format('MMM Do YYYY, h:mm A')}
                     </h6>
                     <h6>
-                        <MdDateRange /> To: {moment(event.endDate).subtract(2, 'hours').format('MMM Do YYYY, h:mm A')}
+                        <MdDateRange /> To: {moment(event.endDate).format('MMM Do YYYY, h:mm A')}
                     </h6>
                 </div>
-                <div className="details_event">
-                    <h6>
-                        {event.eventDetails ? (
-                            <a href={event.eventDetails} target="_blank" rel="noopener noreferrer">
-                                More Details
-                            </a>
-                        ) : (
-                            <Link to={`events/${event._id}/${event.name}`}>More Details</Link>
-                        )}
-                    </h6>
-                </div>
+                {(event.status === "Opened") &&
+                    <div className="details_event">
+                        <h6>
+                            {event.eventDetails ? (
+                                <Link to={event.eventDetails}>
+                                    More Details
+                                </Link>
+                            ) : (
+                                <Link to={`events/${event._id}/${event.name}`}>More Details</Link>
+                            )}
+                        </h6>
+                    </div>
+                }
                 <div className={`type_event badge badge-pill badge-${statusMap[event.status]}`}>
                     <h5>{event.status}</h5>
                 </div>

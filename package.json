@@ -13,6 +13,7 @@
     "enzyme-adapter-react-16": "^1.15.6",
     "enzyme-to-json": "^3.6.2",
     "joi-browser": "^13.4.0",
+    "jquery": "^3.6.0",
     "jwt-decode": "^3.1.2",
     "moment": "^2.29.1",
     "particles-bg": "^2.4.7",

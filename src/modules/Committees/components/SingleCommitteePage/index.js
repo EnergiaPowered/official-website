@@ -6,7 +6,7 @@ import Navbar from "shared/Navbar";
 import Footer from "shared/Footer";
 import Loader from "shared/Loader";
 
-import BestMember from "modules/BestMember/bestMember";
+// import BestMember from "modules/BestMember/bestMember";
 
 import { getCommittees } from "../../services/committees.services";
 
@@ -76,9 +76,9 @@ export default function SingleCommittee(props) {
                   <p data-testid="comm-mission">{committee.mission}</p>
                 </section>
 
-                <hr />
+                {/* <hr /> */}
 
-                <BestMember committee={committee.title} />
+                {/* <BestMember committee={committee.title} /> */}
               </div>
             </main>
 

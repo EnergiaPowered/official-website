@@ -32,7 +32,7 @@ function Events() {
             </Helmet>
             <Layout>
                 <div className="page_container">
-                    <h1 id="dropE">Events</h1>
+                    <h1 id="dropE" style={{textAlign: "center"}}>Events</h1>
                 </div>
 
                 <div> {handelPage} </div>

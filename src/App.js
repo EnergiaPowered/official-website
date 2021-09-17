@@ -19,10 +19,10 @@ function App() {
         <Switch>
           {routes &&
             routes.length > 0 &&
-            routes.map(route => {
+            routes.map((route, index) => {
               return (
                 <Route
-                  key={route.path}
+                  key={index}
                   exact
                   path={route.path}
                   component={route.component}
