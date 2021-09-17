@@ -8,6 +8,7 @@ import Contacts from "modules/Contact";
 import RegisterationPage from "modules/Register";
 import LoginPage from "modules/Login";
 import Verfied from "modules/Verfied";
+import RecruitmentForm from "modules/RecruitmentForm";
 import EventDetails from "modules/Events/components/EventDetails";
 import authHeader from "./auth-header";
 
@@ -63,6 +64,14 @@ export default [
   {
     path: "/events/:id/:name",
     component: EventDetails,
+    inNavbar: {
+      shown: false,
+      label: ""
+    }
+  },
+  {
+    path: "/events/recruitment",
+    component: RecruitmentForm,
     inNavbar: {
       shown: false,
       label: ""
