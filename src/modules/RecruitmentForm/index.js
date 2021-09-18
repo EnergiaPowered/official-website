@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Layout from "shared/Layout";
 import Application from "./components/Application";
-import $ from "jquery";
 import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
+import $ from "jquery";
 import "./index.css";
-// import { Link } from "react-router-dom";
 
 function RecruitmentForm() {
     const [submitted, setSubmitted] = useState(false);
@@ -94,9 +94,9 @@ function RecruitmentForm() {
                                                 <p style={{ fontSize: "1.3rem"}}>
                                                     This application form to join <strong>Energia Powered</strong> as a member, so if you are interested, fill this form and join us!
                                                 </p>
-                                                {/* <p>
-                                                    You can read the job descriptions of the committees from <Link to="/Abdullah's Resume.pdf"  target="_blank" rel="noopener noreferrer">here</Link>
-                                                </p> */}
+                                                <p>
+                                                    You can read the job descriptions of the committees from <Link to="/Committees' Job Description.pdf"  target="_blank" rel="noopener noreferrer">here</Link>
+                                                </p>
                                             </div>
                                         ) : (
                                             <h4>
