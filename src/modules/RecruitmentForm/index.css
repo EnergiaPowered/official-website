@@ -25,6 +25,10 @@ label::after {
     content: "" !important;
 }
 
+.ant-select-item-option-content {
+    white-space: pre-wrap !important;
+}
+
 @media (max-width: 574px) {
     .info-section h1 {
         font-size: 1.6rem;
