@@ -112,6 +112,7 @@ function Application({ submit, loading }) {
             name={"email"}
             label="Email Address"
             style={{ display: "block" }}
+            normalize={value => value.trim()}
             rules={[
               {
                 type: "email",
@@ -120,7 +121,7 @@ function Application({ submit, loading }) {
               {
                 required: true,
                 message: "Please enter your email address",
-              },
+              }
             ]}
           >
             <Input />
