@@ -45,7 +45,7 @@ const SingleEvent = ({ event }) => {
                     <div className="details_event">
                         <h6>
                             {event.eventDetails ? (
-                                <Link to={event.eventDetails} target="_blank" rel="noopener noreferrer">More Details</Link>
+                                <Link to={event.eventDetails}>More Details</Link>
                             ) : (
                                 <Link to={`events/${event._id}/${event.name}`}>More Details</Link>
                             )}
