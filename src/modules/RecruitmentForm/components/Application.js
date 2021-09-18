@@ -80,7 +80,7 @@ function Application({ submit, loading }) {
   return (
     <div className="row" style={{ marginTop: "1rem" }}>
       <div className="col-lg-1 col-sm-0"></div>
-      <div className="col-lg-10 col-sm-8">
+      <div className="col-lg-10 col-sm-12">
         <Form onFinish={submit} autoComplete="off">
           <Form.Item
             name={"name"}
@@ -234,11 +234,7 @@ function Application({ submit, loading }) {
               },
             ]}
           >
-            <Select
-              placeholder="Select the committee you want join"
-              allowClear
-              onChange={handleChange}
-            >
+            <Select placeholder="Select the committee you want join" allowClear onChange={handleChange}>
               {committees.map((session, index) => <Option key={index} value={session.value}>{session.label}</Option>)}
             </Select>
           </Form.Item>
@@ -267,10 +263,7 @@ function Application({ submit, loading }) {
               },
             ]}
           >
-            <Select
-              placeholder="Select the committee you want join"
-              allowClear
-            >
+            <Select placeholder="Select the committee you want join" allowClear>
               {committees.map((session, index) => <Option key={index} value={session.value}>{session.label}</Option>)}
             </Select>
           </Form.Item>
@@ -281,14 +274,11 @@ function Application({ submit, loading }) {
             rules={[
               {
                 required: true,
-                message: "Please select your second prefernce",
+                message: "Please select an answer",
               },
             ]}
           >
-            <Select
-              placeholder="Select the committee you want join"
-              allowClear
-            >
+            <Select placeholder="Select an answer" allowClear>
               <Option value="facebook">Facebook</Option>
               <Option value="instagram">Instagram</Option>
               <Option value="linkedin">LinkedIn</Option>
@@ -330,13 +320,11 @@ function Application({ submit, loading }) {
           >
             <TextArea rows={4} />
           </Form.Item>
-          {!loading && (
-            <Form.Item>
-              <Button type="secondry" htmlType="submit" size="large" block >
-                Apply
-              </Button>
-            </Form.Item>
-          )}
+          <Form.Item>
+            <Button type="secondry" htmlType="submit" size="large" block disabled={loading ? true : false} >
+              Apply
+            </Button>
+          </Form.Item>
         </Form>
       </div>
     </div>

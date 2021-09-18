@@ -16,6 +16,12 @@
   }
 }
 
+@media (max-width: 574px) {
+  #Footer .social-links .social-links-item {
+    margin: 0 14px;
+  }
+}
+
 #Footer .social-links .social-links-item a {
   color: #fff;
 }

@@ -60,7 +60,7 @@ function RecruitmentForm() {
             style={{ padding: "0 50px", marginTop: "180px" }}
         >
             <Helmet>
-                <title>Energia Powered | Members Recruitment</title>
+                <title>Energia Powered | Members' Recruitment</title>
             </Helmet>
             <Layout>
                 <div className="recruitment-page row">
@@ -91,7 +91,7 @@ function RecruitmentForm() {
                                     <div>
                                         {!finished ? (
                                             <div>
-                                                <p style={{ fontSize: "1.3rem"}}>
+                                                <p>
                                                     This application form to join <strong>Energia Powered</strong> as a member, so if you are interested, fill this form and join us!
                                                 </p>
                                                 <p>

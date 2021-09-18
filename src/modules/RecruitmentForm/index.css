@@ -25,6 +25,12 @@ label::after {
     content: "" !important;
 }
 
+@media (max-width: 574px) {
+    .info-section h1 {
+        font-size: 1.6rem;
+    }
+}
+
 @keyframes fadeIn {
     0% {
         opacity: 0;

@@ -34,10 +34,10 @@ const SingleEvent = ({ event }) => {
                 </div>
                 <div className="date_time_event">
                     <h6>
-                        <MdDateRange /> From: {moment(event.startDate).subtract(2, "h").format('MMM Do YYYY, h:mm A')}
+                        <MdDateRange /> From: {moment(event.startDate).format('MMM Do YYYY, h:mm A')}
                     </h6>
                     <h6>
-                        <MdDateRange /> To: {moment(event.endDate).subtract(2, "h").format('MMM Do YYYY, h:mm A')}
+                        <MdDateRange /> To: {moment(event.endDate).format('MMM Do YYYY, h:mm A')}
                     </h6>
                 </div>
                 {
