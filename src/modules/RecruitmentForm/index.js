@@ -21,6 +21,7 @@ function RecruitmentForm() {
             setLoading(true);
 
             const sheets = {
+                all: "https://script.google.com/macros/s/AKfycby-o7UnVNSnDPaT2_lqJwoFD3p5J9DsoXHEF6FiFShZSl6FvjE1roi2c-DaVg415xKa/exec",
                 web: "https://script.google.com/macros/s/AKfycbxmJdKW9mq8ZtJwetkUZDqDcvfwXzt9FggiZNXoVH4HOFhXmtCiUb5csFIyhM2HyRrL/exec",
                 mobile: "https://script.google.com/macros/s/AKfycbxnVHp_kQ0Htrh07fhSedVjOAwkvcT9NT0maU_NqskB-gwlEOXnBE86yUtk-WzIiByL4Q/exec",
                 PR: "https://script.google.com/macros/s/AKfycbxYMn1LDc_fCzrI8o5quPqJIIV3gsr88VfnZY7Vp0itWfUDPEWFyGFXwiW040Yfwu_K/exec",
@@ -38,13 +39,25 @@ function RecruitmentForm() {
             }
 
             $.ajax({
-                url: sheets[values.preference1],
+                url: sheets.all,
                 method: "POST",
                 dataType: "json",
                 data: values,
                 success: () => {
-                    setSubmitted(true);
-                    setLoading(false);
+                    $.ajax({
+                        url: sheets[values.preference1],
+                        method: "POST",
+                        dataType: "json",
+                        data: values,
+                        success: () => {
+                            setSubmitted(true);
+                            setLoading(false);
+                        },
+                        error: () => {
+                            alert("Your application didn't get saved successfully. Please try again.");
+                            setLoading(false);
+                        }
+                    });
                 },
                 error: () => {
                     alert("Your application didn't get saved successfully. Please try again.");
@@ -95,7 +108,7 @@ function RecruitmentForm() {
                                                     This application form to join <strong>Energia Powered</strong> as a member, so if you are interested, fill this form and join us!
                                                 </p>
                                                 <p>
-                                                    You can read the job descriptions of the committees from <Link to="/Committees' Job Description.pdf"  target="_blank" rel="noopener noreferrer">here</Link>
+                                                    You can read the job descriptions of the committees from <Link to="/Committees' Job Description.pdf" target="_blank" rel="noopener noreferrer">here</Link>
                                                 </p>
                                             </div>
                                         ) : (
