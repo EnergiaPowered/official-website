@@ -34,19 +34,18 @@ const SingleEvent = ({ event }) => {
                 </div>
                 <div className="date_time_event">
                     <h6>
-                        <MdDateRange /> From: {moment(event.startDate).format('MMM Do YYYY, h:mm A')}
+                        <MdDateRange /> From: {moment(event.startDate).subtract(2, "h").format('MMM Do YYYY, h:mm A')}
                     </h6>
                     <h6>
-                        <MdDateRange /> To: {moment(event.endDate).format('MMM Do YYYY, h:mm A')}
+                        <MdDateRange /> To: {moment(event.endDate).subtract(2, "h").format('MMM Do YYYY, h:mm A')}
                     </h6>
                 </div>
-                {(event.status === "Opened") &&
+                {
+                    (event.status === "Opened") &&
                     <div className="details_event">
                         <h6>
                             {event.eventDetails ? (
-                                <Link to={event.eventDetails}>
-                                    More Details
-                                </Link>
+                                <Link to={event.eventDetails} target="_blank" rel="noopener noreferrer">More Details</Link>
                             ) : (
                                 <Link to={`events/${event._id}/${event.name}`}>More Details</Link>
                             )}
