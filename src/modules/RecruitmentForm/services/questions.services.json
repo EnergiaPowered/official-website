@@ -117,7 +117,7 @@
             ]
         }
     ],
-    "cpp": [
+    "DS": [
         {
             "label": "Which of the following points is/are true about Linked List data structure when it is compared with array?",
             "name": "question1",
@@ -178,7 +178,7 @@
             ]
         }
     ],
-    "DS": [
+    "cpp": [
         {
             "label": "What is the output of the above program?",
             "text":"#include <iostream><br>using namespace std;<br>main() {<br>&emsp;int *p = new int;<br>&emsp;delete p;<br>&emsp;delete p;<br>&emsp;cout << \"Done\";<br>}",
