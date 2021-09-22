@@ -19,7 +19,7 @@ const SingleEvent = ({ event }) => {
                 {event.eventImageID ?
                     <img alt="event" src={`https://drive.google.com/uc?exort=view&id=${event.eventImageID}`} className="rounded-circle" />
                     :
-                    <img alt="event" src={`images/${event.category}.jpg`} className="rounded-circle" />
+                    <img alt="event" src={`/images/${event.category}.jpg`} className="rounded-circle" />
                 }
             </div>
 

@@ -12,9 +12,14 @@ function RecruitmentForm() {
     const [finished, setFinished] = useState(false);
 
     useEffect(() => {
-        if (new Date() > new Date(2021, 9, 24, 21, 59, 59))
+        window.scrollTo(0, 0);
+        if (new Date() > new Date(2021, 9, 27, 21, 59, 59))
             setFinished(true);
     }, []);
+    
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [submitted]);
 
     const submit = (values) => {
         if (!finished) {

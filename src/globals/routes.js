@@ -18,7 +18,7 @@ export default [
     component: Home,
     inNavbar: {
       shown: false,
-      label: "Home"
+      label: ""
     }
   },
   {

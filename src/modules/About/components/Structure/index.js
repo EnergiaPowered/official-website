@@ -31,7 +31,7 @@ export default () => {
           src={structureImg}
           data-teststate={zoomed}
           alt="Our team's structure"
-          title="Energia Powered'20 board"
+          title="Energia Powered'21 board"
           onClick={() => setZoomed(true)}
           onRequestClose={() => setZoomed(false)}
         />
