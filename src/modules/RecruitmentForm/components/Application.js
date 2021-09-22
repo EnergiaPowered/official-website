@@ -16,7 +16,7 @@ function Application({ submit, loading }) {
     { label: "Quality Management", value: "QM" },
     { label: "Arduino", value: "arduino" },
     { label: "Emebedded Systems", value: "ES" },
-    { label: "C++", value: "cpp" },
+    { label: "C++ & OOP", value: "cpp" },
     { label: "Data Structure", value: "DS" },
     { label: "Design", value: "design" },
     { label: "Media", value: "media" },
