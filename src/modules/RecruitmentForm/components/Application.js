@@ -7,7 +7,6 @@ function Application({ submit, loading }) {
   const { Option } = Select;
   const [Questions, setQuestions] = useState(null);
   const [committees] = useState([
-    { label: "Web Development", value: "web" },
     { label: "Mobile Development", value: "mobile" },
     { label: "Public Relations", value: "PR" },
     { label: "Fundraising", value: "fundraising" },
@@ -16,9 +15,7 @@ function Application({ submit, loading }) {
     { label: "Quality Management", value: "QM" },
     { label: "Arduino", value: "arduino" },
     { label: "Emebedded Systems", value: "ES" },
-    { label: "C++ & OOP", value: "cpp" },
     { label: "Data Structure", value: "DS" },
-    { label: "Design", value: "design" },
     { label: "Media", value: "media" },
     { label: "Marketing", value: "marketing" }
   ]);
