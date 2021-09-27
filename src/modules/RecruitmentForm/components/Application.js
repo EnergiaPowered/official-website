@@ -13,7 +13,7 @@ function Application({ submit, loading }) {
     { label: "Human Resources", value: "HR" },
     { label: "DCR", value: "DCR" },
     { label: "Quality Management", value: "QM" },
-    { label: "Arduino", value: "arduino" },
+    // { label: "Arduino", value: "arduino" },
     { label: "Emebedded Systems", value: "ES" },
     { label: "Data Structure", value: "DS" },
     { label: "Media", value: "media" },
