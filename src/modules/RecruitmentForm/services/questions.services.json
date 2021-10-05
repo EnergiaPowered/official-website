@@ -255,6 +255,20 @@
             ]
         }
     ],
+    "matlab": [
+        {
+            "label": "Are you familiar with the above concepts in MATLAB? If yes, where did you learn them?",
+            "text": "- Basic MATLAB<br>- Matrices and Operators<br>- Functions<br>- Loops<br>- Data Types",
+            "name": "matlab",
+            "type": "textarea",
+            "rules": [
+                {
+                    "required": true,
+                    "message": "Please write your answer"
+                }
+            ]
+        }
+    ],
     "design": [
         {
             "label": "Your profile (Behance, drive link, etc...)",
@@ -373,7 +387,7 @@
             "rules": [
                 {
                     "required": true,
-                    "message": "Please write the post"
+                    "message": "Please write a post"
                 }
             ]
         }

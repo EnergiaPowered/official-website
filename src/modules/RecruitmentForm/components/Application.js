@@ -7,17 +7,21 @@ function Application({ submit, loading }) {
   const { Option } = Select;
   const [Questions, setQuestions] = useState(null);
   const [committees] = useState([
-    { label: "Mobile Development", value: "mobile" },
-    { label: "Public Relations", value: "PR" },
-    { label: "Fundraising", value: "fundraising" },
-    { label: "Human Resources", value: "HR" },
-    { label: "DCR", value: "DCR" },
+    // { label: "Web Development", value: "web" },
+    // { label: "Mobile Development", value: "mobile" },
+    // { label: "Public Relations", value: "PR" },
+    // { label: "Fundraising", value: "fundraising" },
+    // { label: "Human Resources", value: "HR" },
+    // { label: "DCR", value: "DCR" },
     { label: "Quality Management", value: "QM" },
     // { label: "Arduino", value: "arduino" },
-    { label: "Emebedded Systems", value: "ES" },
-    { label: "Data Structure", value: "DS" },
+    // { label: "Emebedded Systems", value: "ES" },
+    // { label: "C++ & OOP", value: "cpp" },
+    // { label: "Data Structure", value: "DS" },
+    { label: "MATLAB", value: "matlab" },
+    // { label: "Design", value: "design" },
     { label: "Media", value: "media" },
-    { label: "Marketing", value: "marketing" }
+    // { label: "Marketing", value: "marketing" }
   ]);
 
   const handleChange = choice => {
@@ -223,12 +227,12 @@ function Application({ submit, loading }) {
           </Form.Item>
           <Form.Item
             name={"preference1"}
-            label="First preference"
+            label="Preference"
             style={{ display: "block" }}
             rules={[
               {
                 required: true,
-                message: "Please select your first prefernce",
+                message: "Please select your prefernce",
               },
             ]}
           >
@@ -250,7 +254,7 @@ function Application({ submit, loading }) {
             <TextArea rows={4} />
           </Form.Item>
           {Questions}
-          <Form.Item
+          {/* <Form.Item
             name={"preference2"}
             label="Second preference"
             style={{ display: "block" }}
@@ -264,7 +268,7 @@ function Application({ submit, loading }) {
             <Select placeholder="Select the committee you want join" allowClear>
               {committees.map((session, index) => <Option key={index} value={session.value}>{session.label}</Option>)}
             </Select>
-          </Form.Item>
+          </Form.Item> */}
           <Form.Item
             name={"reputation"}
             label="From where did you know Energia Powered?"
