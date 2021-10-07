@@ -77,6 +77,95 @@
             ]
         }
     ],
+    "data": [
+        {
+            "label": "If we have data with a mean of 50 and std of 2.5, and we added 5 to all points of data what will change?",
+            "name": "question1",
+            "type": "select",
+            "options": [
+                {
+                    "label": "mean will increase and std also",
+                    "value": "1"
+                },
+                {
+                    "label": "mean only increases",
+                    "value": "2"
+                },
+                {
+                    "label": "std only increases",
+                    "value": "3"
+                },
+                {
+                    "label": "nothing changes",
+                    "value": "4"
+                }
+            ],
+            "rules": [
+                {
+                    "required": true,
+                    "message": "Please select an answer"
+                }
+            ]
+        },
+        {
+            "label": "How to write a code to make a list of numbers from 0 to 100 inclusive?",
+            "name": "question2",
+            "type": "select",
+            "options": [
+                {
+                    "label": "[x for x in range(100)]",
+                    "value": "1"
+                },
+                {
+                    "label": "[x for x in range(101)]",
+                    "value": "2"
+                },
+                {
+                    "label": "[x in range(100) for x]",
+                    "value": "3"
+                },
+                {
+                    "label": "[x for x in 101]",
+                    "value": "4"
+                }
+            ],
+            "rules": [
+                {
+                    "required": true,
+                    "message": "Please select an answer"
+                }
+            ]
+        },
+        {
+            "label": "You have a data set df, with price column \"price\" and a products type column \"type\", how to get the mean price of every type?",
+            "name": "question3",
+            "type": "select",
+            "options": [
+                {
+                    "label": "df.groupby('price')['type'].mean()",
+                    "value": "1"
+                },
+                {
+                    "label": "df.groupby('price')['type'].avg()",
+                    "value": "2"
+                },
+                {
+                    "label": "df.groupby('type')['price'].mean()",
+                    "value": "3"
+                },
+                {
+                    "label": "df.groupby('type')['price'].avg()",
+                    "value": "4"
+                }
+            ],
+            "rules": [
+                {
+                    "required": true,
+                    "message": "Please select an answer"
+                }
+            ]
+        }
+    ],
     "arduino": [
         {
             "label": "CV (Google Drive link)",
@@ -124,19 +213,19 @@
             "type": "select",
             "options": [
                 {
-                    "label":"Random access is not allowed in a typical implementation of Linked Lists",
+                    "label": "Random access is not allowed in a typical implementation of Linked Lists",
                     "value": "a"
                 },
                 {
-                    "label":"It is easy to insert and delete elements in a Linked List",
+                    "label": "It is easy to insert and delete elements in a Linked List",
                     "value": "b"
                 },
                 {
-                    "label":"The size of array has to be pre-decided, linked lists can change their size any time",
+                    "label": "The size of array has to be pre-decided, linked lists can change their size any time",
                     "value": "c"
                 },
                 {
-                    "label":"All of the above",
+                    "label": "All of the above",
                     "value": "d"
                 }
             ],
@@ -154,19 +243,19 @@
             "type": "select",
             "options": [
                 {
-                    "label":"Prints all nodes of linked list in reverse order",
+                    "label": "Prints all nodes of linked list in reverse order",
                     "value": "a"
                 },
                 {
-                    "label":"Prints all nodes of linked list",
+                    "label": "Prints all nodes of linked list",
                     "value": "b"
                 },
                 {
-                    "label":"Prints alternate nodes of linked list",
+                    "label": "Prints alternate nodes of linked list",
                     "value": "c"
                 },
                 {
-                    "label":"Prints alternate nodes in reverse order",
+                    "label": "Prints alternate nodes in reverse order",
                     "value": "d"
                 }
             ],
@@ -181,24 +270,24 @@
     "cpp": [
         {
             "label": "What is the output of the above program?",
-            "text":"#include <iostream><br>using namespace std;<br>main() {<br>&emsp;int *p = new int;<br>&emsp;delete p;<br>&emsp;delete p;<br>&emsp;cout << \"Done\";<br>}",
+            "text": "#include <iostream><br>using namespace std;<br>main() {<br>&emsp;int *p = new int;<br>&emsp;delete p;<br>&emsp;delete p;<br>&emsp;cout << \"Done\";<br>}",
             "name": "question1",
             "type": "select",
             "options": [
                 {
-                    "label":"Done",
+                    "label": "Done",
                     "value": "A"
                 },
                 {
-                    "label":"Compilatin Error",
+                    "label": "Compilatin Error",
                     "value": "B"
                 },
                 {
-                    "label":"Runtime Error",
+                    "label": "Runtime Error",
                     "value": "C"
                 },
                 {
-                    "label":"None of the above",
+                    "label": "None of the above",
                     "value": "D"
                 }
             ],
@@ -211,7 +300,7 @@
         },
         {
             "label": "What is the problem of the above pieces of code?",
-            "text":"int A[5] = {0, 1, 2, 3, 4};<br>int B[5] = {5, 6, 7, 8, 9};<br>int *P;<br>P = B;<br>A = P;",
+            "text": "int A[5] = {0, 1, 2, 3, 4};<br>int B[5] = {5, 6, 7, 8, 9};<br>int *P;<br>P = B;<br>A = P;",
             "name": "question2",
             "type": "textarea",
             "rules": [
@@ -223,7 +312,7 @@
         },
         {
             "label": "What are the problems with the above functions declarations?",
-            "text":"int func(int x, double y);<br>double func(int a, doube b);",
+            "text": "int func(int x, double y);<br>double func(int a, doube b);",
             "name": "question3",
             "type": "textarea",
             "rules": [
@@ -239,11 +328,11 @@
             "type": "select",
             "options": [
                 {
-                    "label":"Yes",
+                    "label": "Yes",
                     "value": "yes"
                 },
                 {
-                    "label":"No",
+                    "label": "No",
                     "value": "no"
                 }
             ],
