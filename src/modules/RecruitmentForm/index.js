@@ -13,7 +13,7 @@ function RecruitmentForm() {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-        if (new Date() > new Date(2021, 10 - 1, 8, 23, 59, 59))
+        if (new Date() > new Date(2021, 10 - 1, 10, 23, 59, 59))
             setFinished(true);
     }, []);
 
@@ -31,6 +31,7 @@ function RecruitmentForm() {
                 all: "https://script.google.com/macros/s/AKfycby-o7UnVNSnDPaT2_lqJwoFD3p5J9DsoXHEF6FiFShZSl6FvjE1roi2c-DaVg415xKa/exec",
                 // web: "https://script.google.com/macros/s/AKfycbxmJdKW9mq8ZtJwetkUZDqDcvfwXzt9FggiZNXoVH4HOFhXmtCiUb5csFIyhM2HyRrL/exec",
                 // mobile: "https://script.google.com/macros/s/AKfycbxnVHp_kQ0Htrh07fhSedVjOAwkvcT9NT0maU_NqskB-gwlEOXnBE86yUtk-WzIiByL4Q/exec",
+                data: "https://script.google.com/macros/s/AKfycbwrD9R3o9_sZcZr_ls_WygeoLpBgkd4fBI8oLrdq9_hlBeCrGxX9D0lTFKpEvr2zVhe/exec",
                 // PR: "https://script.google.com/macros/s/AKfycbxYMn1LDc_fCzrI8o5quPqJIIV3gsr88VfnZY7Vp0itWfUDPEWFyGFXwiW040Yfwu_K/exec",
                 // fundraising: "https://script.google.com/macros/s/AKfycbxEZS0IAlk5e-or6j87KWknI-2Z33qVG5kxTR6EPWzZKl2EmD63Wd5XjPJRf7wB_oym/exec",
                 // HR: "https://script.google.com/macros/s/AKfycbwCkDx5A-78jbLCYXWrQdOqOngjmvHsMBPHVOJ1pJUHA6N9ul903B9ars_w_EY4e84J/exec",

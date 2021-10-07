@@ -9,6 +9,7 @@ function Application({ submit, loading }) {
   const [committees] = useState([
     // { label: "Web Development", value: "web" },
     // { label: "Mobile Development", value: "mobile" },
+    { label: "Data Science", value: "data" },
     // { label: "Public Relations", value: "PR" },
     // { label: "Fundraising", value: "fundraising" },
     // { label: "Human Resources", value: "HR" },
