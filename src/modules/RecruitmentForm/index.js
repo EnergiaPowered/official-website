@@ -13,7 +13,7 @@ function RecruitmentForm() {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-        if (new Date() > new Date(2021, 10 - 1, 10, 23, 59, 59))
+        if (new Date() > new Date(2021, 10 - 1, 11, 23, 59, 59))
             setFinished(true);
     }, []);
 
