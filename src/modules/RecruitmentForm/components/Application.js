@@ -14,14 +14,14 @@ function Application({ submit, loading }) {
     // { label: "Fundraising", value: "fundraising" },
     // { label: "Human Resources", value: "HR" },
     // { label: "DCR", value: "DCR" },
-    { label: "Quality Management", value: "QM" },
+    // { label: "Quality Management", value: "QM" },
     // { label: "Arduino", value: "arduino" },
     // { label: "Emebedded Systems", value: "ES" },
     // { label: "C++ & OOP", value: "cpp" },
     // { label: "Data Structure", value: "DS" },
     { label: "MATLAB", value: "matlab" },
     // { label: "Design", value: "design" },
-    { label: "Media", value: "media" },
+    // { label: "Media", value: "media" },
     // { label: "Marketing", value: "marketing" }
   ]);
 
