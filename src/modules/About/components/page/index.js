@@ -19,7 +19,7 @@ export default function AboutPage() {
  */
   let stateObj = {
     vision:
-      "Perparing calibers by developing students in both personal and career levels to make them qualified for the market needs."
+      "Preparing calibers by developing students in both personal and career levels to make them qualified for the market needs."
   };
 
   let style = {
