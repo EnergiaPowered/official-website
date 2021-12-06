@@ -136,7 +136,7 @@ function RecruitmentForm() {
                                     </div>
                                 )}
                             </div>
-                            {submitted || finished ? null : <Application submit={submit} loading={loading} />}
+                            {(submitted || finished) ? null : <Application submit={submit} loading={loading} />}
                         </div>
                     </div>
                 </div>
