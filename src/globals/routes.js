@@ -11,6 +11,9 @@ import Verfied from "modules/Verfied";
 import RecruitmentForm from "modules/RecruitmentForm";
 import EventDetails from "modules/Events/components/EventDetails";
 import authHeader from "./auth-header";
+import FormGen from "modules/Forms/components/FormGen";
+import FormApp from "modules/Forms/components/FormApp";
+import Workshops from './../modules/Workshops/index';
 
 export default [
   {
@@ -109,5 +112,29 @@ export default [
       shown: Object.keys(authHeader()).length ? true : false,
       label: "Log In"
     }
+  },
+  {
+    path: "/form/creation",
+    component: FormGen,
+    inNavbar: {
+      shown: false,
+      label: ""
+    },
+  },
+  {
+    path: "/form/application/:title",
+    component: FormApp,
+    inNavbar: {
+      shown: false,
+      label: ""
+    },
+  },
+  {
+    path: "/workshops/details",
+    component: Workshops,
+    inNavbar: {
+      shown: true,
+      label: "Workshops"
+    },
   }
 ];

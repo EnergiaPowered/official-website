@@ -13,7 +13,7 @@ function RecruitmentForm() {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-        if (new Date() > new Date(2021, 10 - 1, 11, 23, 59, 59))
+        if (new Date() > new Date(2021, 10 - 1, 14, 23, 59, 59))
             setFinished(true);
     }, []);
 
@@ -36,14 +36,14 @@ function RecruitmentForm() {
                 // fundraising: "https://script.google.com/macros/s/AKfycbxEZS0IAlk5e-or6j87KWknI-2Z33qVG5kxTR6EPWzZKl2EmD63Wd5XjPJRf7wB_oym/exec",
                 // HR: "https://script.google.com/macros/s/AKfycbwCkDx5A-78jbLCYXWrQdOqOngjmvHsMBPHVOJ1pJUHA6N9ul903B9ars_w_EY4e84J/exec",
                 // DCR: "https://script.google.com/macros/s/AKfycbySmRI8Cj0vfhehXRIXQMLNDu_6OIbFnhDqJ_TsVqM_J2O17ctIV4QJaAYRoM4KoEfseQ/exec",
-                QM: "https://script.google.com/macros/s/AKfycbzk0fktmfFhmitTAQKDLK97nRPC6aLeSAzozlP0t8VgGI4yOXMYogcV11RXGud6rCiKLA/exec",
+                // QM: "https://script.google.com/macros/s/AKfycbzk0fktmfFhmitTAQKDLK97nRPC6aLeSAzozlP0t8VgGI4yOXMYogcV11RXGud6rCiKLA/exec",
                 // arduino: "https://script.google.com/macros/s/AKfycbzlT3uawsXJw-JA2a-sUfUE_PxM0CnNMgMGYLEdHbN2iMzYlsjAbIkEZMwp5W6UDGQl/exec",
                 // ES: "https://script.google.com/macros/s/AKfycbz15IN1ZqVSXYt2xc5c9MZTvKHGZOzZPMTkBHvIMxGq8V_6bUKaMSkaqh-p2yfiFQXy/exec",
                 // cpp: "https://script.google.com/macros/s/AKfycbyFRc0UNf9x0zirsyLMJlVvEAZWVJ_U1HbyKEosvRdSE-wKoi_G-ovHuor4cACYP7rZ/exec",
                 // DS: "https://script.google.com/macros/s/AKfycbxQMMg9hFLm3pB-w6CxQyNQsRey36Xp46J8SbkehPv17xS16DWlJ7XAQaVNBbzPCsCZtQ/exec",
                 matlab: "https://script.google.com/macros/s/AKfycbwc-Fw0xaz75DT3d6m6gpApcUFz1VX8kme13TPVrX5fAMaQDOrO3HBh9_S_kk10Vm59Ag/exec",
                 // design: "https://script.google.com/macros/s/AKfycbwwP62zr9tZP5AUDZ8n9tRTTes7w-ulrxa1yVQ0MaSFcClsukO5t_6GI2OdZ4rrhKg0mw/exec",
-                media: "https://script.google.com/macros/s/AKfycbyboUtnwj3mj0cxQ1YkVamVxW7aaqaV9lVrNh5zLnxHjI8906xeDiDDxAHmyT-qdIRo/exec",
+                // media: "https://script.google.com/macros/s/AKfycbyboUtnwj3mj0cxQ1YkVamVxW7aaqaV9lVrNh5zLnxHjI8906xeDiDDxAHmyT-qdIRo/exec",
                 // marketing: "https://script.google.com/macros/s/AKfycbwj8-ZDHYQ0oYV8jks0P2UKUtuEOqR0DUPLO5eUztxPuifLu2MrrmBdUfdPB7RXsHY0tA/exec"
             }
 
@@ -136,7 +136,7 @@ function RecruitmentForm() {
                                     </div>
                                 )}
                             </div>
-                            {submitted || finished ? null : <Application submit={submit} loading={loading} />}
+                            {(submitted || finished) ? null : <Application submit={submit} loading={loading} />}
                         </div>
                     </div>
                 </div>

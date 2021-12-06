@@ -1,0 +1,30 @@
+import  React  from 'react';
+import { Helmet } from "react-helmet";
+import Layout from '../../shared/Layout/index';
+import bg_blogs from "assets/Blogs-header.png";
+import WorkshopsComponent from "./components/WorkshopList";
+import "./index.css";
+
+function Workshops() {
+    const style = {
+        backgroundImage: `url(${bg_blogs})`,
+    };
+
+    return (
+        <div className="page-component" style={style}>
+            <Helmet>
+                <title>Energia Powered | Workshops</title>
+            </Helmet>
+            <Layout>
+            <section id="header" className="header-section">
+            <header className="container">
+                <h1 className="header-title">Workshops</h1>
+            </header>
+        </section>
+                <WorkshopsComponent/>
+            </Layout>
+        </div>
+    )
+}
+
+export default Workshops;

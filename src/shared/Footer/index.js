@@ -7,6 +7,10 @@ import { faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
+/***
+ * import { faFacebook, faYoutube, faInstagram, faTwitter, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+ * is cleaner instead of lines (5:10)
+ */
 
 import "./style.css";
 
