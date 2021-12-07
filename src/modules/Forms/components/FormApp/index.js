@@ -19,15 +19,13 @@ function FormApp(props) {
     fetch(FORM_END_POINT)
       .then((res) => res.json())
       .then((data) => {
-        (window.adsbygoogle = window.adsbygoogle || []).push({});
+        // (window.adsbygoogle = window.adsbygoogle || []).push({});
         setmyForm(data[0]);
-        console.log(data)
-        let start = data[0]["startDate"].split("T")[0].split("-");
-        start = new Date(start[0], start[1] - 1, start[2]);
-        let end = data[0]["endDate"].split("T")[0].split("-");
-        end = new Date(end[0], end[1] - 1, end[2]);
+        const start = new Date(data[0]["startDate"]);
+        const end = new Date(data[0]["endDate"]);
         const dateNow = new Date();
         window.scrollTo(0, 0);
+        console.log(dateNow > start, dateNow, start);
         if (dateNow > end) setFinished(true);
         if (dateNow > start) setStarted(true);
       })

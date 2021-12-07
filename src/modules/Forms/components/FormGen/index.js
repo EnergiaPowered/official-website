@@ -195,7 +195,7 @@ const FormGen = () => {
                             ]}
                             label="Start Date"
                             name={"startDate"}>
-                            <DatePicker />
+                            <DatePicker showTime={{ format: 'HH:mm' }} />
                         </Form.Item>
                         <Form.Item
                             rules={[
@@ -206,7 +206,7 @@ const FormGen = () => {
                             ]}
                             label="End  Date"
                             name={"endDate"}>
-                            <DatePicker style={{ marginLeft: "5px", }} />
+                            <DatePicker showTime={{ format: 'HH:mm' }} style={{ marginLeft: "5px", }} />
                         </Form.Item>
 
                         <Button type="ghost" shape="round" htmlType="submit" size="large" block style={{ color: "white" }} >
