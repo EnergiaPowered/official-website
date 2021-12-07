@@ -21,6 +21,7 @@ function FormApp(props) {
       .then((data) => {
         (window.adsbygoogle = window.adsbygoogle || []).push({});
         setmyForm(data[0]);
+        console.log(data)
         let start = data[0]["startDate"].split("T")[0].split("-");
         start = new Date(start[0], start[1] - 1, start[2]);
         let end = data[0]["endDate"].split("T")[0].split("-");
@@ -31,7 +32,7 @@ function FormApp(props) {
         if (dateNow > start) setStarted(true);
       })
       .catch((e) => console.log(e));
-  }, []);
+  }, [FORM_END_POINT]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -82,7 +83,7 @@ function FormApp(props) {
                 <div className="info-section">
                   <div className="name">
                     <div className="col">
-                      <h1 style={{ textAlign: "center" }}>{myForm.title}</h1>
+                      <h1 style={{ textAlign: "center", textTransform: "capitalize" }}>{myForm.title}</h1>
                     </div>
                   </div>
                   <div
@@ -130,7 +131,7 @@ function FormApp(props) {
 }
 
 export default FormApp;
-{
+
   /* <AdSense.Google
         
         client="ca-pub-5127266833297496"
@@ -140,7 +141,6 @@ export default FormApp;
         responsive='true'
         layoutKey='-gw-1+2a-9x+5c'
     /> */
-}
 
 //     <ins className='adsbygoogle'
 //       style={{ display: 'block' }}

@@ -104,6 +104,22 @@ export default [
       label: "",
     },
   },
+  {
+    path: "/form/creation",
+    component: FormGen,
+    inNavbar: {
+      shown: false,
+      label: "",
+    },
+  },
+  {
+    path: "/form/application/:title",
+    component: FormApp,
+    inNavbar: {
+      shown: false,
+      label: "",
+    },
+  },
   //make sure that signup and login be the last two here
   {
     path: "/signup",
@@ -119,22 +135,6 @@ export default [
     inNavbar: {
       shown: Object.keys(authHeader()).length ? true : false,
       label: "Log In",
-    },
-  },
-  {
-    path: "/form/creation",
-    component: FormGen,
-    inNavbar: {
-      shown: false,
-      label: "",
-    },
-  },
-  {
-    path: "/form/application/:title",
-    component: FormApp,
-    inNavbar: {
-      shown: false,
-      label: "",
     },
   },
 ];
