@@ -1,9 +1,9 @@
 import Home from "modules/Home";
 import SingleCommittee from "modules/Committees/components/SingleCommitteePage";
 import AboutPage from "modules/About/components/page";
-import BlogsPage from './../modules/Blogs';
+import BlogsPage from "./../modules/Blogs";
 import Events from "modules/Events";
-// import Crew from "modules/Crew/Crew";
+import Crew from "modules/Crew/Crew";
 import Contacts from "modules/Contact";
 import RegisterationPage from "modules/Register";
 import LoginPage from "modules/Login";
@@ -11,6 +11,9 @@ import Verfied from "modules/Verfied";
 import RecruitmentForm from "modules/RecruitmentForm";
 import EventDetails from "modules/Events/components/EventDetails";
 import authHeader from "./auth-header";
+import FormGen from "modules/Forms/components/FormGen";
+import FormApp from "modules/Forms/components/FormApp";
+import Workshops from "./../modules/Workshops/index";
 
 export default [
   {
@@ -18,23 +21,31 @@ export default [
     component: Home,
     inNavbar: {
       shown: false,
-      label: ""
-    }
+      label: "",
+    },
   },
   {
     path: "/about-us",
     component: AboutPage,
     inNavbar: {
       shown: true,
-      label: "About"
-    }
+      label: "About",
+    },
   },
   {
     path: "/blogs",
     component: BlogsPage,
     inNavbar: {
       shown: true,
-      label: "Blogs"
+      label: "Blogs",
+    },
+  },
+  {
+    path: "/workshops/details",
+    component: Workshops,
+    inNavbar: {
+      shown: true,
+      label: "Workshops",
     },
   },
   {
@@ -42,56 +53,72 @@ export default [
     component: SingleCommittee,
     inNavbar: {
       shown: false,
-      label: "" // generated dynamically
-    }
+      label: "", // generated dynamically
+    },
   },
   {
     path: "/events",
     component: Events,
     inNavbar: {
       shown: true,
-      label: "Events"
+      label: "Events",
+    },
+  },
+  {
+    path: "/crew",
+    component: Crew,
+    inNavbar: {
+      shown: false,
+      label: "Crew"
     }
   },
-  // {
-  //   path: "/crew",
-  //   component: Crew,
-  //   inNavbar: {
-  //     shown: true,
-  //     label: "Crew"
-  //   }
-  // },
   {
     path: "/events/:id/:name",
     component: EventDetails,
     inNavbar: {
       shown: false,
-      label: ""
-    }
+      label: "",
+    },
   },
   {
     path: "/events/recruitment",
     component: RecruitmentForm,
     inNavbar: {
       shown: false,
-      label: ""
-    }
+      label: "",
+    },
   },
   {
     path: "/contact-us",
     component: Contacts,
     inNavbar: {
       shown: true,
-      label: "Contact us"
-    }
+      label: "Contact us",
+    },
   },
   {
     path: "/verfied",
     component: Verfied,
     inNavbar: {
       shown: false,
-      label: ""
-    }
+      label: "",
+    },
+  },
+  {
+    path: "/form/creation",
+    component: FormGen,
+    inNavbar: {
+      shown: false,
+      label: "",
+    },
+  },
+  {
+    path: "/form/application/:title",
+    component: FormApp,
+    inNavbar: {
+      shown: false,
+      label: "",
+    },
   },
   //make sure that signup and login be the last two here
   {
@@ -99,15 +126,15 @@ export default [
     component: RegisterationPage,
     inNavbar: {
       shown: Object.keys(authHeader()).length ? true : false,
-      label: "Sign Up"
-    }
+      label: "Sign Up",
+    },
   },
   {
     path: "/login",
     component: LoginPage,
     inNavbar: {
       shown: Object.keys(authHeader()).length ? true : false,
-      label: "Log In"
-    }
-  }
+      label: "Log In",
+    },
+  },
 ];

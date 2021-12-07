@@ -17,13 +17,13 @@ function App() {
       <Router>
         <PageProgress color={"skyblue"} height={5} />
         <Switch>
-          {routes &&
+          {routes && 
             routes.length > 0 &&
             routes.map((route, index) => {
               return (
                 <Route
                   key={index}
-                  exact
+                  exact // we should either use exact or Switch component (using both doesn't look clean)
                   path={route.path}
                   component={route.component}
                 />
