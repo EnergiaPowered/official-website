@@ -77,8 +77,8 @@
             "content":[
                 "Node.js",
                 "Express.js",
-                "MongoDB",
-                "Reset API"
+                "REST API",
+                "MongoDB"
             ]
         },
         {

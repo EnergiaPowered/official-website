@@ -1,5 +1,5 @@
 .container_card {
-  max-width: 90%;
+  max-width: 95%;
   border-radius: 2em;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -17,6 +17,7 @@
   margin-bottom: 2em;
   height: 250px;
   width: 250px;
+  border-radius: 125px;
   object-fit: cover;
 }
 
