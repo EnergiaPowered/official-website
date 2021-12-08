@@ -17,9 +17,9 @@ const SingleWorkshop = ({ workshop }) => {
         </div>
         <div style={{ margin: "2em" }}>
           <h5>Description</h5>
-          <p style={{ textAlign: "justify" }}>{workshop.description}</p>
+          <p style={{ textAlign: "left" }}>{workshop.description}</p>
           <h5>Content</h5>
-          <ol style={{ textAlign: "justify" }}>
+          <ol style={{ textAlign: "left" }}>
             {workshop.content.map((item, index) => {
               if (Array.isArray(item))
                 return (
