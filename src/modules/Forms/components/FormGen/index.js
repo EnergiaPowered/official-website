@@ -9,7 +9,8 @@ import "./index.css";
 
 const FormGen = () => {
   const { TextArea } = Input;
-  const host = configs.HOST;
+  const [submitted, setSubmited] = useState(false);
+  const host = configs.HOST; /*"http://localhost:4000"*/ // localhost:4000 is my demo server matdo2e4 ":D
   const FORM_END_POINT = `${host}/form`;
   const getObjects = (someObj, partOfKey) => {
     let neededObjects = [];
@@ -83,6 +84,7 @@ const FormGen = () => {
       .then(function (response) {
         console.log(response);
       })
+      .then(() => setSubmited(true))
       .catch(function (error) {
         console.log(error);
       });
@@ -115,128 +117,135 @@ const FormGen = () => {
       </h1>
       <br />
       <br />
-      <div className="row" style={{ marginTop: "1rem" }}>
-        <div className="col-lg-1 col-sm-0"></div>
-        <div className="col-lg-10 col-sm-12">
-          <Form onFinish={submit} autoComplete="off">
-            <Form.Item
-              name={"name"}
-              label="Event Title :"
-              style={{ display: "block" }}
-              rules={[
-                {
-                  required: true,
-                  message: "Please give a name for the Event :D",
-                },
-              ]}
-            >
-              <Input placeholder="Event title" />
-            </Form.Item>
-            <Form.Item
-              name={"description"}
-              label="Event Description :"
-              style={{ display: "block" }}
-              rules={[
-                {
-                  required: true,
-                  message: "Please enter a description for the form",
-                },
-              ]}
-            >
-              <TextArea placeholder="Write a description for the form" />
-            </Form.Item>
-            <Form.Item>
-              {fields.map(({ id }) => (
-                <QuestionGen id={id} key={id} onRemove={removeField} />
-              ))}
-            </Form.Item>
-            <Button
-              type="ghost"
-              style={{ color: "white" }}
-              shape="round"
-              onClick={() => addField()}
-              block
-            >
-              + Add field
-            </Button>
-            <br />
-            <br />
-            <br />
-            <Form.Item
-              name={"postSubmit"}
-              label="Post-Submission message :"
-              style={{ display: "block" }}
-            >
-              <TextArea placeholder="Write a message to be shown after the form is submitted" />
-            </Form.Item>
-            <Form.Item
-              name={"preEvent"}
-              label="pre-Event message :"
-              style={{ display: "block" }}
-              rules={[
-                {
-                  required: true,
-                  message: "Please enter a message",
-                },
-              ]}
-            >
-              <TextArea placeholder="Write a message to be shown before the event starts" />
-            </Form.Item>
-            <Form.Item
-              name={"postEvent"}
-              label="Post-Event message :"
-              style={{ display: "block" }}
-              rules={[
-                {
-                  required: true,
-                  message: "Please enter a message",
-                },
-              ]}
-            >
-              <TextArea placeholder="Write a message to be shown after the event ends" />
-            </Form.Item>
 
-            <Form.Item
-              rules={[
-                {
-                  required: true,
-                  message: "Date required",
-                },
-              ]}
-              label="Start Date"
-              name={"startDate"}
-            >
-              <DatePicker showTime={{ format: "HH:mm" }} />
-            </Form.Item>
-            <Form.Item
-              rules={[
-                {
-                  required: true,
-                  message: "Date required",
-                },
-              ]}
-              label="End  Date"
-              name={"endDate"}
-            >
-              <DatePicker
-                showTime={{ format: "HH:mm" }}
-                style={{ marginLeft: "5px" }}
-              />
-            </Form.Item>
+      {submitted ? (
+        <h2 style={{ textAlign: "center", padding: "5em" }}>
+          Form is successfully created
+        </h2>
+      ) : (
+        <div className="row" style={{ marginTop: "1rem" }}>
+          <div className="col-lg-1 col-sm-0"></div>
+          <div className="col-lg-10 col-sm-12">
+            <Form onFinish={submit} autoComplete="off">
+              <Form.Item
+                name={"name"}
+                label="Event Title :"
+                style={{ display: "block" }}
+                rules={[
+                  {
+                    required: true,
+                    message: "Please give a name for the Event :D",
+                  },
+                ]}
+              >
+                <Input placeholder="Event title" />
+              </Form.Item>
+              <Form.Item
+                name={"description"}
+                label="Event Description :"
+                style={{ display: "block" }}
+                rules={[
+                  {
+                    required: true,
+                    message: "Please enter a description for the form",
+                  },
+                ]}
+              >
+                <TextArea placeholder="Write a description for the form" />
+              </Form.Item>
+              <Form.Item>
+                {fields.map(({ id }) => (
+                  <QuestionGen id={id} key={id} onRemove={removeField} />
+                ))}
+              </Form.Item>
+              <Button
+                type="ghost"
+                style={{ color: "white" }}
+                shape="round"
+                onClick={() => addField()}
+                block
+              >
+                + Add field
+              </Button>
+              <br />
+              <br />
+              <br />
+              <Form.Item
+                name={"postSubmit"}
+                label="Post-Submission message :"
+                style={{ display: "block" }}
+              >
+                <TextArea placeholder="Write a message to be shown after the form is submitted" />
+              </Form.Item>
+              <Form.Item
+                name={"preEvent"}
+                label="pre-Event message :"
+                style={{ display: "block" }}
+                rules={[
+                  {
+                    required: true,
+                    message: "Please enter a message",
+                  },
+                ]}
+              >
+                <TextArea placeholder="Write a message to be shown before the event starts" />
+              </Form.Item>
+              <Form.Item
+                name={"postEvent"}
+                label="Post-Event message :"
+                style={{ display: "block" }}
+                rules={[
+                  {
+                    required: true,
+                    message: "Please enter a message",
+                  },
+                ]}
+              >
+                <TextArea placeholder="Write a message to be shown after the event ends" />
+              </Form.Item>
 
-            <Button
-              type="ghost"
-              shape="round"
-              htmlType="submit"
-              size="large"
-              block
-              style={{ color: "white" }}
-            >
-              Apply
-            </Button>
-          </Form>
+              <Form.Item
+                rules={[
+                  {
+                    required: true,
+                    message: "Date required",
+                  },
+                ]}
+                label="Start Date"
+                name={"startDate"}
+              >
+                <DatePicker showTime={{ format: "HH:mm" }} />
+              </Form.Item>
+              <Form.Item
+                rules={[
+                  {
+                    required: true,
+                    message: "Date required",
+                  },
+                ]}
+                label="End  Date"
+                name={"endDate"}
+              >
+                <DatePicker
+                  showTime={{ format: "HH:mm" }}
+                  style={{ marginLeft: "5px" }}
+                />
+              </Form.Item>
+
+              <Button
+                type="ghost"
+                shape="round"
+                htmlType="submit"
+                size="large"
+                block
+                style={{ color: "white" }}
+              >
+                Apply
+              </Button>
+            </Form>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
