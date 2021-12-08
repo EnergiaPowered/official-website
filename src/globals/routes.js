@@ -3,7 +3,7 @@ import SingleCommittee from "modules/Committees/components/SingleCommitteePage";
 import AboutPage from "modules/About/components/page";
 import BlogsPage from "./../modules/Blogs";
 import Events from "modules/Events";
-// import Crew from "modules/Crew/Crew";
+import Crew from "modules/Crew/Crew";
 import Contacts from "modules/Contact";
 import RegisterationPage from "modules/Register";
 import LoginPage from "modules/Login";
@@ -64,14 +64,14 @@ export default [
       label: "Events",
     },
   },
-  // {
-  //   path: "/crew",
-  //   component: Crew,
-  //   inNavbar: {
-  //     shown: true,
-  //     label: "Crew"
-  //   }
-  // },
+  {
+    path: "/crew",
+    component: Crew,
+    inNavbar: {
+      shown: false,
+      label: "Crew"
+    }
+  },
   {
     path: "/events/:id/:name",
     component: EventDetails,
@@ -104,6 +104,22 @@ export default [
       label: "",
     },
   },
+  {
+    path: "/form/creation",
+    component: FormGen,
+    inNavbar: {
+      shown: false,
+      label: "",
+    },
+  },
+  {
+    path: "/form/application/:title",
+    component: FormApp,
+    inNavbar: {
+      shown: false,
+      label: "",
+    },
+  },
   //make sure that signup and login be the last two here
   {
     path: "/signup",
@@ -119,22 +135,6 @@ export default [
     inNavbar: {
       shown: Object.keys(authHeader()).length ? true : false,
       label: "Log In",
-    },
-  },
-  {
-    path: "/form/creation",
-    component: FormGen,
-    inNavbar: {
-      shown: false,
-      label: "",
-    },
-  },
-  {
-    path: "/form/application/:title",
-    component: FormApp,
-    inNavbar: {
-      shown: false,
-      label: "",
     },
   },
 ];

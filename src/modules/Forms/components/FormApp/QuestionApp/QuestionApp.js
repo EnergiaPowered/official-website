@@ -1,22 +1,22 @@
 import React from "react";
-import { Form, Input, Button, Radio } from "antd";
+import { Form, Input, Button, Select } from "antd";
 
 function QuestionApp({ submit, loading, Fields }) {
   const { TextArea } = Input;
+  const { Option } = Select;
   const inputFields = (type, placeholder, options) => {
     if (type === "Selection")
       return (
-        <Radio.Group>
+        <Select placeholder="Select an answer" allowClear>
           {options.map((option, index) => (
-            <Radio
-              style={{ display: "block" }}
+            <Option
               key={index}
               value={option.value}
             >
               {option.label}
-            </Radio>
+            </Option>
           ))}
-        </Radio.Group>
+        </Select>
       );
     if (type === "TextArea")
       return <TextArea placeholder={placeholder}></TextArea>;
@@ -47,7 +47,7 @@ function QuestionApp({ submit, loading, Fields }) {
           </Form.Item>
           <Form.Item>
             <Button
-              type="secondry"
+              type="secondary"
               htmlType="submit"
               size="large"
               block

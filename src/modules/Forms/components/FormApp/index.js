@@ -19,19 +19,18 @@ function FormApp(props) {
     fetch(FORM_END_POINT)
       .then((res) => res.json())
       .then((data) => {
-        (window.adsbygoogle = window.adsbygoogle || []).push({});
+        // (window.adsbygoogle = window.adsbygoogle || []).push({});
         setmyForm(data[0]);
-        let start = data[0]["startDate"].split("T")[0].split("-");
-        start = new Date(start[0], start[1] - 1, start[2]);
-        let end = data[0]["endDate"].split("T")[0].split("-");
-        end = new Date(end[0], end[1] - 1, end[2]);
+        const start = new Date(data[0]["startDate"]);
+        const end = new Date(data[0]["endDate"]);
         const dateNow = new Date();
         window.scrollTo(0, 0);
+        console.log(dateNow > start, dateNow, start);
         if (dateNow > end) setFinished(true);
         if (dateNow > start) setStarted(true);
       })
       .catch((e) => console.log(e));
-  }, []);
+  }, [FORM_END_POINT]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -82,7 +81,7 @@ function FormApp(props) {
                 <div className="info-section">
                   <div className="name">
                     <div className="col">
-                      <h1 style={{ textAlign: "center" }}>{myForm.title}</h1>
+                      <h1 style={{ textAlign: "center", textTransform: "capitalize" }}>{myForm.title}</h1>
                     </div>
                   </div>
                   <div
@@ -130,7 +129,7 @@ function FormApp(props) {
 }
 
 export default FormApp;
-{
+
   /* <AdSense.Google
         
         client="ca-pub-5127266833297496"
@@ -140,7 +139,6 @@ export default FormApp;
         responsive='true'
         layoutKey='-gw-1+2a-9x+5c'
     /> */
-}
 
 //     <ins className='adsbygoogle'
 //       style={{ display: 'block' }}
