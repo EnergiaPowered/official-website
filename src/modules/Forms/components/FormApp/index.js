@@ -25,7 +25,6 @@ function FormApp(props) {
         const end = new Date(data[0]["endDate"]);
         const dateNow = new Date();
         window.scrollTo(0, 0);
-        console.log(dateNow > start, dateNow, start);
         if (dateNow > end) setFinished(true);
         if (dateNow > start) setStarted(true);
       })
@@ -38,12 +37,9 @@ function FormApp(props) {
 
   const submit = (values) => {
     setLoading(true);
-    const sheet =
-      "https://script.google.com/macros/s/AKfycbxRyo4KkNofbRrDy_eArNm-emeLUygc48AVTwniiiJ-zC7j5BANLIKt7aL0AJtFflhh/exec";
-
     if (!finished) {
       $.ajax({
-        url: sheet,
+        url: myForm.resultSheet,
         method: "POST",
         dataType: "json",
         data: values,
@@ -81,7 +77,14 @@ function FormApp(props) {
                 <div className="info-section">
                   <div className="name">
                     <div className="col">
-                      <h1 style={{ textAlign: "center", textTransform: "capitalize" }}>{myForm.title}</h1>
+                      <h1
+                        style={{
+                          textAlign: "center",
+                          textTransform: "capitalize",
+                        }}
+                      >
+                        {myForm.title}
+                      </h1>
                     </div>
                   </div>
                   <div
@@ -130,7 +133,7 @@ function FormApp(props) {
 
 export default FormApp;
 
-  /* <AdSense.Google
+/* <AdSense.Google
         
         client="ca-pub-5127266833297496"
         slot="7753668297"
