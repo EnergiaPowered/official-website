@@ -11,7 +11,7 @@ const FormGen = () => {
   const { TextArea } = Input;
   const [submitted, setSubmited] = useState(false);
   const host = configs.HOST; /*"http://localhost:4000"*/ // localhost:4000 is my demo server matdo2e4 ":D
-  const FORM_END_POINT = `${host}/form`;
+  const FORM_END_POINT = `${host}form`;
   const getObjects = (someObj, partOfKey) => {
     let neededObjects = [];
     for (let key in someObj) {
@@ -74,6 +74,7 @@ const FormGen = () => {
       postSubmit: values.postSubmit, //"" shown after the form is submitted
       postEvent: values.postEvent, //"" shown after the event is ended
       preEvent: values.preEvent, //"" shown before the event is starts
+      resultSheet: values.resultSheet, //"" link of the sheet in-which results shall be stored
       startDate: values.startDate._d.toISOString(), //""
       endDate: values.endDate._d.toISOString(), //""
       fields: getField(fieldProps), //[{label:"", type:"", placeholder:""?, option:[{value,label}]?,isReq:bool}]
@@ -202,6 +203,20 @@ const FormGen = () => {
                 ]}
               >
                 <TextArea placeholder="Write a message to be shown after the event ends" />
+              </Form.Item>
+
+              <Form.Item
+                name={"resultSheet"}
+                label="Google-Sheet link :"
+                style={{ display: "block" }}
+                rules={[
+                  {
+                    required: true,
+                    message: "Please enter a the link of the sheet",
+                  },
+                ]}
+              >
+                <Input placeholder="Insert link of the sheet in-which results shall be stored " />
               </Form.Item>
 
               <Form.Item
