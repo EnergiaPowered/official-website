@@ -36,13 +36,15 @@ function FormApp(props) {
   }, [submitted]);
 
   const submit = (values) => {
+    const vals = values;
+    vals.timestamp = new Date();
     setLoading(true);
     if (!finished) {
       $.ajax({
         url: myForm.resultSheet,
         method: "POST",
         dataType: "json",
-        data: values,
+        data: vals,
         success: () => {
           setSubmitted(true);
           setLoading(false);
